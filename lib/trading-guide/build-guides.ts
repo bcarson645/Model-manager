@@ -20,6 +20,7 @@ import type {
   MarketTradingGuide,
 } from "./types";
 import { buildTraderSkewGuide } from "./trader-skew-guides";
+import { buildAdjustOutcomePreview } from "./adjust-outcomes";
 
 const SHEET_PREP = "Prep Work";
 const SHEET_PM = "PM Publication";
@@ -239,6 +240,11 @@ function buildGuide(
 
   const excelTrading = buildExcelTrading(registryModelId);
   const traderSkewGuide = buildTraderSkewGuide(registryModelId, excelTrading);
+  const adjustOutcomePreview = buildAdjustOutcomePreview(
+    traderSkewGuide.kind,
+    pmQaSelections,
+    registryModelId
+  );
 
   const partial = {
     id: model.id,
@@ -253,6 +259,7 @@ function buildGuide(
     excelTrading,
     traderAdjusts: [...traderAdjusts, ...extraAdjustVars],
     traderSkewGuide,
+    adjustOutcomePreview,
     staticInputs,
     embeddedLookups,
     sheetExports,

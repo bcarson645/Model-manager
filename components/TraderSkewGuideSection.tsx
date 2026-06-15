@@ -1,7 +1,8 @@
 import type { TraderSkewGuide } from "@/lib/trading-guide/trader-skew-guides";
+import type { AdjustOutcomePreview } from "@/lib/trading-guide/adjust-outcomes";
 import { traderAdjustArchitecture } from "@/lib/workbooks/trader-adjust-conventions";
 import { excelConventions } from "@/lib/workbooks/excel-mappings";
-
+import { AdjustOutcomeTable } from "@/components/AdjustOutcomeTable";
 const kindStyles: Record<TraderSkewGuide["kind"], string> = {
   none: "border-surface-border bg-surface-raised",
   probability_div100: "border-accent/40 bg-accent/5",
@@ -41,8 +42,13 @@ export function TraderAdjustOverview() {
   );
 }
 
-export function TraderSkewGuideSection({ skew }: { skew: TraderSkewGuide }) {
-  return (
+export function TraderSkewGuideSection({
+  skew,
+  adjustOutcomePreview,
+}: {
+  skew: TraderSkewGuide;
+  adjustOutcomePreview?: AdjustOutcomePreview | null;
+}) {  return (
     <section
       className={`rounded-2xl border p-6 ${kindStyles[skew.kind]}`}
     >
@@ -104,6 +110,10 @@ export function TraderSkewGuideSection({ skew }: { skew: TraderSkewGuide }) {
             </div>
           ))}
         </div>
+      )}
+
+      {adjustOutcomePreview && adjustOutcomePreview.rows.length > 0 && (
+        <AdjustOutcomeTable preview={adjustOutcomePreview} />
       )}
 
       {skew.selectionRows && skew.selectionRows.length > 0 && (

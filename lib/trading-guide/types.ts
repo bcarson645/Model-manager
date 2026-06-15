@@ -5,6 +5,7 @@ import type {
   PmQaRowStatus,
 } from "@/lib/workbooks/pm-publication-qa";
 import type { TraderSkewGuide } from "./trader-skew-guides";
+import type { AdjustOutcomePreview } from "./adjust-outcomes";
 
 export type { TraderSkewGuide } from "./trader-skew-guides";
 export type ExcelTradingMapping = {
@@ -58,6 +59,7 @@ export type MarketTradingGuide = {
   excelTrading?: ExcelTradingMapping;
   traderAdjusts: GuideField[];
   traderSkewGuide: TraderSkewGuide;
+  adjustOutcomePreview: AdjustOutcomePreview | null;
   staticInputs: GuideField[];
   embeddedLookups: GuideField[];
   sheetExports: GuideField[];

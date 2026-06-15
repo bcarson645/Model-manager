@@ -169,7 +169,10 @@ function GuideDetail({ guide }: { guide: MarketTradingGuide }) {
         </ol>
       </div>
 
-      <TraderSkewGuideSection skew={guide.traderSkewGuide} />
+      <TraderSkewGuideSection
+        skew={guide.traderSkewGuide}
+        adjustOutcomePreview={guide.adjustOutcomePreview}
+      />
 
       <div className="grid gap-6 lg:grid-cols-2">
         <section className="rounded-2xl border border-accent/40 bg-accent/5 p-6">
