@@ -8,6 +8,7 @@ namespace PremiumCricket.Lib.Pricing.PricingModels.PreMatch.Models.Matches;
 
 public class FirstPartnership : StandardMarketPricingModel
 {
+    // string constants to reduce possible code mutations
     private const string MarketName = "Runs in First Partnership";
     private const string MarketCode = "01FONW";
     

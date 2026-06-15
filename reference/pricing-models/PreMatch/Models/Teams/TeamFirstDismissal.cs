@@ -4,47 +4,46 @@ using PremiumCricket.Lib.Pricing.Lookups;
 using PremiumCricket.Lib.Models.PricingOutputs;
 using PremiumCricket.Lib.Models.PricingOutputs.Outcomes;
 using PremiumCricket.Lib.Models.PricingOutputs.Outcomes.Dismissal;
-using PremiumCricket.Lib.Models.PricingOutputs.Specifiers;
-using PremiumCricket.Lib.Pricing.PricingModels;
+using PremiumCricket.Lib.Pricing.PricingModels.PreMatch.Models.Overs;
 
-namespace PremiumCricket.Lib.Pricing.PricingModels.PreMatch.Models.Matches;
+namespace PremiumCricket.Lib.Pricing.PricingModels.PreMatch.Models.Teams;
 
-public class FirstDismissal : StandardMarketPricingModel
+public class TeamFirstDismissal : TeamHomeAwayMarketPricingModel
 {
     // string constants to reduce possible code mutations
-    private const string MarketName = "Method of First Dismissal";
-    private const string MarketCode = "01MOPD";
-    
-    public FirstDismissal(ILookupProvider lookupProvider) : base(lookupProvider)
+    private const string MarketName = "1st Wicket Method of Dismissal";
+
+    public TeamFirstDismissal(ILookupProvider lookupProvider) : base(lookupProvider)
     {
+        HomeMarketId = 816;
+        AwayMarketId = 817;
+        LegacyMarketId = 25;
     }
 
     public override string GetMarketName() => MarketName;
-        
-    public override int GetMarketId() => 718;
-        
-    public override int GetLegacyMarketId() => 25;
 
-    public override IList<Market> GetMarkets(IPricingInputs inputs)
+    public override List<Market> GetMarkets(IPricingInputs inputs)
     {
         var (team1, team2) = GetTeams(inputs);
             
-        var team1BowlingMethods = GetTeamBowlingMethods(team1);
-        var team2BowlingMethods = GetTeamBowlingMethods(team2);
+        return new List<Market>
+        {
+            CreateMarketForTeam(inputs, team1, team2),
+            CreateMarketForTeam(inputs, team2, team1)
+        };
+    }
 
-        var team1Opener1 = team1.PlayerEvaluations[0];
-        var team1Opener2 = team1.PlayerEvaluations[1];
-        var team2Opener1 = team2.PlayerEvaluations[0];
-        var team2Opener2 = team2.PlayerEvaluations[1];
-            
+    private Market CreateMarketForTeam(IPricingInputs inputs, TeamEvaluation battingTeam, TeamEvaluation bowlingTeam)
+    {
+        var batsman1 = battingTeam.PlayerEvaluations[0];
+        var batsman2 = battingTeam.PlayerEvaluations[1];
+
         var playerMethods = new List<List<double>>
         {
-            GetPlayerAdjustedMethods(GetPlayerAdjusts(inputs, team1Opener1), team2BowlingMethods),
-            GetPlayerAdjustedMethods(GetPlayerAdjusts(inputs, team1Opener2), team2BowlingMethods),
-            GetPlayerAdjustedMethods(GetPlayerAdjusts(inputs, team2Opener1), team1BowlingMethods),
-            GetPlayerAdjustedMethods(GetPlayerAdjusts(inputs, team2Opener2), team1BowlingMethods)
+            GetPlayerAdjustedMethods(GetPlayerAdjusts(inputs, batsman1), GetTeamBowlingMethods(bowlingTeam)),
+            GetPlayerAdjustedMethods(GetPlayerAdjusts(inputs, batsman2), GetTeamBowlingMethods(bowlingTeam))
         };
-
+        
         double fielderCatchProb = 0;
         double bowledProb = 0;
         double keeperCatchProb = 0;
@@ -52,61 +51,38 @@ public class FirstDismissal : StandardMarketPricingModel
         double runOutProb = 0;
         double stumpedProb = 0;
         double otherProb = 0;
-            
+        
         foreach (var playerMethod in playerMethods)
         {
-            fielderCatchProb += playerMethod[0] / 4;
-            bowledProb += playerMethod[1] / 4;
-            keeperCatchProb += playerMethod[2] / 4;
-            lbwProb += playerMethod[3] / 4;
-            runOutProb += playerMethod[4] / 4;
-            stumpedProb += playerMethod[5] / 4;
-            otherProb += playerMethod[6] / 4;
+            fielderCatchProb += playerMethod[0]/2;
+            bowledProb += playerMethod[1]/2;
+            keeperCatchProb += playerMethod[2]/2;
+            lbwProb += playerMethod[3]/2;
+            runOutProb += playerMethod[4]/2;
+            stumpedProb += playerMethod[5]/2;
+            otherProb += playerMethod[6]/2;
         }
-
-        var adjusts = inputs.AdjustmentsPM.MatchAdjustments;
-
-        fielderCatchProb += adjusts.FielderCatch/100.0;
-        bowledProb += adjusts.Bowled/100.0;
-        keeperCatchProb += adjusts.KeeperCatch/100.0;
-        lbwProb += adjusts.Lbw/100.0;
-        runOutProb += adjusts.RunOut/100.0;
-        stumpedProb += adjusts.Stumped/100.0;
-        otherProb += adjusts.Other/100.0;
-
-        var newTotal = fielderCatchProb + bowledProb + keeperCatchProb + lbwProb + runOutProb + stumpedProb + otherProb;
-
-        fielderCatchProb = fielderCatchProb / newTotal;
-        bowledProb = bowledProb / newTotal;
-        keeperCatchProb = keeperCatchProb / newTotal;
-        lbwProb = lbwProb / newTotal;
-        runOutProb = runOutProb / newTotal;
-        stumpedProb = stumpedProb / newTotal;
-        otherProb = otherProb / newTotal;
-            
+        
         var outcomes = new List<Outcome>
         {
-            new FielderCatchOutcome(Math.Round(fielderCatchProb, 3)),
-            new BowledOutcome(Math.Round(bowledProb, 3)),
-            new KeeperCatchOutcome(Math.Round(keeperCatchProb, 3)),
-            new LbwOutcome(Math.Round(lbwProb, 3)),
-            new RunOutOutcome(Math.Round(runOutProb, 3)),
-            new StumpedOutcome(Math.Round(stumpedProb, 3)),
-            new OtherOutcome(Math.Round(otherProb, 3))
+            new FielderCatchOutcome(fielderCatchProb),
+            new BowledOutcome(bowledProb),
+            new KeeperCatchOutcome(keeperCatchProb),
+            new LbwOutcome(lbwProb),
+            new RunOutOutcome(runOutProb),
+            new StumpedOutcome(stumpedProb),
+            new OtherOutcome(otherProb)
         };
-
-        var specifiers = new List<Specifier>
-        {
-            new MaxOverSpecifier(inputs.MatchState.GetCurrentInnings().OversAvailable),
-            new InningsSpecifier(1),
-        };
-            
-        return new List<Market>
-        {
-            new (GetMarketName(), GetMarketId(), GetLegacyMarketId(), outcomes, specifiers, MarketCode)
-        };
-    }
         
+        return new Market(
+            GetMarketName(battingTeam.TeamName), 
+            GetMarketId(battingTeam.IsHomeTeam), 
+            GetLegacyMarketId(), 
+            outcomes, 
+            GetTeamInningsSpecifiers(inputs, battingTeam), 
+            GetMarketCode(battingTeam.IsHomeTeam));
+    }
+
     private static List<double> GetTeamBowlingMethods(TeamEvaluation teamEvaluation) =>
         new()
         {
@@ -136,7 +112,7 @@ public class FirstDismissal : StandardMarketPricingModel
 
         return playerAdjustedMethods.ToList();
     }
-        
+    
     private List<double> GetPlayerAdjusts(IPricingInputs inputs, PlayerEvaluation player) =>
         new()
         {
@@ -148,7 +124,7 @@ public class FirstDismissal : StandardMarketPricingModel
             GetStumpedAdjust(inputs, player),
             1.0
         };
-
+    
     private double GetFielderCatchAdjust(IPricingInputs inputs, PlayerEvaluation playerEvaluation)
     {
         var batAverage = playerEvaluation.BatsmanEvaluation.BattingAverage;
@@ -178,11 +154,12 @@ public class FirstDismissal : StandardMarketPricingModel
         return Math.Max((strikeRate - standard) * 0.1, 0.0) + 1;
     }
     
-    private static string GetFormatKey(IPricingInputs inputs)
-    {
-        // women specific lookups for T20/ODI
-        return inputs.Evaluation.MatchEvaluation.IsWomen() && (inputs.Evaluation.MatchEvaluation.IsT20 || inputs.Evaluation.MatchEvaluation.IsODI)
-            ? $"w{inputs.Evaluation.MatchEvaluation.Format}"
-            : inputs.Evaluation.MatchEvaluation.Format;
-    }
+    private static string GetFormatKey(IPricingInputs inputs) =>
+        inputs.Evaluation.MatchEvaluation.IsWomen() && (inputs.Evaluation.MatchEvaluation.IsT20 || inputs.Evaluation.MatchEvaluation.IsODI)
+            ? $"w{inputs.Evaluation.MatchEvaluation.Format}" 
+            : CommonMethods.GetLookupFormat(inputs);
+    
+    private string GetMarketName(string teamName) => $"{teamName} {GetMarketName()}";
+
+    private static string GetMarketCode(bool isHomeTeam) => $"{(isHomeTeam ? 1 : 2)}1MOPD";
 }

@@ -218,6 +218,8 @@ export const pricingModels: PricingModelDefinition[] = [
       { name: "BatAverageCoeff", value: "0.01", notes: "FielderCatch & Bowled adjust formulas" },
       { name: "StrikeRateCoeff", value: "0.1", notes: "FielderCatch & Stumped adjust formulas" },
       { name: "WomenFormatKey", value: "w{format}", notes: "T20/ODI women's lookup prefix" },
+      { name: "FixedPlayerAdjusts", value: "1.0 for keeper, LBW, run out, other", notes: "Only fielder/bowled/stumped vary by player" },
+      { name: "ProbRounding", value: "3dp on each outcome", notes: "Before publish" },
     ],
     outputs: [
       {
@@ -308,6 +310,7 @@ export const pricingModels: PricingModelDefinition[] = [
       { name: "TestFcMultiplier", value: "1.0" },
       { name: "AverageWeight", value: "0.25", notes: "Mean of 4 opener values" },
       { name: "LineFormula", value: "Round(averageRuns * ln(2) + adjust)", notes: "Line = runLine + 0.5" },
+      { name: "WicketSpecifier", value: "1", notes: "First wicket / first partnership scope" },
     ],
     outputs: [
       {

@@ -60,4 +60,21 @@ export const ratingFormulas = {
     totalFactorFormula: `D4*D5*D3 (team 1), I4*I5*D3 (team 2)`,
     lambdaTarget: "TeamEvaluation.GetRunsExpected() / MatchBetting.GetInningsRuns",
   },
+  playerFours: {
+    headers: "O23 Fours, P23 Sixes",
+    formula: "SUM(O24:O34) → O36 (team 1); SUM(O45:O55) → O57 (team 2)",
+    team1Cells: "O24:O34",
+    team1Total: "O36",
+    team2Cells: "O45:O55",
+    team2Total: "O57",
+    lambdaTarget: "Per-player fours → TeamEvaluation.GetTeamFours() = SUM(squad)",
+  },
+  playerSixes: {
+    formula: "SUM(P24:P34) → P36 (team 1); SUM(P45:P55) → P57 (team 2)",
+    team1Cells: "P24:P34",
+    team1Total: "P36",
+    team2Cells: "P45:P55",
+    team2Total: "P57",
+    lambdaTarget: "Per-player sixes → TeamEvaluation.GetTeamSixes() (MatchSixes)",
+  },
 };

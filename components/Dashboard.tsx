@@ -9,6 +9,7 @@ import type {
   VariableDefinition,
   WorkbookSnapshot,
 } from "@/lib/types";
+import { MarketTradingGuidePanel } from "./MarketTradingGuidePanel";
 import { ModelRegistry } from "./ModelRegistry";
 import { OutputComparison } from "./OutputComparison";
 import { PmMarketCatalog } from "./PmMarketCatalog";
@@ -20,13 +21,14 @@ import { VariableMatrix } from "./VariableMatrix";
 import { pricingModels } from "@/lib/pricing-models/registry";
 import { sharedPricingArtifacts } from "@/lib/pricing-models/registry-shared";
 
-type Tab = "overview" | "models" | "pm-markets" | "lambda" | "variables" | "compare";
+type Tab = "overview" | "models" | "pm-markets" | "lambda" | "guide" | "variables" | "compare";
 
 const tabs: Array<{ id: Tab; label: string }> = [
   { id: "overview", label: "Overview" },
   { id: "models", label: "Models" },
   { id: "pm-markets", label: "PM markets" },
   { id: "lambda", label: "Lambda code" },
+  { id: "guide", label: "Trading guide" },
   { id: "variables", label: "Variables" },
   { id: "compare", label: "Compare outputs" },
 ];
@@ -136,6 +138,7 @@ export function Dashboard({
           ))}
         </div>
       )}
+      {activeTab === "guide" && <MarketTradingGuidePanel />}
       {activeTab === "variables" && (
         <VariableMatrix variables={filteredVariables} models={models} />
       )}
