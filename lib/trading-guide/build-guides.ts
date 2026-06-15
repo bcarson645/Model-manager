@@ -4,6 +4,13 @@ import {
   excelConventions,
   pmPublicationMappings,
 } from "@/lib/workbooks/excel-mappings";
+import { traderAdjustArchitecture } from "@/lib/workbooks/trader-adjust-conventions";
+import {
+  assessPmQaRow,
+  getPmQaSelections,
+  PM_QA_DEFAULT_FIXTURE_ID,
+  type PmQaRowStatus,
+} from "@/lib/workbooks/pm-publication-qa";
 import { models as registryModels, variables } from "@/lib/sample-data";
 import type {
   ExcelTradingMapping,
@@ -12,35 +19,27 @@ import type {
   MarketGuideIndex,
   MarketTradingGuide,
 } from "./types";
+import { buildTraderSkewGuide } from "./trader-skew-guides";
 
 const SHEET_PREP = "Prep Work";
 const SHEET_PM = "PM Publication";
 
-function feControlForAdjust(input: PricingModelInput): string {
-  if (input.notes?.includes("÷10") || input.csharpPath.includes("/ 10")) {
-    return "Numeric input — Lambda divides by 10 before applying";
-  }
-  if (input.notes?.includes("percentage") || input.csharpPath.includes("/ 100")) {
-    return "Percentage-point skew — Lambda divides by 100";
-  }
-  if (input.csharpPath.includes("subtract") || input.notes?.includes("subtract")) {
-    return "Skew control — subtracted from probability in Lambda";
-  }
-  return "Direct numeric adjust — added to mean/line or probability per Lambda path";
+function feControlForAdjust(_input: PricingModelInput): string {
+  return `Post-model skew control (PM column ${excelConventions.preMatchAdjustColumn}) — typically ±1 = ±0.01 probability (÷100). Store on FE; apply after Lambda returns base prob. Not a Lambda input.`;
 }
 
 function feDisplayForOutput(output: PricingModelOutput): string {
   switch (output.type) {
     case "line":
-      return `Display the published line (Excel column F). Trader may nudge via adjust column ${excelConventions.preMatchAdjustColumn}; Lambda recomputes under/over probabilities.`;
+      return `Display published line (column F). Base from Lambda; trader may nudge line on some markets via column ${excelConventions.preMatchAdjustColumn} (e.g. Player Perf adds I directly to F).`;
     case "outcome_set":
-      return `One row per selection: probability (column ${pmPublicationMappings.probabilityColumn}), derived price (column ${pmPublicationMappings.priceColumn}). FE shows selection list with prob/price columns.`;
+      return `One row per selection: base probability from Lambda, then apply trader skew (column ${excelConventions.preMatchAdjustColumn}, usually ÷100) for published G; price in column ${pmPublicationMappings.priceColumn}.`;
     case "probability":
-      return `Single selection probability in column ${pmPublicationMappings.probabilityColumn}; price in ${pmPublicationMappings.priceColumn}.`;
+      return `Base probability from Lambda; apply trader skew on FE (column ${excelConventions.preMatchAdjustColumn}) before display. Published G may already include skew in Excel formulas.`;
     case "price":
-      return `Displayed price (column ${pmPublicationMappings.priceColumn}) — usually derived from probability.`;
+      return `Displayed price (column ${pmPublicationMappings.priceColumn}) — derived from published probability after adjust.`;
     default:
-      return "Display model output after Lambda pricing run.";
+      return "Display model output after Lambda, then apply trader skew on FE.";
   }
 }
 
@@ -80,7 +79,7 @@ function variableToGuideField(v: (typeof variables)[0]): GuideField {
     lambdaNotes: v.sources.lambda?.notes,
     defaultValue: v.sources.excel?.defaultValue,
     feControl: isAdjust
-      ? "Trader control on new FE (replaces purple PM Publication cell)"
+      ? `Post-model skew — PM column ${excelConventions.preMatchAdjustColumn} (purple). Apply on FE after Lambda; typically ÷100 → ±0.01 prob.`
       : "Exported from Prep Work / evaluation pipeline",
   };
 }
@@ -131,24 +130,29 @@ function buildDataFlow(guide: Omit<MarketTradingGuide, "dataFlow">): string[] {
 
   if (guide.traderAdjusts.length > 0) {
     steps.push(
-      `Trader sets ${guide.traderAdjusts.length} adjust value(s) on the FE → maps to AdjustmentsPM (today: ${SHEET_PM} column ${excelConventions.preMatchAdjustColumn} purple cells).`
+      `Trader stores ${guide.traderAdjusts.length} skew value(s) on the FE (today: ${SHEET_PM} column ${excelConventions.preMatchAdjustColumn} purple cells) — applied after Lambda, not passed into the model.`
     );
   } else {
-    steps.push("No trader adjusts in Lambda for this market — FE displays model output only.");
+    steps.push(
+      `No per-row trader skew on this market — FE displays Lambda output only (or adjust column unused).`
+    );
   }
 
   steps.push(
-    `Lambda ${guide.className} runs with IPricingInputs → produces ${guide.expectedOutputs.length} output group(s).`
+    `Lambda ${guide.className} runs with IPricingInputs → base probabilities/lines (PM Pricing equivalent). Trader skew is not part of this step.`
   );
 
   steps.push(
-    `FE renders ${guide.expectedOutputs.map((o) => o.label.toLowerCase()).join(", ")} — mirror PM Publication columns F (line), G (prob), J (price) where applicable.`
+    `FE applies purple column ${excelConventions.preMatchAdjustColumn} skew per row after pricing — typically adjust÷100 on probability (${traderAdjustArchitecture.prepWork.e10.cell} / row 67 pattern). Renders ${guide.expectedOutputs.map((o) => o.label.toLowerCase()).join(", ")} in columns F/G/J.`
   );
 
   return steps;
 }
 
-function buildGuide(model: (typeof pricingModels)[0]): MarketTradingGuide {
+function buildGuide(
+  model: (typeof pricingModels)[0],
+  fixtureId: string = PM_QA_DEFAULT_FIXTURE_ID
+): MarketTradingGuide {
   const registryModelId = model.registryModelId;
   const sampleModel = registryModels.find((m) => m.id === registryModelId);
 
@@ -216,23 +220,47 @@ function buildGuide(model: (typeof pricingModels)[0]): MarketTradingGuide {
     }
   }
 
+  const pmQaSelections = getPmQaSelections(registryModelId, fixtureId);
+  const pmQaStatus: PmQaRowStatus = pmQaSelections.length
+    ? pmQaSelections.some(
+        (s) => assessPmQaRow(registryModelId, s, fixtureId).status === "excel_error"
+      )
+      ? "excel_error"
+      : pmQaSelections.some(
+            (s) => assessPmQaRow(registryModelId, s, fixtureId).status === "hint_mismatch"
+          )
+        ? "hint_mismatch"
+        : pmQaSelections.some(
+              (s) => assessPmQaRow(registryModelId, s, fixtureId).status === "hint_match"
+            )
+          ? "hint_match"
+          : "pending_lambda"
+    : "pending_lambda";
+
+  const excelTrading = buildExcelTrading(registryModelId);
+  const traderSkewGuide = buildTraderSkewGuide(registryModelId, excelTrading);
+
   const partial = {
     id: model.id,
     registryModelId,
+    pmQaFixtureId: fixtureId,
     className: model.className,
     marketName: model.marketName,
     marketCode: model.marketCode,
     phase: model.phase,
     description: model.description,
     lambdaClass: `${model.namespace}.${model.className}`,
-    excelTrading: buildExcelTrading(registryModelId),
+    excelTrading,
     traderAdjusts: [...traderAdjusts, ...extraAdjustVars],
+    traderSkewGuide,
     staticInputs,
     embeddedLookups,
     sheetExports,
     expectedOutputs,
     parityGaps: model.missingForParity,
     model,
+    pmQaSelections,
+    pmQaStatus,
   };
 
   return {
@@ -241,14 +269,19 @@ function buildGuide(model: (typeof pricingModels)[0]): MarketTradingGuide {
   };
 }
 
-export function buildMarketGuides(): MarketGuideIndex {
+export function buildMarketGuides(
+  fixtureId: string = PM_QA_DEFAULT_FIXTURE_ID
+): MarketGuideIndex {
   const guides = pricingModels
-    .map(buildGuide)
+    .map((m) => buildGuide(m, fixtureId))
     .sort((a, b) => a.marketName.localeCompare(b.marketName));
 
   return { guides, variables };
 }
 
-export function getMarketGuide(guideId: string): MarketTradingGuide | undefined {
-  return buildMarketGuides().guides.find((g) => g.id === guideId);
+export function getMarketGuide(
+  guideId: string,
+  fixtureId: string = PM_QA_DEFAULT_FIXTURE_ID
+): MarketTradingGuide | undefined {
+  return buildMarketGuides(fixtureId).guides.find((g) => g.id === guideId);
 }

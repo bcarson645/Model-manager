@@ -9,19 +9,17 @@ import type {
   VariableDefinition,
   WorkbookSnapshot,
 } from "@/lib/types";
+import { LambdaCodePanel } from "./LambdaCodePanel";
 import { MarketTradingGuidePanel } from "./MarketTradingGuidePanel";
 import { ModelRegistry } from "./ModelRegistry";
 import { OutputComparison } from "./OutputComparison";
 import { PmMarketCatalog } from "./PmMarketCatalog";
-import { PricingModelPanel } from "./PricingModelPanel";
-import { SharedArtifactPanel } from "./SharedArtifactPanel";
+import { PmPublicationQaPanel } from "./PmPublicationQaPanel";
 import { RatingFormulaPanel } from "./RatingFormulaPanel";
 import { RegistryOverview } from "./RegistryOverview";
 import { VariableMatrix } from "./VariableMatrix";
-import { pricingModels } from "@/lib/pricing-models/registry";
-import { sharedPricingArtifacts } from "@/lib/pricing-models/registry-shared";
 
-type Tab = "overview" | "models" | "pm-markets" | "lambda" | "guide" | "variables" | "compare";
+type Tab = "overview" | "models" | "pm-markets" | "lambda" | "guide" | "pm-qa" | "variables" | "compare";
 
 const tabs: Array<{ id: Tab; label: string }> = [
   { id: "overview", label: "Overview" },
@@ -29,6 +27,7 @@ const tabs: Array<{ id: Tab; label: string }> = [
   { id: "pm-markets", label: "PM markets" },
   { id: "lambda", label: "Lambda code" },
   { id: "guide", label: "Trading guide" },
+  { id: "pm-qa", label: "PM QA" },
   { id: "variables", label: "Variables" },
   { id: "compare", label: "Compare outputs" },
 ];
@@ -115,30 +114,9 @@ export function Dashboard({
       )}
       {activeTab === "models" && <ModelRegistry models={models} />}
       {activeTab === "pm-markets" && <PmMarketCatalog />}
-      {activeTab === "lambda" && (
-        <div className="space-y-6">
-          <div className="rounded-2xl border border-surface-border bg-surface-raised p-6">
-            <h2 className="text-lg font-semibold text-white">Lambda pricing models</h2>
-            <p className="mt-1 text-sm text-slate-400">
-              Parsed from pasted C# — stored in{" "}
-              <span className="font-mono text-slate-300">reference/pricing-models/</span>
-            </p>
-          </div>
-          {pricingModels.map((model) => (
-            <PricingModelPanel key={model.id} model={model} />
-          ))}
-          <div className="rounded-2xl border border-surface-border bg-surface-raised p-6">
-            <h2 className="text-lg font-semibold text-white">Shared helpers &amp; interfaces</h2>
-            <p className="mt-1 text-sm text-slate-400">
-              Cross-market utilities referenced by multiple pricing models.
-            </p>
-          </div>
-          {sharedPricingArtifacts.map((artifact) => (
-            <SharedArtifactPanel key={artifact.id} artifact={artifact} />
-          ))}
-        </div>
-      )}
+      {activeTab === "lambda" && <LambdaCodePanel />}
       {activeTab === "guide" && <MarketTradingGuidePanel />}
+      {activeTab === "pm-qa" && <PmPublicationQaPanel />}
       {activeTab === "variables" && (
         <VariableMatrix variables={filteredVariables} models={models} />
       )}

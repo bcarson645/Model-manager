@@ -1,0 +1,4330 @@
+{
+  "fixtureId": "nz-sa-63406779",
+  "label": "New Zealand v South Africa",
+  "sheet": "PM Publication",
+  "columns": {
+    "F": "line",
+    "G": "probability",
+    "H": "complement probability (under/over other side)",
+    "I": "trader adjust (purple)",
+    "J": "price"
+  },
+  "byModel": {
+    "pm-match-winner": [
+      {
+        "row": 20,
+        "market": "Match Betting",
+        "selection": "New Zealand",
+        "line": 0.5,
+        "probability": 0.61036254423642,
+        "complementProbability": "na",
+        "adjust": null,
+        "price": 1.6383705216561526,
+        "cells": {
+          "line": "F20",
+          "probability": "G20",
+          "complement": "H20",
+          "adjust": "I20",
+          "price": "J20"
+        }
+      },
+      {
+        "row": 21,
+        "market": "Match Betting",
+        "selection": "South Africa",
+        "line": 0.5,
+        "probability": 0.38963745576358,
+        "complementProbability": "na",
+        "adjust": null,
+        "price": 2.5664883732501558,
+        "cells": {
+          "line": "F21",
+          "probability": "G21",
+          "complement": "H21",
+          "adjust": "I21",
+          "price": "J21"
+        }
+      }
+    ],
+    "pm-tied-match": [
+      {
+        "row": 22,
+        "market": "Tied Match",
+        "selection": "Yes",
+        "line": 0.5,
+        "probability": 0.0177927491152716,
+        "complementProbability": "na",
+        "adjust": 0.0,
+        "price": 56.20266961116735,
+        "cells": {
+          "line": "F22",
+          "probability": "G22",
+          "complement": "H22",
+          "adjust": "I22",
+          "price": "J22"
+        }
+      },
+      {
+        "row": 23,
+        "market": "Tied Match",
+        "selection": "No",
+        "line": 0.5,
+        "probability": 0.9822072508847284,
+        "complementProbability": "na",
+        "adjust": null,
+        "price": 1.018115065938726,
+        "cells": {
+          "line": "F23",
+          "probability": "G23",
+          "complement": "H23",
+          "adjust": "I23",
+          "price": "J23"
+        }
+      }
+    ],
+    "pm-toss-winner": [
+      {
+        "row": 24,
+        "market": "Toss Winner",
+        "selection": "New Zealand",
+        "line": 0.5,
+        "probability": 0.5,
+        "complementProbability": "na",
+        "adjust": null,
+        "price": 2.0,
+        "cells": {
+          "line": "F24",
+          "probability": "G24",
+          "complement": "H24",
+          "adjust": "I24",
+          "price": "J24"
+        }
+      },
+      {
+        "row": 25,
+        "market": "Toss Winner",
+        "selection": "South Africa",
+        "line": 0.5,
+        "probability": 0.5,
+        "complementProbability": "na",
+        "adjust": null,
+        "price": 2.0,
+        "cells": {
+          "line": "F25",
+          "probability": "G25",
+          "complement": "H25",
+          "adjust": "I25",
+          "price": "J25"
+        }
+      }
+    ],
+    "pm-first-partnership": [
+      {
+        "row": 44,
+        "market": "Runs in First Partnership",
+        "selection": null,
+        "line": 19.5,
+        "probability": 0.5,
+        "complementProbability": 0.5,
+        "adjust": 0.0,
+        "price": 2.0,
+        "cells": {
+          "line": "F44",
+          "probability": "G44",
+          "complement": "H44",
+          "adjust": "I44",
+          "price": "J44"
+        }
+      }
+    ],
+    "pm-first-dismissal": [
+      {
+        "row": 45,
+        "market": "Method of First Dismissal",
+        "selection": "Fielder Catch",
+        "line": 0.5,
+        "probability": 0.5947912651135385,
+        "complementProbability": "na",
+        "adjust": 0.0,
+        "price": 1.681262080755527,
+        "cells": {
+          "line": "F45",
+          "probability": "G45",
+          "complement": "H45",
+          "adjust": "I45",
+          "price": "J45"
+        }
+      },
+      {
+        "row": 46,
+        "market": "Method of First Dismissal",
+        "selection": "Bowled",
+        "line": 0.5,
+        "probability": 0.1627772821952726,
+        "complementProbability": "na",
+        "adjust": 0.0,
+        "price": 6.14336341357739,
+        "cells": {
+          "line": "F46",
+          "probability": "G46",
+          "complement": "H46",
+          "adjust": "I46",
+          "price": "J46"
+        }
+      },
+      {
+        "row": 47,
+        "market": "Method of First Dismissal",
+        "selection": "Keeper Catch",
+        "line": 0.5,
+        "probability": 0.11247662817740745,
+        "complementProbability": "na",
+        "adjust": 0.0,
+        "price": 8.890735935137718,
+        "cells": {
+          "line": "F47",
+          "probability": "G47",
+          "complement": "H47",
+          "adjust": "I47",
+          "price": "J47"
+        }
+      },
+      {
+        "row": 48,
+        "market": "Method of First Dismissal",
+        "selection": "LBW",
+        "line": 0.5,
+        "probability": 0.05332098054426765,
+        "complementProbability": "na",
+        "adjust": 0.0,
+        "price": 18.754343783490427,
+        "cells": {
+          "line": "F48",
+          "probability": "G48",
+          "complement": "H48",
+          "adjust": "I48",
+          "price": "J48"
+        }
+      },
+      {
+        "row": 49,
+        "market": "Method of First Dismissal",
+        "selection": "Run Out",
+        "line": 0.5,
+        "probability": 0.05296730697292155,
+        "complementProbability": "na",
+        "adjust": 0.0,
+        "price": 18.879570383127643,
+        "cells": {
+          "line": "F49",
+          "probability": "G49",
+          "complement": "H49",
+          "adjust": "I49",
+          "price": "J49"
+        }
+      },
+      {
+        "row": 50,
+        "market": "Method of First Dismissal",
+        "selection": "Stumped",
+        "line": 0.5,
+        "probability": 0.021668208953639207,
+        "complementProbability": "na",
+        "adjust": 0.0,
+        "price": 46.15056104265824,
+        "cells": {
+          "line": "F50",
+          "probability": "G50",
+          "complement": "H50",
+          "adjust": "I50",
+          "price": "J50"
+        }
+      },
+      {
+        "row": 51,
+        "market": "Method of First Dismissal",
+        "selection": "Other",
+        "line": 0.5,
+        "probability": 0.0019983280429531065,
+        "complementProbability": "na",
+        "adjust": 0.0,
+        "price": 500.4183389841296,
+        "cells": {
+          "line": "F51",
+          "probability": "G51",
+          "complement": "H51",
+          "adjust": "I51",
+          "price": "J51"
+        }
+      }
+    ],
+    "pm-match-fours": [
+      {
+        "row": 52,
+        "market": "Match Fours",
+        "selection": null,
+        "line": 26.5,
+        "probability": 0.4975514040097191,
+        "complementProbability": 0.5024485959902809,
+        "adjust": 0.0,
+        "price": 2.0098425849894017,
+        "cells": {
+          "line": "F52",
+          "probability": "G52",
+          "complement": "H52",
+          "adjust": "I52",
+          "price": "J52"
+        }
+      }
+    ],
+    "pm-match-sixes": [
+      {
+        "row": 53,
+        "market": "Match Sixes",
+        "selection": null,
+        "line": 12.5,
+        "probability": 0.5227562121319347,
+        "complementProbability": 0.47724378786806526,
+        "adjust": 0.0,
+        "price": 1.9129375735617604,
+        "cells": {
+          "line": "F53",
+          "probability": "G53",
+          "complement": "H53",
+          "adjust": "I53",
+          "price": "J53"
+        }
+      }
+    ],
+    "pm-match-run-outs": [
+      {
+        "row": 54,
+        "market": "Match Run Outs",
+        "selection": null,
+        "line": 0.5,
+        "probability": 0.5180910099097975,
+        "complementProbability": 0.48190899009020244,
+        "adjust": 0.0,
+        "price": 1.9301628109202387,
+        "cells": {
+          "line": "F54",
+          "probability": "G54",
+          "complement": "H54",
+          "adjust": "I54",
+          "price": "J54"
+        }
+      }
+    ],
+    "pm-match-max-over": [
+      {
+        "row": 55,
+        "market": "Max Runs Scored in an Over",
+        "selection": null,
+        "line": 20.5,
+        "probability": 0.4852338458684483,
+        "complementProbability": 0.5147661541315517,
+        "adjust": 0.0,
+        "price": 2.060862012232984,
+        "cells": {
+          "line": "F55",
+          "probability": "G55",
+          "complement": "H55",
+          "adjust": "I55",
+          "price": "J55"
+        }
+      }
+    ],
+    "pm-match-ducks": [
+      {
+        "row": 56,
+        "market": "Match Ducks",
+        "selection": null,
+        "line": 1.5,
+        "probability": 0.4090830908432208,
+        "complementProbability": 0.5909169091567792,
+        "adjust": 0.0,
+        "price": 2.444491161780249,
+        "cells": {
+          "line": "F56",
+          "probability": "G56",
+          "complement": "H56",
+          "adjust": "I56",
+          "price": "J56"
+        }
+      }
+    ],
+    "pm-match-wides": [
+      {
+        "row": 57,
+        "market": "Match Wides",
+        "selection": null,
+        "line": 10.5,
+        "probability": 0.46532841793577573,
+        "complementProbability": 0.5346715820642243,
+        "adjust": 0.0,
+        "price": 2.1490198351436582,
+        "cells": {
+          "line": "F57",
+          "probability": "G57",
+          "complement": "H57",
+          "adjust": "I57",
+          "price": "J57"
+        }
+      }
+    ],
+    "pm-match-extras": [
+      {
+        "row": 58,
+        "market": "Match Extras",
+        "selection": null,
+        "line": 18.5,
+        "probability": 0.45942848333626896,
+        "complementProbability": 0.540571516663731,
+        "adjust": 0.0,
+        "price": 2.1766173327744487,
+        "cells": {
+          "line": "F58",
+          "probability": "G58",
+          "complement": "H58",
+          "adjust": "I58",
+          "price": "J58"
+        }
+      }
+    ],
+    "pm-match-wickets": [
+      {
+        "row": 59,
+        "market": "Match Wickets",
+        "selection": null,
+        "line": 13.5,
+        "probability": 0.4831358289817449,
+        "complementProbability": 0.5168641710182551,
+        "adjust": 0.0,
+        "price": 2.069811303598816,
+        "cells": {
+          "line": "F59",
+          "probability": "G59",
+          "complement": "H59",
+          "adjust": "I59",
+          "price": "J59"
+        }
+      }
+    ],
+    "pm-team-of-top-bat": [
+      {
+        "row": 60,
+        "market": "Team of Top Bat",
+        "selection": "New Zealand",
+        "line": 0.5,
+        "probability": 0.5794610318502224,
+        "complementProbability": "na",
+        "adjust": 0.0,
+        "price": 1.7257415857749645,
+        "cells": {
+          "line": "F60",
+          "probability": "G60",
+          "complement": "H60",
+          "adjust": "I60",
+          "price": "J60"
+        }
+      },
+      {
+        "row": 61,
+        "market": "Team of Top Bat",
+        "selection": "South Africa",
+        "line": 0.5,
+        "probability": 0.42053896814977765,
+        "complementProbability": "na",
+        "adjust": null,
+        "price": 2.3779009217615323,
+        "cells": {
+          "line": "F61",
+          "probability": "G61",
+          "complement": "H61",
+          "adjust": "I61",
+          "price": "J61"
+        }
+      }
+    ],
+    "pm-team-of-top-bowl": [
+      {
+        "row": 62,
+        "market": "Team of Top Bowl",
+        "selection": "New Zealand",
+        "line": 0.5,
+        "probability": 0.5529740212334816,
+        "complementProbability": "na",
+        "adjust": 0.0,
+        "price": 1.8084032189602106,
+        "cells": {
+          "line": "F62",
+          "probability": "G62",
+          "complement": "H62",
+          "adjust": "I62",
+          "price": "J62"
+        }
+      },
+      {
+        "row": 63,
+        "market": "Team of Top Bowl",
+        "selection": "South Africa",
+        "line": 0.5,
+        "probability": 0.4470259787665184,
+        "complementProbability": "na",
+        "adjust": null,
+        "price": 2.237006454880556,
+        "cells": {
+          "line": "F63",
+          "probability": "G63",
+          "complement": "H63",
+          "adjust": "I63",
+          "price": "J63"
+        }
+      }
+    ],
+    "pm-fifty-first-innings": [
+      {
+        "row": 67,
+        "market": "Fifty in First Innings",
+        "selection": "Yes",
+        "line": 0.5,
+        "probability": 0.65,
+        "complementProbability": "na",
+        "adjust": 0.0,
+        "price": 1.5384615384615383,
+        "cells": {
+          "line": "F67",
+          "probability": "G67",
+          "complement": "H67",
+          "adjust": "I67",
+          "price": "J67"
+        }
+      },
+      {
+        "row": 68,
+        "market": "Fifty in First Innings",
+        "selection": "No",
+        "line": 0.5,
+        "probability": 0.35,
+        "complementProbability": "na",
+        "adjust": null,
+        "price": 2.857142857142857,
+        "cells": {
+          "line": "F68",
+          "probability": "G68",
+          "complement": "H68",
+          "adjust": "I68",
+          "price": "J68"
+        }
+      }
+    ],
+    "pm-hundred-first-innings": [
+      {
+        "row": 71,
+        "market": "Hundred in First Innings",
+        "selection": "Yes",
+        "line": 0.5,
+        "probability": 0.058,
+        "complementProbability": "na",
+        "adjust": 0.0,
+        "price": 17.241379310344826,
+        "cells": {
+          "line": "F71",
+          "probability": "G71",
+          "complement": "H71",
+          "adjust": "I71",
+          "price": "J71"
+        }
+      },
+      {
+        "row": 72,
+        "market": "Hundred in First Innings",
+        "selection": "No",
+        "line": 0.5,
+        "probability": 0.942,
+        "complementProbability": "na",
+        "adjust": null,
+        "price": 1.0615711252653928,
+        "cells": {
+          "line": "F72",
+          "probability": "G72",
+          "complement": "H72",
+          "adjust": "I72",
+          "price": "J72"
+        }
+      }
+    ],
+    "pm-hundred-match": [
+      {
+        "row": 73,
+        "market": "Hundred in Match",
+        "selection": "Yes",
+        "line": 0.5,
+        "probability": 0.084,
+        "complementProbability": "na",
+        "adjust": 0.0,
+        "price": 11.904761904761903,
+        "cells": {
+          "line": "F73",
+          "probability": "G73",
+          "complement": "H73",
+          "adjust": "I73",
+          "price": "J73"
+        }
+      },
+      {
+        "row": 74,
+        "market": "Hundred in Match",
+        "selection": "No",
+        "line": 0.5,
+        "probability": 0.916,
+        "complementProbability": "na",
+        "adjust": null,
+        "price": 1.0917030567685588,
+        "cells": {
+          "line": "F74",
+          "probability": "G74",
+          "complement": "H74",
+          "adjust": "I74",
+          "price": "J74"
+        }
+      }
+    ],
+    "pm-highest-individual-score": [
+      {
+        "row": 75,
+        "market": "Highest Individual Score",
+        "selection": null,
+        "line": 65.5,
+        "probability": 0.5,
+        "complementProbability": 0.5,
+        "adjust": 0.0,
+        "price": 2.0,
+        "cells": {
+          "line": "F75",
+          "probability": "G75",
+          "complement": "H75",
+          "adjust": "I75",
+          "price": "J75"
+        }
+      }
+    ],
+    "pm-rabbit-runs": [
+      {
+        "row": 76,
+        "market": "Rabbit Runs",
+        "selection": null,
+        "line": 0.5,
+        "probability": {
+          "error": "#DIV/0!"
+        },
+        "complementProbability": {
+          "error": "#DIV/0!"
+        },
+        "adjust": 0.0,
+        "price": null,
+        "cells": {
+          "line": "F76",
+          "probability": "G76",
+          "complement": "H76",
+          "adjust": "I76",
+          "price": "J76"
+        }
+      }
+    ],
+    "pm-player-runs": [
+      {
+        "row": 257,
+        "market": "DP Conway - Runs",
+        "selection": "DP Conway",
+        "line": 23.5,
+        "probability": 0.5,
+        "complementProbability": 0.5,
+        "adjust": 0.0,
+        "price": 2.0,
+        "cells": {
+          "line": "F257",
+          "probability": "G257",
+          "complement": "H257",
+          "adjust": "I257",
+          "price": "J257"
+        }
+      },
+      {
+        "row": 258,
+        "market": "TWM Latham - Runs",
+        "selection": "TWM Latham",
+        "line": 21.5,
+        "probability": 0.5,
+        "complementProbability": 0.5,
+        "adjust": 0.0,
+        "price": 2.0,
+        "cells": {
+          "line": "F258",
+          "probability": "G258",
+          "complement": "H258",
+          "adjust": "I258",
+          "price": "J258"
+        }
+      },
+      {
+        "row": 259,
+        "market": "TB Robinson - Runs",
+        "selection": "TB Robinson",
+        "line": 20.5,
+        "probability": 0.5,
+        "complementProbability": 0.5,
+        "adjust": 0.0,
+        "price": 2.0,
+        "cells": {
+          "line": "F259",
+          "probability": "G259",
+          "complement": "H259",
+          "adjust": "I259",
+          "price": "J259"
+        }
+      },
+      {
+        "row": 260,
+        "market": "NF Kelly - Runs",
+        "selection": "NF Kelly",
+        "line": 17.5,
+        "probability": 0.5,
+        "complementProbability": 0.5,
+        "adjust": 0.0,
+        "price": 2.0,
+        "cells": {
+          "line": "F260",
+          "probability": "G260",
+          "complement": "H260",
+          "adjust": "I260",
+          "price": "J260"
+        }
+      },
+      {
+        "row": 261,
+        "market": "BJ Jacobs - Runs",
+        "selection": "BJ Jacobs",
+        "line": 15.5,
+        "probability": 0.5,
+        "complementProbability": 0.5,
+        "adjust": 0.0,
+        "price": 2.0,
+        "cells": {
+          "line": "F261",
+          "probability": "G261",
+          "complement": "H261",
+          "adjust": "I261",
+          "price": "J261"
+        }
+      },
+      {
+        "row": 262,
+        "market": "C Esterhuizen - Runs",
+        "selection": "C Esterhuizen",
+        "line": 17.5,
+        "probability": 0.5,
+        "complementProbability": 0.5,
+        "adjust": 0.0,
+        "price": 2.0,
+        "cells": {
+          "line": "F262",
+          "probability": "G262",
+          "complement": "H262",
+          "adjust": "I262",
+          "price": "J262"
+        }
+      },
+      {
+        "row": 263,
+        "market": "T de Zorzi - Runs",
+        "selection": "T de Zorzi",
+        "line": 17.5,
+        "probability": 0.5,
+        "complementProbability": 0.5,
+        "adjust": 0.0,
+        "price": 2.0,
+        "cells": {
+          "line": "F263",
+          "probability": "G263",
+          "complement": "H263",
+          "adjust": "I263",
+          "price": "J263"
+        }
+      },
+      {
+        "row": 264,
+        "market": "RA Hermann - Runs",
+        "selection": "RA Hermann",
+        "line": 19.5,
+        "probability": 0.5,
+        "complementProbability": 0.5,
+        "adjust": 0.0,
+        "price": 2.0,
+        "cells": {
+          "line": "F264",
+          "probability": "G264",
+          "complement": "H264",
+          "adjust": "I264",
+          "price": "J264"
+        }
+      },
+      {
+        "row": 265,
+        "market": "JF Smith - Runs",
+        "selection": "JF Smith",
+        "line": 19.5,
+        "probability": 0.5,
+        "complementProbability": 0.5,
+        "adjust": 0.0,
+        "price": 2.0,
+        "cells": {
+          "line": "F265",
+          "probability": "G265",
+          "complement": "H265",
+          "adjust": "I265",
+          "price": "J265"
+        }
+      },
+      {
+        "row": 266,
+        "market": "PWA Mulder - Runs",
+        "selection": "PWA Mulder",
+        "line": 16.5,
+        "probability": 0.5,
+        "complementProbability": 0.5,
+        "adjust": 0.0,
+        "price": 2.0,
+        "cells": {
+          "line": "F266",
+          "probability": "G266",
+          "complement": "H266",
+          "adjust": "I266",
+          "price": "J266"
+        }
+      }
+    ],
+    "pm-player-fours": [
+      {
+        "row": 267,
+        "market": "DP Conway - Fours",
+        "selection": "DP Conway",
+        "line": 2.5,
+        "probability": 0.5153257361259973,
+        "complementProbability": 0.4846742638740027,
+        "adjust": 0.0,
+        "price": 1.94052019896693,
+        "cells": {
+          "line": "F267",
+          "probability": "G267",
+          "complement": "H267",
+          "adjust": "I267",
+          "price": "J267"
+        }
+      },
+      {
+        "row": 268,
+        "market": "TWM Latham - Fours",
+        "selection": "TWM Latham",
+        "line": 1.5,
+        "probability": 0.598735848084512,
+        "complementProbability": 0.401264151915488,
+        "adjust": 0.0,
+        "price": 1.6701856139050644,
+        "cells": {
+          "line": "F268",
+          "probability": "G268",
+          "complement": "H268",
+          "adjust": "I268",
+          "price": "J268"
+        }
+      },
+      {
+        "row": 269,
+        "market": "TB Robinson - Fours",
+        "selection": "TB Robinson",
+        "line": 1.5,
+        "probability": 0.5385408599932104,
+        "complementProbability": 0.4614591400067895,
+        "adjust": 0.0,
+        "price": 1.8568693190942045,
+        "cells": {
+          "line": "F269",
+          "probability": "G269",
+          "complement": "H269",
+          "adjust": "I269",
+          "price": "J269"
+        }
+      },
+      {
+        "row": 270,
+        "market": "NF Kelly - Fours",
+        "selection": "NF Kelly",
+        "line": 1.5,
+        "probability": 0.4933991665254489,
+        "complementProbability": 0.5066008334745511,
+        "adjust": 0.0,
+        "price": 2.0267565651601505,
+        "cells": {
+          "line": "F270",
+          "probability": "G270",
+          "complement": "H270",
+          "adjust": "I270",
+          "price": "J270"
+        }
+      },
+      {
+        "row": 271,
+        "market": "BJ Jacobs - Fours",
+        "selection": "BJ Jacobs",
+        "line": 1.5,
+        "probability": 0.37423329335873723,
+        "complementProbability": 0.6257667066412628,
+        "adjust": 0.0,
+        "price": 2.672129972790549,
+        "cells": {
+          "line": "F271",
+          "probability": "G271",
+          "complement": "H271",
+          "adjust": "I271",
+          "price": "J271"
+        }
+      },
+      {
+        "row": 272,
+        "market": "C Esterhuizen - Fours",
+        "selection": "C Esterhuizen",
+        "line": 1.5,
+        "probability": 0.5138635045630059,
+        "complementProbability": 0.4861364954369941,
+        "adjust": 0.0,
+        "price": 1.9460420736639177,
+        "cells": {
+          "line": "F272",
+          "probability": "G272",
+          "complement": "H272",
+          "adjust": "I272",
+          "price": "J272"
+        }
+      },
+      {
+        "row": 273,
+        "market": "T de Zorzi - Fours",
+        "selection": "T de Zorzi",
+        "line": 1.5,
+        "probability": 0.5262717295507296,
+        "complementProbability": 0.47372827044927035,
+        "adjust": 0.0,
+        "price": 1.9001590696381985,
+        "cells": {
+          "line": "F273",
+          "probability": "G273",
+          "complement": "H273",
+          "adjust": "I273",
+          "price": "J273"
+        }
+      },
+      {
+        "row": 274,
+        "market": "RA Hermann - Fours",
+        "selection": "RA Hermann",
+        "line": 1.5,
+        "probability": 0.5113224562350993,
+        "complementProbability": 0.48867754376490075,
+        "adjust": 0.0,
+        "price": 1.9557130491843941,
+        "cells": {
+          "line": "F274",
+          "probability": "G274",
+          "complement": "H274",
+          "adjust": "I274",
+          "price": "J274"
+        }
+      },
+      {
+        "row": 275,
+        "market": "JF Smith - Fours",
+        "selection": "JF Smith",
+        "line": 1.5,
+        "probability": 0.4731480361114174,
+        "complementProbability": 0.5268519638885826,
+        "adjust": 0.0,
+        "price": 2.1135034358771363,
+        "cells": {
+          "line": "F275",
+          "probability": "G275",
+          "complement": "H275",
+          "adjust": "I275",
+          "price": "J275"
+        }
+      },
+      {
+        "row": 276,
+        "market": "PWA Mulder - Fours",
+        "selection": "PWA Mulder",
+        "line": 1.5,
+        "probability": 0.39434764058962,
+        "complementProbability": 0.60565235941038,
+        "adjust": 0.0,
+        "price": 2.535833607384646,
+        "cells": {
+          "line": "F276",
+          "probability": "G276",
+          "complement": "H276",
+          "adjust": "I276",
+          "price": "J276"
+        }
+      }
+    ],
+    "pm-player-sixes": [
+      {
+        "row": 277,
+        "market": "DP Conway - Sixes",
+        "selection": "DP Conway",
+        "line": 0.5,
+        "probability": 0.4471926692501398,
+        "complementProbability": 0.5528073307498602,
+        "adjust": 0.0,
+        "price": 2.2361726136450693,
+        "cells": {
+          "line": "F277",
+          "probability": "G277",
+          "complement": "H277",
+          "adjust": "I277",
+          "price": "J277"
+        }
+      },
+      {
+        "row": 278,
+        "market": "TWM Latham - Sixes",
+        "selection": "TWM Latham",
+        "line": 0.5,
+        "probability": 0.5153945532923878,
+        "complementProbability": 0.48460544670761213,
+        "adjust": 0.0,
+        "price": 1.9402610943633534,
+        "cells": {
+          "line": "F278",
+          "probability": "G278",
+          "complement": "H278",
+          "adjust": "I278",
+          "price": "J278"
+        }
+      },
+      {
+        "row": 279,
+        "market": "TB Robinson - Sixes",
+        "selection": "TB Robinson",
+        "line": 0.5,
+        "probability": 0.5259721563304658,
+        "complementProbability": 0.47402784366953427,
+        "adjust": 0.0,
+        "price": 1.9012413261125267,
+        "cells": {
+          "line": "F279",
+          "probability": "G279",
+          "complement": "H279",
+          "adjust": "I279",
+          "price": "J279"
+        }
+      },
+      {
+        "row": 280,
+        "market": "NF Kelly - Sixes",
+        "selection": "NF Kelly",
+        "line": 0.5,
+        "probability": 0.509910141254333,
+        "complementProbability": 0.490089858745667,
+        "adjust": 0.0,
+        "price": 1.961129852291406,
+        "cells": {
+          "line": "F280",
+          "probability": "G280",
+          "complement": "H280",
+          "adjust": "I280",
+          "price": "J280"
+        }
+      },
+      {
+        "row": 281,
+        "market": "BJ Jacobs - Sixes",
+        "selection": "BJ Jacobs",
+        "line": 0.5,
+        "probability": 0.5337287732510699,
+        "complementProbability": 0.46627122674893007,
+        "adjust": 0.0,
+        "price": 1.8736108115527672,
+        "cells": {
+          "line": "F281",
+          "probability": "G281",
+          "complement": "H281",
+          "adjust": "I281",
+          "price": "J281"
+        }
+      },
+      {
+        "row": 282,
+        "market": "C Esterhuizen - Sixes",
+        "selection": "C Esterhuizen",
+        "line": 0.5,
+        "probability": 0.4775874019289785,
+        "complementProbability": 0.5224125980710215,
+        "adjust": 0.0,
+        "price": 2.0938575765629364,
+        "cells": {
+          "line": "F282",
+          "probability": "G282",
+          "complement": "H282",
+          "adjust": "I282",
+          "price": "J282"
+        }
+      },
+      {
+        "row": 283,
+        "market": "T de Zorzi - Sixes",
+        "selection": "T de Zorzi",
+        "line": 0.5,
+        "probability": 0.3953767669585707,
+        "complementProbability": 0.6046232330414293,
+        "adjust": 0.0,
+        "price": 2.5292330849191864,
+        "cells": {
+          "line": "F283",
+          "probability": "G283",
+          "complement": "H283",
+          "adjust": "I283",
+          "price": "J283"
+        }
+      },
+      {
+        "row": 284,
+        "market": "RA Hermann - Sixes",
+        "selection": "RA Hermann",
+        "line": 0.5,
+        "probability": 0.48813013477163303,
+        "complementProbability": 0.511869865228367,
+        "adjust": 0.0,
+        "price": 2.0486340194256605,
+        "cells": {
+          "line": "F284",
+          "probability": "G284",
+          "complement": "H284",
+          "adjust": "I284",
+          "price": "J284"
+        }
+      },
+      {
+        "row": 285,
+        "market": "JF Smith - Sixes",
+        "selection": "JF Smith",
+        "line": 0.5,
+        "probability": 0.48705330520576473,
+        "complementProbability": 0.5129466947942353,
+        "adjust": 0.0,
+        "price": 2.053163358736538,
+        "cells": {
+          "line": "F285",
+          "probability": "G285",
+          "complement": "H285",
+          "adjust": "I285",
+          "price": "J285"
+        }
+      },
+      {
+        "row": 286,
+        "market": "PWA Mulder - Sixes",
+        "selection": "PWA Mulder",
+        "line": 0.5,
+        "probability": 0.46542902107022543,
+        "complementProbability": 0.5345709789297746,
+        "adjust": 0.0,
+        "price": 2.148555321497919,
+        "cells": {
+          "line": "F286",
+          "probability": "G286",
+          "complement": "H286",
+          "adjust": "I286",
+          "price": "J286"
+        }
+      }
+    ],
+    "pm-player-performance": [
+      {
+        "row": 337,
+        "market": "DP Conway - Player Perf",
+        "selection": "DP Conway",
+        "line": 27.5,
+        "probability": 0.497996979301941,
+        "complementProbability": 0.502003020698059,
+        "adjust": -3.0,
+        "price": 2.0080443086255935,
+        "cells": {
+          "line": "F337",
+          "probability": "G337",
+          "complement": "H337",
+          "adjust": "I337",
+          "price": "J337"
+        }
+      },
+      {
+        "row": 338,
+        "market": "TB Robinson - Player Perf",
+        "selection": "TB Robinson",
+        "line": 22.5,
+        "probability": 0.5063321131565974,
+        "complementProbability": 0.49366788684340257,
+        "adjust": -1.0,
+        "price": 1.9749883011878449,
+        "cells": {
+          "line": "F338",
+          "probability": "G338",
+          "complement": "H338",
+          "adjust": "I338",
+          "price": "J338"
+        }
+      },
+      {
+        "row": 339,
+        "market": "MJ Santner - Player Perf",
+        "selection": "MJ Santner",
+        "line": 37.5,
+        "probability": 0.5007282207525883,
+        "complementProbability": 0.49927177924741173,
+        "adjust": -2.0,
+        "price": 1.997091353263478,
+        "cells": {
+          "line": "F339",
+          "probability": "G339",
+          "complement": "H339",
+          "adjust": "I339",
+          "price": "J339"
+        }
+      },
+      {
+        "row": 340,
+        "market": "JDS Neesham - Player Perf",
+        "selection": "JDS Neesham",
+        "line": 30.5,
+        "probability": 0.4928927402891381,
+        "complementProbability": 0.5071072597108619,
+        "adjust": -1.0,
+        "price": 2.0288389709562074,
+        "cells": {
+          "line": "F340",
+          "probability": "G340",
+          "complement": "H340",
+          "adjust": "I340",
+          "price": "J340"
+        }
+      },
+      {
+        "row": 341,
+        "market": "TWM Latham - Player Perf",
+        "selection": "TWM Latham",
+        "line": 33.5,
+        "probability": 0.507469609968622,
+        "complementProbability": 0.49253039003137794,
+        "adjust": -2.0,
+        "price": 1.970561350583796,
+        "cells": {
+          "line": "F341",
+          "probability": "G341",
+          "complement": "H341",
+          "adjust": "I341",
+          "price": "J341"
+        }
+      },
+      {
+        "row": 342,
+        "market": "T de Zorzi - Player Perf",
+        "selection": "T de Zorzi",
+        "line": 20.5,
+        "probability": 0.5075672931236359,
+        "complementProbability": 0.49243270687636415,
+        "adjust": 1.0,
+        "price": 1.9701821089492753,
+        "cells": {
+          "line": "F342",
+          "probability": "G342",
+          "complement": "H342",
+          "adjust": "I342",
+          "price": "J342"
+        }
+      },
+      {
+        "row": 343,
+        "market": "RA Hermann - Player Perf",
+        "selection": "RA Hermann",
+        "line": 21.5,
+        "probability": 0.5070863068858535,
+        "complementProbability": 0.4929136931141464,
+        "adjust": 0.0,
+        "price": 1.972050884476166,
+        "cells": {
+          "line": "F343",
+          "probability": "G343",
+          "complement": "H343",
+          "adjust": "I343",
+          "price": "J343"
+        }
+      },
+      {
+        "row": 344,
+        "market": "KA Maharaj - Player Perf",
+        "selection": "KA Maharaj",
+        "line": 20.5,
+        "probability": 0.4927642461669671,
+        "complementProbability": 0.5072357538330329,
+        "adjust": -1.0,
+        "price": 2.029368014783204,
+        "cells": {
+          "line": "F344",
+          "probability": "G344",
+          "complement": "H344",
+          "adjust": "I344",
+          "price": "J344"
+        }
+      },
+      {
+        "row": 345,
+        "market": "G Coetzee - Player Perf",
+        "selection": "G Coetzee",
+        "line": 20.5,
+        "probability": 0.4650755218151571,
+        "complementProbability": 0.5349244781848429,
+        "adjust": 0.0,
+        "price": 2.1501884169200527,
+        "cells": {
+          "line": "F345",
+          "probability": "G345",
+          "complement": "H345",
+          "adjust": "I345",
+          "price": "J345"
+        }
+      },
+      {
+        "row": 346,
+        "market": "C Esterhuizen - Player Perf",
+        "selection": "C Esterhuizen",
+        "line": 30.5,
+        "probability": 0.4983279404393568,
+        "complementProbability": 0.5016720595606432,
+        "adjust": 1.0,
+        "price": 2.0067106795543874,
+        "cells": {
+          "line": "F346",
+          "probability": "G346",
+          "complement": "H346",
+          "adjust": "I346",
+          "price": "J346"
+        }
+      }
+    ],
+    "pm-player-balls-faced": [
+      {
+        "row": 610,
+        "market": "DP Conway - Balls Faced",
+        "selection": "DP Conway",
+        "line": 18.5,
+        "probability": 0.5,
+        "complementProbability": 0.5,
+        "adjust": 0.0,
+        "price": 2.0,
+        "cells": {
+          "line": "F610",
+          "probability": "G610",
+          "complement": "H610",
+          "adjust": "I610",
+          "price": "J610"
+        }
+      },
+      {
+        "row": 611,
+        "market": "TWM Latham - Balls Faced",
+        "selection": "TWM Latham",
+        "line": 16.5,
+        "probability": 0.5,
+        "complementProbability": 0.5,
+        "adjust": 0.0,
+        "price": 2.0,
+        "cells": {
+          "line": "F611",
+          "probability": "G611",
+          "complement": "H611",
+          "adjust": "I611",
+          "price": "J611"
+        }
+      },
+      {
+        "row": 612,
+        "market": "TB Robinson - Balls Faced",
+        "selection": "TB Robinson",
+        "line": 15.5,
+        "probability": 0.5,
+        "complementProbability": 0.5,
+        "adjust": 0.0,
+        "price": 2.0,
+        "cells": {
+          "line": "F612",
+          "probability": "G612",
+          "complement": "H612",
+          "adjust": "I612",
+          "price": "J612"
+        }
+      },
+      {
+        "row": 613,
+        "market": "NF Kelly - Balls Faced",
+        "selection": "NF Kelly",
+        "line": 14.5,
+        "probability": 0.5,
+        "complementProbability": 0.5,
+        "adjust": 0.0,
+        "price": 2.0,
+        "cells": {
+          "line": "F613",
+          "probability": "G613",
+          "complement": "H613",
+          "adjust": "I613",
+          "price": "J613"
+        }
+      },
+      {
+        "row": 614,
+        "market": "BJ Jacobs - Balls Faced",
+        "selection": "BJ Jacobs",
+        "line": 10.5,
+        "probability": 0.5,
+        "complementProbability": 0.5,
+        "adjust": 0.0,
+        "price": 2.0,
+        "cells": {
+          "line": "F614",
+          "probability": "G614",
+          "complement": "H614",
+          "adjust": "I614",
+          "price": "J614"
+        }
+      },
+      {
+        "row": 615,
+        "market": "C Esterhuizen - Balls Faced",
+        "selection": "C Esterhuizen",
+        "line": 14.5,
+        "probability": 0.5,
+        "complementProbability": 0.5,
+        "adjust": 0.0,
+        "price": 2.0,
+        "cells": {
+          "line": "F615",
+          "probability": "G615",
+          "complement": "H615",
+          "adjust": "I615",
+          "price": "J615"
+        }
+      },
+      {
+        "row": 616,
+        "market": "T de Zorzi - Balls Faced",
+        "selection": "T de Zorzi",
+        "line": 14.5,
+        "probability": 0.5,
+        "complementProbability": 0.5,
+        "adjust": 0.0,
+        "price": 2.0,
+        "cells": {
+          "line": "F616",
+          "probability": "G616",
+          "complement": "H616",
+          "adjust": "I616",
+          "price": "J616"
+        }
+      },
+      {
+        "row": 617,
+        "market": "RA Hermann - Balls Faced",
+        "selection": "RA Hermann",
+        "line": 15.5,
+        "probability": 0.5,
+        "complementProbability": 0.5,
+        "adjust": 0.0,
+        "price": 2.0,
+        "cells": {
+          "line": "F617",
+          "probability": "G617",
+          "complement": "H617",
+          "adjust": "I617",
+          "price": "J617"
+        }
+      },
+      {
+        "row": 618,
+        "market": "JF Smith - Balls Faced",
+        "selection": "JF Smith",
+        "line": 15.5,
+        "probability": 0.5,
+        "complementProbability": 0.5,
+        "adjust": 0.0,
+        "price": 2.0,
+        "cells": {
+          "line": "F618",
+          "probability": "G618",
+          "complement": "H618",
+          "adjust": "I618",
+          "price": "J618"
+        }
+      },
+      {
+        "row": 619,
+        "market": "PWA Mulder - Balls Faced",
+        "selection": "PWA Mulder",
+        "line": 11.5,
+        "probability": 0.5,
+        "complementProbability": 0.5,
+        "adjust": 0.0,
+        "price": 2.0,
+        "cells": {
+          "line": "F619",
+          "probability": "G619",
+          "complement": "H619",
+          "adjust": "I619",
+          "price": "J619"
+        }
+      }
+    ],
+    "pm-team-first-partnership-nz": [
+      {
+        "row": 147,
+        "market": "New Zealand Runs at Fall of 1st Wicket",
+        "selection": null,
+        "line": 23.5,
+        "probability": 0.5,
+        "complementProbability": 0.5,
+        "adjust": 0.0,
+        "price": 2.0,
+        "cells": {
+          "line": "F147",
+          "probability": "G147",
+          "complement": "H147",
+          "adjust": "I147",
+          "price": "J147"
+        }
+      }
+    ],
+    "pm-team-first-dismissal-nz": [
+      {
+        "row": 148,
+        "market": "New Zealand 1st Wicket Method of Dismissal",
+        "selection": "Fielder Catch",
+        "line": 0.5,
+        "probability": 0.5953381833539239,
+        "complementProbability": "na",
+        "adjust": 0.0,
+        "price": 1.6797175587938191,
+        "cells": {
+          "line": "F148",
+          "probability": "G148",
+          "complement": "H148",
+          "adjust": "I148",
+          "price": "J148"
+        }
+      },
+      {
+        "row": 149,
+        "market": "New Zealand 1st Wicket Method of Dismissal",
+        "selection": "Bowled",
+        "line": 0.5,
+        "probability": 0.16430203798688855,
+        "complementProbability": "na",
+        "adjust": 0.0,
+        "price": 6.086351771727877,
+        "cells": {
+          "line": "F149",
+          "probability": "G149",
+          "complement": "H149",
+          "adjust": "I149",
+          "price": "J149"
+        }
+      },
+      {
+        "row": 150,
+        "market": "New Zealand 1st Wicket Method of Dismissal",
+        "selection": "Keeper Catch",
+        "line": 0.5,
+        "probability": 0.10350645979043667,
+        "complementProbability": "na",
+        "adjust": 0.0,
+        "price": 9.661232758077515,
+        "cells": {
+          "line": "F150",
+          "probability": "G150",
+          "complement": "H150",
+          "adjust": "I150",
+          "price": "J150"
+        }
+      },
+      {
+        "row": 151,
+        "market": "New Zealand 1st Wicket Method of Dismissal",
+        "selection": "LBW",
+        "line": 0.5,
+        "probability": 0.053379843213862285,
+        "complementProbability": "na",
+        "adjust": 0.0,
+        "price": 18.733663116873085,
+        "cells": {
+          "line": "F151",
+          "probability": "G151",
+          "complement": "H151",
+          "adjust": "I151",
+          "price": "J151"
+        }
+      },
+      {
+        "row": 152,
+        "market": "New Zealand 1st Wicket Method of Dismissal",
+        "selection": "Run Out",
+        "line": 0.5,
+        "probability": 0.058606812898419486,
+        "complementProbability": "na",
+        "adjust": 0.0,
+        "price": 17.06286266979326,
+        "cells": {
+          "line": "F152",
+          "probability": "G152",
+          "complement": "H152",
+          "adjust": "I152",
+          "price": "J152"
+        }
+      },
+      {
+        "row": 153,
+        "market": "New Zealand 1st Wicket Method of Dismissal",
+        "selection": "Stumped",
+        "line": 0.5,
+        "probability": 0.022905689372735353,
+        "complementProbability": "na",
+        "adjust": 0.0,
+        "price": 43.65727587270524,
+        "cells": {
+          "line": "F153",
+          "probability": "G153",
+          "complement": "H153",
+          "adjust": "I153",
+          "price": "J153"
+        }
+      },
+      {
+        "row": 154,
+        "market": "New Zealand 1st Wicket Method of Dismissal",
+        "selection": "Other",
+        "line": 0.5,
+        "probability": 0.001960973383733726,
+        "complementProbability": "na",
+        "adjust": 0.0,
+        "price": 509.950827632338,
+        "cells": {
+          "line": "F154",
+          "probability": "G154",
+          "complement": "H154",
+          "adjust": "I154",
+          "price": "J154"
+        }
+      }
+    ],
+    "pm-team-fours-nz": [
+      {
+        "row": 155,
+        "market": "New Zealand Fours.",
+        "selection": null,
+        "line": 13.5,
+        "probability": 0.5565133896082686,
+        "complementProbability": 0.44348661039173143,
+        "adjust": null,
+        "price": 1.7969019590056996,
+        "cells": {
+          "line": "F155",
+          "probability": "G155",
+          "complement": "H155",
+          "adjust": "I155",
+          "price": "J155"
+        }
+      },
+      {
+        "row": 156,
+        "market": "New Zealand Fours",
+        "selection": null,
+        "line": 14.5,
+        "probability": 0.4762779018242197,
+        "complementProbability": 0.5237220981757803,
+        "adjust": 0.0,
+        "price": 2.099614523726257,
+        "cells": {
+          "line": "F156",
+          "probability": "G156",
+          "complement": "H156",
+          "adjust": "I156",
+          "price": "J156"
+        }
+      },
+      {
+        "row": 157,
+        "market": "New Zealand Fours..",
+        "selection": null,
+        "line": 15.5,
+        "probability": 0.3994997339139984,
+        "complementProbability": 0.6005002660860016,
+        "adjust": null,
+        "price": 2.5031305783429465,
+        "cells": {
+          "line": "F157",
+          "probability": "G157",
+          "complement": "H157",
+          "adjust": "I157",
+          "price": "J157"
+        }
+      }
+    ],
+    "pm-team-sixes-nz": [
+      {
+        "row": 158,
+        "market": "New Zealand Sixes.",
+        "selection": null,
+        "line": 6.5,
+        "probability": 0.5229077450858295,
+        "complementProbability": 0.47709225491417057,
+        "adjust": null,
+        "price": 1.912383225143971,
+        "cells": {
+          "line": "F158",
+          "probability": "G158",
+          "complement": "H158",
+          "adjust": "I158",
+          "price": "J158"
+        }
+      },
+      {
+        "row": 159,
+        "market": "New Zealand Sixes",
+        "selection": null,
+        "line": 7.5,
+        "probability": 0.4244232532458062,
+        "complementProbability": 0.5755767467541938,
+        "adjust": 0.0,
+        "price": 2.356138577121849,
+        "cells": {
+          "line": "F159",
+          "probability": "G159",
+          "complement": "H159",
+          "adjust": "I159",
+          "price": "J159"
+        }
+      },
+      {
+        "row": 160,
+        "market": "New Zealand Sixes..",
+        "selection": null,
+        "line": 8.5,
+        "probability": 0.3365265203056811,
+        "complementProbability": 0.6634734796943189,
+        "adjust": null,
+        "price": 2.9715340089442526,
+        "cells": {
+          "line": "F160",
+          "probability": "G160",
+          "complement": "H160",
+          "adjust": "I160",
+          "price": "J160"
+        }
+      }
+    ],
+    "pm-team-run-outs-nz": [
+      {
+        "row": 161,
+        "market": "New Zealand Innings Run Outs",
+        "selection": null,
+        "line": 0.5,
+        "probability": 0.3296799539643607,
+        "complementProbability": 0.6703200460356393,
+        "adjust": 0.0,
+        "price": 3.0332447817197368,
+        "cells": {
+          "line": "F161",
+          "probability": "G161",
+          "complement": "H161",
+          "adjust": "I161",
+          "price": "J161"
+        }
+      }
+    ],
+    "pm-team-max-over-nz": [
+      {
+        "row": 162,
+        "market": "New Zealand Max Runs in an Over",
+        "selection": null,
+        "line": 18.5,
+        "probability": 0.5305157430769037,
+        "complementProbability": 0.46948425692309625,
+        "adjust": 0.0,
+        "price": 1.8849581997325189,
+        "cells": {
+          "line": "F162",
+          "probability": "G162",
+          "complement": "H162",
+          "adjust": "I162",
+          "price": "J162"
+        }
+      }
+    ],
+    "pm-team-wides-nz": [
+      {
+        "row": 163,
+        "market": "New Zealand Innings Wides Faced",
+        "selection": null,
+        "line": 5.5,
+        "probability": 0.43752478825077257,
+        "complementProbability": 0.5624752117492274,
+        "adjust": 0.0,
+        "price": 2.28558478708831,
+        "cells": {
+          "line": "F163",
+          "probability": "G163",
+          "complement": "H163",
+          "adjust": "I163",
+          "price": "J163"
+        }
+      }
+    ],
+    "pm-team-ducks-nz": [
+      {
+        "row": 164,
+        "market": "New Zealand Innings Ducks",
+        "selection": null,
+        "line": 0.5,
+        "probability": 0.48876543652495574,
+        "complementProbability": 0.5112345634750443,
+        "adjust": 0.0,
+        "price": 2.045971186321685,
+        "cells": {
+          "line": "F164",
+          "probability": "G164",
+          "complement": "H164",
+          "adjust": "I164",
+          "price": "J164"
+        }
+      }
+    ],
+    "pm-team-extras-nz": [
+      {
+        "row": 165,
+        "market": "New Zealand Innings Extras",
+        "selection": null,
+        "line": 9.5,
+        "probability": 0.4272955101434419,
+        "complementProbability": 0.5727044898565581,
+        "adjust": 0.0,
+        "price": 2.3403007433059684,
+        "cells": {
+          "line": "F165",
+          "probability": "G165",
+          "complement": "H165",
+          "adjust": "I165",
+          "price": "J165"
+        }
+      }
+    ],
+    "pm-team-wickets-nz": [
+      {
+        "row": 166,
+        "market": "New Zealand Wickets Lost",
+        "selection": null,
+        "line": 6.5,
+        "probability": 0.5647514921077832,
+        "complementProbability": 0.43524850789221675,
+        "adjust": 0.0,
+        "price": 1.770690319502776,
+        "cells": {
+          "line": "F166",
+          "probability": "G166",
+          "complement": "H166",
+          "adjust": "I166",
+          "price": "J166"
+        }
+      }
+    ],
+    "pm-team-first-partnership-sa": [
+      {
+        "row": 213,
+        "market": "South Africa Runs at Fall of 1st Wicket",
+        "selection": null,
+        "line": 17.5,
+        "probability": 0.5,
+        "complementProbability": 0.5,
+        "adjust": 0.0,
+        "price": 2.0,
+        "cells": {
+          "line": "F213",
+          "probability": "G213",
+          "complement": "H213",
+          "adjust": "I213",
+          "price": "J213"
+        }
+      }
+    ],
+    "pm-team-first-dismissal-sa": [
+      {
+        "row": 214,
+        "market": "South Africa 1st Wicket Method of Dismissal",
+        "selection": "Fielder Catch",
+        "line": 0.5,
+        "probability": 0.5942443468731531,
+        "complementProbability": "na",
+        "adjust": 0.0,
+        "price": 1.6828094457471703,
+        "cells": {
+          "line": "F214",
+          "probability": "G214",
+          "complement": "H214",
+          "adjust": "I214",
+          "price": "J214"
+        }
+      },
+      {
+        "row": 215,
+        "market": "South Africa 1st Wicket Method of Dismissal",
+        "selection": "Bowled",
+        "line": 0.5,
+        "probability": 0.16125252640365662,
+        "complementProbability": "na",
+        "adjust": 0.0,
+        "price": 6.201453225586943,
+        "cells": {
+          "line": "F215",
+          "probability": "G215",
+          "complement": "H215",
+          "adjust": "I215",
+          "price": "J215"
+        }
+      },
+      {
+        "row": 216,
+        "market": "South Africa 1st Wicket Method of Dismissal",
+        "selection": "Keeper Catch",
+        "line": 0.5,
+        "probability": 0.12144679656437819,
+        "complementProbability": "na",
+        "adjust": 0.0,
+        "price": 8.23405827316249,
+        "cells": {
+          "line": "F216",
+          "probability": "G216",
+          "complement": "H216",
+          "adjust": "I216",
+          "price": "J216"
+        }
+      },
+      {
+        "row": 217,
+        "market": "South Africa 1st Wicket Method of Dismissal",
+        "selection": "LBW",
+        "line": 0.5,
+        "probability": 0.053262117874673,
+        "complementProbability": "na",
+        "adjust": 0.0,
+        "price": 18.77507016061628,
+        "cells": {
+          "line": "F217",
+          "probability": "G217",
+          "complement": "H217",
+          "adjust": "I217",
+          "price": "J217"
+        }
+      },
+      {
+        "row": 218,
+        "market": "South Africa 1st Wicket Method of Dismissal",
+        "selection": "Run Out",
+        "line": 0.5,
+        "probability": 0.0473278010474236,
+        "complementProbability": "na",
+        "adjust": 0.0,
+        "price": 21.12923013258055,
+        "cells": {
+          "line": "F218",
+          "probability": "G218",
+          "complement": "H218",
+          "adjust": "I218",
+          "price": "J218"
+        }
+      },
+      {
+        "row": 219,
+        "market": "South Africa 1st Wicket Method of Dismissal",
+        "selection": "Stumped",
+        "line": 0.5,
+        "probability": 0.020430728534543065,
+        "complementProbability": "na",
+        "adjust": 0.0,
+        "price": 48.945880628253626,
+        "cells": {
+          "line": "F219",
+          "probability": "G219",
+          "complement": "H219",
+          "adjust": "I219",
+          "price": "J219"
+        }
+      },
+      {
+        "row": 220,
+        "market": "South Africa 1st Wicket Method of Dismissal",
+        "selection": "Other",
+        "line": 0.5,
+        "probability": 0.002035682702172487,
+        "complementProbability": "na",
+        "adjust": 0.0,
+        "price": 491.2356915607707,
+        "cells": {
+          "line": "F220",
+          "probability": "G220",
+          "complement": "H220",
+          "adjust": "I220",
+          "price": "J220"
+        }
+      }
+    ],
+    "pm-team-fours-sa": [
+      {
+        "row": 221,
+        "market": "South Africa Fours.",
+        "selection": null,
+        "line": 10.5,
+        "probability": 0.6220999724389568,
+        "complementProbability": 0.37790002756104324,
+        "adjust": null,
+        "price": 1.6074586791564671,
+        "cells": {
+          "line": "F221",
+          "probability": "G221",
+          "complement": "H221",
+          "adjust": "I221",
+          "price": "J221"
+        }
+      },
+      {
+        "row": 222,
+        "market": "South Africa Fours",
+        "selection": null,
+        "line": 11.5,
+        "probability": 0.5330959778005557,
+        "complementProbability": 0.4669040221994442,
+        "adjust": 0.0,
+        "price": 1.8758348245766066,
+        "cells": {
+          "line": "F222",
+          "probability": "G222",
+          "complement": "H222",
+          "adjust": "I222",
+          "price": "J222"
+        }
+      },
+      {
+        "row": 223,
+        "market": "South Africa Fours..",
+        "selection": null,
+        "line": 12.5,
+        "probability": 0.4459915671020931,
+        "complementProbability": 0.5540084328979069,
+        "adjust": null,
+        "price": 2.242194861435771,
+        "cells": {
+          "line": "F223",
+          "probability": "G223",
+          "complement": "H223",
+          "adjust": "I223",
+          "price": "J223"
+        }
+      }
+    ],
+    "pm-team-sixes-sa": [
+      {
+        "row": 224,
+        "market": "South Africa Sixes.",
+        "selection": null,
+        "line": 5.5,
+        "probability": 0.5465913959572078,
+        "complementProbability": 0.45340860404279215,
+        "adjust": null,
+        "price": 1.8295201999086885,
+        "cells": {
+          "line": "F224",
+          "probability": "G224",
+          "complement": "H224",
+          "adjust": "I224",
+          "price": "J224"
+        }
+      },
+      {
+        "row": 225,
+        "market": "South Africa Sixes",
+        "selection": null,
+        "line": 6.5,
+        "probability": 0.43697986206968786,
+        "complementProbability": 0.5630201379303121,
+        "adjust": 0.0,
+        "price": 2.2884349756157043,
+        "cells": {
+          "line": "F225",
+          "probability": "G225",
+          "complement": "H225",
+          "adjust": "I225",
+          "price": "J225"
+        }
+      },
+      {
+        "row": 226,
+        "market": "South Africa Sixes..",
+        "selection": null,
+        "line": 7.5,
+        "probability": 0.33964269270490066,
+        "complementProbability": 0.6603573072950993,
+        "adjust": null,
+        "price": 2.94427061579344,
+        "cells": {
+          "line": "F226",
+          "probability": "G226",
+          "complement": "H226",
+          "adjust": "I226",
+          "price": "J226"
+        }
+      }
+    ],
+    "pm-team-run-outs-sa": [
+      {
+        "row": 227,
+        "market": "South Africa Innings Run Outs",
+        "selection": null,
+        "line": 0.5,
+        "probability": 0.28107626656807383,
+        "complementProbability": 0.7189237334319262,
+        "adjust": 0.0,
+        "price": 3.5577532468676436,
+        "cells": {
+          "line": "F227",
+          "probability": "G227",
+          "complement": "H227",
+          "adjust": "I227",
+          "price": "J227"
+        }
+      }
+    ],
+    "pm-team-max-over-sa": [
+      {
+        "row": 228,
+        "market": "South Africa Max Runs in an Over",
+        "selection": null,
+        "line": 17.5,
+        "probability": 0.5313523304446641,
+        "complementProbability": 0.4686476695553359,
+        "adjust": 0.0,
+        "price": 1.8819904283907938,
+        "cells": {
+          "line": "F228",
+          "probability": "G228",
+          "complement": "H228",
+          "adjust": "I228",
+          "price": "J228"
+        }
+      }
+    ],
+    "pm-team-wides-sa": [
+      {
+        "row": 229,
+        "market": "South Africa Innings Wides Faced",
+        "selection": null,
+        "line": 5.5,
+        "probability": 0.42708411364796184,
+        "complementProbability": 0.5729158863520382,
+        "adjust": 0.0,
+        "price": 2.341459136605308,
+        "cells": {
+          "line": "F229",
+          "probability": "G229",
+          "complement": "H229",
+          "adjust": "I229",
+          "price": "J229"
+        }
+      }
+    ],
+    "pm-team-ducks-sa": [
+      {
+        "row": 230,
+        "market": "South Africa Innings Ducks",
+        "selection": null,
+        "line": 0.5,
+        "probability": 0.5111271360005811,
+        "complementProbability": 0.4888728639994189,
+        "adjust": 0.0,
+        "price": 1.956460398140284,
+        "cells": {
+          "line": "F230",
+          "probability": "G230",
+          "complement": "H230",
+          "adjust": "I230",
+          "price": "J230"
+        }
+      }
+    ],
+    "pm-team-extras-sa": [
+      {
+        "row": 231,
+        "market": "South Africa Innings Extras",
+        "selection": null,
+        "line": 8.5,
+        "probability": 0.4995896791896566,
+        "complementProbability": 0.5004103208103434,
+        "adjust": 0.0,
+        "price": 2.001642631252947,
+        "cells": {
+          "line": "F231",
+          "probability": "G231",
+          "complement": "H231",
+          "adjust": "I231",
+          "price": "J231"
+        }
+      }
+    ],
+    "pm-team-wickets-sa": [
+      {
+        "row": 232,
+        "market": "South Africa Wickets Lost",
+        "selection": null,
+        "line": 6.5,
+        "probability": 0.6068903039113791,
+        "complementProbability": 0.3931096960886209,
+        "adjust": 0.0,
+        "price": 1.6477442357458139,
+        "cells": {
+          "line": "F232",
+          "probability": "G232",
+          "complement": "H232",
+          "adjust": "I232",
+          "price": "J232"
+        }
+      }
+    ]
+  },
+  "byRow": {
+    "20": {
+      "row": 20,
+      "market": "Match Betting",
+      "selection": "New Zealand",
+      "line": 0.5,
+      "probability": 0.61036254423642,
+      "complementProbability": "na",
+      "adjust": null,
+      "price": 1.6383705216561526,
+      "cells": {
+        "line": "F20",
+        "probability": "G20",
+        "complement": "H20",
+        "adjust": "I20",
+        "price": "J20"
+      }
+    },
+    "21": {
+      "row": 21,
+      "market": "Match Betting",
+      "selection": "South Africa",
+      "line": 0.5,
+      "probability": 0.38963745576358,
+      "complementProbability": "na",
+      "adjust": null,
+      "price": 2.5664883732501558,
+      "cells": {
+        "line": "F21",
+        "probability": "G21",
+        "complement": "H21",
+        "adjust": "I21",
+        "price": "J21"
+      }
+    },
+    "22": {
+      "row": 22,
+      "market": "Tied Match",
+      "selection": "Yes",
+      "line": 0.5,
+      "probability": 0.0177927491152716,
+      "complementProbability": "na",
+      "adjust": 0.0,
+      "price": 56.20266961116735,
+      "cells": {
+        "line": "F22",
+        "probability": "G22",
+        "complement": "H22",
+        "adjust": "I22",
+        "price": "J22"
+      }
+    },
+    "23": {
+      "row": 23,
+      "market": "Tied Match",
+      "selection": "No",
+      "line": 0.5,
+      "probability": 0.9822072508847284,
+      "complementProbability": "na",
+      "adjust": null,
+      "price": 1.018115065938726,
+      "cells": {
+        "line": "F23",
+        "probability": "G23",
+        "complement": "H23",
+        "adjust": "I23",
+        "price": "J23"
+      }
+    },
+    "24": {
+      "row": 24,
+      "market": "Toss Winner",
+      "selection": "New Zealand",
+      "line": 0.5,
+      "probability": 0.5,
+      "complementProbability": "na",
+      "adjust": null,
+      "price": 2.0,
+      "cells": {
+        "line": "F24",
+        "probability": "G24",
+        "complement": "H24",
+        "adjust": "I24",
+        "price": "J24"
+      }
+    },
+    "25": {
+      "row": 25,
+      "market": "Toss Winner",
+      "selection": "South Africa",
+      "line": 0.5,
+      "probability": 0.5,
+      "complementProbability": "na",
+      "adjust": null,
+      "price": 2.0,
+      "cells": {
+        "line": "F25",
+        "probability": "G25",
+        "complement": "H25",
+        "adjust": "I25",
+        "price": "J25"
+      }
+    },
+    "44": {
+      "row": 44,
+      "market": "Runs in First Partnership",
+      "selection": null,
+      "line": 19.5,
+      "probability": 0.5,
+      "complementProbability": 0.5,
+      "adjust": 0.0,
+      "price": 2.0,
+      "cells": {
+        "line": "F44",
+        "probability": "G44",
+        "complement": "H44",
+        "adjust": "I44",
+        "price": "J44"
+      }
+    },
+    "45": {
+      "row": 45,
+      "market": "Method of First Dismissal",
+      "selection": "Fielder Catch",
+      "line": 0.5,
+      "probability": 0.5947912651135385,
+      "complementProbability": "na",
+      "adjust": 0.0,
+      "price": 1.681262080755527,
+      "cells": {
+        "line": "F45",
+        "probability": "G45",
+        "complement": "H45",
+        "adjust": "I45",
+        "price": "J45"
+      }
+    },
+    "46": {
+      "row": 46,
+      "market": "Method of First Dismissal",
+      "selection": "Bowled",
+      "line": 0.5,
+      "probability": 0.1627772821952726,
+      "complementProbability": "na",
+      "adjust": 0.0,
+      "price": 6.14336341357739,
+      "cells": {
+        "line": "F46",
+        "probability": "G46",
+        "complement": "H46",
+        "adjust": "I46",
+        "price": "J46"
+      }
+    },
+    "47": {
+      "row": 47,
+      "market": "Method of First Dismissal",
+      "selection": "Keeper Catch",
+      "line": 0.5,
+      "probability": 0.11247662817740745,
+      "complementProbability": "na",
+      "adjust": 0.0,
+      "price": 8.890735935137718,
+      "cells": {
+        "line": "F47",
+        "probability": "G47",
+        "complement": "H47",
+        "adjust": "I47",
+        "price": "J47"
+      }
+    },
+    "48": {
+      "row": 48,
+      "market": "Method of First Dismissal",
+      "selection": "LBW",
+      "line": 0.5,
+      "probability": 0.05332098054426765,
+      "complementProbability": "na",
+      "adjust": 0.0,
+      "price": 18.754343783490427,
+      "cells": {
+        "line": "F48",
+        "probability": "G48",
+        "complement": "H48",
+        "adjust": "I48",
+        "price": "J48"
+      }
+    },
+    "49": {
+      "row": 49,
+      "market": "Method of First Dismissal",
+      "selection": "Run Out",
+      "line": 0.5,
+      "probability": 0.05296730697292155,
+      "complementProbability": "na",
+      "adjust": 0.0,
+      "price": 18.879570383127643,
+      "cells": {
+        "line": "F49",
+        "probability": "G49",
+        "complement": "H49",
+        "adjust": "I49",
+        "price": "J49"
+      }
+    },
+    "50": {
+      "row": 50,
+      "market": "Method of First Dismissal",
+      "selection": "Stumped",
+      "line": 0.5,
+      "probability": 0.021668208953639207,
+      "complementProbability": "na",
+      "adjust": 0.0,
+      "price": 46.15056104265824,
+      "cells": {
+        "line": "F50",
+        "probability": "G50",
+        "complement": "H50",
+        "adjust": "I50",
+        "price": "J50"
+      }
+    },
+    "51": {
+      "row": 51,
+      "market": "Method of First Dismissal",
+      "selection": "Other",
+      "line": 0.5,
+      "probability": 0.0019983280429531065,
+      "complementProbability": "na",
+      "adjust": 0.0,
+      "price": 500.4183389841296,
+      "cells": {
+        "line": "F51",
+        "probability": "G51",
+        "complement": "H51",
+        "adjust": "I51",
+        "price": "J51"
+      }
+    },
+    "52": {
+      "row": 52,
+      "market": "Match Fours",
+      "selection": null,
+      "line": 26.5,
+      "probability": 0.4975514040097191,
+      "complementProbability": 0.5024485959902809,
+      "adjust": 0.0,
+      "price": 2.0098425849894017,
+      "cells": {
+        "line": "F52",
+        "probability": "G52",
+        "complement": "H52",
+        "adjust": "I52",
+        "price": "J52"
+      }
+    },
+    "53": {
+      "row": 53,
+      "market": "Match Sixes",
+      "selection": null,
+      "line": 12.5,
+      "probability": 0.5227562121319347,
+      "complementProbability": 0.47724378786806526,
+      "adjust": 0.0,
+      "price": 1.9129375735617604,
+      "cells": {
+        "line": "F53",
+        "probability": "G53",
+        "complement": "H53",
+        "adjust": "I53",
+        "price": "J53"
+      }
+    },
+    "54": {
+      "row": 54,
+      "market": "Match Run Outs",
+      "selection": null,
+      "line": 0.5,
+      "probability": 0.5180910099097975,
+      "complementProbability": 0.48190899009020244,
+      "adjust": 0.0,
+      "price": 1.9301628109202387,
+      "cells": {
+        "line": "F54",
+        "probability": "G54",
+        "complement": "H54",
+        "adjust": "I54",
+        "price": "J54"
+      }
+    },
+    "55": {
+      "row": 55,
+      "market": "Max Runs Scored in an Over",
+      "selection": null,
+      "line": 20.5,
+      "probability": 0.4852338458684483,
+      "complementProbability": 0.5147661541315517,
+      "adjust": 0.0,
+      "price": 2.060862012232984,
+      "cells": {
+        "line": "F55",
+        "probability": "G55",
+        "complement": "H55",
+        "adjust": "I55",
+        "price": "J55"
+      }
+    },
+    "56": {
+      "row": 56,
+      "market": "Match Ducks",
+      "selection": null,
+      "line": 1.5,
+      "probability": 0.4090830908432208,
+      "complementProbability": 0.5909169091567792,
+      "adjust": 0.0,
+      "price": 2.444491161780249,
+      "cells": {
+        "line": "F56",
+        "probability": "G56",
+        "complement": "H56",
+        "adjust": "I56",
+        "price": "J56"
+      }
+    },
+    "57": {
+      "row": 57,
+      "market": "Match Wides",
+      "selection": null,
+      "line": 10.5,
+      "probability": 0.46532841793577573,
+      "complementProbability": 0.5346715820642243,
+      "adjust": 0.0,
+      "price": 2.1490198351436582,
+      "cells": {
+        "line": "F57",
+        "probability": "G57",
+        "complement": "H57",
+        "adjust": "I57",
+        "price": "J57"
+      }
+    },
+    "58": {
+      "row": 58,
+      "market": "Match Extras",
+      "selection": null,
+      "line": 18.5,
+      "probability": 0.45942848333626896,
+      "complementProbability": 0.540571516663731,
+      "adjust": 0.0,
+      "price": 2.1766173327744487,
+      "cells": {
+        "line": "F58",
+        "probability": "G58",
+        "complement": "H58",
+        "adjust": "I58",
+        "price": "J58"
+      }
+    },
+    "59": {
+      "row": 59,
+      "market": "Match Wickets",
+      "selection": null,
+      "line": 13.5,
+      "probability": 0.4831358289817449,
+      "complementProbability": 0.5168641710182551,
+      "adjust": 0.0,
+      "price": 2.069811303598816,
+      "cells": {
+        "line": "F59",
+        "probability": "G59",
+        "complement": "H59",
+        "adjust": "I59",
+        "price": "J59"
+      }
+    },
+    "60": {
+      "row": 60,
+      "market": "Team of Top Bat",
+      "selection": "New Zealand",
+      "line": 0.5,
+      "probability": 0.5794610318502224,
+      "complementProbability": "na",
+      "adjust": 0.0,
+      "price": 1.7257415857749645,
+      "cells": {
+        "line": "F60",
+        "probability": "G60",
+        "complement": "H60",
+        "adjust": "I60",
+        "price": "J60"
+      }
+    },
+    "61": {
+      "row": 61,
+      "market": "Team of Top Bat",
+      "selection": "South Africa",
+      "line": 0.5,
+      "probability": 0.42053896814977765,
+      "complementProbability": "na",
+      "adjust": null,
+      "price": 2.3779009217615323,
+      "cells": {
+        "line": "F61",
+        "probability": "G61",
+        "complement": "H61",
+        "adjust": "I61",
+        "price": "J61"
+      }
+    },
+    "62": {
+      "row": 62,
+      "market": "Team of Top Bowl",
+      "selection": "New Zealand",
+      "line": 0.5,
+      "probability": 0.5529740212334816,
+      "complementProbability": "na",
+      "adjust": 0.0,
+      "price": 1.8084032189602106,
+      "cells": {
+        "line": "F62",
+        "probability": "G62",
+        "complement": "H62",
+        "adjust": "I62",
+        "price": "J62"
+      }
+    },
+    "63": {
+      "row": 63,
+      "market": "Team of Top Bowl",
+      "selection": "South Africa",
+      "line": 0.5,
+      "probability": 0.4470259787665184,
+      "complementProbability": "na",
+      "adjust": null,
+      "price": 2.237006454880556,
+      "cells": {
+        "line": "F63",
+        "probability": "G63",
+        "complement": "H63",
+        "adjust": "I63",
+        "price": "J63"
+      }
+    },
+    "67": {
+      "row": 67,
+      "market": "Fifty in First Innings",
+      "selection": "Yes",
+      "line": 0.5,
+      "probability": 0.65,
+      "complementProbability": "na",
+      "adjust": 0.0,
+      "price": 1.5384615384615383,
+      "cells": {
+        "line": "F67",
+        "probability": "G67",
+        "complement": "H67",
+        "adjust": "I67",
+        "price": "J67"
+      }
+    },
+    "68": {
+      "row": 68,
+      "market": "Fifty in First Innings",
+      "selection": "No",
+      "line": 0.5,
+      "probability": 0.35,
+      "complementProbability": "na",
+      "adjust": null,
+      "price": 2.857142857142857,
+      "cells": {
+        "line": "F68",
+        "probability": "G68",
+        "complement": "H68",
+        "adjust": "I68",
+        "price": "J68"
+      }
+    },
+    "71": {
+      "row": 71,
+      "market": "Hundred in First Innings",
+      "selection": "Yes",
+      "line": 0.5,
+      "probability": 0.058,
+      "complementProbability": "na",
+      "adjust": 0.0,
+      "price": 17.241379310344826,
+      "cells": {
+        "line": "F71",
+        "probability": "G71",
+        "complement": "H71",
+        "adjust": "I71",
+        "price": "J71"
+      }
+    },
+    "72": {
+      "row": 72,
+      "market": "Hundred in First Innings",
+      "selection": "No",
+      "line": 0.5,
+      "probability": 0.942,
+      "complementProbability": "na",
+      "adjust": null,
+      "price": 1.0615711252653928,
+      "cells": {
+        "line": "F72",
+        "probability": "G72",
+        "complement": "H72",
+        "adjust": "I72",
+        "price": "J72"
+      }
+    },
+    "73": {
+      "row": 73,
+      "market": "Hundred in Match",
+      "selection": "Yes",
+      "line": 0.5,
+      "probability": 0.084,
+      "complementProbability": "na",
+      "adjust": 0.0,
+      "price": 11.904761904761903,
+      "cells": {
+        "line": "F73",
+        "probability": "G73",
+        "complement": "H73",
+        "adjust": "I73",
+        "price": "J73"
+      }
+    },
+    "74": {
+      "row": 74,
+      "market": "Hundred in Match",
+      "selection": "No",
+      "line": 0.5,
+      "probability": 0.916,
+      "complementProbability": "na",
+      "adjust": null,
+      "price": 1.0917030567685588,
+      "cells": {
+        "line": "F74",
+        "probability": "G74",
+        "complement": "H74",
+        "adjust": "I74",
+        "price": "J74"
+      }
+    },
+    "75": {
+      "row": 75,
+      "market": "Highest Individual Score",
+      "selection": null,
+      "line": 65.5,
+      "probability": 0.5,
+      "complementProbability": 0.5,
+      "adjust": 0.0,
+      "price": 2.0,
+      "cells": {
+        "line": "F75",
+        "probability": "G75",
+        "complement": "H75",
+        "adjust": "I75",
+        "price": "J75"
+      }
+    },
+    "76": {
+      "row": 76,
+      "market": "Rabbit Runs",
+      "selection": null,
+      "line": 0.5,
+      "probability": {
+        "error": "#DIV/0!"
+      },
+      "complementProbability": {
+        "error": "#DIV/0!"
+      },
+      "adjust": 0.0,
+      "price": null,
+      "cells": {
+        "line": "F76",
+        "probability": "G76",
+        "complement": "H76",
+        "adjust": "I76",
+        "price": "J76"
+      }
+    },
+    "147": {
+      "row": 147,
+      "market": "New Zealand Runs at Fall of 1st Wicket",
+      "selection": null,
+      "line": 23.5,
+      "probability": 0.5,
+      "complementProbability": 0.5,
+      "adjust": 0.0,
+      "price": 2.0,
+      "cells": {
+        "line": "F147",
+        "probability": "G147",
+        "complement": "H147",
+        "adjust": "I147",
+        "price": "J147"
+      }
+    },
+    "148": {
+      "row": 148,
+      "market": "New Zealand 1st Wicket Method of Dismissal",
+      "selection": "Fielder Catch",
+      "line": 0.5,
+      "probability": 0.5953381833539239,
+      "complementProbability": "na",
+      "adjust": 0.0,
+      "price": 1.6797175587938191,
+      "cells": {
+        "line": "F148",
+        "probability": "G148",
+        "complement": "H148",
+        "adjust": "I148",
+        "price": "J148"
+      }
+    },
+    "149": {
+      "row": 149,
+      "market": "New Zealand 1st Wicket Method of Dismissal",
+      "selection": "Bowled",
+      "line": 0.5,
+      "probability": 0.16430203798688855,
+      "complementProbability": "na",
+      "adjust": 0.0,
+      "price": 6.086351771727877,
+      "cells": {
+        "line": "F149",
+        "probability": "G149",
+        "complement": "H149",
+        "adjust": "I149",
+        "price": "J149"
+      }
+    },
+    "150": {
+      "row": 150,
+      "market": "New Zealand 1st Wicket Method of Dismissal",
+      "selection": "Keeper Catch",
+      "line": 0.5,
+      "probability": 0.10350645979043667,
+      "complementProbability": "na",
+      "adjust": 0.0,
+      "price": 9.661232758077515,
+      "cells": {
+        "line": "F150",
+        "probability": "G150",
+        "complement": "H150",
+        "adjust": "I150",
+        "price": "J150"
+      }
+    },
+    "151": {
+      "row": 151,
+      "market": "New Zealand 1st Wicket Method of Dismissal",
+      "selection": "LBW",
+      "line": 0.5,
+      "probability": 0.053379843213862285,
+      "complementProbability": "na",
+      "adjust": 0.0,
+      "price": 18.733663116873085,
+      "cells": {
+        "line": "F151",
+        "probability": "G151",
+        "complement": "H151",
+        "adjust": "I151",
+        "price": "J151"
+      }
+    },
+    "152": {
+      "row": 152,
+      "market": "New Zealand 1st Wicket Method of Dismissal",
+      "selection": "Run Out",
+      "line": 0.5,
+      "probability": 0.058606812898419486,
+      "complementProbability": "na",
+      "adjust": 0.0,
+      "price": 17.06286266979326,
+      "cells": {
+        "line": "F152",
+        "probability": "G152",
+        "complement": "H152",
+        "adjust": "I152",
+        "price": "J152"
+      }
+    },
+    "153": {
+      "row": 153,
+      "market": "New Zealand 1st Wicket Method of Dismissal",
+      "selection": "Stumped",
+      "line": 0.5,
+      "probability": 0.022905689372735353,
+      "complementProbability": "na",
+      "adjust": 0.0,
+      "price": 43.65727587270524,
+      "cells": {
+        "line": "F153",
+        "probability": "G153",
+        "complement": "H153",
+        "adjust": "I153",
+        "price": "J153"
+      }
+    },
+    "154": {
+      "row": 154,
+      "market": "New Zealand 1st Wicket Method of Dismissal",
+      "selection": "Other",
+      "line": 0.5,
+      "probability": 0.001960973383733726,
+      "complementProbability": "na",
+      "adjust": 0.0,
+      "price": 509.950827632338,
+      "cells": {
+        "line": "F154",
+        "probability": "G154",
+        "complement": "H154",
+        "adjust": "I154",
+        "price": "J154"
+      }
+    },
+    "155": {
+      "row": 155,
+      "market": "New Zealand Fours.",
+      "selection": null,
+      "line": 13.5,
+      "probability": 0.5565133896082686,
+      "complementProbability": 0.44348661039173143,
+      "adjust": null,
+      "price": 1.7969019590056996,
+      "cells": {
+        "line": "F155",
+        "probability": "G155",
+        "complement": "H155",
+        "adjust": "I155",
+        "price": "J155"
+      }
+    },
+    "156": {
+      "row": 156,
+      "market": "New Zealand Fours",
+      "selection": null,
+      "line": 14.5,
+      "probability": 0.4762779018242197,
+      "complementProbability": 0.5237220981757803,
+      "adjust": 0.0,
+      "price": 2.099614523726257,
+      "cells": {
+        "line": "F156",
+        "probability": "G156",
+        "complement": "H156",
+        "adjust": "I156",
+        "price": "J156"
+      }
+    },
+    "157": {
+      "row": 157,
+      "market": "New Zealand Fours..",
+      "selection": null,
+      "line": 15.5,
+      "probability": 0.3994997339139984,
+      "complementProbability": 0.6005002660860016,
+      "adjust": null,
+      "price": 2.5031305783429465,
+      "cells": {
+        "line": "F157",
+        "probability": "G157",
+        "complement": "H157",
+        "adjust": "I157",
+        "price": "J157"
+      }
+    },
+    "158": {
+      "row": 158,
+      "market": "New Zealand Sixes.",
+      "selection": null,
+      "line": 6.5,
+      "probability": 0.5229077450858295,
+      "complementProbability": 0.47709225491417057,
+      "adjust": null,
+      "price": 1.912383225143971,
+      "cells": {
+        "line": "F158",
+        "probability": "G158",
+        "complement": "H158",
+        "adjust": "I158",
+        "price": "J158"
+      }
+    },
+    "159": {
+      "row": 159,
+      "market": "New Zealand Sixes",
+      "selection": null,
+      "line": 7.5,
+      "probability": 0.4244232532458062,
+      "complementProbability": 0.5755767467541938,
+      "adjust": 0.0,
+      "price": 2.356138577121849,
+      "cells": {
+        "line": "F159",
+        "probability": "G159",
+        "complement": "H159",
+        "adjust": "I159",
+        "price": "J159"
+      }
+    },
+    "160": {
+      "row": 160,
+      "market": "New Zealand Sixes..",
+      "selection": null,
+      "line": 8.5,
+      "probability": 0.3365265203056811,
+      "complementProbability": 0.6634734796943189,
+      "adjust": null,
+      "price": 2.9715340089442526,
+      "cells": {
+        "line": "F160",
+        "probability": "G160",
+        "complement": "H160",
+        "adjust": "I160",
+        "price": "J160"
+      }
+    },
+    "161": {
+      "row": 161,
+      "market": "New Zealand Innings Run Outs",
+      "selection": null,
+      "line": 0.5,
+      "probability": 0.3296799539643607,
+      "complementProbability": 0.6703200460356393,
+      "adjust": 0.0,
+      "price": 3.0332447817197368,
+      "cells": {
+        "line": "F161",
+        "probability": "G161",
+        "complement": "H161",
+        "adjust": "I161",
+        "price": "J161"
+      }
+    },
+    "162": {
+      "row": 162,
+      "market": "New Zealand Max Runs in an Over",
+      "selection": null,
+      "line": 18.5,
+      "probability": 0.5305157430769037,
+      "complementProbability": 0.46948425692309625,
+      "adjust": 0.0,
+      "price": 1.8849581997325189,
+      "cells": {
+        "line": "F162",
+        "probability": "G162",
+        "complement": "H162",
+        "adjust": "I162",
+        "price": "J162"
+      }
+    },
+    "163": {
+      "row": 163,
+      "market": "New Zealand Innings Wides Faced",
+      "selection": null,
+      "line": 5.5,
+      "probability": 0.43752478825077257,
+      "complementProbability": 0.5624752117492274,
+      "adjust": 0.0,
+      "price": 2.28558478708831,
+      "cells": {
+        "line": "F163",
+        "probability": "G163",
+        "complement": "H163",
+        "adjust": "I163",
+        "price": "J163"
+      }
+    },
+    "164": {
+      "row": 164,
+      "market": "New Zealand Innings Ducks",
+      "selection": null,
+      "line": 0.5,
+      "probability": 0.48876543652495574,
+      "complementProbability": 0.5112345634750443,
+      "adjust": 0.0,
+      "price": 2.045971186321685,
+      "cells": {
+        "line": "F164",
+        "probability": "G164",
+        "complement": "H164",
+        "adjust": "I164",
+        "price": "J164"
+      }
+    },
+    "165": {
+      "row": 165,
+      "market": "New Zealand Innings Extras",
+      "selection": null,
+      "line": 9.5,
+      "probability": 0.4272955101434419,
+      "complementProbability": 0.5727044898565581,
+      "adjust": 0.0,
+      "price": 2.3403007433059684,
+      "cells": {
+        "line": "F165",
+        "probability": "G165",
+        "complement": "H165",
+        "adjust": "I165",
+        "price": "J165"
+      }
+    },
+    "166": {
+      "row": 166,
+      "market": "New Zealand Wickets Lost",
+      "selection": null,
+      "line": 6.5,
+      "probability": 0.5647514921077832,
+      "complementProbability": 0.43524850789221675,
+      "adjust": 0.0,
+      "price": 1.770690319502776,
+      "cells": {
+        "line": "F166",
+        "probability": "G166",
+        "complement": "H166",
+        "adjust": "I166",
+        "price": "J166"
+      }
+    },
+    "213": {
+      "row": 213,
+      "market": "South Africa Runs at Fall of 1st Wicket",
+      "selection": null,
+      "line": 17.5,
+      "probability": 0.5,
+      "complementProbability": 0.5,
+      "adjust": 0.0,
+      "price": 2.0,
+      "cells": {
+        "line": "F213",
+        "probability": "G213",
+        "complement": "H213",
+        "adjust": "I213",
+        "price": "J213"
+      }
+    },
+    "214": {
+      "row": 214,
+      "market": "South Africa 1st Wicket Method of Dismissal",
+      "selection": "Fielder Catch",
+      "line": 0.5,
+      "probability": 0.5942443468731531,
+      "complementProbability": "na",
+      "adjust": 0.0,
+      "price": 1.6828094457471703,
+      "cells": {
+        "line": "F214",
+        "probability": "G214",
+        "complement": "H214",
+        "adjust": "I214",
+        "price": "J214"
+      }
+    },
+    "215": {
+      "row": 215,
+      "market": "South Africa 1st Wicket Method of Dismissal",
+      "selection": "Bowled",
+      "line": 0.5,
+      "probability": 0.16125252640365662,
+      "complementProbability": "na",
+      "adjust": 0.0,
+      "price": 6.201453225586943,
+      "cells": {
+        "line": "F215",
+        "probability": "G215",
+        "complement": "H215",
+        "adjust": "I215",
+        "price": "J215"
+      }
+    },
+    "216": {
+      "row": 216,
+      "market": "South Africa 1st Wicket Method of Dismissal",
+      "selection": "Keeper Catch",
+      "line": 0.5,
+      "probability": 0.12144679656437819,
+      "complementProbability": "na",
+      "adjust": 0.0,
+      "price": 8.23405827316249,
+      "cells": {
+        "line": "F216",
+        "probability": "G216",
+        "complement": "H216",
+        "adjust": "I216",
+        "price": "J216"
+      }
+    },
+    "217": {
+      "row": 217,
+      "market": "South Africa 1st Wicket Method of Dismissal",
+      "selection": "LBW",
+      "line": 0.5,
+      "probability": 0.053262117874673,
+      "complementProbability": "na",
+      "adjust": 0.0,
+      "price": 18.77507016061628,
+      "cells": {
+        "line": "F217",
+        "probability": "G217",
+        "complement": "H217",
+        "adjust": "I217",
+        "price": "J217"
+      }
+    },
+    "218": {
+      "row": 218,
+      "market": "South Africa 1st Wicket Method of Dismissal",
+      "selection": "Run Out",
+      "line": 0.5,
+      "probability": 0.0473278010474236,
+      "complementProbability": "na",
+      "adjust": 0.0,
+      "price": 21.12923013258055,
+      "cells": {
+        "line": "F218",
+        "probability": "G218",
+        "complement": "H218",
+        "adjust": "I218",
+        "price": "J218"
+      }
+    },
+    "219": {
+      "row": 219,
+      "market": "South Africa 1st Wicket Method of Dismissal",
+      "selection": "Stumped",
+      "line": 0.5,
+      "probability": 0.020430728534543065,
+      "complementProbability": "na",
+      "adjust": 0.0,
+      "price": 48.945880628253626,
+      "cells": {
+        "line": "F219",
+        "probability": "G219",
+        "complement": "H219",
+        "adjust": "I219",
+        "price": "J219"
+      }
+    },
+    "220": {
+      "row": 220,
+      "market": "South Africa 1st Wicket Method of Dismissal",
+      "selection": "Other",
+      "line": 0.5,
+      "probability": 0.002035682702172487,
+      "complementProbability": "na",
+      "adjust": 0.0,
+      "price": 491.2356915607707,
+      "cells": {
+        "line": "F220",
+        "probability": "G220",
+        "complement": "H220",
+        "adjust": "I220",
+        "price": "J220"
+      }
+    },
+    "221": {
+      "row": 221,
+      "market": "South Africa Fours.",
+      "selection": null,
+      "line": 10.5,
+      "probability": 0.6220999724389568,
+      "complementProbability": 0.37790002756104324,
+      "adjust": null,
+      "price": 1.6074586791564671,
+      "cells": {
+        "line": "F221",
+        "probability": "G221",
+        "complement": "H221",
+        "adjust": "I221",
+        "price": "J221"
+      }
+    },
+    "222": {
+      "row": 222,
+      "market": "South Africa Fours",
+      "selection": null,
+      "line": 11.5,
+      "probability": 0.5330959778005557,
+      "complementProbability": 0.4669040221994442,
+      "adjust": 0.0,
+      "price": 1.8758348245766066,
+      "cells": {
+        "line": "F222",
+        "probability": "G222",
+        "complement": "H222",
+        "adjust": "I222",
+        "price": "J222"
+      }
+    },
+    "223": {
+      "row": 223,
+      "market": "South Africa Fours..",
+      "selection": null,
+      "line": 12.5,
+      "probability": 0.4459915671020931,
+      "complementProbability": 0.5540084328979069,
+      "adjust": null,
+      "price": 2.242194861435771,
+      "cells": {
+        "line": "F223",
+        "probability": "G223",
+        "complement": "H223",
+        "adjust": "I223",
+        "price": "J223"
+      }
+    },
+    "224": {
+      "row": 224,
+      "market": "South Africa Sixes.",
+      "selection": null,
+      "line": 5.5,
+      "probability": 0.5465913959572078,
+      "complementProbability": 0.45340860404279215,
+      "adjust": null,
+      "price": 1.8295201999086885,
+      "cells": {
+        "line": "F224",
+        "probability": "G224",
+        "complement": "H224",
+        "adjust": "I224",
+        "price": "J224"
+      }
+    },
+    "225": {
+      "row": 225,
+      "market": "South Africa Sixes",
+      "selection": null,
+      "line": 6.5,
+      "probability": 0.43697986206968786,
+      "complementProbability": 0.5630201379303121,
+      "adjust": 0.0,
+      "price": 2.2884349756157043,
+      "cells": {
+        "line": "F225",
+        "probability": "G225",
+        "complement": "H225",
+        "adjust": "I225",
+        "price": "J225"
+      }
+    },
+    "226": {
+      "row": 226,
+      "market": "South Africa Sixes..",
+      "selection": null,
+      "line": 7.5,
+      "probability": 0.33964269270490066,
+      "complementProbability": 0.6603573072950993,
+      "adjust": null,
+      "price": 2.94427061579344,
+      "cells": {
+        "line": "F226",
+        "probability": "G226",
+        "complement": "H226",
+        "adjust": "I226",
+        "price": "J226"
+      }
+    },
+    "227": {
+      "row": 227,
+      "market": "South Africa Innings Run Outs",
+      "selection": null,
+      "line": 0.5,
+      "probability": 0.28107626656807383,
+      "complementProbability": 0.7189237334319262,
+      "adjust": 0.0,
+      "price": 3.5577532468676436,
+      "cells": {
+        "line": "F227",
+        "probability": "G227",
+        "complement": "H227",
+        "adjust": "I227",
+        "price": "J227"
+      }
+    },
+    "228": {
+      "row": 228,
+      "market": "South Africa Max Runs in an Over",
+      "selection": null,
+      "line": 17.5,
+      "probability": 0.5313523304446641,
+      "complementProbability": 0.4686476695553359,
+      "adjust": 0.0,
+      "price": 1.8819904283907938,
+      "cells": {
+        "line": "F228",
+        "probability": "G228",
+        "complement": "H228",
+        "adjust": "I228",
+        "price": "J228"
+      }
+    },
+    "229": {
+      "row": 229,
+      "market": "South Africa Innings Wides Faced",
+      "selection": null,
+      "line": 5.5,
+      "probability": 0.42708411364796184,
+      "complementProbability": 0.5729158863520382,
+      "adjust": 0.0,
+      "price": 2.341459136605308,
+      "cells": {
+        "line": "F229",
+        "probability": "G229",
+        "complement": "H229",
+        "adjust": "I229",
+        "price": "J229"
+      }
+    },
+    "230": {
+      "row": 230,
+      "market": "South Africa Innings Ducks",
+      "selection": null,
+      "line": 0.5,
+      "probability": 0.5111271360005811,
+      "complementProbability": 0.4888728639994189,
+      "adjust": 0.0,
+      "price": 1.956460398140284,
+      "cells": {
+        "line": "F230",
+        "probability": "G230",
+        "complement": "H230",
+        "adjust": "I230",
+        "price": "J230"
+      }
+    },
+    "231": {
+      "row": 231,
+      "market": "South Africa Innings Extras",
+      "selection": null,
+      "line": 8.5,
+      "probability": 0.4995896791896566,
+      "complementProbability": 0.5004103208103434,
+      "adjust": 0.0,
+      "price": 2.001642631252947,
+      "cells": {
+        "line": "F231",
+        "probability": "G231",
+        "complement": "H231",
+        "adjust": "I231",
+        "price": "J231"
+      }
+    },
+    "232": {
+      "row": 232,
+      "market": "South Africa Wickets Lost",
+      "selection": null,
+      "line": 6.5,
+      "probability": 0.6068903039113791,
+      "complementProbability": 0.3931096960886209,
+      "adjust": 0.0,
+      "price": 1.6477442357458139,
+      "cells": {
+        "line": "F232",
+        "probability": "G232",
+        "complement": "H232",
+        "adjust": "I232",
+        "price": "J232"
+      }
+    },
+    "257": {
+      "row": 257,
+      "market": "DP Conway - Runs",
+      "selection": "DP Conway",
+      "line": 23.5,
+      "probability": 0.5,
+      "complementProbability": 0.5,
+      "adjust": 0.0,
+      "price": 2.0,
+      "cells": {
+        "line": "F257",
+        "probability": "G257",
+        "complement": "H257",
+        "adjust": "I257",
+        "price": "J257"
+      }
+    },
+    "258": {
+      "row": 258,
+      "market": "TWM Latham - Runs",
+      "selection": "TWM Latham",
+      "line": 21.5,
+      "probability": 0.5,
+      "complementProbability": 0.5,
+      "adjust": 0.0,
+      "price": 2.0,
+      "cells": {
+        "line": "F258",
+        "probability": "G258",
+        "complement": "H258",
+        "adjust": "I258",
+        "price": "J258"
+      }
+    },
+    "259": {
+      "row": 259,
+      "market": "TB Robinson - Runs",
+      "selection": "TB Robinson",
+      "line": 20.5,
+      "probability": 0.5,
+      "complementProbability": 0.5,
+      "adjust": 0.0,
+      "price": 2.0,
+      "cells": {
+        "line": "F259",
+        "probability": "G259",
+        "complement": "H259",
+        "adjust": "I259",
+        "price": "J259"
+      }
+    },
+    "260": {
+      "row": 260,
+      "market": "NF Kelly - Runs",
+      "selection": "NF Kelly",
+      "line": 17.5,
+      "probability": 0.5,
+      "complementProbability": 0.5,
+      "adjust": 0.0,
+      "price": 2.0,
+      "cells": {
+        "line": "F260",
+        "probability": "G260",
+        "complement": "H260",
+        "adjust": "I260",
+        "price": "J260"
+      }
+    },
+    "261": {
+      "row": 261,
+      "market": "BJ Jacobs - Runs",
+      "selection": "BJ Jacobs",
+      "line": 15.5,
+      "probability": 0.5,
+      "complementProbability": 0.5,
+      "adjust": 0.0,
+      "price": 2.0,
+      "cells": {
+        "line": "F261",
+        "probability": "G261",
+        "complement": "H261",
+        "adjust": "I261",
+        "price": "J261"
+      }
+    },
+    "262": {
+      "row": 262,
+      "market": "C Esterhuizen - Runs",
+      "selection": "C Esterhuizen",
+      "line": 17.5,
+      "probability": 0.5,
+      "complementProbability": 0.5,
+      "adjust": 0.0,
+      "price": 2.0,
+      "cells": {
+        "line": "F262",
+        "probability": "G262",
+        "complement": "H262",
+        "adjust": "I262",
+        "price": "J262"
+      }
+    },
+    "263": {
+      "row": 263,
+      "market": "T de Zorzi - Runs",
+      "selection": "T de Zorzi",
+      "line": 17.5,
+      "probability": 0.5,
+      "complementProbability": 0.5,
+      "adjust": 0.0,
+      "price": 2.0,
+      "cells": {
+        "line": "F263",
+        "probability": "G263",
+        "complement": "H263",
+        "adjust": "I263",
+        "price": "J263"
+      }
+    },
+    "264": {
+      "row": 264,
+      "market": "RA Hermann - Runs",
+      "selection": "RA Hermann",
+      "line": 19.5,
+      "probability": 0.5,
+      "complementProbability": 0.5,
+      "adjust": 0.0,
+      "price": 2.0,
+      "cells": {
+        "line": "F264",
+        "probability": "G264",
+        "complement": "H264",
+        "adjust": "I264",
+        "price": "J264"
+      }
+    },
+    "265": {
+      "row": 265,
+      "market": "JF Smith - Runs",
+      "selection": "JF Smith",
+      "line": 19.5,
+      "probability": 0.5,
+      "complementProbability": 0.5,
+      "adjust": 0.0,
+      "price": 2.0,
+      "cells": {
+        "line": "F265",
+        "probability": "G265",
+        "complement": "H265",
+        "adjust": "I265",
+        "price": "J265"
+      }
+    },
+    "266": {
+      "row": 266,
+      "market": "PWA Mulder - Runs",
+      "selection": "PWA Mulder",
+      "line": 16.5,
+      "probability": 0.5,
+      "complementProbability": 0.5,
+      "adjust": 0.0,
+      "price": 2.0,
+      "cells": {
+        "line": "F266",
+        "probability": "G266",
+        "complement": "H266",
+        "adjust": "I266",
+        "price": "J266"
+      }
+    },
+    "267": {
+      "row": 267,
+      "market": "DP Conway - Fours",
+      "selection": "DP Conway",
+      "line": 2.5,
+      "probability": 0.5153257361259973,
+      "complementProbability": 0.4846742638740027,
+      "adjust": 0.0,
+      "price": 1.94052019896693,
+      "cells": {
+        "line": "F267",
+        "probability": "G267",
+        "complement": "H267",
+        "adjust": "I267",
+        "price": "J267"
+      }
+    },
+    "268": {
+      "row": 268,
+      "market": "TWM Latham - Fours",
+      "selection": "TWM Latham",
+      "line": 1.5,
+      "probability": 0.598735848084512,
+      "complementProbability": 0.401264151915488,
+      "adjust": 0.0,
+      "price": 1.6701856139050644,
+      "cells": {
+        "line": "F268",
+        "probability": "G268",
+        "complement": "H268",
+        "adjust": "I268",
+        "price": "J268"
+      }
+    },
+    "269": {
+      "row": 269,
+      "market": "TB Robinson - Fours",
+      "selection": "TB Robinson",
+      "line": 1.5,
+      "probability": 0.5385408599932104,
+      "complementProbability": 0.4614591400067895,
+      "adjust": 0.0,
+      "price": 1.8568693190942045,
+      "cells": {
+        "line": "F269",
+        "probability": "G269",
+        "complement": "H269",
+        "adjust": "I269",
+        "price": "J269"
+      }
+    },
+    "270": {
+      "row": 270,
+      "market": "NF Kelly - Fours",
+      "selection": "NF Kelly",
+      "line": 1.5,
+      "probability": 0.4933991665254489,
+      "complementProbability": 0.5066008334745511,
+      "adjust": 0.0,
+      "price": 2.0267565651601505,
+      "cells": {
+        "line": "F270",
+        "probability": "G270",
+        "complement": "H270",
+        "adjust": "I270",
+        "price": "J270"
+      }
+    },
+    "271": {
+      "row": 271,
+      "market": "BJ Jacobs - Fours",
+      "selection": "BJ Jacobs",
+      "line": 1.5,
+      "probability": 0.37423329335873723,
+      "complementProbability": 0.6257667066412628,
+      "adjust": 0.0,
+      "price": 2.672129972790549,
+      "cells": {
+        "line": "F271",
+        "probability": "G271",
+        "complement": "H271",
+        "adjust": "I271",
+        "price": "J271"
+      }
+    },
+    "272": {
+      "row": 272,
+      "market": "C Esterhuizen - Fours",
+      "selection": "C Esterhuizen",
+      "line": 1.5,
+      "probability": 0.5138635045630059,
+      "complementProbability": 0.4861364954369941,
+      "adjust": 0.0,
+      "price": 1.9460420736639177,
+      "cells": {
+        "line": "F272",
+        "probability": "G272",
+        "complement": "H272",
+        "adjust": "I272",
+        "price": "J272"
+      }
+    },
+    "273": {
+      "row": 273,
+      "market": "T de Zorzi - Fours",
+      "selection": "T de Zorzi",
+      "line": 1.5,
+      "probability": 0.5262717295507296,
+      "complementProbability": 0.47372827044927035,
+      "adjust": 0.0,
+      "price": 1.9001590696381985,
+      "cells": {
+        "line": "F273",
+        "probability": "G273",
+        "complement": "H273",
+        "adjust": "I273",
+        "price": "J273"
+      }
+    },
+    "274": {
+      "row": 274,
+      "market": "RA Hermann - Fours",
+      "selection": "RA Hermann",
+      "line": 1.5,
+      "probability": 0.5113224562350993,
+      "complementProbability": 0.48867754376490075,
+      "adjust": 0.0,
+      "price": 1.9557130491843941,
+      "cells": {
+        "line": "F274",
+        "probability": "G274",
+        "complement": "H274",
+        "adjust": "I274",
+        "price": "J274"
+      }
+    },
+    "275": {
+      "row": 275,
+      "market": "JF Smith - Fours",
+      "selection": "JF Smith",
+      "line": 1.5,
+      "probability": 0.4731480361114174,
+      "complementProbability": 0.5268519638885826,
+      "adjust": 0.0,
+      "price": 2.1135034358771363,
+      "cells": {
+        "line": "F275",
+        "probability": "G275",
+        "complement": "H275",
+        "adjust": "I275",
+        "price": "J275"
+      }
+    },
+    "276": {
+      "row": 276,
+      "market": "PWA Mulder - Fours",
+      "selection": "PWA Mulder",
+      "line": 1.5,
+      "probability": 0.39434764058962,
+      "complementProbability": 0.60565235941038,
+      "adjust": 0.0,
+      "price": 2.535833607384646,
+      "cells": {
+        "line": "F276",
+        "probability": "G276",
+        "complement": "H276",
+        "adjust": "I276",
+        "price": "J276"
+      }
+    },
+    "277": {
+      "row": 277,
+      "market": "DP Conway - Sixes",
+      "selection": "DP Conway",
+      "line": 0.5,
+      "probability": 0.4471926692501398,
+      "complementProbability": 0.5528073307498602,
+      "adjust": 0.0,
+      "price": 2.2361726136450693,
+      "cells": {
+        "line": "F277",
+        "probability": "G277",
+        "complement": "H277",
+        "adjust": "I277",
+        "price": "J277"
+      }
+    },
+    "278": {
+      "row": 278,
+      "market": "TWM Latham - Sixes",
+      "selection": "TWM Latham",
+      "line": 0.5,
+      "probability": 0.5153945532923878,
+      "complementProbability": 0.48460544670761213,
+      "adjust": 0.0,
+      "price": 1.9402610943633534,
+      "cells": {
+        "line": "F278",
+        "probability": "G278",
+        "complement": "H278",
+        "adjust": "I278",
+        "price": "J278"
+      }
+    },
+    "279": {
+      "row": 279,
+      "market": "TB Robinson - Sixes",
+      "selection": "TB Robinson",
+      "line": 0.5,
+      "probability": 0.5259721563304658,
+      "complementProbability": 0.47402784366953427,
+      "adjust": 0.0,
+      "price": 1.9012413261125267,
+      "cells": {
+        "line": "F279",
+        "probability": "G279",
+        "complement": "H279",
+        "adjust": "I279",
+        "price": "J279"
+      }
+    },
+    "280": {
+      "row": 280,
+      "market": "NF Kelly - Sixes",
+      "selection": "NF Kelly",
+      "line": 0.5,
+      "probability": 0.509910141254333,
+      "complementProbability": 0.490089858745667,
+      "adjust": 0.0,
+      "price": 1.961129852291406,
+      "cells": {
+        "line": "F280",
+        "probability": "G280",
+        "complement": "H280",
+        "adjust": "I280",
+        "price": "J280"
+      }
+    },
+    "281": {
+      "row": 281,
+      "market": "BJ Jacobs - Sixes",
+      "selection": "BJ Jacobs",
+      "line": 0.5,
+      "probability": 0.5337287732510699,
+      "complementProbability": 0.46627122674893007,
+      "adjust": 0.0,
+      "price": 1.8736108115527672,
+      "cells": {
+        "line": "F281",
+        "probability": "G281",
+        "complement": "H281",
+        "adjust": "I281",
+        "price": "J281"
+      }
+    },
+    "282": {
+      "row": 282,
+      "market": "C Esterhuizen - Sixes",
+      "selection": "C Esterhuizen",
+      "line": 0.5,
+      "probability": 0.4775874019289785,
+      "complementProbability": 0.5224125980710215,
+      "adjust": 0.0,
+      "price": 2.0938575765629364,
+      "cells": {
+        "line": "F282",
+        "probability": "G282",
+        "complement": "H282",
+        "adjust": "I282",
+        "price": "J282"
+      }
+    },
+    "283": {
+      "row": 283,
+      "market": "T de Zorzi - Sixes",
+      "selection": "T de Zorzi",
+      "line": 0.5,
+      "probability": 0.3953767669585707,
+      "complementProbability": 0.6046232330414293,
+      "adjust": 0.0,
+      "price": 2.5292330849191864,
+      "cells": {
+        "line": "F283",
+        "probability": "G283",
+        "complement": "H283",
+        "adjust": "I283",
+        "price": "J283"
+      }
+    },
+    "284": {
+      "row": 284,
+      "market": "RA Hermann - Sixes",
+      "selection": "RA Hermann",
+      "line": 0.5,
+      "probability": 0.48813013477163303,
+      "complementProbability": 0.511869865228367,
+      "adjust": 0.0,
+      "price": 2.0486340194256605,
+      "cells": {
+        "line": "F284",
+        "probability": "G284",
+        "complement": "H284",
+        "adjust": "I284",
+        "price": "J284"
+      }
+    },
+    "285": {
+      "row": 285,
+      "market": "JF Smith - Sixes",
+      "selection": "JF Smith",
+      "line": 0.5,
+      "probability": 0.48705330520576473,
+      "complementProbability": 0.5129466947942353,
+      "adjust": 0.0,
+      "price": 2.053163358736538,
+      "cells": {
+        "line": "F285",
+        "probability": "G285",
+        "complement": "H285",
+        "adjust": "I285",
+        "price": "J285"
+      }
+    },
+    "286": {
+      "row": 286,
+      "market": "PWA Mulder - Sixes",
+      "selection": "PWA Mulder",
+      "line": 0.5,
+      "probability": 0.46542902107022543,
+      "complementProbability": 0.5345709789297746,
+      "adjust": 0.0,
+      "price": 2.148555321497919,
+      "cells": {
+        "line": "F286",
+        "probability": "G286",
+        "complement": "H286",
+        "adjust": "I286",
+        "price": "J286"
+      }
+    },
+    "337": {
+      "row": 337,
+      "market": "DP Conway - Player Perf",
+      "selection": "DP Conway",
+      "line": 27.5,
+      "probability": 0.497996979301941,
+      "complementProbability": 0.502003020698059,
+      "adjust": -3.0,
+      "price": 2.0080443086255935,
+      "cells": {
+        "line": "F337",
+        "probability": "G337",
+        "complement": "H337",
+        "adjust": "I337",
+        "price": "J337"
+      }
+    },
+    "338": {
+      "row": 338,
+      "market": "TB Robinson - Player Perf",
+      "selection": "TB Robinson",
+      "line": 22.5,
+      "probability": 0.5063321131565974,
+      "complementProbability": 0.49366788684340257,
+      "adjust": -1.0,
+      "price": 1.9749883011878449,
+      "cells": {
+        "line": "F338",
+        "probability": "G338",
+        "complement": "H338",
+        "adjust": "I338",
+        "price": "J338"
+      }
+    },
+    "339": {
+      "row": 339,
+      "market": "MJ Santner - Player Perf",
+      "selection": "MJ Santner",
+      "line": 37.5,
+      "probability": 0.5007282207525883,
+      "complementProbability": 0.49927177924741173,
+      "adjust": -2.0,
+      "price": 1.997091353263478,
+      "cells": {
+        "line": "F339",
+        "probability": "G339",
+        "complement": "H339",
+        "adjust": "I339",
+        "price": "J339"
+      }
+    },
+    "340": {
+      "row": 340,
+      "market": "JDS Neesham - Player Perf",
+      "selection": "JDS Neesham",
+      "line": 30.5,
+      "probability": 0.4928927402891381,
+      "complementProbability": 0.5071072597108619,
+      "adjust": -1.0,
+      "price": 2.0288389709562074,
+      "cells": {
+        "line": "F340",
+        "probability": "G340",
+        "complement": "H340",
+        "adjust": "I340",
+        "price": "J340"
+      }
+    },
+    "341": {
+      "row": 341,
+      "market": "TWM Latham - Player Perf",
+      "selection": "TWM Latham",
+      "line": 33.5,
+      "probability": 0.507469609968622,
+      "complementProbability": 0.49253039003137794,
+      "adjust": -2.0,
+      "price": 1.970561350583796,
+      "cells": {
+        "line": "F341",
+        "probability": "G341",
+        "complement": "H341",
+        "adjust": "I341",
+        "price": "J341"
+      }
+    },
+    "342": {
+      "row": 342,
+      "market": "T de Zorzi - Player Perf",
+      "selection": "T de Zorzi",
+      "line": 20.5,
+      "probability": 0.5075672931236359,
+      "complementProbability": 0.49243270687636415,
+      "adjust": 1.0,
+      "price": 1.9701821089492753,
+      "cells": {
+        "line": "F342",
+        "probability": "G342",
+        "complement": "H342",
+        "adjust": "I342",
+        "price": "J342"
+      }
+    },
+    "343": {
+      "row": 343,
+      "market": "RA Hermann - Player Perf",
+      "selection": "RA Hermann",
+      "line": 21.5,
+      "probability": 0.5070863068858535,
+      "complementProbability": 0.4929136931141464,
+      "adjust": 0.0,
+      "price": 1.972050884476166,
+      "cells": {
+        "line": "F343",
+        "probability": "G343",
+        "complement": "H343",
+        "adjust": "I343",
+        "price": "J343"
+      }
+    },
+    "344": {
+      "row": 344,
+      "market": "KA Maharaj - Player Perf",
+      "selection": "KA Maharaj",
+      "line": 20.5,
+      "probability": 0.4927642461669671,
+      "complementProbability": 0.5072357538330329,
+      "adjust": -1.0,
+      "price": 2.029368014783204,
+      "cells": {
+        "line": "F344",
+        "probability": "G344",
+        "complement": "H344",
+        "adjust": "I344",
+        "price": "J344"
+      }
+    },
+    "345": {
+      "row": 345,
+      "market": "G Coetzee - Player Perf",
+      "selection": "G Coetzee",
+      "line": 20.5,
+      "probability": 0.4650755218151571,
+      "complementProbability": 0.5349244781848429,
+      "adjust": 0.0,
+      "price": 2.1501884169200527,
+      "cells": {
+        "line": "F345",
+        "probability": "G345",
+        "complement": "H345",
+        "adjust": "I345",
+        "price": "J345"
+      }
+    },
+    "346": {
+      "row": 346,
+      "market": "C Esterhuizen - Player Perf",
+      "selection": "C Esterhuizen",
+      "line": 30.5,
+      "probability": 0.4983279404393568,
+      "complementProbability": 0.5016720595606432,
+      "adjust": 1.0,
+      "price": 2.0067106795543874,
+      "cells": {
+        "line": "F346",
+        "probability": "G346",
+        "complement": "H346",
+        "adjust": "I346",
+        "price": "J346"
+      }
+    },
+    "610": {
+      "row": 610,
+      "market": "DP Conway - Balls Faced",
+      "selection": "DP Conway",
+      "line": 18.5,
+      "probability": 0.5,
+      "complementProbability": 0.5,
+      "adjust": 0.0,
+      "price": 2.0,
+      "cells": {
+        "line": "F610",
+        "probability": "G610",
+        "complement": "H610",
+        "adjust": "I610",
+        "price": "J610"
+      }
+    },
+    "611": {
+      "row": 611,
+      "market": "TWM Latham - Balls Faced",
+      "selection": "TWM Latham",
+      "line": 16.5,
+      "probability": 0.5,
+      "complementProbability": 0.5,
+      "adjust": 0.0,
+      "price": 2.0,
+      "cells": {
+        "line": "F611",
+        "probability": "G611",
+        "complement": "H611",
+        "adjust": "I611",
+        "price": "J611"
+      }
+    },
+    "612": {
+      "row": 612,
+      "market": "TB Robinson - Balls Faced",
+      "selection": "TB Robinson",
+      "line": 15.5,
+      "probability": 0.5,
+      "complementProbability": 0.5,
+      "adjust": 0.0,
+      "price": 2.0,
+      "cells": {
+        "line": "F612",
+        "probability": "G612",
+        "complement": "H612",
+        "adjust": "I612",
+        "price": "J612"
+      }
+    },
+    "613": {
+      "row": 613,
+      "market": "NF Kelly - Balls Faced",
+      "selection": "NF Kelly",
+      "line": 14.5,
+      "probability": 0.5,
+      "complementProbability": 0.5,
+      "adjust": 0.0,
+      "price": 2.0,
+      "cells": {
+        "line": "F613",
+        "probability": "G613",
+        "complement": "H613",
+        "adjust": "I613",
+        "price": "J613"
+      }
+    },
+    "614": {
+      "row": 614,
+      "market": "BJ Jacobs - Balls Faced",
+      "selection": "BJ Jacobs",
+      "line": 10.5,
+      "probability": 0.5,
+      "complementProbability": 0.5,
+      "adjust": 0.0,
+      "price": 2.0,
+      "cells": {
+        "line": "F614",
+        "probability": "G614",
+        "complement": "H614",
+        "adjust": "I614",
+        "price": "J614"
+      }
+    },
+    "615": {
+      "row": 615,
+      "market": "C Esterhuizen - Balls Faced",
+      "selection": "C Esterhuizen",
+      "line": 14.5,
+      "probability": 0.5,
+      "complementProbability": 0.5,
+      "adjust": 0.0,
+      "price": 2.0,
+      "cells": {
+        "line": "F615",
+        "probability": "G615",
+        "complement": "H615",
+        "adjust": "I615",
+        "price": "J615"
+      }
+    },
+    "616": {
+      "row": 616,
+      "market": "T de Zorzi - Balls Faced",
+      "selection": "T de Zorzi",
+      "line": 14.5,
+      "probability": 0.5,
+      "complementProbability": 0.5,
+      "adjust": 0.0,
+      "price": 2.0,
+      "cells": {
+        "line": "F616",
+        "probability": "G616",
+        "complement": "H616",
+        "adjust": "I616",
+        "price": "J616"
+      }
+    },
+    "617": {
+      "row": 617,
+      "market": "RA Hermann - Balls Faced",
+      "selection": "RA Hermann",
+      "line": 15.5,
+      "probability": 0.5,
+      "complementProbability": 0.5,
+      "adjust": 0.0,
+      "price": 2.0,
+      "cells": {
+        "line": "F617",
+        "probability": "G617",
+        "complement": "H617",
+        "adjust": "I617",
+        "price": "J617"
+      }
+    },
+    "618": {
+      "row": 618,
+      "market": "JF Smith - Balls Faced",
+      "selection": "JF Smith",
+      "line": 15.5,
+      "probability": 0.5,
+      "complementProbability": 0.5,
+      "adjust": 0.0,
+      "price": 2.0,
+      "cells": {
+        "line": "F618",
+        "probability": "G618",
+        "complement": "H618",
+        "adjust": "I618",
+        "price": "J618"
+      }
+    },
+    "619": {
+      "row": 619,
+      "market": "PWA Mulder - Balls Faced",
+      "selection": "PWA Mulder",
+      "line": 11.5,
+      "probability": 0.5,
+      "complementProbability": 0.5,
+      "adjust": 0.0,
+      "price": 2.0,
+      "cells": {
+        "line": "F619",
+        "probability": "G619",
+        "complement": "H619",
+        "adjust": "I619",
+        "price": "J619"
+      }
+    }
+  }
+}

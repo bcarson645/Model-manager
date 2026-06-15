@@ -25,7 +25,11 @@ Organized to mirror the GitLab repo structure. Parsed metadata lives in `lib/pri
 | `PreMatch/Models/Matches/MilestoneMarkets.cs` | 61BARUA / HUNDIN / 62BARUA | Fifty/Hundred innings & match |
 | `PreMatch/Models/Matches/TiedMatch.cs` | 64PINB | PM Publication G22–G23 |
 | `PreMatch/Models/Matches/TossWinDouble.cs` | TWD | PM Publication G26–G28 |
-| `PreMatch/Models/Players/PlayerRuns.cs` | 5/6{n}BARU | Player - Runs (per player) |
+| `PreMatch/Models/Players/PlayerRuns.cs` | 5/6{n}BARU | Player - Runs (rows 257–266) |
+| `PreMatch/Models/Players/PlayerFours.cs` | 5/6{n}BA4U | Player - Fours (rows 267–276) |
+| `PreMatch/Models/Players/PlayerSixes.cs` | 5/6{n}BA6U | Player - Sixes (rows 277–286) |
+| `PreMatch/Models/Players/PlayerBallsFaced.cs` | 5/6{n}BABF | Player - Balls Faced (rows 610–619) |
+| `PreMatch/Models/Players/PlayerPerformance.cs` | 56BARU / PERF{n} | Player - Player Perf (rows 337–346) |
 | `PreMatch/Models/Matches/MatchTopBatter.cs` | PMTRSNL | Match Top Bat. |
 | `PreMatch/Models/Matches/MatchTopBowler.cs` | PMTWTNL | Match Top Bowler. |
 | `PreMatch/Models/Matches/HighestIndividualScore.cs` | 63BARUA | Highest Individual Score (row 75) |

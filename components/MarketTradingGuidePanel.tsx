@@ -3,7 +3,14 @@
 import { useMemo, useState } from "react";
 import { buildMarketGuides, type MarketTradingGuide } from "@/lib/trading-guide";
 import { excelConventions } from "@/lib/workbooks/excel-mappings";
+import { traderAdjustArchitecture } from "@/lib/workbooks/trader-adjust-conventions";
+import { PM_QA_DEFAULT_FIXTURE_ID, pmQaFixtureList } from "@/lib/workbooks/pm-publication-qa";
 import { PhaseBadge } from "@/components/StatusBadge";
+import { PmQaTable } from "@/components/PmQaTable";
+import {
+  TraderAdjustOverview,
+  TraderSkewGuideSection,
+} from "@/components/TraderSkewGuideSection";
 
 function groupLabel(guide: MarketTradingGuide): string {
   if (guide.lambdaClass.includes(".Teams.")) return "Team markets";
@@ -92,7 +99,9 @@ function ExcelTradingCard({ guide }: { guide: MarketTradingGuide }) {
         </p>
       )}
       {ex.lambdaAdjust && (
-        <p className="font-mono text-xs text-slate-500">{ex.lambdaAdjust}</p>
+        <p className="font-mono text-xs text-slate-500">
+          Legacy C# path (parity review): {ex.lambdaAdjust}
+        </p>
       )}
       {ex.probabilityCells && (
         <p className="text-slate-400">
@@ -160,19 +169,22 @@ function GuideDetail({ guide }: { guide: MarketTradingGuide }) {
         </ol>
       </div>
 
+      <TraderSkewGuideSection skew={guide.traderSkewGuide} />
+
       <div className="grid gap-6 lg:grid-cols-2">
         <section className="rounded-2xl border border-accent/40 bg-accent/5 p-6">
           <h3 className="text-lg font-semibold text-white">
-            Trader adjusts on new FE
+            Trader adjust fields (registry)
           </h3>
           <p className="mt-1 text-xs text-slate-400">
-            Replaces purple cells in {excelConventions.preMatchAdjustSheet} column{" "}
-            {excelConventions.preMatchAdjustColumn}
+            Post-model skew — replaces purple {excelConventions.preMatchAdjustSheet} column{" "}
+            {excelConventions.preMatchAdjustColumn}. Typically I÷100 = ±0.01 probability (see Prep
+            Work {traderAdjustArchitecture.prepWork.e10.cell}). Not sent into Lambda.
           </p>
           <div className="mt-4">
             <FieldList
               items={guide.traderAdjusts}
-              empty="No trader-adjustable inputs in Lambda — display-only market."
+              empty="No per-row trader skew on this market — display Lambda output only."
             />
           </div>
         </section>
@@ -260,6 +272,21 @@ function GuideDetail({ guide }: { guide: MarketTradingGuide }) {
         </ul>
       </section>
 
+      <section className="rounded-2xl border border-orange-900/40 bg-orange-950/15 p-6">
+        <h3 className="text-lg font-semibold text-orange-100">PM Publication QA (F / G / I)</h3>
+        <p className="mt-1 text-xs text-slate-400">
+          Extracted workbook values for this fixture — line in column F, probability in G, trader
+          adjust in I. Status becomes a full Lambda compare once pricing output is wired.
+        </p>
+        <div className="mt-4">
+          <PmQaTable
+            registryModelId={guide.registryModelId}
+            selections={guide.pmQaSelections}
+            fixtureId={guide.pmQaFixtureId}
+          />
+        </div>
+      </section>
+
       {guide.parityGaps.length > 0 && (
         <section className="rounded-2xl border border-amber-900/40 bg-amber-950/20 p-6">
           <h3 className="text-sm font-semibold text-amber-200">Parity gaps / open questions</h3>
@@ -275,7 +302,8 @@ function GuideDetail({ guide }: { guide: MarketTradingGuide }) {
 }
 
 export function MarketTradingGuidePanel() {
-  const { guides } = useMemo(() => buildMarketGuides(), []);
+  const [fixtureId, setFixtureId] = useState(PM_QA_DEFAULT_FIXTURE_ID);
+  const { guides } = useMemo(() => buildMarketGuides(fixtureId), [fixtureId]);
   const [selectedId, setSelectedId] = useState(guides[0]?.id ?? "");
 
   const grouped = useMemo(() => {
@@ -300,7 +328,25 @@ export function MarketTradingGuidePanel() {
           fields (today&apos;s purple Excel cells), static inputs to store, Prep Work exports
           for the evaluation payload, and what to display after pricing runs.
         </p>
+        <div className="mt-4">
+          <label className="text-xs font-medium uppercase tracking-wide text-slate-500">
+            PM Publication fixture
+          </label>
+          <select
+            value={fixtureId}
+            onChange={(e) => setFixtureId(e.target.value)}
+            className="mt-1 block max-w-md rounded-lg border border-surface-border bg-surface px-3 py-2 text-sm text-white"
+          >
+            {pmQaFixtureList.map((f) => (
+              <option key={f.id} value={f.id}>
+                {f.label}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
+
+      <TraderAdjustOverview />
 
       <div className="flex flex-col gap-6 lg:flex-row lg:items-start">
         <div className="w-full shrink-0 lg:w-72">

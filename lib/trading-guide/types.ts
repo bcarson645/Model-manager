@@ -1,6 +1,12 @@
 import type { PricingModelDefinition } from "@/lib/pricing-models/types";
 import type { VariableDefinition } from "@/lib/types";
+import type {
+  PmPublicationSelection,
+  PmQaRowStatus,
+} from "@/lib/workbooks/pm-publication-qa";
+import type { TraderSkewGuide } from "./trader-skew-guides";
 
+export type { TraderSkewGuide } from "./trader-skew-guides";
 export type ExcelTradingMapping = {
   sheet: string;
   rows?: string;
@@ -51,6 +57,7 @@ export type MarketTradingGuide = {
   lambdaClass: string;
   excelTrading?: ExcelTradingMapping;
   traderAdjusts: GuideField[];
+  traderSkewGuide: TraderSkewGuide;
   staticInputs: GuideField[];
   embeddedLookups: GuideField[];
   sheetExports: GuideField[];
@@ -58,6 +65,9 @@ export type MarketTradingGuide = {
   dataFlow: string[];
   parityGaps: string[];
   model: PricingModelDefinition;
+  pmQaSelections: PmPublicationSelection[];
+  pmQaStatus: PmQaRowStatus;
+  pmQaFixtureId: string;
 };
 
 export type MarketGuideIndex = {

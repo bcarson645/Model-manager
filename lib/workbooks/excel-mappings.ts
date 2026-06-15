@@ -2,13 +2,16 @@
  * Excel cell conventions for cricket pricing workbooks.
  * Purple cells = trader adjusts. Pre-match adjusts: PM Publication column I.
  * Live adjusts: Scoring and UI tabs (purple cells).
+ *
+ * @see trader-adjust-conventions.ts — adjusts are applied on the FE after Lambda runs (±0.01 prob via I÷100 on most markets).
  */
 
 export const excelConventions = {
   preMatchAdjustColumn: "I",
   preMatchAdjustSheet: "PM Publication",
   liveAdjustSheets: ["Scoring", "UI"],
-  adjustCellNote: "Purple formatted cells — one adjust per published selection row",
+  adjustCellNote:
+    "Purple cells — per-row trader skew applied after the model (typically I÷100 → ±0.01 probability). See Prep Work E10 / G67 pattern.",
 };
 
 export const prepWorkMappings = {
@@ -42,6 +45,11 @@ export const prepWorkMappings = {
     feeds: "Format baseline runs in Excel",
     notes:
       "NZ v SA fixture is T20 (BT3=165 ≈ Lambda T20Standard=163). Prep Work A1 may still show 'Test' — treat par score as authoritative.",
+  },
+  traderAdjustExample: {
+    cell: "E10",
+    usedIn: "Prep Work!C10 = Pricing!J30 + E10/100",
+    notes: "÷100 skew unit — same idea as PM Publication I on many probability rows",
   },
   perInningsHistorical: {
     range: "K2:P18",
@@ -169,6 +177,8 @@ export const pmPublicationMappings = {
         { row: 50, selection: "Stumped", prob: "G50", adjust: "I50", lambda: "Stumped" },
         { row: 51, selection: "Other", prob: "G51", adjust: "I51", lambda: "Other" },
       ],
+      notes:
+        "7-way partition — probs sum to 1. PM Pricing r53–59: G[row]=AVERAGE(J:M)+I/100; C[row]=G/G$60; G45=PM Pricing C53. Adjust adds to weight then whole market renormalises (paired ±1 transfers 0.01 between outcomes).",
     },
     {
       modelId: "pm-highest-individual-score",
@@ -293,6 +303,36 @@ export const pmPublicationMappings = {
       lineCell: "F76",
       lambdaAdjust: "AdjustmentsPM.MatchAdjustments.RabbitRuns",
       notes: "Prep Work Y10=0.965; Lambda subtracts adjust÷100 from underProb (not added to total)",
+    },
+    {
+      modelId: "pm-player-runs",
+      rows: "257-266",
+      market: "Player - Runs",
+      notes: "One row per selected batter; line F, prob G≈0.5, adjust I per player",
+    },
+    {
+      modelId: "pm-player-fours",
+      rows: "267-276",
+      market: "Player - Fours",
+      notes: "Line Round(ExpectedFours/2); BatsmanFours adjust÷10; Prep Work O per player",
+    },
+    {
+      modelId: "pm-player-sixes",
+      rows: "277-286",
+      market: "Player - Sixes",
+      notes: "Line 0 (F=0.5 placeholder); Poisson-gamma under prob in G",
+    },
+    {
+      modelId: "pm-player-performance",
+      rows: "337-346",
+      market: "Player - Player Perf",
+      notes: "Top 5 per team; line Round(points×0.9); trader adjust in I (no Lambda adjust yet)",
+    },
+    {
+      modelId: "pm-player-balls-faced",
+      rows: "610-619",
+      market: "Player - Balls Faced",
+      notes: "Line from expected runs/strike rate; fixed 50/50 in Lambda",
     },
     {
       modelId: "pm-team-fours",

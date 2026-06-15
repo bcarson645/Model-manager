@@ -1,7 +1,18 @@
 import type { SharedPricingArtifact } from "@/lib/pricing-models/types-shared";
 import { ScopeBadge } from "@/components/StatusBadge";
+import { Highlight, SourceCodeBlock } from "@/components/SourceCodeBlock";
 
-export function SharedArtifactPanel({ artifact }: { artifact: SharedPricingArtifact }) {
+type SharedArtifactPanelProps = {
+  artifact: SharedPricingArtifact;
+  searchHighlight?: string;
+  defaultShowSource?: boolean;
+};
+
+export function SharedArtifactPanel({
+  artifact,
+  searchHighlight,
+  defaultShowSource = false,
+}: SharedArtifactPanelProps) {
   const kindLabel =
     artifact.kind === "static_helper"
       ? "Static helper"
@@ -10,16 +21,20 @@ export function SharedArtifactPanel({ artifact }: { artifact: SharedPricingArtif
         : "Base class";
 
   return (
-    <div className="rounded-2xl border border-surface-border bg-surface-raised p-6">
+    <div id={artifact.id} className="rounded-2xl border border-surface-border bg-surface-raised p-6 scroll-mt-6">
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div>
           <div className="flex flex-wrap items-center gap-2">
-            <p className="font-mono text-xs text-orange-300">{artifact.name}</p>
+            <p className="font-mono text-xs text-orange-300">
+              <Highlight text={artifact.name} query={searchHighlight} />
+            </p>
             <span className="rounded bg-surface px-2 py-0.5 text-[10px] uppercase tracking-wide text-slate-400">
               {kindLabel}
             </span>
           </div>
-          <p className="mt-1 text-sm text-slate-400">{artifact.description}</p>
+          <p className="mt-1 text-sm text-slate-400">
+            <Highlight text={artifact.description} query={searchHighlight} />
+          </p>
         </div>
         <p className="font-mono text-xs text-slate-500">{artifact.filePath}</p>
       </div>
@@ -99,6 +114,12 @@ export function SharedArtifactPanel({ artifact }: { artifact: SharedPricingArtif
           )}
         </div>
       </div>
+
+      <SourceCodeBlock
+        filePath={artifact.filePath}
+        searchHighlight={searchHighlight}
+        defaultOpen={defaultShowSource}
+      />
     </div>
   );
 }
