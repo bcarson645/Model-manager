@@ -1,6 +1,16 @@
 # Model Manager
 
-Prompt-driven interface builder for model management. Built with Next.js and ready to deploy on [Vercel](https://vercel.com).
+Registry and parity tooling for cricket betting outcome models migrating from Excel to AWS Lambda.
+
+## Problem this solves
+
+Excel workbooks hide variables inside nested formulas and VBA. Lambda functions embed constants in code. Traders need a clear view of:
+
+- **Embedded** — baked into the function, not exposed
+- **Parameter** — supplied at runtime (venue data, match state) but not trader-controlled
+- **Trading input** — must exist in the trading interface
+
+This app tracks which variables exist in Excel vs Lambda, flags parity gaps, and compares outputs for the same fixture.
 
 ## Local development
 
@@ -9,25 +19,28 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
-
 ## Deploy to Vercel
 
-1. Push this repo to GitHub (`bcarson645/Model-manager`).
-2. Go to [vercel.com/new](https://vercel.com/new).
-3. Import the **Model-manager** repository.
-4. Vercel auto-detects Next.js — leave defaults and click **Deploy**.
+Import [bcarson645/Model-manager](https://github.com/bcarson645/Model-manager) at [vercel.com/new](https://vercel.com/new). Next.js is auto-detected.
 
-No extra build settings are required. Framework preset: **Next.js**, build command: `npm run build`, output: `.next`.
+## Architecture (planned integrations)
+
+| Source | Integration approach |
+|--------|---------------------|
+| Excel | Parse named ranges / input sheets; invoke via COM automation or exported JSON snapshots |
+| Lambda | Inventory handler event schemas; invoke with shared input payloads; diff response bodies |
+| Trading UI | Export `trading_input` variables as the contract for what the interface must expose |
+
+## API
+
+- `GET /api/models` — model registry
+- `GET /api/variables?scope=trading_input&issues=true` — variable inventory
+- `GET /api/compare` — fixture output comparisons
 
 ## Project structure
 
-- `app/page.tsx` — main page
-- `components/PromptBuilder.tsx` — prompt input and preview UI
-- `app/api/prompt/route.ts` — API stub that turns prompts into layout structures
-
-## Next steps
-
-- Connect an LLM API key in Vercel environment variables
-- Replace the stub in `/api/prompt` with real generation logic
-- Add your model management data sources and auth
+- `lib/types.ts` — domain types
+- `lib/sample-data.ts` — cricket betting sample models (replace with real data)
+- `components/Dashboard.tsx` — tabbed UI
+- `components/VariableMatrix.tsx` — Excel vs Lambda variable tracking
+- `components/OutputComparison.tsx` — side-by-side output diff

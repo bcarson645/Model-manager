@@ -1,0 +1,4687 @@
+﻿[
+  {
+    "category": "Match Market",
+    "market": "Match Betting (3-Way)",
+    "firstRow": 14,
+    "selectionCount": 3,
+    "sampleSelections": [
+      "New Zealand",
+      "South Africa"
+    ],
+    "lastRow": 16
+  },
+  {
+    "category": "Match Market",
+    "market": "Match Winner Double Chance",
+    "firstRow": 17,
+    "selectionCount": 3,
+    "sampleSelections": [
+      "New Zealand / South Africa",
+      "New Zealand / Draw"
+    ],
+    "lastRow": 19
+  },
+  {
+    "category": "Match Market",
+    "market": "Match Betting",
+    "firstRow": 20,
+    "selectionCount": 2,
+    "sampleSelections": [
+      "New Zealand",
+      "South Africa"
+    ],
+    "lastRow": 21
+  },
+  {
+    "category": "Match Market",
+    "market": "Tied Match",
+    "firstRow": 22,
+    "selectionCount": 2,
+    "sampleSelections": [
+      "Yes",
+      "No"
+    ],
+    "lastRow": 23
+  },
+  {
+    "category": "Match Market",
+    "market": "Toss Winner",
+    "firstRow": 24,
+    "selectionCount": 2,
+    "sampleSelections": [
+      "New Zealand",
+      "South Africa"
+    ],
+    "lastRow": 25
+  },
+  {
+    "category": "Match Market",
+    "market": "Toss/Win Double",
+    "firstRow": 26,
+    "selectionCount": 3,
+    "sampleSelections": [
+      "New Zealand",
+      "South Africa"
+    ],
+    "lastRow": 28
+  },
+  {
+    "category": "Match Market",
+    "market": "Windex New Zealand",
+    "firstRow": 29,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "New Zealand"
+    ],
+    "lastRow": 29
+  },
+  {
+    "category": "Match Market",
+    "market": "Windex South Africa",
+    "firstRow": 30,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "South Africa"
+    ],
+    "lastRow": 30
+  },
+  {
+    "category": "First Inns Market",
+    "market": "Runs in First Innings",
+    "firstRow": 32,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 32
+  },
+  {
+    "category": "First Inns Market",
+    "market": "Runs in First Over",
+    "firstRow": 33,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 33
+  },
+  {
+    "category": "First Inns Market",
+    "market": "Alternative Runs in First Over",
+    "firstRow": 34,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 34
+  },
+  {
+    "category": "First Inns Market",
+    "market": "Runs off First Delivery",
+    "firstRow": 35,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 35
+  },
+  {
+    "category": "First Inns Market",
+    "market": "Runs off First Delivery.",
+    "firstRow": 36,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 36
+  },
+  {
+    "category": "First Inns Market",
+    "market": "Runs off First Delivery..",
+    "firstRow": 37,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 37
+  },
+  {
+    "category": "First Inns Market",
+    "market": "Runs in First 6 Overs",
+    "firstRow": 38,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 38
+  },
+  {
+    "category": "First Inns Market",
+    "market": "Runs in First 8 Overs",
+    "firstRow": 39,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 39
+  },
+  {
+    "category": "First Inns Market",
+    "market": "Runs in First 10 Overs",
+    "firstRow": 40,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 40
+  },
+  {
+    "category": "First Inns Market",
+    "market": "Wickets in First 6 Overs",
+    "firstRow": 41,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 41
+  },
+  {
+    "category": "First Inns Market",
+    "market": "Wickets in First 8 Overs",
+    "firstRow": 42,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 42
+  },
+  {
+    "category": "First Inns Market",
+    "market": "Wickets in First 10 Overs",
+    "firstRow": 43,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 43
+  },
+  {
+    "category": "First Inns Market",
+    "market": "Runs in First Partnership",
+    "firstRow": 44,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 44
+  },
+  {
+    "category": "First Inns Market",
+    "market": "Method of First Dismissal",
+    "firstRow": 45,
+    "selectionCount": 7,
+    "sampleSelections": [
+      "Fielder Catch",
+      "Bowled"
+    ],
+    "lastRow": 51
+  },
+  {
+    "category": "Match Market",
+    "market": "Match Fours",
+    "firstRow": 52,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 52
+  },
+  {
+    "category": "Match Market",
+    "market": "Match Sixes",
+    "firstRow": 53,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 53
+  },
+  {
+    "category": "Match Market",
+    "market": "Match Run Outs",
+    "firstRow": 54,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 54
+  },
+  {
+    "category": "Match Market",
+    "market": "Max Runs Scored in an Over",
+    "firstRow": 55,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 55
+  },
+  {
+    "category": "Match Market",
+    "market": "Match Ducks",
+    "firstRow": 56,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 56
+  },
+  {
+    "category": "Match Market",
+    "market": "Match Wides",
+    "firstRow": 57,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 57
+  },
+  {
+    "category": "Match Market",
+    "market": "Match Extras",
+    "firstRow": 58,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 58
+  },
+  {
+    "category": "Match Market",
+    "market": "Match Wickets",
+    "firstRow": 59,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 59
+  },
+  {
+    "category": "Match Market",
+    "market": "Team of Top Bat",
+    "firstRow": 60,
+    "selectionCount": 2,
+    "sampleSelections": [
+      "New Zealand",
+      "South Africa"
+    ],
+    "lastRow": 61
+  },
+  {
+    "category": "Match Market",
+    "market": "Team of Top Bowl",
+    "firstRow": 62,
+    "selectionCount": 2,
+    "sampleSelections": [
+      "New Zealand",
+      "South Africa"
+    ],
+    "lastRow": 63
+  },
+  {
+    "category": "Match Market",
+    "market": "First Innings Lead",
+    "firstRow": 64,
+    "selectionCount": 3,
+    "sampleSelections": [
+      "New Zealand",
+      "South Africa"
+    ],
+    "lastRow": 66
+  },
+  {
+    "category": "Match Market",
+    "market": "Fifty in First Innings",
+    "firstRow": 67,
+    "selectionCount": 2,
+    "sampleSelections": [
+      "Yes",
+      "No"
+    ],
+    "lastRow": 68
+  },
+  {
+    "category": "Match Market",
+    "market": "Fifty in Match",
+    "firstRow": 69,
+    "selectionCount": 2,
+    "sampleSelections": [
+      "Yes",
+      "No"
+    ],
+    "lastRow": 70
+  },
+  {
+    "category": "Match Market",
+    "market": "Hundred in First Innings",
+    "firstRow": 71,
+    "selectionCount": 2,
+    "sampleSelections": [
+      "Yes",
+      "No"
+    ],
+    "lastRow": 72
+  },
+  {
+    "category": "Match Market",
+    "market": "Hundred in Match",
+    "firstRow": 73,
+    "selectionCount": 2,
+    "sampleSelections": [
+      "Yes",
+      "No"
+    ],
+    "lastRow": 74
+  },
+  {
+    "category": "Match Market",
+    "market": "Highest Individual Score",
+    "firstRow": 75,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 75
+  },
+  {
+    "category": "Match Market",
+    "market": "Rabbit Runs",
+    "firstRow": 76,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 76
+  },
+  {
+    "category": "Match Market",
+    "market": "Runs in Highest Scoring Session",
+    "firstRow": 77,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 77
+  },
+  {
+    "category": "Match Market",
+    "market": "Test Match Session End",
+    "firstRow": 78,
+    "selectionCount": 7,
+    "sampleSelections": [
+      "Days 1-3",
+      "Day 4 Session 1"
+    ],
+    "lastRow": 84
+  },
+  {
+    "category": "Head to Heads",
+    "market": "Highest 1st Over Total",
+    "firstRow": 86,
+    "selectionCount": 3,
+    "sampleSelections": [
+      "New Zealand",
+      "South Africa"
+    ],
+    "lastRow": 88
+  },
+  {
+    "category": "Head to Heads",
+    "market": "Highest 1st 6 Overs Total",
+    "firstRow": 89,
+    "selectionCount": 3,
+    "sampleSelections": [
+      "New Zealand",
+      "South Africa"
+    ],
+    "lastRow": 91
+  },
+  {
+    "category": "Head to Heads",
+    "market": "Highest Opening Partnership",
+    "firstRow": 92,
+    "selectionCount": 3,
+    "sampleSelections": [
+      "New Zealand",
+      "South Africa"
+    ],
+    "lastRow": 94
+  },
+  {
+    "category": "Head to Heads",
+    "market": "Most Fours",
+    "firstRow": 95,
+    "selectionCount": 3,
+    "sampleSelections": [
+      "New Zealand",
+      "South Africa"
+    ],
+    "lastRow": 97
+  },
+  {
+    "category": "Head to Heads",
+    "market": "Most Sixes",
+    "firstRow": 98,
+    "selectionCount": 3,
+    "sampleSelections": [
+      "New Zealand",
+      "South Africa"
+    ],
+    "lastRow": 100
+  },
+  {
+    "category": "Team Market",
+    "market": "New Zealand 1st Over Runs",
+    "firstRow": 102,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 102
+  },
+  {
+    "category": "Team Market",
+    "market": "New Zealand 1st Over Alternative Runs",
+    "firstRow": 103,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 103
+  },
+  {
+    "category": "Team Market",
+    "market": "New Zealand 2nd Over Runs",
+    "firstRow": 104,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 104
+  },
+  {
+    "category": "Team Market",
+    "market": "New Zealand 2nd Over Alternative Runs",
+    "firstRow": 105,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 105
+  },
+  {
+    "category": "Team Market",
+    "market": "New Zealand 3rd Over Runs",
+    "firstRow": 106,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 106
+  },
+  {
+    "category": "Team Market",
+    "market": "New Zealand 3rd Over Alternative Runs",
+    "firstRow": 107,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 107
+  },
+  {
+    "category": "Team Market",
+    "market": "New Zealand 4th Over Runs",
+    "firstRow": 108,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 108
+  },
+  {
+    "category": "Team Market",
+    "market": "New Zealand 4th Over Alternative Runs",
+    "firstRow": 109,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 109
+  },
+  {
+    "category": "Team Market",
+    "market": "New Zealand 5th Over Runs",
+    "firstRow": 110,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 110
+  },
+  {
+    "category": "Team Market",
+    "market": "New Zealand 5th Over Alternative Runs",
+    "firstRow": 111,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 111
+  },
+  {
+    "category": "Team Market",
+    "market": "New Zealand 6th Over Runs",
+    "firstRow": 112,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 112
+  },
+  {
+    "category": "Team Market",
+    "market": "New Zealand 6th Over Alternative Runs",
+    "firstRow": 113,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 113
+  },
+  {
+    "category": "Team Market",
+    "market": "New Zealand 1st Over - Wicket?",
+    "firstRow": 114,
+    "selectionCount": 2,
+    "sampleSelections": [
+      "Yes",
+      "No"
+    ],
+    "lastRow": 115
+  },
+  {
+    "category": "Team Market",
+    "market": "New Zealand 2nd Over - Wicket?",
+    "firstRow": 116,
+    "selectionCount": 2,
+    "sampleSelections": [
+      "Yes",
+      "No"
+    ],
+    "lastRow": 117
+  },
+  {
+    "category": "Team Market",
+    "market": "New Zealand 3rd Over - Wicket?",
+    "firstRow": 118,
+    "selectionCount": 2,
+    "sampleSelections": [
+      "Yes",
+      "No"
+    ],
+    "lastRow": 119
+  },
+  {
+    "category": "Team Market",
+    "market": "New Zealand 4th Over - Wicket?",
+    "firstRow": 120,
+    "selectionCount": 2,
+    "sampleSelections": [
+      "Yes",
+      "No"
+    ],
+    "lastRow": 121
+  },
+  {
+    "category": "Team Market",
+    "market": "New Zealand 5th Over - Wicket?",
+    "firstRow": 122,
+    "selectionCount": 2,
+    "sampleSelections": [
+      "Yes",
+      "No"
+    ],
+    "lastRow": 123
+  },
+  {
+    "category": "Team Market",
+    "market": "New Zealand 6th Over - Wicket?",
+    "firstRow": 124,
+    "selectionCount": 2,
+    "sampleSelections": [
+      "Yes",
+      "No"
+    ],
+    "lastRow": 125
+  },
+  {
+    "category": "Team Market",
+    "market": "New Zealand 1st Over - Boundary?",
+    "firstRow": 126,
+    "selectionCount": 2,
+    "sampleSelections": [
+      "Yes",
+      "No"
+    ],
+    "lastRow": 127
+  },
+  {
+    "category": "Team Market",
+    "market": "New Zealand 2nd Over - Boundary?",
+    "firstRow": 128,
+    "selectionCount": 2,
+    "sampleSelections": [
+      "Yes",
+      "No"
+    ],
+    "lastRow": 129
+  },
+  {
+    "category": "Team Market",
+    "market": "New Zealand 3rd Over - Boundary?",
+    "firstRow": 130,
+    "selectionCount": 2,
+    "sampleSelections": [
+      "Yes",
+      "No"
+    ],
+    "lastRow": 131
+  },
+  {
+    "category": "Team Market",
+    "market": "New Zealand 4th Over - Boundary?",
+    "firstRow": 132,
+    "selectionCount": 2,
+    "sampleSelections": [
+      "Yes",
+      "No"
+    ],
+    "lastRow": 133
+  },
+  {
+    "category": "Team Market",
+    "market": "New Zealand 5th Over - Boundary?",
+    "firstRow": 134,
+    "selectionCount": 2,
+    "sampleSelections": [
+      "Yes",
+      "No"
+    ],
+    "lastRow": 135
+  },
+  {
+    "category": "Team Market",
+    "market": "New Zealand 6th Over - Boundary?",
+    "firstRow": 136,
+    "selectionCount": 2,
+    "sampleSelections": [
+      "Yes",
+      "No"
+    ],
+    "lastRow": 137
+  },
+  {
+    "category": "Team Market",
+    "market": "New Zealand Runs in First 6 Overs",
+    "firstRow": 138,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 138
+  },
+  {
+    "category": "Team Market",
+    "market": "New Zealand Runs in First 6 Overs.",
+    "firstRow": 139,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 139
+  },
+  {
+    "category": "Team Market",
+    "market": "New Zealand Runs in First 6 Overs..",
+    "firstRow": 140,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 140
+  },
+  {
+    "category": "Team Market",
+    "market": "New Zealand Runs in First 8 Overs",
+    "firstRow": 141,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 141
+  },
+  {
+    "category": "Team Market",
+    "market": "New Zealand Runs in First 8 Overs.",
+    "firstRow": 142,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 142
+  },
+  {
+    "category": "Team Market",
+    "market": "New Zealand Runs in First 8 Overs..",
+    "firstRow": 143,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 143
+  },
+  {
+    "category": "Team Market",
+    "market": "New Zealand Runs in First 10 Overs",
+    "firstRow": 144,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 144
+  },
+  {
+    "category": "Team Market",
+    "market": "New Zealand Runs in First 10 Overs.",
+    "firstRow": 145,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 145
+  },
+  {
+    "category": "Team Market",
+    "market": "New Zealand Runs in First 10 Overs..",
+    "firstRow": 146,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 146
+  },
+  {
+    "category": "Team Market",
+    "market": "New Zealand Runs at Fall of 1st Wicket",
+    "firstRow": 147,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 147
+  },
+  {
+    "category": "Team Market",
+    "market": "New Zealand 1st Wicket Method of Dismissal",
+    "firstRow": 148,
+    "selectionCount": 7,
+    "sampleSelections": [
+      "Fielder Catch",
+      "Bowled"
+    ],
+    "lastRow": 154
+  },
+  {
+    "category": "Team Market",
+    "market": "New Zealand Fours.",
+    "firstRow": 155,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 155
+  },
+  {
+    "category": "Team Market",
+    "market": "New Zealand Fours",
+    "firstRow": 156,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 156
+  },
+  {
+    "category": "Team Market",
+    "market": "New Zealand Fours..",
+    "firstRow": 157,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 157
+  },
+  {
+    "category": "Team Market",
+    "market": "New Zealand Sixes.",
+    "firstRow": 158,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 158
+  },
+  {
+    "category": "Team Market",
+    "market": "New Zealand Sixes",
+    "firstRow": 159,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 159
+  },
+  {
+    "category": "Team Market",
+    "market": "New Zealand Sixes..",
+    "firstRow": 160,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 160
+  },
+  {
+    "category": "Team Market",
+    "market": "New Zealand Innings Run Outs",
+    "firstRow": 161,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 161
+  },
+  {
+    "category": "Team Market",
+    "market": "New Zealand Max Runs in an Over",
+    "firstRow": 162,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 162
+  },
+  {
+    "category": "Team Market",
+    "market": "New Zealand Innings Wides Faced",
+    "firstRow": 163,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 163
+  },
+  {
+    "category": "Team Market",
+    "market": "New Zealand Innings Ducks",
+    "firstRow": 164,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 164
+  },
+  {
+    "category": "Team Market",
+    "market": "New Zealand Innings Extras",
+    "firstRow": 165,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 165
+  },
+  {
+    "category": "Team Market",
+    "market": "New Zealand Wickets Lost",
+    "firstRow": 166,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 166
+  },
+  {
+    "category": "Team Market",
+    "market": "South Africa 1st Over Runs",
+    "firstRow": 168,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 168
+  },
+  {
+    "category": "Team Market",
+    "market": "South Africa 1st Over Alternative Runs",
+    "firstRow": 169,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 169
+  },
+  {
+    "category": "Team Market",
+    "market": "South Africa 2nd Over Runs",
+    "firstRow": 170,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 170
+  },
+  {
+    "category": "Team Market",
+    "market": "South Africa 2nd Over Alternative Runs",
+    "firstRow": 171,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 171
+  },
+  {
+    "category": "Team Market",
+    "market": "South Africa 3rd Over Runs",
+    "firstRow": 172,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 172
+  },
+  {
+    "category": "Team Market",
+    "market": "South Africa 3rd Over Alternative Runs",
+    "firstRow": 173,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 173
+  },
+  {
+    "category": "Team Market",
+    "market": "South Africa 4th Over Runs",
+    "firstRow": 174,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 174
+  },
+  {
+    "category": "Team Market",
+    "market": "South Africa 4th Over Alternative Runs",
+    "firstRow": 175,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 175
+  },
+  {
+    "category": "Team Market",
+    "market": "South Africa 5th Over Runs",
+    "firstRow": 176,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 176
+  },
+  {
+    "category": "Team Market",
+    "market": "South Africa 5th Over Alternative Runs",
+    "firstRow": 177,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 177
+  },
+  {
+    "category": "Team Market",
+    "market": "South Africa 6th Over Runs",
+    "firstRow": 178,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 178
+  },
+  {
+    "category": "Team Market",
+    "market": "South Africa 6th Over Alternative Runs",
+    "firstRow": 179,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 179
+  },
+  {
+    "category": "Team Market",
+    "market": "South Africa 1st Over - Wicket?",
+    "firstRow": 180,
+    "selectionCount": 2,
+    "sampleSelections": [
+      "Yes",
+      "No"
+    ],
+    "lastRow": 181
+  },
+  {
+    "category": "Team Market",
+    "market": "South Africa 2nd Over - Wicket?",
+    "firstRow": 182,
+    "selectionCount": 2,
+    "sampleSelections": [
+      "Yes",
+      "No"
+    ],
+    "lastRow": 183
+  },
+  {
+    "category": "Team Market",
+    "market": "South Africa 3rd Over - Wicket?",
+    "firstRow": 184,
+    "selectionCount": 2,
+    "sampleSelections": [
+      "Yes",
+      "No"
+    ],
+    "lastRow": 185
+  },
+  {
+    "category": "Team Market",
+    "market": "South Africa 4th Over - Wicket?",
+    "firstRow": 186,
+    "selectionCount": 2,
+    "sampleSelections": [
+      "Yes",
+      "No"
+    ],
+    "lastRow": 187
+  },
+  {
+    "category": "Team Market",
+    "market": "South Africa 5th Over - Wicket?",
+    "firstRow": 188,
+    "selectionCount": 2,
+    "sampleSelections": [
+      "Yes",
+      "No"
+    ],
+    "lastRow": 189
+  },
+  {
+    "category": "Team Market",
+    "market": "South Africa 6th Over - Wicket?",
+    "firstRow": 190,
+    "selectionCount": 2,
+    "sampleSelections": [
+      "Yes",
+      "No"
+    ],
+    "lastRow": 191
+  },
+  {
+    "category": "Team Market",
+    "market": "South Africa 1st Over - Boundary?",
+    "firstRow": 192,
+    "selectionCount": 2,
+    "sampleSelections": [
+      "Yes",
+      "No"
+    ],
+    "lastRow": 193
+  },
+  {
+    "category": "Team Market",
+    "market": "South Africa 2nd Over - Boundary?",
+    "firstRow": 194,
+    "selectionCount": 2,
+    "sampleSelections": [
+      "Yes",
+      "No"
+    ],
+    "lastRow": 195
+  },
+  {
+    "category": "Team Market",
+    "market": "South Africa 3rd Over - Boundary?",
+    "firstRow": 196,
+    "selectionCount": 2,
+    "sampleSelections": [
+      "Yes",
+      "No"
+    ],
+    "lastRow": 197
+  },
+  {
+    "category": "Team Market",
+    "market": "South Africa 4th Over - Boundary?",
+    "firstRow": 198,
+    "selectionCount": 2,
+    "sampleSelections": [
+      "Yes",
+      "No"
+    ],
+    "lastRow": 199
+  },
+  {
+    "category": "Team Market",
+    "market": "South Africa 5th Over - Boundary?",
+    "firstRow": 200,
+    "selectionCount": 2,
+    "sampleSelections": [
+      "Yes",
+      "No"
+    ],
+    "lastRow": 201
+  },
+  {
+    "category": "Team Market",
+    "market": "South Africa 6th Over - Boundary?",
+    "firstRow": 202,
+    "selectionCount": 2,
+    "sampleSelections": [
+      "Yes",
+      "No"
+    ],
+    "lastRow": 203
+  },
+  {
+    "category": "Team Market",
+    "market": "South Africa Runs in First 6 Overs",
+    "firstRow": 204,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 204
+  },
+  {
+    "category": "Team Market",
+    "market": "South Africa Runs in First 6 Overs.",
+    "firstRow": 205,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 205
+  },
+  {
+    "category": "Team Market",
+    "market": "South Africa Runs in First 6 Overs..",
+    "firstRow": 206,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 206
+  },
+  {
+    "category": "Team Market",
+    "market": "South Africa Runs in First 8 Overs",
+    "firstRow": 207,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 207
+  },
+  {
+    "category": "Team Market",
+    "market": "South Africa Runs in First 8 Overs.",
+    "firstRow": 208,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 208
+  },
+  {
+    "category": "Team Market",
+    "market": "South Africa Runs in First 8 Overs..",
+    "firstRow": 209,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 209
+  },
+  {
+    "category": "Team Market",
+    "market": "South Africa Runs in First 10 Overs",
+    "firstRow": 210,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 210
+  },
+  {
+    "category": "Team Market",
+    "market": "South Africa Runs in First 10 Overs.",
+    "firstRow": 211,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 211
+  },
+  {
+    "category": "Team Market",
+    "market": "South Africa Runs in First 10 Overs..",
+    "firstRow": 212,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 212
+  },
+  {
+    "category": "Team Market",
+    "market": "South Africa Runs at Fall of 1st Wicket",
+    "firstRow": 213,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 213
+  },
+  {
+    "category": "Team Market",
+    "market": "South Africa 1st Wicket Method of Dismissal",
+    "firstRow": 214,
+    "selectionCount": 7,
+    "sampleSelections": [
+      "Fielder Catch",
+      "Bowled"
+    ],
+    "lastRow": 220
+  },
+  {
+    "category": "Team Market",
+    "market": "South Africa Fours.",
+    "firstRow": 221,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 221
+  },
+  {
+    "category": "Team Market",
+    "market": "South Africa Fours",
+    "firstRow": 222,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 222
+  },
+  {
+    "category": "Team Market",
+    "market": "South Africa Fours..",
+    "firstRow": 223,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 223
+  },
+  {
+    "category": "Team Market",
+    "market": "South Africa Sixes.",
+    "firstRow": 224,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 224
+  },
+  {
+    "category": "Team Market",
+    "market": "South Africa Sixes",
+    "firstRow": 225,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 225
+  },
+  {
+    "category": "Team Market",
+    "market": "South Africa Sixes..",
+    "firstRow": 226,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 226
+  },
+  {
+    "category": "Team Market",
+    "market": "South Africa Innings Run Outs",
+    "firstRow": 227,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 227
+  },
+  {
+    "category": "Team Market",
+    "market": "South Africa Max Runs in an Over",
+    "firstRow": 228,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 228
+  },
+  {
+    "category": "Team Market",
+    "market": "South Africa Innings Wides Faced",
+    "firstRow": 229,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 229
+  },
+  {
+    "category": "Team Market",
+    "market": "South Africa Innings Ducks",
+    "firstRow": 230,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 230
+  },
+  {
+    "category": "Team Market",
+    "market": "South Africa Innings Extras",
+    "firstRow": 231,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 231
+  },
+  {
+    "category": "Team Market",
+    "market": "South Africa Wickets Lost",
+    "firstRow": 232,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 232
+  },
+  {
+    "category": "Spread Market",
+    "market": "Supremacy New Zealand",
+    "firstRow": 234,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 234
+  },
+  {
+    "category": "Spread Market",
+    "market": "Supremacy South Africa",
+    "firstRow": 235,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 235
+  },
+  {
+    "category": "Spread Market",
+    "market": "Total Sixes",
+    "firstRow": 236,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 236
+  },
+  {
+    "category": "Spread Market",
+    "market": "Multi-Sixes",
+    "firstRow": 237,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 237
+  },
+  {
+    "category": "Spread Market",
+    "market": "New Zealand Sixes",
+    "firstRow": 238,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 238
+  },
+  {
+    "category": "Spread Market",
+    "market": "South Africa Sixes",
+    "firstRow": 239,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 239
+  },
+  {
+    "category": "Spread Market",
+    "market": "10-3 Sixes Matchbet New Zealand",
+    "firstRow": 240,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 240
+  },
+  {
+    "category": "Spread Market",
+    "market": "10-3 Sixes Matchbet South Africa",
+    "firstRow": 241,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 241
+  },
+  {
+    "category": "Spread Market",
+    "market": "Total Fours",
+    "firstRow": 242,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 242
+  },
+  {
+    "category": "Spread Market",
+    "market": "Multi-Fours",
+    "firstRow": 243,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 243
+  },
+  {
+    "category": "Spread Market",
+    "market": "New Zealand Fours",
+    "firstRow": 244,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 244
+  },
+  {
+    "category": "Spread Market",
+    "market": "South Africa Fours",
+    "firstRow": 245,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 245
+  },
+  {
+    "category": "Spread Market",
+    "market": "First 6 Overs H2H Supremacy New Zealand",
+    "firstRow": 246,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 246
+  },
+  {
+    "category": "Spread Market",
+    "market": "First 6 Overs H2H Supremacy South Africa",
+    "firstRow": 247,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 247
+  },
+  {
+    "category": "Spread Market",
+    "market": "First 15 Overs H2H Supremacy New Zealand",
+    "firstRow": 248,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 248
+  },
+  {
+    "category": "Spread Market",
+    "market": "First 15 Overs H2H Supremacy South Africa",
+    "firstRow": 249,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 249
+  },
+  {
+    "category": "Spread Market",
+    "market": "Total Wides",
+    "firstRow": 250,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 250
+  },
+  {
+    "category": "Spread Market",
+    "market": "Multi-Wides",
+    "firstRow": 251,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 251
+  },
+  {
+    "category": "Spread Market",
+    "market": "Total Run Outs",
+    "firstRow": 252,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 252
+  },
+  {
+    "category": "Spread Market",
+    "market": "Launch",
+    "firstRow": 253,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 253
+  },
+  {
+    "category": "Spread Market",
+    "market": "Off To A Flyer",
+    "firstRow": 254,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 254
+  },
+  {
+    "category": "Spread Market",
+    "market": "Multi-Flyer",
+    "firstRow": 255,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 255
+  },
+  {
+    "category": "Player Market",
+    "market": "DP Conway - Runs",
+    "firstRow": 257,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "DP Conway"
+    ],
+    "lastRow": 257
+  },
+  {
+    "category": "Player Market",
+    "market": "TWM Latham - Runs",
+    "firstRow": 258,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "TWM Latham"
+    ],
+    "lastRow": 258
+  },
+  {
+    "category": "Player Market",
+    "market": "TB Robinson - Runs",
+    "firstRow": 259,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "TB Robinson"
+    ],
+    "lastRow": 259
+  },
+  {
+    "category": "Player Market",
+    "market": "NF Kelly - Runs",
+    "firstRow": 260,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "NF Kelly"
+    ],
+    "lastRow": 260
+  },
+  {
+    "category": "Player Market",
+    "market": "BJ Jacobs - Runs",
+    "firstRow": 261,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "BJ Jacobs"
+    ],
+    "lastRow": 261
+  },
+  {
+    "category": "Player Market",
+    "market": "C Esterhuizen - Runs",
+    "firstRow": 262,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "C Esterhuizen"
+    ],
+    "lastRow": 262
+  },
+  {
+    "category": "Player Market",
+    "market": "T de Zorzi - Runs",
+    "firstRow": 263,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "T de Zorzi"
+    ],
+    "lastRow": 263
+  },
+  {
+    "category": "Player Market",
+    "market": "RA Hermann - Runs",
+    "firstRow": 264,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "RA Hermann"
+    ],
+    "lastRow": 264
+  },
+  {
+    "category": "Player Market",
+    "market": "JF Smith - Runs",
+    "firstRow": 265,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "JF Smith"
+    ],
+    "lastRow": 265
+  },
+  {
+    "category": "Player Market",
+    "market": "PWA Mulder - Runs",
+    "firstRow": 266,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "PWA Mulder"
+    ],
+    "lastRow": 266
+  },
+  {
+    "category": "Player Market",
+    "market": "DP Conway - Fours",
+    "firstRow": 267,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "DP Conway"
+    ],
+    "lastRow": 267
+  },
+  {
+    "category": "Player Market",
+    "market": "TWM Latham - Fours",
+    "firstRow": 268,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "TWM Latham"
+    ],
+    "lastRow": 268
+  },
+  {
+    "category": "Player Market",
+    "market": "TB Robinson - Fours",
+    "firstRow": 269,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "TB Robinson"
+    ],
+    "lastRow": 269
+  },
+  {
+    "category": "Player Market",
+    "market": "NF Kelly - Fours",
+    "firstRow": 270,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "NF Kelly"
+    ],
+    "lastRow": 270
+  },
+  {
+    "category": "Player Market",
+    "market": "BJ Jacobs - Fours",
+    "firstRow": 271,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "BJ Jacobs"
+    ],
+    "lastRow": 271
+  },
+  {
+    "category": "Player Market",
+    "market": "C Esterhuizen - Fours",
+    "firstRow": 272,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "C Esterhuizen"
+    ],
+    "lastRow": 272
+  },
+  {
+    "category": "Player Market",
+    "market": "T de Zorzi - Fours",
+    "firstRow": 273,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "T de Zorzi"
+    ],
+    "lastRow": 273
+  },
+  {
+    "category": "Player Market",
+    "market": "RA Hermann - Fours",
+    "firstRow": 274,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "RA Hermann"
+    ],
+    "lastRow": 274
+  },
+  {
+    "category": "Player Market",
+    "market": "JF Smith - Fours",
+    "firstRow": 275,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "JF Smith"
+    ],
+    "lastRow": 275
+  },
+  {
+    "category": "Player Market",
+    "market": "PWA Mulder - Fours",
+    "firstRow": 276,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "PWA Mulder"
+    ],
+    "lastRow": 276
+  },
+  {
+    "category": "Player Market",
+    "market": "DP Conway - Sixes",
+    "firstRow": 277,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "DP Conway"
+    ],
+    "lastRow": 277
+  },
+  {
+    "category": "Player Market",
+    "market": "TWM Latham - Sixes",
+    "firstRow": 278,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "TWM Latham"
+    ],
+    "lastRow": 278
+  },
+  {
+    "category": "Player Market",
+    "market": "TB Robinson - Sixes",
+    "firstRow": 279,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "TB Robinson"
+    ],
+    "lastRow": 279
+  },
+  {
+    "category": "Player Market",
+    "market": "NF Kelly - Sixes",
+    "firstRow": 280,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "NF Kelly"
+    ],
+    "lastRow": 280
+  },
+  {
+    "category": "Player Market",
+    "market": "BJ Jacobs - Sixes",
+    "firstRow": 281,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "BJ Jacobs"
+    ],
+    "lastRow": 281
+  },
+  {
+    "category": "Player Market",
+    "market": "C Esterhuizen - Sixes",
+    "firstRow": 282,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "C Esterhuizen"
+    ],
+    "lastRow": 282
+  },
+  {
+    "category": "Player Market",
+    "market": "T de Zorzi - Sixes",
+    "firstRow": 283,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "T de Zorzi"
+    ],
+    "lastRow": 283
+  },
+  {
+    "category": "Player Market",
+    "market": "RA Hermann - Sixes",
+    "firstRow": 284,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "RA Hermann"
+    ],
+    "lastRow": 284
+  },
+  {
+    "category": "Player Market",
+    "market": "JF Smith - Sixes",
+    "firstRow": 285,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "JF Smith"
+    ],
+    "lastRow": 285
+  },
+  {
+    "category": "Player Market",
+    "market": "PWA Mulder - Sixes",
+    "firstRow": 286,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "PWA Mulder"
+    ],
+    "lastRow": 286
+  },
+  {
+    "category": "Player Market",
+    "market": "DP Conway - To Score 50?",
+    "firstRow": 287,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "Yes"
+    ],
+    "lastRow": 287
+  },
+  {
+    "category": null,
+    "market": "DP Conway - To Score 50?",
+    "firstRow": 288,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "No"
+    ],
+    "lastRow": 288
+  },
+  {
+    "category": "Player Market",
+    "market": "TWM Latham - To Score 50?",
+    "firstRow": 289,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "Yes"
+    ],
+    "lastRow": 289
+  },
+  {
+    "category": null,
+    "market": "TWM Latham - To Score 50?",
+    "firstRow": 290,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "No"
+    ],
+    "lastRow": 290
+  },
+  {
+    "category": "Player Market",
+    "market": "TB Robinson - To Score 50?",
+    "firstRow": 291,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "Yes"
+    ],
+    "lastRow": 291
+  },
+  {
+    "category": null,
+    "market": "TB Robinson - To Score 50?",
+    "firstRow": 292,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "No"
+    ],
+    "lastRow": 292
+  },
+  {
+    "category": "Player Market",
+    "market": "NF Kelly - To Score 50?",
+    "firstRow": 293,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "Yes"
+    ],
+    "lastRow": 293
+  },
+  {
+    "category": null,
+    "market": "NF Kelly - To Score 50?",
+    "firstRow": 294,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "No"
+    ],
+    "lastRow": 294
+  },
+  {
+    "category": "Player Market",
+    "market": "BJ Jacobs - To Score 50?",
+    "firstRow": 295,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "Yes"
+    ],
+    "lastRow": 295
+  },
+  {
+    "category": null,
+    "market": "BJ Jacobs - To Score 50?",
+    "firstRow": 296,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "No"
+    ],
+    "lastRow": 296
+  },
+  {
+    "category": "Player Market",
+    "market": "C Esterhuizen - To Score 50?",
+    "firstRow": 297,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "Yes"
+    ],
+    "lastRow": 297
+  },
+  {
+    "category": null,
+    "market": "C Esterhuizen - To Score 50?",
+    "firstRow": 298,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "No"
+    ],
+    "lastRow": 298
+  },
+  {
+    "category": "Player Market",
+    "market": "T de Zorzi - To Score 50?",
+    "firstRow": 299,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "Yes"
+    ],
+    "lastRow": 299
+  },
+  {
+    "category": null,
+    "market": "T de Zorzi - To Score 50?",
+    "firstRow": 300,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "No"
+    ],
+    "lastRow": 300
+  },
+  {
+    "category": "Player Market",
+    "market": "RA Hermann - To Score 50?",
+    "firstRow": 301,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "Yes"
+    ],
+    "lastRow": 301
+  },
+  {
+    "category": null,
+    "market": "RA Hermann - To Score 50?",
+    "firstRow": 302,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "No"
+    ],
+    "lastRow": 302
+  },
+  {
+    "category": "Player Market",
+    "market": "JF Smith - To Score 50?",
+    "firstRow": 303,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "Yes"
+    ],
+    "lastRow": 303
+  },
+  {
+    "category": null,
+    "market": "JF Smith - To Score 50?",
+    "firstRow": 304,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "No"
+    ],
+    "lastRow": 304
+  },
+  {
+    "category": "Player Market",
+    "market": "PWA Mulder - To Score 50?",
+    "firstRow": 305,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "Yes"
+    ],
+    "lastRow": 305
+  },
+  {
+    "category": null,
+    "market": "PWA Mulder - To Score 50?",
+    "firstRow": 306,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "No"
+    ],
+    "lastRow": 306
+  },
+  {
+    "category": "Player Market",
+    "market": "DP Conway - To Score 100?",
+    "firstRow": 307,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "Yes"
+    ],
+    "lastRow": 307
+  },
+  {
+    "category": null,
+    "market": "DP Conway - To Score 100?",
+    "firstRow": 308,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "No"
+    ],
+    "lastRow": 308
+  },
+  {
+    "category": "Player Market",
+    "market": "TWM Latham - To Score 100?",
+    "firstRow": 309,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "Yes"
+    ],
+    "lastRow": 309
+  },
+  {
+    "category": null,
+    "market": "TWM Latham - To Score 100?",
+    "firstRow": 310,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "No"
+    ],
+    "lastRow": 310
+  },
+  {
+    "category": "Player Market",
+    "market": "TB Robinson - To Score 100?",
+    "firstRow": 311,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "Yes"
+    ],
+    "lastRow": 311
+  },
+  {
+    "category": null,
+    "market": "TB Robinson - To Score 100?",
+    "firstRow": 312,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "No"
+    ],
+    "lastRow": 312
+  },
+  {
+    "category": "Player Market",
+    "market": "NF Kelly - To Score 100?",
+    "firstRow": 313,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "Yes"
+    ],
+    "lastRow": 313
+  },
+  {
+    "category": null,
+    "market": "NF Kelly - To Score 100?",
+    "firstRow": 314,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "No"
+    ],
+    "lastRow": 314
+  },
+  {
+    "category": "Player Market",
+    "market": "BJ Jacobs - To Score 100?",
+    "firstRow": 315,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "Yes"
+    ],
+    "lastRow": 315
+  },
+  {
+    "category": null,
+    "market": "BJ Jacobs - To Score 100?",
+    "firstRow": 316,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "No"
+    ],
+    "lastRow": 316
+  },
+  {
+    "category": "Player Market",
+    "market": "C Esterhuizen - To Score 100?",
+    "firstRow": 317,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "Yes"
+    ],
+    "lastRow": 317
+  },
+  {
+    "category": null,
+    "market": "C Esterhuizen - To Score 100?",
+    "firstRow": 318,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "No"
+    ],
+    "lastRow": 318
+  },
+  {
+    "category": "Player Market",
+    "market": "T de Zorzi - To Score 100?",
+    "firstRow": 319,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "Yes"
+    ],
+    "lastRow": 319
+  },
+  {
+    "category": null,
+    "market": "T de Zorzi - To Score 100?",
+    "firstRow": 320,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "No"
+    ],
+    "lastRow": 320
+  },
+  {
+    "category": "Player Market",
+    "market": "RA Hermann - To Score 100?",
+    "firstRow": 321,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "Yes"
+    ],
+    "lastRow": 321
+  },
+  {
+    "category": null,
+    "market": "RA Hermann - To Score 100?",
+    "firstRow": 322,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "No"
+    ],
+    "lastRow": 322
+  },
+  {
+    "category": "Player Market",
+    "market": "JF Smith - To Score 100?",
+    "firstRow": 323,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "Yes"
+    ],
+    "lastRow": 323
+  },
+  {
+    "category": null,
+    "market": "JF Smith - To Score 100?",
+    "firstRow": 324,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "No"
+    ],
+    "lastRow": 324
+  },
+  {
+    "category": "Player Market",
+    "market": "PWA Mulder - To Score 100?",
+    "firstRow": 325,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "Yes"
+    ],
+    "lastRow": 325
+  },
+  {
+    "category": null,
+    "market": "PWA Mulder - To Score 100?",
+    "firstRow": 326,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "No"
+    ],
+    "lastRow": 326
+  },
+  {
+    "category": "Player Market",
+    "market": "BV Sears - Wickets",
+    "firstRow": 327,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "BV Sears"
+    ],
+    "lastRow": 327
+  },
+  {
+    "category": "Player Market",
+    "market": "ZGF Foulkes - Wickets",
+    "firstRow": 328,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "ZGF Foulkes"
+    ],
+    "lastRow": 328
+  },
+  {
+    "category": "Player Market",
+    "market": "LH Ferguson - Wickets",
+    "firstRow": 329,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "LH Ferguson"
+    ],
+    "lastRow": 329
+  },
+  {
+    "category": "Player Market",
+    "market": "MJ Santner - Wickets",
+    "firstRow": 330,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "MJ Santner"
+    ],
+    "lastRow": 330
+  },
+  {
+    "category": "Player Market",
+    "market": "JDS Neesham - Wickets",
+    "firstRow": 331,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "JDS Neesham"
+    ],
+    "lastRow": 331
+  },
+  {
+    "category": "Player Market",
+    "market": "OEG Baartman - Wickets",
+    "firstRow": 332,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "OEG Baartman"
+    ],
+    "lastRow": 332
+  },
+  {
+    "category": "Player Market",
+    "market": "G Coetzee - Wickets",
+    "firstRow": 333,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "G Coetzee"
+    ],
+    "lastRow": 333
+  },
+  {
+    "category": "Player Market",
+    "market": "N Mokoena - Wickets",
+    "firstRow": 334,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "N Mokoena"
+    ],
+    "lastRow": 334
+  },
+  {
+    "category": "Player Market",
+    "market": "KA Maharaj - Wickets",
+    "firstRow": 335,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "KA Maharaj"
+    ],
+    "lastRow": 335
+  },
+  {
+    "category": "Player Market",
+    "market": "GF Linde - Wickets",
+    "firstRow": 336,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "GF Linde"
+    ],
+    "lastRow": 336
+  },
+  {
+    "category": "Player Market",
+    "market": "DP Conway - Player Perf",
+    "firstRow": 337,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "DP Conway"
+    ],
+    "lastRow": 337
+  },
+  {
+    "category": "Player Market",
+    "market": "TB Robinson - Player Perf",
+    "firstRow": 338,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "TB Robinson"
+    ],
+    "lastRow": 338
+  },
+  {
+    "category": "Player Market",
+    "market": "MJ Santner - Player Perf",
+    "firstRow": 339,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "MJ Santner"
+    ],
+    "lastRow": 339
+  },
+  {
+    "category": "Player Market",
+    "market": "JDS Neesham - Player Perf",
+    "firstRow": 340,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "JDS Neesham"
+    ],
+    "lastRow": 340
+  },
+  {
+    "category": "Player Market",
+    "market": "TWM Latham - Player Perf",
+    "firstRow": 341,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "TWM Latham"
+    ],
+    "lastRow": 341
+  },
+  {
+    "category": "Player Market",
+    "market": "T de Zorzi - Player Perf",
+    "firstRow": 342,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "T de Zorzi"
+    ],
+    "lastRow": 342
+  },
+  {
+    "category": "Player Market",
+    "market": "RA Hermann - Player Perf",
+    "firstRow": 343,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "RA Hermann"
+    ],
+    "lastRow": 343
+  },
+  {
+    "category": "Player Market",
+    "market": "KA Maharaj - Player Perf",
+    "firstRow": 344,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "KA Maharaj"
+    ],
+    "lastRow": 344
+  },
+  {
+    "category": "Player Market",
+    "market": "G Coetzee - Player Perf",
+    "firstRow": 345,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "G Coetzee"
+    ],
+    "lastRow": 345
+  },
+  {
+    "category": "Player Market",
+    "market": "C Esterhuizen - Player Perf",
+    "firstRow": 346,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "C Esterhuizen"
+    ],
+    "lastRow": 346
+  },
+  {
+    "category": "Player Market",
+    "market": "Batsman Match Bet I",
+    "firstRow": 348,
+    "selectionCount": 2,
+    "sampleSelections": [
+      "DP Conway -3.5",
+      "RA Hermann +3.5"
+    ],
+    "lastRow": 349
+  },
+  {
+    "category": "Player Market",
+    "market": "Batsman Match Bet II",
+    "firstRow": 350,
+    "selectionCount": 2,
+    "sampleSelections": [
+      "TWM Latham -3.5",
+      "C Esterhuizen +3.5"
+    ],
+    "lastRow": 351
+  },
+  {
+    "category": "Player Market",
+    "market": "Batsman Match Bet III",
+    "firstRow": 352,
+    "selectionCount": 2,
+    "sampleSelections": [
+      "TB Robinson -2.5",
+      "T de Zorzi +2.5"
+    ],
+    "lastRow": 353
+  },
+  {
+    "category": "Player Market",
+    "market": "Batsman Match Bet IV",
+    "firstRow": 354,
+    "selectionCount": 2,
+    "sampleSelections": [
+      "NF Kelly +2.5",
+      "JF Smith -2.5"
+    ],
+    "lastRow": 355
+  },
+  {
+    "category": "Player Market",
+    "market": "Batsman Match Bet V",
+    "firstRow": 356,
+    "selectionCount": 2,
+    "sampleSelections": [
+      "BJ Jacobs +1.5",
+      "PWA Mulder -1.5"
+    ],
+    "lastRow": 357
+  },
+  {
+    "category": "Team Market",
+    "market": "New Zealand - Top Bat",
+    "firstRow": 359,
+    "selectionCount": 20,
+    "sampleSelections": [
+      "DP Conway",
+      "TWM Latham"
+    ],
+    "lastRow": 378
+  },
+  {
+    "category": "Team Market",
+    "market": "New Zealand - Top Bowl",
+    "firstRow": 379,
+    "selectionCount": 20,
+    "sampleSelections": [
+      "DP Conway",
+      "TWM Latham"
+    ],
+    "lastRow": 398
+  },
+  {
+    "category": "Team Market",
+    "market": "South Africa - Top Bat",
+    "firstRow": 399,
+    "selectionCount": 20,
+    "sampleSelections": [
+      "C Esterhuizen",
+      "T de Zorzi"
+    ],
+    "lastRow": 418
+  },
+  {
+    "category": "Team Market",
+    "market": "South Africa - Top Bowl",
+    "firstRow": 419,
+    "selectionCount": 20,
+    "sampleSelections": [
+      "C Esterhuizen",
+      "T de Zorzi"
+    ],
+    "lastRow": 438
+  },
+  {
+    "category": "Match Market",
+    "market": "Match Top Bat.",
+    "firstRow": 439,
+    "selectionCount": 22,
+    "sampleSelections": [
+      "DP Conway",
+      "TWM Latham"
+    ],
+    "lastRow": 460
+  },
+  {
+    "category": "Team Market",
+    "market": "Match Top Bat.",
+    "firstRow": 461,
+    "selectionCount": 10,
+    "sampleSelections": [
+      "JA Clarkson",
+      "NG Smith"
+    ],
+    "lastRow": 470
+  },
+  {
+    "category": "Match Market",
+    "market": "Match Top Bowler.",
+    "firstRow": 471,
+    "selectionCount": 22,
+    "sampleSelections": [
+      "DP Conway",
+      "TWM Latham"
+    ],
+    "lastRow": 492
+  },
+  {
+    "category": "Team Market",
+    "market": "Match Top Bowler.",
+    "firstRow": 493,
+    "selectionCount": 10,
+    "sampleSelections": [
+      "JA Clarkson",
+      "NG Smith"
+    ],
+    "lastRow": 502
+  },
+  {
+    "category": "Match Market",
+    "market": "Man of the Match.",
+    "firstRow": 503,
+    "selectionCount": 40,
+    "sampleSelections": [
+      "DP Conway",
+      "TWM Latham"
+    ],
+    "lastRow": 542
+  },
+  {
+    "category": "Head to Heads",
+    "market": "To Take Most Wickets ",
+    "firstRow": 544,
+    "selectionCount": 3,
+    "sampleSelections": [
+      "LH Ferguson",
+      "OEG Baartman"
+    ],
+    "lastRow": 546
+  },
+  {
+    "category": "Head to Heads",
+    "market": "Highest Player Perf ",
+    "firstRow": 547,
+    "selectionCount": 3,
+    "sampleSelections": [
+      "MJ Santner",
+      "PWA Mulder"
+    ],
+    "lastRow": 549
+  },
+  {
+    "category": "Head to Heads",
+    "market": "Highest Player Perf By Keeper ",
+    "firstRow": 550,
+    "selectionCount": 3,
+    "sampleSelections": [
+      "TWM Latham",
+      "C Esterhuizen"
+    ],
+    "lastRow": 552
+  },
+  {
+    "category": "Head to Heads",
+    "market": "Most Keeper Catches ",
+    "firstRow": 553,
+    "selectionCount": 3,
+    "sampleSelections": [
+      "TWM Latham",
+      "C Esterhuizen"
+    ],
+    "lastRow": 555
+  },
+  {
+    "category": "Head to Heads",
+    "market": "Most Catches ",
+    "firstRow": 556,
+    "selectionCount": 3,
+    "sampleSelections": [
+      "New Zealand",
+      "South Africa"
+    ],
+    "lastRow": 558
+  },
+  {
+    "category": "Head to Heads",
+    "market": "Most Stumpings ",
+    "firstRow": 559,
+    "selectionCount": 3,
+    "sampleSelections": [
+      "TWM Latham",
+      "C Esterhuizen"
+    ],
+    "lastRow": 561
+  },
+  {
+    "category": "Head to Heads",
+    "market": "Most Run Outs When Batting ",
+    "firstRow": 562,
+    "selectionCount": 3,
+    "sampleSelections": [
+      "New Zealand",
+      "South Africa"
+    ],
+    "lastRow": 564
+  },
+  {
+    "category": null,
+    "market": "Pre Match Batsmen Fixed (Match Bets)",
+    "firstRow": 567,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "DP Conway"
+    ],
+    "lastRow": 567
+  },
+  {
+    "category": "Player Market",
+    "market": "DP Conway to score 50 & BV Sears to take over 0.5 wickets",
+    "firstRow": 579,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "Yes"
+    ],
+    "lastRow": 579
+  },
+  {
+    "category": "Player Market",
+    "market": "TWM Latham to score 50 & ZGF Foulkes to take over 1.5 wickets",
+    "firstRow": 580,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "Yes"
+    ],
+    "lastRow": 580
+  },
+  {
+    "category": "Player Market",
+    "market": "TB Robinson to score 25 & MJ Santner to take over 1.5 wickets",
+    "firstRow": 581,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "Yes"
+    ],
+    "lastRow": 581
+  },
+  {
+    "category": "Player Market",
+    "market": "C Esterhuizen to score 50 & OEG Baartman to take over 0.5 wickets",
+    "firstRow": 582,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "Yes"
+    ],
+    "lastRow": 582
+  },
+  {
+    "category": "Player Market",
+    "market": "T de Zorzi to score 50 & G Coetzee to take over 1.5 wickets",
+    "firstRow": 583,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "Yes"
+    ],
+    "lastRow": 583
+  },
+  {
+    "category": "Player Market",
+    "market": "RA Hermann to score 25 & KA Maharaj to take over 1.5 wickets",
+    "firstRow": 584,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "Yes"
+    ],
+    "lastRow": 584
+  },
+  {
+    "category": "Player Market",
+    "market": "DP Conway & TWM Latham both to score 50",
+    "firstRow": 585,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "Yes"
+    ],
+    "lastRow": 585
+  },
+  {
+    "category": "Player Market",
+    "market": "C Esterhuizen & T de Zorzi both to score 50",
+    "firstRow": 586,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "Yes"
+    ],
+    "lastRow": 586
+  },
+  {
+    "category": "Player Market",
+    "market": "TWM Latham & TB Robinson to score half centuries",
+    "firstRow": 587,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "Yes"
+    ],
+    "lastRow": 587
+  },
+  {
+    "category": "Player Market",
+    "market": "DP Conway & TB Robinson both to score 50 & LH Ferguson to take over 0.5 wickets",
+    "firstRow": 588,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "Yes"
+    ],
+    "lastRow": 588
+  },
+  {
+    "category": "Player Market",
+    "market": "C Esterhuizen & RA Hermann both to score 50 & N Mokoena to take over 0.5 wickets",
+    "firstRow": 589,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "Yes"
+    ],
+    "lastRow": 589
+  },
+  {
+    "category": "Player Market",
+    "market": "DP Conway & TWM Latham to score 75 runs combined",
+    "firstRow": 590,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "Yes"
+    ],
+    "lastRow": 590
+  },
+  {
+    "category": "Player Market",
+    "market": "C Esterhuizen & T de Zorzi to score 75 runs combined",
+    "firstRow": 591,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "Yes"
+    ],
+    "lastRow": 591
+  },
+  {
+    "category": "Player Market",
+    "market": "TB Robinson & RA Hermann to score 75 runs combined",
+    "firstRow": 592,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "Yes"
+    ],
+    "lastRow": 592
+  },
+  {
+    "category": "Player Market",
+    "market": "DP Conway & TWM Latham & TB Robinson to score 100 runs combined",
+    "firstRow": 593,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "Yes"
+    ],
+    "lastRow": 593
+  },
+  {
+    "category": "Player Market",
+    "market": "C Esterhuizen & T de Zorzi & RA Hermann to score 100 runs combined",
+    "firstRow": 594,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "Yes"
+    ],
+    "lastRow": 594
+  },
+  {
+    "category": "Match Market",
+    "market": "New Zealand to have the highest opening partnership, highest 1st over total and highest 1st 6 overs total",
+    "firstRow": 595,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "Yes"
+    ],
+    "lastRow": 595
+  },
+  {
+    "category": "Match Market",
+    "market": "South Africa to have the highest opening partnership, highest 1st over total and highest 1st 6 overs total",
+    "firstRow": 596,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "Yes"
+    ],
+    "lastRow": 596
+  },
+  {
+    "category": "Player Market",
+    "market": "DP Conway v TWM Latham - Race to 10 Runs",
+    "firstRow": 597,
+    "selectionCount": 3,
+    "sampleSelections": [
+      "DP Conway",
+      "TWM Latham"
+    ],
+    "lastRow": 599
+  },
+  {
+    "category": "Player Market",
+    "market": "C Esterhuizen v T de Zorzi - Race to 10 Runs",
+    "firstRow": 600,
+    "selectionCount": 3,
+    "sampleSelections": [
+      "C Esterhuizen",
+      "T de Zorzi"
+    ],
+    "lastRow": 602
+  },
+  {
+    "category": "Match Market",
+    "market": "Number of Milestones in Match",
+    "firstRow": 605,
+    "selectionCount": 4,
+    "sampleSelections": [
+      "1",
+      "2"
+    ],
+    "lastRow": 608
+  },
+  {
+    "category": "Player Market",
+    "market": "DP Conway - Balls Faced",
+    "firstRow": 610,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "DP Conway"
+    ],
+    "lastRow": 610
+  },
+  {
+    "category": "Player Market",
+    "market": "TWM Latham - Balls Faced",
+    "firstRow": 611,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "TWM Latham"
+    ],
+    "lastRow": 611
+  },
+  {
+    "category": "Player Market",
+    "market": "TB Robinson - Balls Faced",
+    "firstRow": 612,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "TB Robinson"
+    ],
+    "lastRow": 612
+  },
+  {
+    "category": "Player Market",
+    "market": "NF Kelly - Balls Faced",
+    "firstRow": 613,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "NF Kelly"
+    ],
+    "lastRow": 613
+  },
+  {
+    "category": "Player Market",
+    "market": "BJ Jacobs - Balls Faced",
+    "firstRow": 614,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "BJ Jacobs"
+    ],
+    "lastRow": 614
+  },
+  {
+    "category": "Player Market",
+    "market": "C Esterhuizen - Balls Faced",
+    "firstRow": 615,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "C Esterhuizen"
+    ],
+    "lastRow": 615
+  },
+  {
+    "category": "Player Market",
+    "market": "T de Zorzi - Balls Faced",
+    "firstRow": 616,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "T de Zorzi"
+    ],
+    "lastRow": 616
+  },
+  {
+    "category": "Player Market",
+    "market": "RA Hermann - Balls Faced",
+    "firstRow": 617,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "RA Hermann"
+    ],
+    "lastRow": 617
+  },
+  {
+    "category": "Player Market",
+    "market": "JF Smith - Balls Faced",
+    "firstRow": 618,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "JF Smith"
+    ],
+    "lastRow": 618
+  },
+  {
+    "category": "Player Market",
+    "market": "PWA Mulder - Balls Faced",
+    "firstRow": 619,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "PWA Mulder"
+    ],
+    "lastRow": 619
+  },
+  {
+    "category": "Player Market",
+    "market": "BV Sears - Runs Conceded",
+    "firstRow": 621,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "BV Sears"
+    ],
+    "lastRow": 621
+  },
+  {
+    "category": "Player Market",
+    "market": "ZGF Foulkes - Runs Conceded",
+    "firstRow": 622,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "ZGF Foulkes"
+    ],
+    "lastRow": 622
+  },
+  {
+    "category": "Player Market",
+    "market": "LH Ferguson - Runs Conceded",
+    "firstRow": 623,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "LH Ferguson"
+    ],
+    "lastRow": 623
+  },
+  {
+    "category": "Player Market",
+    "market": "MJ Santner - Runs Conceded",
+    "firstRow": 624,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "MJ Santner"
+    ],
+    "lastRow": 624
+  },
+  {
+    "category": "Player Market",
+    "market": "JDS Neesham - Runs Conceded",
+    "firstRow": 625,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "JDS Neesham"
+    ],
+    "lastRow": 625
+  },
+  {
+    "category": "Player Market",
+    "market": "OEG Baartman - Runs Conceded",
+    "firstRow": 626,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "OEG Baartman"
+    ],
+    "lastRow": 626
+  },
+  {
+    "category": "Player Market",
+    "market": "G Coetzee - Runs Conceded",
+    "firstRow": 627,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "G Coetzee"
+    ],
+    "lastRow": 627
+  },
+  {
+    "category": "Player Market",
+    "market": "N Mokoena - Runs Conceded",
+    "firstRow": 628,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "N Mokoena"
+    ],
+    "lastRow": 628
+  },
+  {
+    "category": "Player Market",
+    "market": "KA Maharaj - Runs Conceded",
+    "firstRow": 629,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "KA Maharaj"
+    ],
+    "lastRow": 629
+  },
+  {
+    "category": "Player Market",
+    "market": "GF Linde - Runs Conceded",
+    "firstRow": 630,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "GF Linde"
+    ],
+    "lastRow": 630
+  },
+  {
+    "category": "Team Market",
+    "market": "New Zealand - Most Economical Bowler",
+    "firstRow": 632,
+    "selectionCount": 20,
+    "sampleSelections": [
+      "DP Conway",
+      "TWM Latham"
+    ],
+    "lastRow": 651
+  },
+  {
+    "category": "Team Market",
+    "market": "South Africa - Most Economical Bowler",
+    "firstRow": 652,
+    "selectionCount": 20,
+    "sampleSelections": [
+      "C Esterhuizen",
+      "T de Zorzi"
+    ],
+    "lastRow": 671
+  },
+  {
+    "category": "Team Market",
+    "market": "New Zealand Runs at Fall of 2nd Wicket",
+    "firstRow": 673,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 673
+  },
+  {
+    "category": "Team Market",
+    "market": "New Zealand Runs at Fall of 3rd Wicket",
+    "firstRow": 674,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 674
+  },
+  {
+    "category": "Team Market",
+    "market": "New Zealand Runs at Fall of 4th Wicket",
+    "firstRow": 675,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 675
+  },
+  {
+    "category": "Team Market",
+    "market": "New Zealand Runs at Fall of 5th Wicket",
+    "firstRow": 676,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 676
+  },
+  {
+    "category": "Team Market",
+    "market": "South Africa Runs at Fall of 2nd Wicket",
+    "firstRow": 678,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 678
+  },
+  {
+    "category": "Team Market",
+    "market": "South Africa Runs at Fall of 3rd Wicket",
+    "firstRow": 679,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 679
+  },
+  {
+    "category": "Team Market",
+    "market": "South Africa Runs at Fall of 4th Wicket",
+    "firstRow": 680,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 680
+  },
+  {
+    "category": "Team Market",
+    "market": "South Africa Runs at Fall of 5th Wicket",
+    "firstRow": 681,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 681
+  },
+  {
+    "category": "Player Market",
+    "market": "JA Clarkson - Runs",
+    "firstRow": 683,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "JA Clarkson"
+    ],
+    "lastRow": 683
+  },
+  {
+    "category": "Player Market",
+    "market": "NG Smith - Runs",
+    "firstRow": 684,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "NG Smith"
+    ],
+    "lastRow": 684
+  },
+  {
+    "category": "Player Market",
+    "market": "KA Jamieson - Runs",
+    "firstRow": 685,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "KA Jamieson"
+    ],
+    "lastRow": 685
+  },
+  {
+    "category": "Player Market",
+    "market": "0 - Runs",
+    "firstRow": 686,
+    "selectionCount": 11,
+    "sampleSelections": [],
+    "lastRow": 700
+  },
+  {
+    "category": "Player Market",
+    "market": "L Sipamla - Runs",
+    "firstRow": 692,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "L Sipamla"
+    ],
+    "lastRow": 692
+  },
+  {
+    "category": "Player Market",
+    "market": "J Hermann - Runs",
+    "firstRow": 693,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "J Hermann"
+    ],
+    "lastRow": 693
+  },
+  {
+    "category": "Player Market",
+    "market": "A Simelane - Runs",
+    "firstRow": 694,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "A Simelane"
+    ],
+    "lastRow": 694
+  },
+  {
+    "category": "Player Market",
+    "market": "P Subrayen - Runs",
+    "firstRow": 695,
+    "selectionCount": 1,
+    "sampleSelections": [
+      "P Subrayen"
+    ],
+    "lastRow": 695
+  },
+  {
+    "category": "Team Market",
+    "market": "New Zealand Runs",
+    "firstRow": 702,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 702
+  },
+  {
+    "category": "Team Market",
+    "market": "South Africa Runs",
+    "firstRow": 703,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 703
+  },
+  {
+    "category": "Match Market",
+    "market": "Both teams to score 140 or more",
+    "firstRow": 705,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 705
+  },
+  {
+    "category": "Match Market",
+    "market": "Both teams to score 150 or more",
+    "firstRow": 706,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 706
+  },
+  {
+    "category": "Match Market",
+    "market": "Both teams to score 160 or more",
+    "firstRow": 707,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 707
+  },
+  {
+    "category": "Match Market",
+    "market": "Both teams to score 170 or more",
+    "firstRow": 708,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 708
+  },
+  {
+    "category": "Match Market",
+    "market": "Both teams to score 180 or more",
+    "firstRow": 709,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 709
+  },
+  {
+    "category": "Match Market",
+    "market": "Both teams to score 190 or more",
+    "firstRow": 710,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 710
+  },
+  {
+    "category": "Match Market",
+    "market": "Both teams to score 200 or more",
+    "firstRow": 711,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 711
+  },
+  {
+    "category": "Match Market",
+    "market": "Total Runs in Match",
+    "firstRow": 713,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 713
+  },
+  {
+    "category": "Team Market",
+    "market": "New Zealand 1st Over Runs - 5 Ball",
+    "firstRow": 715,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 715
+  },
+  {
+    "category": "Team Market",
+    "market": "New Zealand 1st Over Alternative Runs - 5 Ball",
+    "firstRow": 716,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 716
+  },
+  {
+    "category": "Team Market",
+    "market": "New Zealand 2nd Over Runs - 5 Ball",
+    "firstRow": 717,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 717
+  },
+  {
+    "category": "Team Market",
+    "market": "New Zealand 2nd Over Alternative Runs - 5 Ball",
+    "firstRow": 718,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 718
+  },
+  {
+    "category": "Team Market",
+    "market": "New Zealand 3rd Over Runs - 5 Ball",
+    "firstRow": 719,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 719
+  },
+  {
+    "category": "Team Market",
+    "market": "New Zealand 3rd Over Alternative Runs - 5 Ball",
+    "firstRow": 720,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 720
+  },
+  {
+    "category": "Team Market",
+    "market": "New Zealand 4th Over Runs - 5 Ball",
+    "firstRow": 721,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 721
+  },
+  {
+    "category": "Team Market",
+    "market": "New Zealand 4th Over Alternative Runs - 5 Ball",
+    "firstRow": 722,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 722
+  },
+  {
+    "category": "Team Market",
+    "market": "New Zealand 5th Over Runs - 5 Ball",
+    "firstRow": 723,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 723
+  },
+  {
+    "category": "Team Market",
+    "market": "New Zealand 5th Over Alternative Runs - 5 Ball",
+    "firstRow": 724,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 724
+  },
+  {
+    "category": "Team Market",
+    "market": "South Africa 1st Over Runs - 5 Ball",
+    "firstRow": 726,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 726
+  },
+  {
+    "category": "Team Market",
+    "market": "South Africa 1st Over Alternative Runs - 5 Ball",
+    "firstRow": 727,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 727
+  },
+  {
+    "category": "Team Market",
+    "market": "South Africa 2nd Over Runs - 5 Ball",
+    "firstRow": 728,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 728
+  },
+  {
+    "category": "Team Market",
+    "market": "South Africa 2nd Over Alternative Runs - 5 Ball",
+    "firstRow": 729,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 729
+  },
+  {
+    "category": "Team Market",
+    "market": "South Africa 3rd Over Runs - 5 Ball",
+    "firstRow": 730,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 730
+  },
+  {
+    "category": "Team Market",
+    "market": "South Africa 3rd Over Alternative Runs - 5 Ball",
+    "firstRow": 731,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 731
+  },
+  {
+    "category": "Team Market",
+    "market": "South Africa 4th Over Runs - 5 Ball",
+    "firstRow": 732,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 732
+  },
+  {
+    "category": "Team Market",
+    "market": "South Africa 4th Over Alternative Runs - 5 Ball",
+    "firstRow": 733,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 733
+  },
+  {
+    "category": "Team Market",
+    "market": "South Africa 5th Over Runs - 5 Ball",
+    "firstRow": 734,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 734
+  },
+  {
+    "category": "Team Market",
+    "market": "South Africa 5th Over Alternative Runs - 5 Ball",
+    "firstRow": 735,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 735
+  },
+  {
+    "category": "Team Market",
+    "market": "New Zealand Runs in 1st 5 Overs - 5 Ball",
+    "firstRow": 737,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 737
+  },
+  {
+    "category": "Team Market",
+    "market": "New Zealand Runs in 1st 5 Overs - 5 Ball.",
+    "firstRow": 738,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 738
+  },
+  {
+    "category": "Team Market",
+    "market": "New Zealand Runs in 1st 5 Overs - 5 Ball..",
+    "firstRow": 739,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 739
+  },
+  {
+    "category": "Team Market",
+    "market": "New Zealand Runs in 1st 10 Overs - 5 Ball",
+    "firstRow": 740,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 740
+  },
+  {
+    "category": "Team Market",
+    "market": "New Zealand Runs in 1st 10 Overs - 5 Ball.",
+    "firstRow": 741,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 741
+  },
+  {
+    "category": "Team Market",
+    "market": "New Zealand Runs in 1st 10 Overs - 5 Ball..",
+    "firstRow": 742,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 742
+  },
+  {
+    "category": "Team Market",
+    "market": "South Africa Runs in 1st 5 Overs - 5 Ball",
+    "firstRow": 744,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 744
+  },
+  {
+    "category": "Team Market",
+    "market": "South Africa Runs in 1st 5 Overs - 5 Ball.",
+    "firstRow": 745,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 745
+  },
+  {
+    "category": "Team Market",
+    "market": "South Africa Runs in 1st 5 Overs - 5 Ball..",
+    "firstRow": 746,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 746
+  },
+  {
+    "category": "Team Market",
+    "market": "South Africa Runs in 1st 10 Overs - 5 Ball",
+    "firstRow": 747,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 747
+  },
+  {
+    "category": "Team Market",
+    "market": "South Africa Runs in 1st 10 Overs - 5 Ball.",
+    "firstRow": 748,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 748
+  },
+  {
+    "category": "Team Market",
+    "market": "South Africa Runs in 1st 10 Overs - 5 Ball..",
+    "firstRow": 749,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 749
+  },
+  {
+    "category": "Player Market",
+    "market": "Batsman Head to Head - Home",
+    "firstRow": 751,
+    "selectionCount": 3,
+    "sampleSelections": [
+      "DP Conway",
+      "TWM Latham"
+    ],
+    "lastRow": 753
+  },
+  {
+    "category": "Player Market",
+    "market": "Batsman Head to Head - Away",
+    "firstRow": 754,
+    "selectionCount": 3,
+    "sampleSelections": [
+      "C Esterhuizen",
+      "T de Zorzi"
+    ],
+    "lastRow": 756
+  },
+  {
+    "category": "Team Market",
+    "market": "New Zealand Runs Final Digit",
+    "firstRow": 758,
+    "selectionCount": 10,
+    "sampleSelections": [
+      "1",
+      "2"
+    ],
+    "lastRow": 767
+  },
+  {
+    "category": "Team Market",
+    "market": "South Africa Runs Final Digit",
+    "firstRow": 769,
+    "selectionCount": 10,
+    "sampleSelections": [
+      "1",
+      "2"
+    ],
+    "lastRow": 778
+  },
+  {
+    "category": "Match Market",
+    "market": "Exact Runs off First Delivery of Match",
+    "firstRow": 780,
+    "selectionCount": 7,
+    "sampleSelections": [
+      "1",
+      "2"
+    ],
+    "lastRow": 786
+  },
+  {
+    "category": "Team Market",
+    "market": "New Zealand Exact Runs off First Delivery of Innings",
+    "firstRow": 788,
+    "selectionCount": 7,
+    "sampleSelections": [
+      "1",
+      "2"
+    ],
+    "lastRow": 794
+  },
+  {
+    "category": "Team Market",
+    "market": "South Africa Exact Runs off First Delivery of Innings",
+    "firstRow": 796,
+    "selectionCount": 7,
+    "sampleSelections": [
+      "1",
+      "2"
+    ],
+    "lastRow": 802
+  },
+  {
+    "category": "Player Market",
+    "market": "DP Conway to Score 10+",
+    "firstRow": 804,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 804
+  },
+  {
+    "category": "Player Market",
+    "market": "DP Conway to Score 20+",
+    "firstRow": 805,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 805
+  },
+  {
+    "category": "Player Market",
+    "market": "DP Conway to Score 30+",
+    "firstRow": 806,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 806
+  },
+  {
+    "category": "Player Market",
+    "market": "DP Conway to Score 40+",
+    "firstRow": 807,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 807
+  },
+  {
+    "category": "Player Market",
+    "market": "DP Conway to Score 60+",
+    "firstRow": 808,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 808
+  },
+  {
+    "category": "Player Market",
+    "market": "TWM Latham to Score 10+",
+    "firstRow": 809,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 809
+  },
+  {
+    "category": "Player Market",
+    "market": "TWM Latham to Score 20+",
+    "firstRow": 810,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 810
+  },
+  {
+    "category": "Player Market",
+    "market": "TWM Latham to Score 30+",
+    "firstRow": 811,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 811
+  },
+  {
+    "category": "Player Market",
+    "market": "TWM Latham to Score 40+",
+    "firstRow": 812,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 812
+  },
+  {
+    "category": "Player Market",
+    "market": "TWM Latham to Score 60+",
+    "firstRow": 813,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 813
+  },
+  {
+    "category": "Player Market",
+    "market": "TB Robinson to Score 10+",
+    "firstRow": 814,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 814
+  },
+  {
+    "category": "Player Market",
+    "market": "TB Robinson to Score 20+",
+    "firstRow": 815,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 815
+  },
+  {
+    "category": "Player Market",
+    "market": "TB Robinson to Score 30+",
+    "firstRow": 816,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 816
+  },
+  {
+    "category": "Player Market",
+    "market": "TB Robinson to Score 40+",
+    "firstRow": 817,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 817
+  },
+  {
+    "category": "Player Market",
+    "market": "TB Robinson to Score 60+",
+    "firstRow": 818,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 818
+  },
+  {
+    "category": "Player Market",
+    "market": "NF Kelly to Score 10+",
+    "firstRow": 819,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 819
+  },
+  {
+    "category": "Player Market",
+    "market": "NF Kelly to Score 20+",
+    "firstRow": 820,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 820
+  },
+  {
+    "category": "Player Market",
+    "market": "NF Kelly to Score 30+",
+    "firstRow": 821,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 821
+  },
+  {
+    "category": "Player Market",
+    "market": "NF Kelly to Score 40+",
+    "firstRow": 822,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 822
+  },
+  {
+    "category": "Player Market",
+    "market": "NF Kelly to Score 60+",
+    "firstRow": 823,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 823
+  },
+  {
+    "category": "Player Market",
+    "market": "BJ Jacobs to Score 10+",
+    "firstRow": 824,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 824
+  },
+  {
+    "category": "Player Market",
+    "market": "BJ Jacobs to Score 20+",
+    "firstRow": 825,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 825
+  },
+  {
+    "category": "Player Market",
+    "market": "BJ Jacobs to Score 30+",
+    "firstRow": 826,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 826
+  },
+  {
+    "category": "Player Market",
+    "market": "BJ Jacobs to Score 40+",
+    "firstRow": 827,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 827
+  },
+  {
+    "category": "Player Market",
+    "market": "BJ Jacobs to Score 60+",
+    "firstRow": 828,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 828
+  },
+  {
+    "category": "Player Market",
+    "market": "C Esterhuizen to Score 10+",
+    "firstRow": 829,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 829
+  },
+  {
+    "category": "Player Market",
+    "market": "C Esterhuizen to Score 20+",
+    "firstRow": 830,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 830
+  },
+  {
+    "category": "Player Market",
+    "market": "C Esterhuizen to Score 30+",
+    "firstRow": 831,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 831
+  },
+  {
+    "category": "Player Market",
+    "market": "C Esterhuizen to Score 40+",
+    "firstRow": 832,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 832
+  },
+  {
+    "category": "Player Market",
+    "market": "C Esterhuizen to Score 60+",
+    "firstRow": 833,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 833
+  },
+  {
+    "category": "Player Market",
+    "market": "T de Zorzi to Score 10+",
+    "firstRow": 834,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 834
+  },
+  {
+    "category": "Player Market",
+    "market": "T de Zorzi to Score 20+",
+    "firstRow": 835,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 835
+  },
+  {
+    "category": "Player Market",
+    "market": "T de Zorzi to Score 30+",
+    "firstRow": 836,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 836
+  },
+  {
+    "category": "Player Market",
+    "market": "T de Zorzi to Score 40+",
+    "firstRow": 837,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 837
+  },
+  {
+    "category": "Player Market",
+    "market": "T de Zorzi to Score 60+",
+    "firstRow": 838,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 838
+  },
+  {
+    "category": "Player Market",
+    "market": "RA Hermann to Score 10+",
+    "firstRow": 839,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 839
+  },
+  {
+    "category": "Player Market",
+    "market": "RA Hermann to Score 20+",
+    "firstRow": 840,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 840
+  },
+  {
+    "category": "Player Market",
+    "market": "RA Hermann to Score 30+",
+    "firstRow": 841,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 841
+  },
+  {
+    "category": "Player Market",
+    "market": "RA Hermann to Score 40+",
+    "firstRow": 842,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 842
+  },
+  {
+    "category": "Player Market",
+    "market": "RA Hermann to Score 60+",
+    "firstRow": 843,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 843
+  },
+  {
+    "category": "Player Market",
+    "market": "JF Smith to Score 10+",
+    "firstRow": 844,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 844
+  },
+  {
+    "category": "Player Market",
+    "market": "JF Smith to Score 20+",
+    "firstRow": 845,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 845
+  },
+  {
+    "category": "Player Market",
+    "market": "JF Smith to Score 30+",
+    "firstRow": 846,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 846
+  },
+  {
+    "category": "Player Market",
+    "market": "JF Smith to Score 40+",
+    "firstRow": 847,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 847
+  },
+  {
+    "category": "Player Market",
+    "market": "JF Smith to Score 60+",
+    "firstRow": 848,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 848
+  },
+  {
+    "category": "Player Market",
+    "market": "PWA Mulder to Score 10+",
+    "firstRow": 849,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 849
+  },
+  {
+    "category": "Player Market",
+    "market": "PWA Mulder to Score 20+",
+    "firstRow": 850,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 850
+  },
+  {
+    "category": "Player Market",
+    "market": "PWA Mulder to Score 30+",
+    "firstRow": 851,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 851
+  },
+  {
+    "category": "Player Market",
+    "market": "PWA Mulder to Score 40+",
+    "firstRow": 852,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 852
+  },
+  {
+    "category": "Player Market",
+    "market": "PWA Mulder to Score 60+",
+    "firstRow": 853,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 853
+  },
+  {
+    "category": "Player Market",
+    "market": "DP Conway to Hit 1+ Four",
+    "firstRow": 854,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 854
+  },
+  {
+    "category": "Player Market",
+    "market": "DP Conway to Hit 2+ Fours",
+    "firstRow": 855,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 855
+  },
+  {
+    "category": "Player Market",
+    "market": "DP Conway to Hit 3+ Fours",
+    "firstRow": 856,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 856
+  },
+  {
+    "category": "Player Market",
+    "market": "DP Conway to Hit 4+ Fours",
+    "firstRow": 857,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 857
+  },
+  {
+    "category": "Player Market",
+    "market": "TWM Latham to Hit 1+ Four",
+    "firstRow": 858,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 858
+  },
+  {
+    "category": "Player Market",
+    "market": "TWM Latham to Hit 2+ Fours",
+    "firstRow": 859,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 859
+  },
+  {
+    "category": "Player Market",
+    "market": "TWM Latham to Hit 3+ Fours",
+    "firstRow": 860,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 860
+  },
+  {
+    "category": "Player Market",
+    "market": "TWM Latham to Hit 4+ Fours",
+    "firstRow": 861,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 861
+  },
+  {
+    "category": "Player Market",
+    "market": "TB Robinson to Hit 1+ Four",
+    "firstRow": 862,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 862
+  },
+  {
+    "category": "Player Market",
+    "market": "TB Robinson to Hit 2+ Fours",
+    "firstRow": 863,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 863
+  },
+  {
+    "category": "Player Market",
+    "market": "TB Robinson to Hit 3+ Fours",
+    "firstRow": 864,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 864
+  },
+  {
+    "category": "Player Market",
+    "market": "TB Robinson to Hit 4+ Fours",
+    "firstRow": 865,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 865
+  },
+  {
+    "category": "Player Market",
+    "market": "NF Kelly to Hit 1+ Four",
+    "firstRow": 866,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 866
+  },
+  {
+    "category": "Player Market",
+    "market": "NF Kelly to Hit 2+ Fours",
+    "firstRow": 867,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 867
+  },
+  {
+    "category": "Player Market",
+    "market": "NF Kelly to Hit 3+ Fours",
+    "firstRow": 868,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 868
+  },
+  {
+    "category": "Player Market",
+    "market": "NF Kelly to Hit 4+ Fours",
+    "firstRow": 869,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 869
+  },
+  {
+    "category": "Player Market",
+    "market": "BJ Jacobs to Hit 1+ Four",
+    "firstRow": 870,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 870
+  },
+  {
+    "category": "Player Market",
+    "market": "BJ Jacobs to Hit 2+ Fours",
+    "firstRow": 871,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 871
+  },
+  {
+    "category": "Player Market",
+    "market": "BJ Jacobs to Hit 3+ Fours",
+    "firstRow": 872,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 872
+  },
+  {
+    "category": "Player Market",
+    "market": "BJ Jacobs to Hit 4+ Fours",
+    "firstRow": 873,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 873
+  },
+  {
+    "category": "Player Market",
+    "market": "C Esterhuizen to Hit 1+ Four",
+    "firstRow": 874,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 874
+  },
+  {
+    "category": "Player Market",
+    "market": "C Esterhuizen to Hit 2+ Fours",
+    "firstRow": 875,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 875
+  },
+  {
+    "category": "Player Market",
+    "market": "C Esterhuizen to Hit 3+ Fours",
+    "firstRow": 876,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 876
+  },
+  {
+    "category": "Player Market",
+    "market": "C Esterhuizen to Hit 4+ Fours",
+    "firstRow": 877,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 877
+  },
+  {
+    "category": "Player Market",
+    "market": "T de Zorzi to Hit 1+ Four",
+    "firstRow": 878,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 878
+  },
+  {
+    "category": "Player Market",
+    "market": "T de Zorzi to Hit 2+ Fours",
+    "firstRow": 879,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 879
+  },
+  {
+    "category": "Player Market",
+    "market": "T de Zorzi to Hit 3+ Fours",
+    "firstRow": 880,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 880
+  },
+  {
+    "category": "Player Market",
+    "market": "T de Zorzi to Hit 4+ Fours",
+    "firstRow": 881,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 881
+  },
+  {
+    "category": "Player Market",
+    "market": "RA Hermann to Hit 1+ Four",
+    "firstRow": 882,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 882
+  },
+  {
+    "category": "Player Market",
+    "market": "RA Hermann to Hit 2+ Fours",
+    "firstRow": 883,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 883
+  },
+  {
+    "category": "Player Market",
+    "market": "RA Hermann to Hit 3+ Fours",
+    "firstRow": 884,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 884
+  },
+  {
+    "category": "Player Market",
+    "market": "RA Hermann to Hit 4+ Fours",
+    "firstRow": 885,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 885
+  },
+  {
+    "category": "Player Market",
+    "market": "JF Smith to Hit 1+ Four",
+    "firstRow": 886,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 886
+  },
+  {
+    "category": "Player Market",
+    "market": "JF Smith to Hit 2+ Fours",
+    "firstRow": 887,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 887
+  },
+  {
+    "category": "Player Market",
+    "market": "JF Smith to Hit 3+ Fours",
+    "firstRow": 888,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 888
+  },
+  {
+    "category": "Player Market",
+    "market": "JF Smith to Hit 4+ Fours",
+    "firstRow": 889,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 889
+  },
+  {
+    "category": "Player Market",
+    "market": "PWA Mulder to Hit 1+ Four",
+    "firstRow": 890,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 890
+  },
+  {
+    "category": "Player Market",
+    "market": "PWA Mulder to Hit 2+ Fours",
+    "firstRow": 891,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 891
+  },
+  {
+    "category": "Player Market",
+    "market": "PWA Mulder to Hit 3+ Fours",
+    "firstRow": 892,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 892
+  },
+  {
+    "category": "Player Market",
+    "market": "PWA Mulder to Hit 4+ Fours",
+    "firstRow": 893,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 893
+  },
+  {
+    "category": "Player Market",
+    "market": "DP Conway to Hit 1+ Six",
+    "firstRow": 894,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 894
+  },
+  {
+    "category": "Player Market",
+    "market": "DP Conway to Hit 2+ Sixes",
+    "firstRow": 895,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 895
+  },
+  {
+    "category": "Player Market",
+    "market": "DP Conway to Hit 3+ Sixes",
+    "firstRow": 896,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 896
+  },
+  {
+    "category": "Player Market",
+    "market": "DP Conway to Hit 4+ Sixes",
+    "firstRow": 897,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 897
+  },
+  {
+    "category": "Player Market",
+    "market": "TWM Latham to Hit 1+ Six",
+    "firstRow": 898,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 898
+  },
+  {
+    "category": "Player Market",
+    "market": "TWM Latham to Hit 2+ Sixes",
+    "firstRow": 899,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 899
+  },
+  {
+    "category": "Player Market",
+    "market": "TWM Latham to Hit 3+ Sixes",
+    "firstRow": 900,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 900
+  },
+  {
+    "category": "Player Market",
+    "market": "TWM Latham to Hit 4+ Sixes",
+    "firstRow": 901,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 901
+  },
+  {
+    "category": "Player Market",
+    "market": "TB Robinson to Hit 1+ Six",
+    "firstRow": 902,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 902
+  },
+  {
+    "category": "Player Market",
+    "market": "TB Robinson to Hit 2+ Sixes",
+    "firstRow": 903,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 903
+  },
+  {
+    "category": "Player Market",
+    "market": "TB Robinson to Hit 3+ Sixes",
+    "firstRow": 904,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 904
+  },
+  {
+    "category": "Player Market",
+    "market": "TB Robinson to Hit 4+ Sixes",
+    "firstRow": 905,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 905
+  },
+  {
+    "category": "Player Market",
+    "market": "NF Kelly to Hit 1+ Six",
+    "firstRow": 906,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 906
+  },
+  {
+    "category": "Player Market",
+    "market": "NF Kelly to Hit 2+ Sixes",
+    "firstRow": 907,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 907
+  },
+  {
+    "category": "Player Market",
+    "market": "NF Kelly to Hit 3+ Sixes",
+    "firstRow": 908,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 908
+  },
+  {
+    "category": "Player Market",
+    "market": "NF Kelly to Hit 4+ Sixes",
+    "firstRow": 909,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 909
+  },
+  {
+    "category": "Player Market",
+    "market": "BJ Jacobs to Hit 1+ Six",
+    "firstRow": 910,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 910
+  },
+  {
+    "category": "Player Market",
+    "market": "BJ Jacobs to Hit 2+ Sixes",
+    "firstRow": 911,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 911
+  },
+  {
+    "category": "Player Market",
+    "market": "BJ Jacobs to Hit 3+ Sixes",
+    "firstRow": 912,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 912
+  },
+  {
+    "category": "Player Market",
+    "market": "BJ Jacobs to Hit 4+ Sixes",
+    "firstRow": 913,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 913
+  },
+  {
+    "category": "Player Market",
+    "market": "C Esterhuizen to Hit 1+ Six",
+    "firstRow": 914,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 914
+  },
+  {
+    "category": "Player Market",
+    "market": "C Esterhuizen to Hit 2+ Sixes",
+    "firstRow": 915,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 915
+  },
+  {
+    "category": "Player Market",
+    "market": "C Esterhuizen to Hit 3+ Sixes",
+    "firstRow": 916,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 916
+  },
+  {
+    "category": "Player Market",
+    "market": "C Esterhuizen to Hit 4+ Sixes",
+    "firstRow": 917,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 917
+  },
+  {
+    "category": "Player Market",
+    "market": "T de Zorzi to Hit 1+ Six",
+    "firstRow": 918,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 918
+  },
+  {
+    "category": "Player Market",
+    "market": "T de Zorzi to Hit 2+ Sixes",
+    "firstRow": 919,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 919
+  },
+  {
+    "category": "Player Market",
+    "market": "T de Zorzi to Hit 3+ Sixes",
+    "firstRow": 920,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 920
+  },
+  {
+    "category": "Player Market",
+    "market": "T de Zorzi to Hit 4+ Sixes",
+    "firstRow": 921,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 921
+  },
+  {
+    "category": "Player Market",
+    "market": "RA Hermann to Hit 1+ Six",
+    "firstRow": 922,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 922
+  },
+  {
+    "category": "Player Market",
+    "market": "RA Hermann to Hit 2+ Sixes",
+    "firstRow": 923,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 923
+  },
+  {
+    "category": "Player Market",
+    "market": "RA Hermann to Hit 3+ Sixes",
+    "firstRow": 924,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 924
+  },
+  {
+    "category": "Player Market",
+    "market": "RA Hermann to Hit 4+ Sixes",
+    "firstRow": 925,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 925
+  },
+  {
+    "category": "Player Market",
+    "market": "JF Smith to Hit 1+ Six",
+    "firstRow": 926,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 926
+  },
+  {
+    "category": "Player Market",
+    "market": "JF Smith to Hit 2+ Sixes",
+    "firstRow": 927,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 927
+  },
+  {
+    "category": "Player Market",
+    "market": "JF Smith to Hit 3+ Sixes",
+    "firstRow": 928,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 928
+  },
+  {
+    "category": "Player Market",
+    "market": "JF Smith to Hit 4+ Sixes",
+    "firstRow": 929,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 929
+  },
+  {
+    "category": "Player Market",
+    "market": "PWA Mulder to Hit 1+ Six",
+    "firstRow": 930,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 930
+  },
+  {
+    "category": "Player Market",
+    "market": "PWA Mulder to Hit 2+ Sixes",
+    "firstRow": 931,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 931
+  },
+  {
+    "category": "Player Market",
+    "market": "PWA Mulder to Hit 3+ Sixes",
+    "firstRow": 932,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 932
+  },
+  {
+    "category": "Player Market",
+    "market": "PWA Mulder to Hit 4+ Sixes",
+    "firstRow": 933,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 933
+  },
+  {
+    "category": "Innings Market",
+    "market": "New Zealand Wickets Lost for 50 Runs - Over 2.5",
+    "firstRow": 935,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 935
+  },
+  {
+    "category": "Innings Market",
+    "market": "New Zealand Wickets Lost for 50 Runs - Ranged",
+    "firstRow": 936,
+    "selectionCount": 5,
+    "sampleSelections": [
+      "1",
+      "2"
+    ],
+    "lastRow": 940
+  },
+  {
+    "category": "Innings Market",
+    "market": "South Africa Wickets Lost for 50 Runs - Over 2.5",
+    "firstRow": 941,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 941
+  },
+  {
+    "category": "Innings Market",
+    "market": "South Africa Wickets Lost for 50 Runs - Ranged",
+    "firstRow": 942,
+    "selectionCount": 5,
+    "sampleSelections": [
+      "1",
+      "2"
+    ],
+    "lastRow": 946
+  },
+  {
+    "category": "Innings Market",
+    "market": "New Zealand Wickets Lost in 1st 6 Overs - Over 1.5",
+    "firstRow": 947,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 947
+  },
+  {
+    "category": "Innings Market",
+    "market": "New Zealand Wickets Lost in 1st 6 Overs - Ranged",
+    "firstRow": 948,
+    "selectionCount": 5,
+    "sampleSelections": [
+      "1",
+      "2"
+    ],
+    "lastRow": 952
+  },
+  {
+    "category": "Innings Market",
+    "market": "South Africa Wickets Lost in 1st 6 Overs - Over 1.5",
+    "firstRow": 953,
+    "selectionCount": 1,
+    "sampleSelections": [],
+    "lastRow": 953
+  },
+  {
+    "category": "Innings Market",
+    "market": "South Africa Wickets Lost in 1st 6 Overs - Ranged",
+    "firstRow": 954,
+    "selectionCount": 5,
+    "sampleSelections": [
+      "1",
+      "2"
+    ],
+    "lastRow": 958
+  }
+]

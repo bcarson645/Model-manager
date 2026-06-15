@@ -9,6 +9,7 @@
 
 # next.js
 /.next/
+/.next-dev/
 /out/
 
 # production
@@ -35,3 +36,7 @@ next-env.d.ts
 # ide
 .idea
 .vscode
+
+# internal Sportradar pricing lib (clone locally, do not push to GitHub)
+/pricing.models/*
+!/pricing.models/README.md
