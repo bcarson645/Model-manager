@@ -21,6 +21,7 @@ import type {
 } from "./types";
 import { buildTraderSkewGuide } from "./trader-skew-guides";
 import { buildAdjustOutcomePreview } from "./adjust-outcomes";
+import { getIntegrationWiring } from "./integration-wiring";
 
 const SHEET_PREP = "Prep Work";
 const SHEET_PM = "PM Publication";
@@ -265,6 +266,7 @@ function buildGuide(
     sheetExports,
     expectedOutputs,
     parityGaps: model.missingForParity,
+    integrationWiring: getIntegrationWiring(registryModelId),
     model,
     pmQaSelections,
     pmQaStatus,

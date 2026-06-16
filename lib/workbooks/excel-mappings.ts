@@ -165,6 +165,31 @@ export const pmPublicationMappings = {
       lambdaAdjust: "AdjustmentsPM.MatchAdjustments.FirstPartnership",
     },
     {
+      modelId: "pm-group-runs",
+      rows: "38-40",
+      market: "Runs in First N Overs (match)",
+      adjustCell: "I38",
+      lineCell: "F38",
+      lambdaAdjust: "AdjustmentsPM.MatchAdjustments.FirstGroup / SecondGroup / ThirdGroup",
+      notes: "T20 rows 38–40 = 6/8/10 overs. Line = Round(mean−1.2)+0.5. Group-specific adjust by over count.",
+    },
+    {
+      modelId: "pm-group-wickets",
+      rows: "41-43",
+      market: "Wickets in First N Overs",
+      adjustCell: "I41",
+      lineCell: "F41",
+      lambdaAdjust: "MatchAdjustments.FirstGroupWickets / SecondGroupWickets / ThirdGroupWickets (÷10 in Lambda)",
+      notes: "T20 rows 41–43. Line = Round(mean−0.8)+0.5",
+    },
+    {
+      modelId: "pm-team-group-runs",
+      rows: "NZ 138-146 / SA 204-212",
+      market: "{Team} Runs in First N Overs",
+      lambdaAdjust: "InningsAdjustmentsPM.FirstGroup / SecondGroup / ThirdGroup",
+      notes: "Three lines per team per group (. and .. suffix rows = alternate lines). TeamGroupRuns or GroupRuns team branch.",
+    },
+    {
       modelId: "pm-first-dismissal",
       rows: "45-51",
       market: "Method of First Dismissal",
@@ -260,6 +285,37 @@ export const pmPublicationMappings = {
       lineCell: "F59",
       lambdaAdjust: "AdjustmentsPM.MatchAdjustments.MatchWickets",
       notes: "Limited overs: U38+U59 (13.44) → line 13.5; Test: T17!Y MatchWickets",
+    },
+    {
+      modelId: "pm-first-innings-lead",
+      rows: "64-66",
+      market: "First Innings Lead",
+      adjustCell: "I64",
+      probabilityCells: ["G64", "G65", "G66"],
+      lambdaAdjust: "AdjustmentsPM.MatchAdjustments.FirstInningsLead",
+      notes:
+        "3-way race — home/away/tie. Lambda: RaceDistribution on Poisson-gamma innings totals; adjust shifts home vs away (÷100).",
+    },
+    {
+      modelId: "pm-highest-opening-partnership",
+      rows: "92-94",
+      market: "Highest Opening Partnership",
+      adjustCells: ["I92", "I94"],
+      probabilityCells: ["G92", "G93", "G94"],
+      lambdaAdjust:
+        "MatchAdjustments.HighestOpeningPartnership + HighestOpeningPartnershipTie",
+      notes:
+        "3-way opening-partnership race. homeProb + homeAdj/100 − tieAdj/100; awayProb − homeAdj/100. Test/FC market name prefixed \"1st Innings\".",
+    },
+    {
+      modelId: "pm-most-wickets",
+      rows: "544-546",
+      market: "To Take Most Wickets",
+      adjustCells: ["I544", "I546"],
+      probabilityCells: ["G544", "G545", "G546"],
+      lambdaAdjust: "MatchAdjustments.MostWickets + MostWicketsTie",
+      notes:
+        "3-way top-bowler wicket race. PlayerSpecifiers name nominated bowlers; same home/tie adjust pattern as HOP.",
     },
     {
       modelId: "pm-toss-winner",

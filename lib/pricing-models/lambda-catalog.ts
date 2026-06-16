@@ -7,11 +7,13 @@ export type LambdaCategory =
   | "Teams"
   | "Players"
   | "Head-to-head"
+  | "Groups"
   | "Shared";
 
 export function getLambdaCategory(
   namespace: string
 ): Exclude<LambdaCategory, "all" | "Shared"> {
+  if (namespace.includes(".Groups.")) return "Groups";
   if (namespace.includes(".Teams.")) return "Teams";
   if (namespace.includes(".Players.")) return "Players";
   if (namespace.includes(".HeadToHeads.")) return "Head-to-head";

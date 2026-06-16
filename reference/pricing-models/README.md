@@ -35,6 +35,9 @@ Organized to mirror the GitLab repo structure. Parsed metadata lives in `lib/pri
 | `PreMatch/Models/Matches/HighestIndividualScore.cs` | 63BARUA | Highest Individual Score (row 75) |
 | `PreMatch/Models/HeadToHeads/TeamOfTopBat.cs` | 59BARUA | Team of Top Bat |
 | `PreMatch/Models/HeadToHeads/TeamOfTopBowl.cs` | 510BARUA | Team of Top Bowl |
+| `PreMatch/Models/HeadToHeads/FirstInningsLead.cs` | FRSTIL | First Innings Lead (rows 64–66) |
+| `PreMatch/Models/HeadToHeads/HighestOpeningPartnership.cs` | HOPA | Highest Opening Partnership (rows 92–94) |
+| `PreMatch/Models/HeadToHeads/MostWickets.cs` | BWLVBWL | To Take Most Wickets (rows 544–546) |
 | `PreMatch/Models/Teams/TeamTopBatter.cs` | NL1/2TBNL | {Team} - Top Bat |
 | `PreMatch/Models/Teams/TeamTopBowler.cs` | NL1/2BBNL | {Team} - Top Bowl |
 | `PreMatch/Models/Teams/TeamFours.cs` | 54PIN / 64PIN | {Team} Fours (3 lines) |
@@ -47,6 +50,9 @@ Organized to mirror the GitLab repo structure. Parsed metadata lives in `lib/pri
 | `PreMatch/Models/Teams/TeamMaxOver.cs` | 5INRUA / 6INRUA | {Team} Max Runs in an Over |
 | `PreMatch/Models/Teams/TeamFirstPartnership.cs` | 11FONW / 21FONW | {Team} Runs at Fall of 1st Wicket |
 | `PreMatch/Models/Teams/TeamFirstDismissal.cs` | 11MOPD / 21MOPD | {Team} 1st Wicket Method of Dismissal |
+| `PreMatch/Models/Groups/GroupRuns.cs` | 0RPGO{n} / 1|2RPGO{n} | Runs in First N Overs (rows 38–40 match, 138+ team) |
+| `PreMatch/Models/Groups/GroupWickets.cs` | 0WPGO{n} | Wickets in First N Overs (rows 41–43) |
+| `PreMatch/Models/Groups/TeamGroupRuns.cs` | 1|2RPGO{n}[A|B] | Team-only group runs (3 lines per group) |
 
 ## Base classes
 
@@ -57,6 +63,7 @@ Organized to mirror the GitLab repo structure. Parsed metadata lives in `lib/pri
 | `PreMatch/Models/Matches/MatchTopPlayer.cs` | `StandardMarketPricingModel` | `MatchTopBatter`, `MatchTopBowler` |
 | `PreMatch/Models/Matches/MilestoneMarketModel.cs` | `StandardMarketPricingModel` | `FiftyInnings`, `HundredInnings`, `HundredMatch` |
 | `PreMatch/Models/HeadToHeads/MatchDerivativeMarket.cs` | `HeadStandardMarketPricingModel` | `TeamOfTopBat`, `TeamOfTopBowl` |
+| `PreMatch/Models/Groups/GroupStandardMarketPricingModel.cs` | `StandardMarketPricingModel` | `GroupRuns`, `GroupWickets`, `TeamGroupRuns` |
 | `IMatchDerivativeMarket.cs` | — | `MatchDerivativeMarket` overload contract |
 
 ## Shared helpers

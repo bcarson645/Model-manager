@@ -4,6 +4,7 @@ import type {
   PmPublicationSelection,
   PmQaRowStatus,
 } from "@/lib/workbooks/pm-publication-qa";
+import type { IntegrationWiringGuide } from "./integration-wiring";
 import type { TraderSkewGuide } from "./trader-skew-guides";
 import type { AdjustOutcomePreview } from "./adjust-outcomes";
 
@@ -66,6 +67,7 @@ export type MarketTradingGuide = {
   expectedOutputs: GuideOutput[];
   dataFlow: string[];
   parityGaps: string[];
+  integrationWiring: IntegrationWiringGuide;
   model: PricingModelDefinition;
   pmQaSelections: PmPublicationSelection[];
   pmQaStatus: PmQaRowStatus;

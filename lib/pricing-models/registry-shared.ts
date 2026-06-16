@@ -213,6 +213,24 @@ export const sharedPricingArtifacts: SharedPricingArtifact[] = [
     ],
   },
   {
+    id: "group-standard-market-pricing-model",
+    name: "GroupStandardMarketPricingModel",
+    kind: "base_class",
+    namespace: NS_PREMATCH,
+    filePath: "reference/pricing-models/PreMatch/Models/Groups/GroupStandardMarketPricingModel.cs",
+    description:
+      "Base for over-group markets. Defines GetOverGroups(format): T20 → [6,8,10], T10 → [4,6], else → [5,10,15].",
+    usedBy: ["GroupRuns", "GroupWickets", "TeamGroupRuns"],
+    methods: [
+      {
+        name: "GetOverGroups",
+        signature: "(string format) → int[]",
+        notes: "T20: 6/8/10 overs; T10: 4/6; ODI/Test/FC: 5/10/15",
+      },
+    ],
+    missingForParity: ["StandardMarketPricingModel parent (GetTeams, GetOverUnderOutcomes, GetVarianceParameters)"],
+  },
+  {
     id: "i-match-derivative-market",
     name: "IMatchDerivativeMarket",
     kind: "interface",

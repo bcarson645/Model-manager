@@ -1,0 +1,242 @@
+import type { PricingModelDefinition } from "./types";
+
+const NS_GROUPS = "PremiumCricket.Lib.Pricing.PricingModels.PreMatch.Models.Groups";
+const FILE_GROUPS = "reference/pricing-models/PreMatch/Models/Groups";
+
+export const groupPricingModels: PricingModelDefinition[] = [
+  {
+    id: "group-runs",
+    registryModelId: "pm-group-runs",
+    className: "GroupRuns",
+    namespace: NS_GROUPS,
+    filePath: `${FILE_GROUPS}/GroupRuns.cs`,
+    phase: "pre_match",
+    marketName: "Runs in First N Overs (match + team)",
+    marketCode: "0RPGO{n} / 1|2RPGO{n}[A|B]",
+    marketId: 352,
+    legacyMarketId: 8,
+    description:
+      "Under/over on total runs scored in the first N overs of the first innings. Match markets use averaged team FirstGroup/SecondGroup from Prep Work; team markets emit three lines (middle ±5) per side. Poisson-gamma distribution.",
+    inputs: [
+      {
+        name: "FirstGroup",
+        label: "Team first-group runs (Prep Work)",
+        scope: "parameter",
+        csharpPath: "team.FirstGroup",
+        excelRef: "Prep Work — trader-typed group means (6/12 overs T20, 5/15 ODI)",
+        notes: "Match mean = 0.5 × (team1.FirstGroup + team2.FirstGroup) for early groups",
+      },
+      {
+        name: "SecondGroup",
+        label: "Team second-group runs (Prep Work)",
+        scope: "parameter",
+        csharpPath: "team.SecondGroup",
+        excelRef: "Prep Work — second group overs",
+      },
+      {
+        name: "FirstGroupAdj",
+        label: "Match first-group adjust",
+        scope: "trading_input",
+        csharpPath: "inputs.AdjustmentsPM.MatchAdjustments.FirstGroup",
+        excelRef: "PM Publication match group rows I38–I40 (format-dependent)",
+      },
+      {
+        name: "SecondGroupAdj",
+        label: "Match second-group adjust",
+        scope: "trading_input",
+        csharpPath: "inputs.AdjustmentsPM.MatchAdjustments.SecondGroup",
+      },
+      {
+        name: "ThirdGroupAdj",
+        label: "Match third-group adjust",
+        scope: "trading_input",
+        csharpPath: "inputs.AdjustmentsPM.MatchAdjustments.ThirdGroup",
+      },
+      {
+        name: "InningsFirstGroup",
+        label: "Per-team first-group adjust",
+        scope: "trading_input",
+        csharpPath: "InningsAdjustmentsPM.FirstGroup",
+        notes: "Team block rows 138–146 (NZ) / 204–212 (SA)",
+      },
+      {
+        name: "GroupRunsVariance",
+        label: "Poisson-gamma variance lookup",
+        scope: "embedded",
+        csharpPath: "GetVarianceParameters(\"GroupRuns\")",
+      },
+      {
+        name: "StrikeRateLookup",
+        label: "ODI group-10 strike-rate chain",
+        scope: "embedded",
+        csharpPath: "LookupProvider.GetStrikeRateLookup() + GetGroupAdjustLookup()",
+        notes: "Prep Work CA6–CC7 for ODI group 10 only",
+      },
+    ],
+    embeddedConstants: [
+      { name: "T20Group10Ratio", value: "0.6527" },
+      { name: "T20Group8Ratio", value: "0.315" },
+      { name: "TestGroup15Ratio", value: "3.1" },
+      { name: "MatchLineOffset", value: "Round(mean − 1.2) + 0.5" },
+      { name: "TeamLineOffset", value: "Round(mean − 1.6); lines at middle ±5" },
+      { name: "OverGroups", value: "T20: [6,8,10]; T10: [4,6]; else [5,10,15]" },
+      { name: "AwayMarketId", value: "353" },
+    ],
+    outputs: [
+      {
+        name: "matchGroupRuns",
+        label: "Match runs in first N overs (U/O)",
+        type: "outcome_set",
+        excelRef: "PM Publication rows 38–40 (T20)",
+        notes: "One line per group — e.g. 9.5 runs in first 6 overs",
+      },
+      {
+        name: "teamGroupRuns",
+        label: "Team runs in first N overs (3 lines)",
+        type: "outcome_set",
+        excelRef: "PM Publication NZ 138–146 / SA 204–212",
+        notes: "Suffix . and .. = alternate lines (A/B market codes)",
+      },
+    ],
+    missingForParity: [
+      "Prep Work cells for FirstGroup/SecondGroup per format",
+      "ODI group-10 CA6–CC7 chain vs Excel",
+      "Match vs team adjust column mapping per row",
+      "T10 variance uses T20 lookup table",
+    ],
+  },
+  {
+    id: "group-wickets",
+    registryModelId: "pm-group-wickets",
+    className: "GroupWickets",
+    namespace: NS_GROUPS,
+    filePath: `${FILE_GROUPS}/GroupWickets.cs`,
+    phase: "pre_match",
+    marketName: "Wickets in First N Overs",
+    marketCode: "0WPGO{n}",
+    marketId: 999,
+    legacyMarketId: 30,
+    description:
+      "Under/over on wickets lost in the first N overs of the first innings. Mean derived from expected wickets lost (WicketsLost) × format/group multipliers, averaged across both teams.",
+    inputs: [
+      {
+        name: "WicketsLost",
+        label: "Expected wickets lost per team",
+        scope: "parameter",
+        csharpPath: "team.WicketsLost",
+        notes: "Expected wickets — not actual match wickets",
+      },
+      {
+        name: "ConditionAdjustment",
+        label: "Conditions × batting × bowling",
+        scope: "parameter",
+        csharpPath: "ConditionAdjustment × battingRating × bowlingRating",
+        excelRef: "Prep Work!D3",
+        notes: "Test format first-group uses TestFirstGroupWicketsMultiplier / conditionsAdjust",
+      },
+      {
+        name: "FirstGroupWickets",
+        label: "First-group wickets adjust",
+        scope: "trading_input",
+        csharpPath: "inputs.AdjustmentsPM.MatchAdjustments.FirstGroupWickets / 10",
+        excelRef: "PM Publication rows 41–43",
+      },
+      {
+        name: "SecondGroupWickets",
+        label: "Second-group wickets adjust",
+        scope: "trading_input",
+        csharpPath: "inputs.AdjustmentsPM.MatchAdjustments.SecondGroupWickets / 10",
+      },
+      {
+        name: "ThirdGroupWickets",
+        label: "Third-group wickets adjust",
+        scope: "trading_input",
+        csharpPath: "inputs.AdjustmentsPM.MatchAdjustments.ThirdGroupWickets / 10",
+      },
+      {
+        name: "GroupWicketsVariance",
+        label: "Poisson-gamma variance lookup",
+        scope: "embedded",
+        csharpPath: "GetVarianceParameters(\"GroupWickets\")",
+      },
+    ],
+    embeddedConstants: [
+      { name: "T20FirstGroupMultiplier", value: "1.44 / 6.1" },
+      { name: "T20SecondGroupMultiplier", value: "2.32 / 1.44 (group 8)" },
+      { name: "T20ThirdGroupMultiplier", value: "2.85 / 1.44 (group 10)" },
+      { name: "LineOffset", value: "Round(mean − 0.8) + 0.5" },
+    ],
+    outputs: [
+      {
+        name: "groupWickets",
+        label: "Wickets in first N overs (U/O)",
+        type: "outcome_set",
+        excelRef: "PM Publication rows 41–43 (T20)",
+      },
+    ],
+    missingForParity: [
+      "marketId 999 is placeholder — confirm UOF id",
+      "WicketsLost Prep Work source vs evaluation pipeline",
+      "Group wicket adjust cells I41–I43",
+    ],
+  },
+  {
+    id: "team-group-runs",
+    registryModelId: "pm-team-group-runs",
+    className: "TeamGroupRuns",
+    namespace: NS_GROUPS,
+    filePath: `${FILE_GROUPS}/TeamGroupRuns.cs`,
+    phase: "pre_match",
+    marketName: "Runs in First N Overs (team only)",
+    marketCode: "1|2RPGO{n}[A|B]",
+    marketId: 352,
+    legacyMarketId: 8,
+    description:
+      "Team-only variant of group runs — three under/over lines per team per over-group. Same GetTeamGroups logic as GroupRuns.CreateMarketsForTeam without match-level markets.",
+    inputs: [
+      {
+        name: "FirstGroup",
+        label: "Team first-group runs",
+        scope: "parameter",
+        csharpPath: "team.FirstGroup",
+        excelRef: "Prep Work — trader-typed group means",
+      },
+      {
+        name: "SecondGroup",
+        label: "Team second-group runs",
+        scope: "parameter",
+        csharpPath: "team.SecondGroup",
+      },
+      {
+        name: "InningsGroupAdjusts",
+        label: "Per-team group adjusts",
+        scope: "trading_input",
+        csharpPath: "InningsAdjustmentsPM.FirstGroup / SecondGroup / ThirdGroup",
+        excelRef: "PM Publication team rows 138–146 / 204–212",
+      },
+      {
+        name: "GroupRunsVariance",
+        label: "Poisson-gamma variance lookup",
+        scope: "embedded",
+        csharpPath: "GetVarianceParameters(\"GroupRuns\")",
+      },
+    ],
+    embeddedConstants: [
+      { name: "TeamLineOffset", value: "Round(mean − 1.6); lines at middle ±5" },
+      { name: "MarketCodeSuffix", value: "A = middle line, B = middle+5" },
+      { name: "AwayMarketId", value: "353" },
+    ],
+    outputs: [
+      {
+        name: "teamGroupRuns",
+        label: "Team runs in first N overs (3 lines)",
+        type: "outcome_set",
+        excelRef: "PM Publication NZ 138–146 / SA 204–212",
+      },
+    ],
+    missingForParity: [
+      "Duplicate of GroupRuns team branch — confirm which class is deployed in Lambda spawn list",
+      "Alternate line rows (.) and (..) vs market codes A/B",
+    ],
+  },
+];

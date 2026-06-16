@@ -116,6 +116,7 @@ export function LambdaCodePanel() {
     "Teams",
     "Players",
     "Head-to-head",
+    "Groups",
     "Shared",
   ];
 

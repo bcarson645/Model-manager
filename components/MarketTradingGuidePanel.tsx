@@ -11,8 +11,15 @@ import {
   TraderAdjustOverview,
   TraderSkewGuideSection,
 } from "@/components/TraderSkewGuideSection";
+import {
+  IntegrationWiringSection,
+  PlatformIntegrationOverview,
+  ReadinessBadge,
+  ReadyMarketsSummary,
+} from "@/components/IntegrationWiringSection";
 
 function groupLabel(guide: MarketTradingGuide): string {
+  if (guide.lambdaClass.includes(".Groups.")) return "Group markets";
   if (guide.lambdaClass.includes(".Teams.")) return "Team markets";
   if (guide.lambdaClass.includes(".Players.")) return "Player markets";
   if (guide.lambdaClass.includes(".HeadToHeads.")) return "Head-to-head";
@@ -149,6 +156,12 @@ function GuideDetail({ guide }: { guide: MarketTradingGuide }) {
             <p className="mt-2 max-w-3xl text-sm text-slate-400">{guide.description}</p>
           </div>
           <div className="text-right text-xs text-slate-500">
+            <div className="mb-2 flex justify-end">
+              <ReadinessBadge
+              readiness={guide.integrationWiring.readiness}
+              connected={guide.integrationWiring.connected}
+            />
+            </div>
             <p>
               Code <span className="font-mono text-slate-300">{guide.marketCode}</span>
             </p>
@@ -173,6 +186,8 @@ function GuideDetail({ guide }: { guide: MarketTradingGuide }) {
         skew={guide.traderSkewGuide}
         adjustOutcomePreview={guide.adjustOutcomePreview}
       />
+
+      <IntegrationWiringSection wiring={guide.integrationWiring} />
 
       <div className="grid gap-6 lg:grid-cols-2">
         <section className="rounded-2xl border border-accent/40 bg-accent/5 p-6">
@@ -351,6 +366,10 @@ export function MarketTradingGuidePanel() {
 
       <TraderAdjustOverview />
 
+      <PlatformIntegrationOverview />
+
+      <ReadyMarketsSummary />
+
       <div className="flex flex-col gap-6 lg:flex-row lg:items-start">
         <div className="w-full shrink-0 lg:w-72">
           <label className="text-xs font-medium uppercase tracking-wide text-slate-500">
@@ -366,6 +385,11 @@ export function MarketTradingGuidePanel() {
                 {items.map((g) => (
                   <option key={g.id} value={g.id}>
                     {g.marketName}
+                    {g.integrationWiring.connected
+                      ? " ●"
+                      : g.integrationWiring.readiness === "ready"
+                        ? " ✓"
+                        : ""}
                   </option>
                 ))}
               </optgroup>
