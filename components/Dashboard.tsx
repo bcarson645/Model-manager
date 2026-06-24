@@ -13,13 +13,14 @@ import { LambdaCodePanel } from "./LambdaCodePanel";
 import { MarketTradingGuidePanel } from "./MarketTradingGuidePanel";
 import { ModelRegistry } from "./ModelRegistry";
 import { OutputComparison } from "./OutputComparison";
+import { PrepWorkTablesPanel } from "./PrepWorkTablesPanel";
 import { PmMarketCatalog } from "./PmMarketCatalog";
 import { PmPublicationQaPanel } from "./PmPublicationQaPanel";
 import { RatingFormulaPanel } from "./RatingFormulaPanel";
 import { RegistryOverview } from "./RegistryOverview";
 import { VariableMatrix } from "./VariableMatrix";
 
-type Tab = "overview" | "models" | "pm-markets" | "lambda" | "guide" | "pm-qa" | "variables" | "compare";
+type Tab = "overview" | "models" | "pm-markets" | "lambda" | "guide" | "tables" | "pm-qa" | "variables" | "compare";
 
 const tabs: Array<{ id: Tab; label: string }> = [
   { id: "overview", label: "Overview" },
@@ -27,6 +28,7 @@ const tabs: Array<{ id: Tab; label: string }> = [
   { id: "pm-markets", label: "PM markets" },
   { id: "lambda", label: "Lambda code" },
   { id: "guide", label: "Trading guide" },
+  { id: "tables", label: "Tables" },
   { id: "pm-qa", label: "PM QA" },
   { id: "variables", label: "Variables" },
   { id: "compare", label: "Compare outputs" },
@@ -116,6 +118,7 @@ export function Dashboard({
       {activeTab === "pm-markets" && <PmMarketCatalog />}
       {activeTab === "lambda" && <LambdaCodePanel />}
       {activeTab === "guide" && <MarketTradingGuidePanel />}
+      {activeTab === "tables" && <PrepWorkTablesPanel />}
       {activeTab === "pm-qa" && <PmPublicationQaPanel />}
       {activeTab === "variables" && (
         <VariableMatrix variables={filteredVariables} models={models} />

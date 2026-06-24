@@ -1,0 +1,1127 @@
+{
+  "fixtureId": "nz-sa-63406779",
+  "label": "New Zealand v South Africa (63406779)",
+  "sheet": "Prep Work",
+  "tables": [
+    {
+      "id": "table-1",
+      "name": "Table 1 \u2014 Per-innings historical blends",
+      "range": "K2:P18",
+      "cells": [
+        {
+          "address": "L2",
+          "row": 2,
+          "col": "L",
+          "formula": "Venue",
+          "value": "Venue"
+        },
+        {
+          "address": "M2",
+          "row": 2,
+          "col": "M",
+          "formula": "Host",
+          "value": "Host"
+        },
+        {
+          "address": "N2",
+          "row": 2,
+          "col": "N",
+          "formula": "Cmptn",
+          "value": "Cmptn"
+        },
+        {
+          "address": "O2",
+          "row": 2,
+          "col": "O",
+          "formula": "All",
+          "value": "All"
+        },
+        {
+          "address": "P2",
+          "row": 2,
+          "col": "P",
+          "formula": "Last 5 Yrs",
+          "value": "Last 5 Yrs"
+        },
+        {
+          "address": "K3",
+          "row": 3,
+          "col": "K",
+          "formula": "1st Inns",
+          "value": "1st Inns"
+        },
+        {
+          "address": "L3",
+          "row": 3,
+          "col": "L",
+          "formula": "=AVERAGEIFS(Data!$J:$J,Data!$I:$I,IF(n_format_a=\"Test\",\"<\"&3,1),Data!$D:$D,n_max_original,Data!AP:AP,InfoVenueId)",
+          "value": 177.78947368421052
+        },
+        {
+          "address": "M3",
+          "row": 3,
+          "col": "M",
+          "formula": "=AVERAGEIFS(Data!$J:$J,Data!$I:$I,IF(n_format_a=\"Test\",\"<\"&3,1),Data!$D:$D,n_max_original,Data!AQ:AQ,InfoHostId)",
+          "value": 170.9591280653951
+        },
+        {
+          "address": "N3",
+          "row": 3,
+          "col": "N",
+          "formula": "=AVERAGEIFS(Data!$J:$J,Data!$I:$I,IF(n_format_a=\"Test\",\"<\"&3,1),Data!$D:$D,n_max_original,Data!AN:AN,InfoCompetitionId)",
+          "value": 166.2520924671184
+        },
+        {
+          "address": "O3",
+          "row": 3,
+          "col": "O",
+          "formula": "=AVERAGEIFS(Data!$J:$J,Data!$I:$I,IF(n_format_a=\"Test\",\"<\"&3,1),Data!$D:$D,n_max_original)",
+          "value": 166.2679630900633
+        },
+        {
+          "address": "P3",
+          "row": 3,
+          "col": "P",
+          "formula": "=AVERAGEIFS(Data!J:J,Data!I:I,IF(n_format_a=\"Test\",\"<\"&3,1),Data!M:M,1,Data!B:B,$P$1)",
+          "value": 169.58470290771174
+        },
+        {
+          "address": "K4",
+          "row": 4,
+          "col": "K",
+          "formula": "Wickets",
+          "value": "Wickets"
+        },
+        {
+          "address": "L4",
+          "row": 4,
+          "col": "L",
+          "formula": "=AVERAGEIFS(Data!$K:$K,Data!$M:$M,1,Data!$D:$D,n_max_original,Data!AP:AP,InfoVenueId,Data!$I:$I,IF(n_format_a=\"Test\",\"<\"&3,1))",
+          "value": 6.447368421052632
+        },
+        {
+          "address": "M4",
+          "row": 4,
+          "col": "M",
+          "formula": "=AVERAGEIFS(Data!$K:$K,Data!$M:$M,1,Data!$D:$D,n_max_original,Data!AQ:AQ,InfoHostId,Data!$I:$I,IF(n_format_a=\"Test\",\"<\"&3,1))",
+          "value": 6.6811989100817435
+        },
+        {
+          "address": "N4",
+          "row": 4,
+          "col": "N",
+          "formula": "=AVERAGEIFS(Data!$K:$K,Data!$M:$M,1,Data!$D:$D,n_max_original,Data!AN:AN,InfoCompetitionId,Data!$I:$I,IF(n_format_a=\"Test\",\"<\"&3,1))",
+          "value": 6.592105263157895
+        },
+        {
+          "address": "O4",
+          "row": 4,
+          "col": "O",
+          "formula": "=AVERAGEIFS(Data!$K:$K,Data!$M:$M,1,Data!$D:$D,n_max_original,Data!$I:$I,IF(n_format_a=\"Test\",\"<\"&3,1))",
+          "value": 6.5910316925151715
+        },
+        {
+          "address": "P4",
+          "row": 4,
+          "col": "P",
+          "formula": "=AVERAGEIFS(Data!K:K,Data!I:I,IF(n_format_a=\"Test\",\"<\"&3,1),Data!M:M,1,Data!B:B,$P$1)",
+          "value": 6.849557522123894
+        },
+        {
+          "address": "K5",
+          "row": 5,
+          "col": "K",
+          "formula": "Fours",
+          "value": "Fours"
+        },
+        {
+          "address": "L5",
+          "row": 5,
+          "col": "L",
+          "formula": "=SUMIFS(Data!$R:$R,Data!$D:$D,n_max_original,Data!AP:AP,InfoVenueId,Data!$I:$I,\"<\"&3)/L$18",
+          "value": 13.81578947368421
+        },
+        {
+          "address": "M5",
+          "row": 5,
+          "col": "M",
+          "formula": "=SUMIFS(Data!$R:$R,Data!$D:$D,n_max_original,Data!AQ:AQ,InfoHostId,Data!$I:$I,\"<\"&3)/M$18",
+          "value": 13.181198910081743
+        },
+        {
+          "address": "N5",
+          "row": 5,
+          "col": "N",
+          "formula": "=SUMIFS(Data!$R:$R,Data!$D:$D,n_max_original,Data!AN:AN,InfoCompetitionId,Data!$I:$I,\"<\"&3)/N$18",
+          "value": 12.530701754385966
+        },
+        {
+          "address": "O5",
+          "row": 5,
+          "col": "O",
+          "formula": "=SUMIFS(Data!$R:$R,Data!$D:$D,n_max_original,Data!$I:$I,\"<\"&3)/O$18",
+          "value": 12.996797033041133
+        },
+        {
+          "address": "P5",
+          "row": 5,
+          "col": "P",
+          "formula": "=SUMIFS(Data!$R:$R,Data!$D:$D,n_max_original,Data!$I:$I,\"<\"&3, Data!B:B,$P$1)/P$18",
+          "value": 13.061630847029077
+        },
+        {
+          "address": "K6",
+          "row": 6,
+          "col": "K",
+          "formula": "Sixes",
+          "value": "Sixes"
+        },
+        {
+          "address": "L6",
+          "row": 6,
+          "col": "L",
+          "formula": "=SUMIFS(Data!$S:$S,Data!$D:$D,n_max_original,Data!AP:AP,InfoVenueId,Data!$I:$I,\"<\"&3)/L$18",
+          "value": 7.302631578947368
+        },
+        {
+          "address": "M6",
+          "row": 6,
+          "col": "M",
+          "formula": "=SUMIFS(Data!$S:$S,Data!$D:$D,n_max_original,Data!AQ:AQ,InfoHostId,Data!$I:$I,\"<\"&3)/M$18",
+          "value": 6.2888283378746594
+        },
+        {
+          "address": "N6",
+          "row": 6,
+          "col": "N",
+          "formula": "=SUMIFS(Data!$S:$S,Data!$D:$D,n_max_original,Data!AN:AN,InfoCompetitionId,Data!$I:$I,\"<\"&3)/N$18",
+          "value": 6.206688596491228
+        },
+        {
+          "address": "O6",
+          "row": 6,
+          "col": "O",
+          "formula": "=SUMIFS(Data!$S:$S,Data!$D:$D,n_max_original,Data!$I:$I,\"<\"&3)/O$18",
+          "value": 6.035738368172623
+        },
+        {
+          "address": "P6",
+          "row": 6,
+          "col": "P",
+          "formula": "=SUMIFS(Data!$S:$S,Data!$D:$D,n_max_original,Data!$I:$I,\"<\"&3, Data!B:B,$P$1)/P$18",
+          "value": 6.791403286978508
+        },
+        {
+          "address": "K7",
+          "row": 7,
+          "col": "K",
+          "formula": "T5.Avg",
+          "value": "T5.Avg"
+        },
+        {
+          "address": "L7",
+          "row": 7,
+          "col": "L",
+          "formula": "=SUMIFS(Data!$P:$P,Data!$M:$M,\"<\"&6,Data!$D:$D,n_max_original,Data!AP:AP,InfoVenueId,Data!$I:$I,\"<\"&3)/SUMIFS(Data!$AB:$AB,Data!$M:$M,\"<\"&6,Data!$D:$D,n_max_original,Data!AP:AP,InfoVenueId,Data!$I:$I,\"<\"&3)",
+          "value": 28.972560975609756
+        },
+        {
+          "address": "M7",
+          "row": 7,
+          "col": "M",
+          "formula": "=SUMIFS(Data!$P:$P,Data!$M:$M,\"<\"&6,Data!$D:$D,n_max_original,Data!AQ:AQ,InfoHostId,Data!$I:$I,\"<\"&3)/SUMIFS(Data!$AB:$AB,Data!$M:$M,\"<\"&6,Data!$D:$D,n_max_original,Data!AQ:AQ,InfoHostId,Data!$I:$I,\"<\"&3)",
+          "value": 27.04893813481071
+        },
+        {
+          "address": "N7",
+          "row": 7,
+          "col": "N",
+          "formula": "=SUMIFS(Data!$P:$P,Data!$M:$M,\"<\"&6,Data!$D:$D,n_max_original,Data!AN:AN,InfoCompetitionId,Data!$I:$I,\"<\"&3)/SUMIFS(Data!$AB:$AB,Data!$M:$M,\"<\"&6,Data!$D:$D,n_max_original,Data!AN:AN,InfoCompetitionId,Data!$I:$I,\"<\"&3)",
+          "value": 26.49040752351097
+        },
+        {
+          "address": "O7",
+          "row": 7,
+          "col": "O",
+          "formula": "=SUMIFS(Data!$P:$P,Data!$M:$M,\"<\"&6,Data!$D:$D,n_max_original,Data!$I:$I,\"<\"&3)/SUMIFS(Data!$AB:$AB,Data!$M:$M,\"<\"&6,Data!$D:$D,n_max_original,Data!$I:$I,\"<\"&3)",
+          "value": 26.96208073755473
+        },
+        {
+          "address": "P7",
+          "row": 7,
+          "col": "P",
+          "formula": "=SUMIFS(Data!$P:$P,Data!$M:$M,\"<\"&6,Data!$D:$D,n_max_original,Data!$I:$I,\"<\"&3,Data!B:B,$P$1)/SUMIFS(Data!$AB:$AB,Data!$M:$M,\"<\"&6,Data!$D:$D,n_max_original,Data!$I:$I,\"<\"&3,Data!B:B,$P$1)",
+          "value": 26.597063037249285
+        },
+        {
+          "address": "K8",
+          "row": 8,
+          "col": "K",
+          "formula": "T5.SR",
+          "value": "T5.SR"
+        },
+        {
+          "address": "L8",
+          "row": 8,
+          "col": "L",
+          "formula": "=SUMIFS(Data!$P:$P,Data!$M:$M,\"<\"&6,Data!$D:$D,n_max_original,Data!AP:AP,InfoVenueId,Data!$I:$I,\"<\"&3)/SUMIFS(Data!$Q:$Q,Data!$M:$M,\"<\"&6,Data!$D:$D,n_max_original,Data!AP:AP,InfoVenueId,Data!$I:$I,\"<\"&3)",
+          "value": 1.3927890957057012
+        },
+        {
+          "address": "M8",
+          "row": 8,
+          "col": "M",
+          "formula": "=SUMIFS(Data!$P:$P,Data!$M:$M,\"<\"&6,Data!$D:$D,n_max_original,Data!AQ:AQ,InfoHostId,Data!$I:$I,\"<\"&3)/SUMIFS(Data!$Q:$Q,Data!$M:$M,\"<\"&6,Data!$D:$D,n_max_original,Data!AQ:AQ,InfoHostId,Data!$I:$I,\"<\"&3)",
+          "value": 1.3565805316291561
+        },
+        {
+          "address": "N8",
+          "row": 8,
+          "col": "N",
+          "formula": "=SUMIFS(Data!$P:$P,Data!$M:$M,\"<\"&6,Data!$D:$D,n_max_original,Data!AN:AN,InfoCompetitionId,Data!$I:$I,\"<\"&3)/SUMIFS(Data!$Q:$Q,Data!$M:$M,\"<\"&6,Data!$D:$D,n_max_original,Data!AN:AN,InfoCompetitionId,Data!$I:$I,\"<\"&3)",
+          "value": 1.3170392628704661
+        },
+        {
+          "address": "O8",
+          "row": 8,
+          "col": "O",
+          "formula": "=SUMIFS(Data!$P:$P,Data!$M:$M,\"<\"&6,Data!$D:$D,n_max_original,Data!$I:$I,\"<\"&3)/SUMIFS(Data!$Q:$Q,Data!$M:$M,\"<\"&6,Data!$D:$D,n_max_original,Data!$I:$I,\"<\"&3)",
+          "value": 1.3208436600301794
+        },
+        {
+          "address": "P8",
+          "row": 8,
+          "col": "P",
+          "formula": "=SUMIFS(Data!$P:$P,Data!$M:$M,\"<\"&6,Data!$D:$D,n_max_original,Data!$I:$I,\"<\"&3,Data!B:B,$P$1)/SUMIFS(Data!$Q:$Q,Data!$M:$M,\"<\"&6,Data!$D:$D,n_max_original,Data!$I:$I,\"<\"&3,Data!B:B,$P$1)",
+          "value": 1.3602193671762521
+        },
+        {
+          "address": "K9",
+          "row": 9,
+          "col": "K",
+          "formula": "1st over",
+          "value": "1st over"
+        },
+        {
+          "address": "L9",
+          "row": 9,
+          "col": "L",
+          "formula": "=IFERROR(AVERAGEIFS('Prog Data'!$N$13:$N$10000,'Prog Data'!$Y$15:$Y$10000,InfoVenueId),\"\")",
+          "value": null
+        },
+        {
+          "address": "M9",
+          "row": 9,
+          "col": "M",
+          "formula": "=IFERROR(AVERAGEIFS('Prog Data'!$N$13:$N$10000,'Prog Data'!$E$13:$E$10000,n_host),\"\")",
+          "value": null
+        },
+        {
+          "address": "N9",
+          "row": 9,
+          "col": "N",
+          "formula": "=IFERROR(AVERAGEIFS('Prog Data'!$N$13:$N$10000,'Prog Data'!$Z$13:$Z$10000,InfoCompetitionId),\"\")",
+          "value": null
+        },
+        {
+          "address": "O9",
+          "row": 9,
+          "col": "O",
+          "formula": "=IF(InfoCompetitionId=50,10,IFERROR(AVERAGE('Prog Data'!$N$15:$N$10000),INDEX($W$104:$AB$107,$V$102,$W$102+IF(n_format_a=\"test\",$X$102,0))))",
+          "value": 5.9
+        },
+        {
+          "address": "P9",
+          "row": 9,
+          "col": "P",
+          "formula": "=IF(InfoCompetitionId=50,10,IFERROR(AVERAGEIFS('Prog Data'!$N$15:$N$10000,'Prog Data'!$B$15:$B$10000,'Prep Work'!$P$1),INDEX($W$98:$AB$101,$V$102,$W$102+IF(n_format_a=\"test\",$X$102,0))))",
+          "value": 6.2
+        },
+        {
+          "address": "K10",
+          "row": 10,
+          "col": "K",
+          "formula": "=B30",
+          "value": "1st 6"
+        },
+        {
+          "address": "L10",
+          "row": 10,
+          "col": "L",
+          "formula": "=IFERROR(AVERAGEIFS('Prog Data'!$O$13:$O$10000,'Prog Data'!$Y$15:$Y$10000,InfoVenueId),\"\")",
+          "value": null
+        },
+        {
+          "address": "M10",
+          "row": 10,
+          "col": "M",
+          "formula": "=IFERROR(AVERAGEIFS('Prog Data'!$O$13:$O$10000,'Prog Data'!$E$13:$E$10000,n_host),\"\")",
+          "value": null
+        },
+        {
+          "address": "N10",
+          "row": 10,
+          "col": "N",
+          "formula": "=IFERROR(AVERAGEIFS('Prog Data'!$O$13:$O$10000,'Prog Data'!$Z$13:$Z$10000,InfoCompetitionId),\"\")",
+          "value": null
+        },
+        {
+          "address": "O10",
+          "row": 10,
+          "col": "O",
+          "formula": "=IFERROR(AVERAGE('Prog Data'!$O$15:$O$10000),INDEX($W$104:$AB$107,$V$102,$W$102+IF(n_format_a=\"test\",$X$102,0)+2))",
+          "value": 45.8
+        },
+        {
+          "address": "P10",
+          "row": 10,
+          "col": "P",
+          "formula": "=IFERROR(AVERAGEIFS('Prog Data'!$O$15:$O$10000,'Prog Data'!$B$15:$B$10000,'Prep Work'!$P$1),INDEX($W$98:$AB$101,$V$102,$W$102+IF(n_format_a=\"test\",$X$102,0)+2))",
+          "value": 47.6
+        },
+        {
+          "address": "K11",
+          "row": 11,
+          "col": "K",
+          "formula": "=IF(OR(n_tournament=\"The Hundred Men\", n_tournament=\"The Hundred Women\"), \"1st 10\", IF(n_format_a=\"t20\", \"1st 12\", IF(n_format_a=\"ODI\", \"1st 15\", IF(n_format_a=\"t10\", \"1st 6\", \"1st 10\"))))",
+          "value": "1st 12"
+        },
+        {
+          "address": "L11",
+          "row": 11,
+          "col": "L",
+          "formula": "=IFERROR(AVERAGEIFS('Prog Data'!$P$13:$P$10000,'Prog Data'!$Y$15:$Y$10000,InfoVenueId),\"\")",
+          "value": null
+        },
+        {
+          "address": "M11",
+          "row": 11,
+          "col": "M",
+          "formula": "=IFERROR(AVERAGEIFS('Prog Data'!$P$13:$P$10000,'Prog Data'!$E$13:$E$10000,n_host),\"\")",
+          "value": null
+        },
+        {
+          "address": "N11",
+          "row": 11,
+          "col": "N",
+          "formula": "=IFERROR(AVERAGEIFS('Prog Data'!$P$13:$P$10000,'Prog Data'!$Z$13:$Z$10000,InfoCompetitionId),\"\")",
+          "value": null
+        },
+        {
+          "address": "O11",
+          "row": 11,
+          "col": "O",
+          "formula": "=IFERROR(AVERAGE('Prog Data'!$P$15:$P$10000),INDEX($W$104:$AB$107,$V$102,$W$102+IF(n_format_a=\"test\",$X$102,0)+4))",
+          "value": 89.2
+        },
+        {
+          "address": "P11",
+          "row": 11,
+          "col": "P",
+          "formula": "=IFERROR(AVERAGEIFS('Prog Data'!$P$15:$P$10000,'Prog Data'!$B$15:$B$10000,'Prep Work'!$P$1),INDEX($W$98:$AB$101,$V$102,$W$102+IF(n_format_a=\"test\",$X$102,0)+4))",
+          "value": 91.3
+        },
+        {
+          "address": "K12",
+          "row": 12,
+          "col": "K",
+          "formula": "Fours Prop",
+          "value": "Fours Prop"
+        },
+        {
+          "address": "L12",
+          "row": 12,
+          "col": "L",
+          "formula": "=SUMIFS(Data!$R:$R,Data!$D:$D,n_max_original,Data!AP:AP,InfoVenueId,Data!$I:$I,\"<\"&3)*4/SUMIFS(Data!$J:$J,Data!$D:$D,n_max_original,Data!$M:$M,1,Data!AP:AP,InfoVenueId,Data!$I:$I,\"<\"&3)",
+          "value": 0.3330161750713606
+        },
+        {
+          "address": "M12",
+          "row": 12,
+          "col": "M",
+          "formula": "=SUMIFS(Data!$R:$R,Data!$D:$D,n_max_original,Data!AQ:AQ,InfoHostId,Data!$I:$I,\"<\"&3)*4/SUMIFS(Data!$J:$J,Data!$D:$D,n_max_original,Data!$M:$M,1,Data!AQ:AQ,InfoHostId,Data!$I:$I,\"<\"&3)",
+          "value": 0.32456912819222544
+        },
+        {
+          "address": "N12",
+          "row": 12,
+          "col": "N",
+          "formula": "=SUMIFS(Data!$R:$R,Data!$D:$D,n_max_original,Data!AN:AN,InfoCompetitionId,Data!$I:$I,\"<\"&3)*4/SUMIFS(Data!$J:$J,Data!$D:$D,n_max_original,Data!$M:$M,1,Data!AN:AN,InfoCompetitionId,Data!$I:$I,\"<\"&3)",
+          "value": 0.31992945202842915
+        },
+        {
+          "address": "O12",
+          "row": 12,
+          "col": "O",
+          "formula": "=SUMIFS(Data!$R:$R,Data!$D:$D,n_max_original,Data!$I:$I,\"<\"&3)*4/SUMIFS(Data!$J:$J,Data!$D:$D,n_max_original,Data!$M:$M,1,Data!$I:$I,\"<\"&3)",
+          "value": 0.3276580621203935
+        },
+        {
+          "address": "P12",
+          "row": 12,
+          "col": "P",
+          "formula": "=SUMIFS(Data!$R:$R,Data!$D:$D,n_max_original,Data!$I:$I,\"<\"&3,Data!B:B,$P$1)*4/SUMIFS(Data!$J:$J,Data!$D:$D,n_max_original,Data!$M:$M,1,Data!$I:$I,\"<\"&3,Data!B:B,$P$1)",
+          "value": 0.3238856560669292
+        },
+        {
+          "address": "K13",
+          "row": 13,
+          "col": "K",
+          "formula": "Sixes Prop",
+          "value": "Sixes Prop"
+        },
+        {
+          "address": "L13",
+          "row": 13,
+          "col": "L",
+          "formula": "=SUMIFS(Data!$S:$S,Data!$D:$D,n_max_original,Data!AP:AP,InfoVenueId,Data!$I:$I,\"<\"&3)*6/SUMIFS(Data!$J:$J,Data!$D:$D,n_max_original,Data!$M:$M,1,Data!AP:AP,InfoVenueId,Data!$I:$I,\"<\"&3)",
+          "value": 0.26403425309229306
+        },
+        {
+          "address": "M13",
+          "row": 13,
+          "col": "M",
+          "formula": "=SUMIFS(Data!$S:$S,Data!$D:$D,n_max_original,Data!AQ:AQ,InfoHostId,Data!$I:$I,\"<\"&3)*6/SUMIFS(Data!$J:$J,Data!$D:$D,n_max_original,Data!$M:$M,1,Data!AQ:AQ,InfoHostId,Data!$I:$I,\"<\"&3)",
+          "value": 0.23228079003648258
+        },
+        {
+          "address": "N13",
+          "row": 13,
+          "col": "N",
+          "formula": "=SUMIFS(Data!$S:$S,Data!$D:$D,n_max_original,Data!AN:AN,InfoCompetitionId,Data!$I:$I,\"<\"&3)*6/SUMIFS(Data!$J:$J,Data!$D:$D,n_max_original,Data!$M:$M,1,Data!AN:AN,InfoCompetitionId,Data!$I:$I,\"<\"&3)",
+          "value": 0.23770047206951214
+        },
+        {
+          "address": "O13",
+          "row": 13,
+          "col": "O",
+          "formula": "=SUMIFS(Data!$S:$S,Data!$D:$D,n_max_original,Data!$I:$I,\"<\"&3)*6/SUMIFS(Data!$J:$J,Data!$D:$D,n_max_original,Data!$M:$M,1,Data!$I:$I,\"<\"&3)",
+          "value": 0.22824758271058349
+        },
+        {
+          "address": "P13",
+          "row": 13,
+          "col": "P",
+          "formula": "=SUMIFS(Data!$S:$S,Data!$D:$D,n_max_original,Data!$I:$I,\"<\"&3,Data!B:B,$P$1)*6/SUMIFS(Data!$J:$J,Data!$D:$D,n_max_original,Data!$M:$M,1,Data!$I:$I,\"<\"&3,Data!B:B,$P$1)",
+          "value": 0.25260683007112206
+        },
+        {
+          "address": "K14",
+          "row": 14,
+          "col": "K",
+          "formula": "Extras",
+          "value": "Extras"
+        },
+        {
+          "address": "L14",
+          "row": 14,
+          "col": "L",
+          "formula": "=AVERAGEIFS(Data!$L:$L,Data!$D:$D,n_max_original,Data!AP:AP,InfoVenueId,Data!$I:$I,\"<\"&3)",
+          "value": 7.526315789473684
+        },
+        {
+          "address": "M14",
+          "row": 14,
+          "col": "M",
+          "formula": "=AVERAGEIFS(Data!$L:$L,Data!$D:$D,n_max_original,Data!AQ:AQ,InfoHostId,Data!$I:$I,\"<\"&3)",
+          "value": 8.204359673024523
+        },
+        {
+          "address": "N14",
+          "row": 14,
+          "col": "N",
+          "formula": "=AVERAGEIFS(Data!$L:$L,Data!$D:$D,n_max_original,Data!AN:AN,InfoCompetitionId,Data!$I:$I,\"<\"&3)",
+          "value": 8.271576639425952
+        },
+        {
+          "address": "O14",
+          "row": 14,
+          "col": "O",
+          "formula": "=AVERAGEIFS(Data!$L:$L,Data!$D:$D,n_max_original,Data!$I:$I,\"<\"&3)",
+          "value": 8.233110401049332
+        },
+        {
+          "address": "P14",
+          "row": 14,
+          "col": "P",
+          "formula": "=AVERAGEIFS(Data!$L:$L,Data!$D:$D,n_max_original,Data!$I:$I,\"<\"&3,Data!B:B,$P$1)",
+          "value": 8.448189833583761
+        },
+        {
+          "address": "K15",
+          "row": 15,
+          "col": "K",
+          "formula": "Wides",
+          "value": "Wides"
+        },
+        {
+          "address": "L15",
+          "row": 15,
+          "col": "L",
+          "formula": "=AVERAGEIFS(Data!$AH:$AH,Data!$D:$D,n_max_original,Data!AP:AP,InfoVenueId,Data!$I:$I,\"<\"&3)",
+          "value": 3.9210526315789473
+        },
+        {
+          "address": "M15",
+          "row": 15,
+          "col": "M",
+          "formula": "=AVERAGEIFS(Data!$AH:$AH,Data!$D:$D,n_max_original,Data!AQ:AQ,InfoHostId,Data!$I:$I,\"<\"&3)",
+          "value": 4.724795640326976
+        },
+        {
+          "address": "N15",
+          "row": 15,
+          "col": "N",
+          "formula": "=AVERAGEIFS(Data!$AH:$AH,Data!$D:$D,n_max_original,Data!AN:AN,InfoCompetitionId,Data!$I:$I,\"<\"&3)",
+          "value": 4.844528602750648
+        },
+        {
+          "address": "O15",
+          "row": 15,
+          "col": "O",
+          "formula": "=AVERAGEIFS(Data!$AH:$AH,Data!$D:$D,n_max_original,Data!$I:$I,\"<\"&3,Data!AN:AN,\"<>\"&4)",
+          "value": 4.777869189633895
+        },
+        {
+          "address": "P15",
+          "row": 15,
+          "col": "P",
+          "formula": "=AVERAGEIFS(Data!$AH:$AH,Data!$D:$D,n_max_original,Data!$I:$I,\"<\"&3,Data!B:B,$P$1,Data!AN:AN,\"<>\"&4)",
+          "value": 5.154622972747032
+        },
+        {
+          "address": "K16",
+          "row": 16,
+          "col": "K",
+          "formula": "Ducks",
+          "value": "Ducks"
+        },
+        {
+          "address": "L16",
+          "row": 16,
+          "col": "L",
+          "formula": "=COUNTIFS(Data!$P:$P,0,Data!$AB:$AB,1,Data!$D:$D,n_max_original,Data!AP:AP,InfoVenueId,Data!$I:$I,\"<\"&3)/L18",
+          "value": 0.7368421052631579
+        },
+        {
+          "address": "M16",
+          "row": 16,
+          "col": "M",
+          "formula": "=COUNTIFS(Data!$P:$P,0,Data!$AB:$AB,1,Data!$D:$D,n_max_original,Data!AQ:AQ,InfoHostId,Data!$I:$I,\"<\"&3)/M18",
+          "value": 0.6607629427792916
+        },
+        {
+          "address": "N16",
+          "row": 16,
+          "col": "N",
+          "formula": "=COUNTIFS(Data!$P:$P,0,Data!$AB:$AB,1,Data!$D:$D,n_max_original,Data!AN:AN,InfoCompetitionId,Data!$I:$I,\"<\"&3)/N18",
+          "value": 0.7324561403508771
+        },
+        {
+          "address": "O16",
+          "row": 16,
+          "col": "O",
+          "formula": "=COUNTIFS(Data!$P:$P,0,Data!$AB:$AB,1,Data!$D:$D,n_max_original,Data!$I:$I,\"<\"&3)/O18",
+          "value": 0.6574511126095752
+        },
+        {
+          "address": "P16",
+          "row": 16,
+          "col": "P",
+          "formula": "=COUNTIFS(Data!$P:$P,0,Data!$AB:$AB,1,Data!$D:$D,n_max_original,Data!$I:$I,\"<\"&3,Data!B:B,$P$1)/P18",
+          "value": 0.7196586599241467
+        },
+        {
+          "address": "K17",
+          "row": 17,
+          "col": "K",
+          "formula": "Run Outs",
+          "value": "Run Outs"
+        },
+        {
+          "address": "L17",
+          "row": 17,
+          "col": "L",
+          "formula": "=COUNTIFS(Data!$O:$O,\"run out\",Data!$D:$D,n_max_original,Data!$I:$I,\"<\"&3,Data!AP:AP,InfoVenueId)/L18",
+          "value": 0.25
+        },
+        {
+          "address": "M17",
+          "row": 17,
+          "col": "M",
+          "formula": "=COUNTIFS(Data!$O:$O,\"run out\",Data!$D:$D,n_max_original,Data!$I:$I,\"<\"&3,Data!AQ:AQ,InfoHostId)/M18",
+          "value": 0.44005449591280654
+        },
+        {
+          "address": "N17",
+          "row": 17,
+          "col": "N",
+          "formula": "=COUNTIFS(Data!$O:$O,\"run out\",Data!$D:$D,n_max_original,Data!$I:$I,\"<\"&3,Data!AN:AN,InfoCompetitionId)/N18",
+          "value": 0.4133771929824561
+        },
+        {
+          "address": "O17",
+          "row": 17,
+          "col": "O",
+          "formula": "=COUNTIFS(Data!$O:$O,\"run out\",Data!$D:$D,n_max_original,Data!$I:$I,\"<\"&3)/O18",
+          "value": 0.420515846257586
+        },
+        {
+          "address": "P17",
+          "row": 17,
+          "col": "P",
+          "formula": "=COUNTIFS(Data!$O:$O,\"run out\",Data!$D:$D,n_max_original,Data!$I:$I,\"<\"&3,Data!B:B,$P$1)/P18",
+          "value": 0.3640960809102402
+        },
+        {
+          "address": "K18",
+          "row": 18,
+          "col": "K",
+          "formula": "Samples",
+          "value": "Samples"
+        },
+        {
+          "address": "L18",
+          "row": 18,
+          "col": "L",
+          "formula": "=COUNTIFS(Data!$D:$D,n_max_original,Data!$M:$M,1,Data!AP:AP,InfoVenueId,Data!$I:$I,\"<\"&3)",
+          "value": 76
+        },
+        {
+          "address": "M18",
+          "row": 18,
+          "col": "M",
+          "formula": "=COUNTIFS(Data!$D:$D,n_max_original,Data!$M:$M,1,Data!AQ:AQ,InfoHostId,Data!$I:$I,\"<\"&3)",
+          "value": 734
+        },
+        {
+          "address": "N18",
+          "row": 18,
+          "col": "N",
+          "formula": "=COUNTIFS(Data!$D:$D,n_max_original,Data!$M:$M,1,Data!AN:AN,InfoCompetitionId,Data!$I:$I,\"<\"&3)",
+          "value": 1824
+        },
+        {
+          "address": "O18",
+          "row": 18,
+          "col": "O",
+          "formula": "=COUNTIFS(Data!$D:$D,n_max_original,Data!$M:$M,1,Data!$I:$I,\"<\"&3)",
+          "value": 11864
+        },
+        {
+          "address": "P18",
+          "row": 18,
+          "col": "P",
+          "formula": "=COUNTIFS(Data!$D:$D,n_max_original,Data!$M:$M,1,Data!$I:$I,\"<\"&3,Data!B:B,$P$1)",
+          "value": 3164
+        }
+      ]
+    },
+    {
+      "id": "table-2",
+      "name": "Table 2 \u2014 Match-level model stats",
+      "range": "T2:AB10",
+      "cells": [
+        {
+          "address": "U2",
+          "row": 2,
+          "col": "U",
+          "formula": "Venue",
+          "value": "Venue"
+        },
+        {
+          "address": "V2",
+          "row": 2,
+          "col": "V",
+          "formula": "Host",
+          "value": "Host"
+        },
+        {
+          "address": "W2",
+          "row": 2,
+          "col": "W",
+          "formula": "Cmptn",
+          "value": "Cmptn"
+        },
+        {
+          "address": "X2",
+          "row": 2,
+          "col": "X",
+          "formula": "3 Yr Cm",
+          "value": "3 Yr Cm"
+        },
+        {
+          "address": "Y2",
+          "row": 2,
+          "col": "Y",
+          "formula": "All",
+          "value": "All"
+        },
+        {
+          "address": "Z2",
+          "row": 2,
+          "col": "Z",
+          "formula": "Model",
+          "value": "Model"
+        },
+        {
+          "address": "AB2",
+          "row": 2,
+          "col": "AB",
+          "formula": "Now",
+          "value": "Now"
+        },
+        {
+          "address": "T3",
+          "row": 3,
+          "col": "T",
+          "formula": "Match Max Over",
+          "value": "Match Max Over"
+        },
+        {
+          "address": "Y3",
+          "row": 3,
+          "col": "Y",
+          "formula": "=IF(n_format_a=\"t20\",18.9,IF(n_format_a=\"test\",15.9,16.7))",
+          "value": 18.9
+        },
+        {
+          "address": "Z3",
+          "row": 3,
+          "col": "Z",
+          "formula": "=IF(OR(n_format_a=\"t10\",n_format_a=\"S6\"),\"\",IF(n_format_a=\"test\",\"\",IF(n_format_a=\"t20\",AG66,AG67)*AVERAGE(E6,J6)+IF(n_format_a=\"t20\",AH66,AH67)))",
+          "value": 20.278758788504465
+        },
+        {
+          "address": "AB3",
+          "row": 3,
+          "col": "AB",
+          "formula": "20.5",
+          "value": 20.5
+        },
+        {
+          "address": "T4",
+          "row": 4,
+          "col": "T",
+          "formula": "Team Max Over",
+          "value": "Team Max Over"
+        },
+        {
+          "address": "Y4",
+          "row": 4,
+          "col": "Y",
+          "formula": "=IF(n_format_a=\"t20\",17,IF(n_format_a=\"test\",13.3,15))",
+          "value": 17
+        },
+        {
+          "address": "T5",
+          "row": 5,
+          "col": "T",
+          "formula": "Fifty in 1st inns",
+          "value": "Fifty in 1st inns"
+        },
+        {
+          "address": "U5",
+          "row": 5,
+          "col": "U",
+          "formula": "=IF(U1=\"\",\"\",SUMIFS(Data!$AE:$AE,Data!$P:$P,\">\"&49,Data!$I:$I,1,Data!$D:$D,n_max_original,Data!AP:AP,InfoVenueId)/COUNTIFS(Data!$I:$I,1,Data!$D:$D,n_max_original,Data!$M:$M,1,Data!AP:AP,InfoVenueId))",
+          "value": 0.6578947368421053
+        },
+        {
+          "address": "V5",
+          "row": 5,
+          "col": "V",
+          "formula": "=SUMIFS(Data!$AE:$AE,Data!$P:$P,\">\"&49,Data!$I:$I,1,Data!$D:$D,n_max_original,Data!AQ:AQ,InfoHostId)/COUNTIFS(Data!$I:$I,1,Data!$D:$D,n_max_original,Data!$M:$M,1,Data!AQ:AQ,InfoHostId)",
+          "value": 0.667574931880109
+        },
+        {
+          "address": "W5",
+          "row": 5,
+          "col": "W",
+          "formula": "=SUMIFS(Data!$AE:$AE,Data!$P:$P,\">\"&49,Data!$I:$I,1,Data!$D:$D,n_max_original,Data!AN:AN,InfoCompetitionId)/COUNTIFS(Data!$I:$I,1,Data!$D:$D,n_max_original,Data!$M:$M,1,Data!AN:AN,InfoCompetitionId)",
+          "value": 0.6151315789473685
+        },
+        {
+          "address": "X5",
+          "row": 5,
+          "col": "X",
+          "formula": "=SUMIFS(Data!$AE:$AE,Data!$P:$P,\">\"&49,Data!$I:$I,1,Data!$D:$D,n_max_original,Data!$C:$C,n_tournament,Data!$B:$B,\">=\"&TODAY()-1100)/COUNTIFS(Data!$I:$I,1,Data!$D:$D,n_max_original,Data!$M:$M,1,Data!$C:$C,n_tournament,Data!$B:$B,\">=\"&TODAY()-1100)",
+          "value": 0.6383647798742138
+        },
+        {
+          "address": "Y5",
+          "row": 5,
+          "col": "Y",
+          "formula": "=SUMIFS(Data!$AE:$AE,Data!$P:$P,\">\"&49,Data!$I:$I,1,Data!$D:$D,n_max_original)/COUNTIFS(Data!$I:$I,1,Data!$D:$D,n_max_original,Data!$M:$M,1)",
+          "value": 0.6294672960215779
+        },
+        {
+          "address": "Z5",
+          "row": 5,
+          "col": "Z",
+          "formula": "=IFERROR(IF($X$18>100,IF(n_format_a=\"T20\",(0.3*(Y5*((E6+J6)/2)/O3))+(0.7*(X5)),\"\"),IF(n_format_a=\"T20\",Y5*((E6+J6)/2)/O3,\"\"))*(1+IF(MAX(Q24:Q34,Q45:Q55)>0,MAX(Q24:Q34,Q45:Q55),0.1)/100),\"\")",
+          "value": 0.6505000234075533
+        },
+        {
+          "address": "AB5",
+          "row": 5,
+          "col": "AB",
+          "formula": "0.65",
+          "value": 0.65
+        },
+        {
+          "address": "T6",
+          "row": 6,
+          "col": "T",
+          "formula": "Fifty in Match",
+          "value": "Fifty in Match"
+        },
+        {
+          "address": "U6",
+          "row": 6,
+          "col": "U",
+          "formula": "=IF(U1=\"\",\"\",SUMIFS(Data!$AF:$AF,Data!$P:$P,\">\"&49,Data!$D:$D,n_max_original,Data!AP:AP,InfoVenueId)/COUNTIFS(Data!$I:$I,1,Data!$D:$D,n_max_original,Data!$M:$M,1,Data!AP:AP,InfoVenueId))",
+          "value": 0.9210526315789473
+        },
+        {
+          "address": "V6",
+          "row": 6,
+          "col": "V",
+          "formula": "=SUMIFS(Data!$AF:$AF,Data!$P:$P,\">\"&49,Data!$D:$D,n_max_original,Data!AQ:AQ,InfoHostId)/COUNTIFS(Data!$I:$I,1,Data!$D:$D,n_max_original,Data!$M:$M,1,Data!AQ:AQ,InfoHostId)",
+          "value": 0.8773841961852861
+        },
+        {
+          "address": "W6",
+          "row": 6,
+          "col": "W",
+          "formula": "=SUMIFS(Data!$AF:$AF,Data!$P:$P,\">\"&49,Data!$D:$D,n_max_original,Data!AN:AN,InfoCompetitionId)/COUNTIFS(Data!$I:$I,1,Data!$D:$D,n_max_original,Data!$M:$M,1,Data!AN:AN,InfoCompetitionId)",
+          "value": 0.7993421052631579
+        },
+        {
+          "address": "X6",
+          "row": 6,
+          "col": "X",
+          "formula": "=SUMIFS(Data!$AF:$AF,Data!$P:$P,\">\"&49,Data!$D:$D,n_max_original,Data!$C:$C,n_tournament,Data!$B:$B,\">=\"&TODAY()-1100)/COUNTIFS(Data!$I:$I,1,Data!$D:$D,n_max_original,Data!$M:$M,1,Data!$C:$C,n_tournament,Data!$B:$B,\">=\"&TODAY()-1100)",
+          "value": 0.8207547169811321
+        },
+        {
+          "address": "Y6",
+          "row": 6,
+          "col": "Y",
+          "formula": "=SUMIFS(Data!$AF:$AF,Data!$P:$P,\">\"&49,Data!$D:$D,n_max_original)/COUNTIFS(Data!$I:$I,1,Data!$D:$D,n_max_original,Data!$M:$M,1)",
+          "value": 0.8184423465947404
+        },
+        {
+          "address": "Z6",
+          "row": 6,
+          "col": "Z",
+          "formula": "=IF(Z1=\"\",\"\",IF(n_format_a=\"T20\",EXP($CI$9+$CI$10*(($E$6+$J$6)/2))/(1+EXP($CI$9+$CI$10*(($E$6+$J$6)/2))),\"\"))",
+          "value": null
+        },
+        {
+          "address": "AB6",
+          "row": 6,
+          "col": "AB",
+          "formula": "0.815",
+          "value": 0.815
+        },
+        {
+          "address": "T7",
+          "row": 7,
+          "col": "T",
+          "formula": "Hundred in 1st inns",
+          "value": "Hundred in 1st inns"
+        },
+        {
+          "address": "U7",
+          "row": 7,
+          "col": "U",
+          "formula": "=IF(U1=\"\",\"\",SUMIFS(Data!$AE:$AE,Data!$P:$P,\">\"&99,Data!$I:$I,1,Data!$D:$D,n_max_original,Data!AP:AP,InfoVenueId)/COUNTIFS(Data!$I:$I,1,Data!$D:$D,n_max_original,Data!$M:$M,1,Data!AP:AP,InfoVenueId))",
+          "value": 0
+        },
+        {
+          "address": "V7",
+          "row": 7,
+          "col": "V",
+          "formula": "=SUMIFS(Data!$AE:$AE,Data!$P:$P,\">\"&99,Data!$I:$I,1,Data!$D:$D,n_max_original,Data!AQ:AQ,InfoHostId)/COUNTIFS(Data!$I:$I,1,Data!$D:$D,n_max_original,Data!$M:$M,1,Data!AQ:AQ,InfoHostId)",
+          "value": 0.05449591280653951
+        },
+        {
+          "address": "W7",
+          "row": 7,
+          "col": "W",
+          "formula": "=SUMIFS(Data!$AE:$AE,Data!$P:$P,\">\"&99,Data!$I:$I,1,Data!$D:$D,n_max_original,Data!AN:AN,InfoCompetitionId)/COUNTIFS(Data!$I:$I,1,Data!$D:$D,n_max_original,Data!$M:$M,1,Data!AN:AN,InfoCompetitionId)",
+          "value": 0.06578947368421052
+        },
+        {
+          "address": "X7",
+          "row": 7,
+          "col": "X",
+          "formula": "=SUMIFS(Data!$AE:$AE,Data!$P:$P,\">\"&99,Data!$I:$I,1,Data!$D:$D,n_max_original,Data!$C:$C,n_tournament,Data!$B:$B,\">=\"&TODAY()-1100)/COUNTIFS(Data!$I:$I,1,Data!$D:$D,n_max_original,Data!$M:$M,1,Data!$C:$C,n_tournament,Data!$B:$B,\">=\"&TODAY()-1100)",
+          "value": 0.07547169811320754
+        },
+        {
+          "address": "Y7",
+          "row": 7,
+          "col": "Y",
+          "formula": "=SUMIFS(Data!$AE:$AE,Data!$P:$P,\">\"&99,Data!$I:$I,1,Data!$D:$D,n_max_original)/COUNTIFS(Data!$I:$I,1,Data!$D:$D,n_max_original,Data!$M:$M,1)",
+          "value": 0.056473364801078896
+        },
+        {
+          "address": "Z7",
+          "row": 7,
+          "col": "Z",
+          "formula": "=IF(n_format_a=\"Test\",\"\",(Y7/Y8)*Z8)",
+          "value": 0.05823261239669307
+        },
+        {
+          "address": "AB7",
+          "row": 7,
+          "col": "AB",
+          "formula": "0.058",
+          "value": 0.058
+        },
+        {
+          "address": "T8",
+          "row": 8,
+          "col": "T",
+          "formula": "Hundred in Match",
+          "value": "Hundred in Match"
+        },
+        {
+          "address": "U8",
+          "row": 8,
+          "col": "U",
+          "formula": "=IF(U1=\"\",\"\",SUMIFS(Data!$AF:$AF,Data!$P:$P,\">\"&99,Data!$D:$D,n_max_original,Data!AP:AP,InfoVenueId)/COUNTIFS(Data!$I:$I,1,Data!$D:$D,n_max_original,Data!$M:$M,1,Data!AP:AP,InfoVenueId))",
+          "value": 0
+        },
+        {
+          "address": "V8",
+          "row": 8,
+          "col": "V",
+          "formula": "=SUMIFS(Data!$AF:$AF,Data!$P:$P,\">\"&99,Data!$D:$D,n_max_original,Data!AQ:AQ,InfoHostId)/COUNTIFS(Data!$I:$I,1,Data!$D:$D,n_max_original,Data!$M:$M,1,Data!AQ:AQ,InfoHostId)",
+          "value": 0.07901907356948229
+        },
+        {
+          "address": "W8",
+          "row": 8,
+          "col": "W",
+          "formula": "=SUMIFS(Data!$AF:$AF,Data!$P:$P,\">\"&99,Data!$D:$D,n_max_original,Data!AN:AN,InfoCompetitionId)/COUNTIFS(Data!$I:$I,1,Data!$D:$D,n_max_original,Data!$M:$M,1,Data!AN:AN,InfoCompetitionId)",
+          "value": 0.09210526315789473
+        },
+        {
+          "address": "X8",
+          "row": 8,
+          "col": "X",
+          "formula": "=SUMIFS(Data!$AF:$AF,Data!$P:$P,\">\"&99,Data!$D:$D,n_max_original,Data!$C:$C,n_tournament,Data!$B:$B,\">=\"&TODAY()-1100)/COUNTIFS(Data!$I:$I,1,Data!$D:$D,n_max_original,Data!$M:$M,1,Data!$C:$C,n_tournament,Data!$B:$B,\">=\"&TODAY()-1100)",
+          "value": 0.11006289308176101
+        },
+        {
+          "address": "Y8",
+          "row": 8,
+          "col": "Y",
+          "formula": "=SUMIFS(Data!$AF:$AF,Data!$P:$P,\">\"&99,Data!$D:$D,n_max_original)/COUNTIFS(Data!$I:$I,1,Data!$D:$D,n_max_original,Data!$M:$M,1)",
+          "value": 0.08142279163857047
+        },
+        {
+          "address": "Z8",
+          "row": 8,
+          "col": "Z",
+          "formula": "=IF(n_format_a=\"Test\",\"\",Y8*(((E6+J6)/2)/O3)^IF(n_format_a=\"ODI\",1.25,1.625))",
+          "value": 0.08395925906747091
+        },
+        {
+          "address": "AB8",
+          "row": 8,
+          "col": "AB",
+          "formula": "0.084",
+          "value": 0.084
+        },
+        {
+          "address": "T9",
+          "row": 9,
+          "col": "T",
+          "formula": "Highest ind. score",
+          "value": "Highest ind. score"
+        },
+        {
+          "address": "U9",
+          "row": 9,
+          "col": "U",
+          "formula": "<openpyxl.worksheet.formula.ArrayFormula object at 0x00000171809F1CD0>",
+          "value": 74
+        },
+        {
+          "address": "V9",
+          "row": 9,
+          "col": "V",
+          "formula": "<openpyxl.worksheet.formula.ArrayFormula object at 0x000001718C022570>",
+          "value": 69
+        },
+        {
+          "address": "W9",
+          "row": 9,
+          "col": "W",
+          "formula": "<openpyxl.worksheet.formula.ArrayFormula object at 0x00000171881459D0>",
+          "value": 66
+        },
+        {
+          "address": "Y9",
+          "row": 9,
+          "col": "Y",
+          "formula": "<openpyxl.worksheet.formula.ArrayFormula object at 0x0000017188145AE0>",
+          "value": 66
+        },
+        {
+          "address": "Z9",
+          "row": 9,
+          "col": "Z",
+          "formula": "=IF(n_format_a=\"Test\",MATCH(0.5,'PM Pricing'!XF145:ACZ145,-1),AVERAGE(Y9,Y9*(((E6+J6)/2)/O3)))",
+          "value": 66.62888502865829
+        },
+        {
+          "address": "AB9",
+          "row": 9,
+          "col": "AB",
+          "formula": "65",
+          "value": 65
+        },
+        {
+          "address": "T10",
+          "row": 10,
+          "col": "T",
+          "formula": "Rabbit runs",
+          "value": "Rabbit runs"
+        },
+        {
+          "address": "U10",
+          "row": 10,
+          "col": "U",
+          "formula": "=IF(U1=\"\",\"\",SUMIFS(Data!$P:$P,Data!$M:$M,11,Data!$D:$D,n_max_original,Data!AP:AP,InfoVenueId)/COUNTIFS(Data!$D:$D,n_max_original,Data!$M:$M,1,Data!$I:$I,1,Data!AP:AP,InfoVenueId))",
+          "value": 1.605263157894737
+        },
+        {
+          "address": "V10",
+          "row": 10,
+          "col": "V",
+          "formula": "=SUMIFS(Data!$P:$P,Data!$M:$M,11,Data!$D:$D,n_max_original,Data!AQ:AQ,InfoHostId)/COUNTIFS(Data!$D:$D,n_max_original,Data!$M:$M,1,Data!$I:$I,1,Data!AQ:AQ,InfoHostId)",
+          "value": 1.1362397820163488
+        },
+        {
+          "address": "W10",
+          "row": 10,
+          "col": "W",
+          "formula": "=SUMIFS(Data!$P:$P,Data!$M:$M,11,Data!$D:$D,n_max_original,Data!AN:AN,InfoCompetitionId)/COUNTIFS(Data!$D:$D,n_max_original,Data!$M:$M,1,Data!$I:$I,1,Data!AN:AN,InfoCompetitionId)",
+          "value": 1.031798245614035
+        },
+        {
+          "address": "Y10",
+          "row": 10,
+          "col": "Y",
+          "formula": "=SUMIFS(Data!$P:$P,Data!$M:$M,11,Data!$D:$D,n_max_original)/COUNTIFS(Data!$D:$D,n_max_original,Data!$M:$M,1,Data!$I:$I,1)",
+          "value": 0.965104517869184
+        }
+      ]
+    }
+  ]
+}

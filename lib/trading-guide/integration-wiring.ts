@@ -167,7 +167,9 @@ export const wiringByRegistryId: Record<string, IntegrationWiringGuide> = {
 
   "pm-toss-winner": {
     readiness: "ready",
-    readinessSummary: "Fixed 50/50 — no player data or adjusts required.",
+    connected: true,
+    connectedNote: "Fixed 50/50 — rows 24–25 in Market Configuration. No trader adjust.",
+    readinessSummary: "Connected — basic probability market; format only for MaxOver specifier.",
     fromPlayerAdjustment: [],
     extraEvaluationInputs: [],
     backendOnly: [
@@ -184,8 +186,9 @@ export const wiringByRegistryId: Record<string, IntegrationWiringGuide> = {
       "No trader skew unless you add FE overlay later.",
     ],
     wiringSteps: [
-      "Call TossWinner with minimal IPricingInputs (teams + format).",
-      "Display fixed probabilities; price = 1/prob.",
+      "✓ Minimal IPricingInputs (teams + format).",
+      "✓ TossWinner Lambda → 0.5 / 0.5 base probabilities.",
+      "✓ Market Configuration rows 24–25: display prob, price, publish.",
     ],
   },
 
