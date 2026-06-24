@@ -1048,28 +1048,28 @@
           "address": "U9",
           "row": 9,
           "col": "U",
-          "formula": "<openpyxl.worksheet.formula.ArrayFormula object at 0x00000171809F1CD0>",
+          "formula": "=IF(U1=\"\",\"\",MEDIAN(IF(Data!$AF:$AF=1,IF(Data!$D:$D=n_max_original,IF(Data!AP:AP=InfoVenueId,Data!$P:$P)))))",
           "value": 74
         },
         {
           "address": "V9",
           "row": 9,
           "col": "V",
-          "formula": "<openpyxl.worksheet.formula.ArrayFormula object at 0x000001718C022570>",
+          "formula": "=MEDIAN(IF(Data!$AF:$AF=1,IF(Data!$D:$D=n_max_original,IF(Data!AQ:AQ=InfoHostId,Data!$P:$P))))",
           "value": 69
         },
         {
           "address": "W9",
           "row": 9,
           "col": "W",
-          "formula": "<openpyxl.worksheet.formula.ArrayFormula object at 0x00000171881459D0>",
+          "formula": "=MEDIAN(IF(Data!$AF:$AF=1,IF(Data!$D:$D=n_max_original,IF(Data!AN:AN=InfoCompetitionId,Data!$P:$P))))",
           "value": 66
         },
         {
           "address": "Y9",
           "row": 9,
           "col": "Y",
-          "formula": "<openpyxl.worksheet.formula.ArrayFormula object at 0x0000017188145AE0>",
+          "formula": "=MEDIAN(IF(Data!$AF:$AF=1,IF(Data!$D:$D=n_max_original,Data!$P:$P)))",
           "value": 66
         },
         {

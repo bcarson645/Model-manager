@@ -34,7 +34,13 @@ export type CellExplanation = {
   namedInputs: string[];
   feedsTo: string[];
   lambdaPath?: string;
+  pmPublication?: string;
 };
+
+type CellDoc = Pick<
+  CellExplanation,
+  "summary" | "calculation" | "dataSources" | "namedInputs" | "feedsTo" | "lambdaPath" | "pmPublication"
+>;
 
 const snapshot = raw as PrepWorkTableSnapshot;
 
@@ -88,6 +94,88 @@ const TABLE2_COL_LABELS: Record<string, string> = {
   AB: "Now (published)",
 };
 
+const TABLE2_PM_PUBLICATION: Record<number, string> = {
+  3: "PM Publication row 55 — Max Runs in Over (F55 line, G55/H55 U/O probs, I55 adjust)",
+  5: "PM Publication row 67 — Fifty in First Innings (G67 yes prob, I67 adjust)",
+  6: "PM Publication rows 69–70 — Fifty in Match (yes/no probs, I69 adjust)",
+  7: "PM Publication row 71 — Hundred in First Innings (G71 yes prob, I71 adjust)",
+  8: "PM Publication row 73 — Hundred in Match (G73 yes prob, I73 adjust)",
+  9: "PM Publication row 75 — Highest Individual Score (F75 line, G75/H75 U/O, I75 adjust)",
+  10: "PM Publication row 76 — Rabbit Runs (F76 line; G76 may be unset on some fixtures)",
+};
+
+const TABLE2_HISTORICAL_ROWS: Record<
+  number,
+  {
+    event: string;
+    dataCol: "AE" | "AF" | "P";
+    runsThreshold?: number;
+    firstInningsOnly: boolean;
+    rabbitInnings?: boolean;
+    medianScore?: boolean;
+  }
+> = {
+  5: {
+    event: "at least one fifty in the 1st innings",
+    dataCol: "AE",
+    runsThreshold: 49,
+    firstInningsOnly: true,
+  },
+  6: {
+    event: "at least one fifty in the match",
+    dataCol: "AF",
+    runsThreshold: 49,
+    firstInningsOnly: false,
+  },
+  7: {
+    event: "at least one hundred in the 1st innings",
+    dataCol: "AE",
+    runsThreshold: 99,
+    firstInningsOnly: true,
+  },
+  8: {
+    event: "at least one hundred in the match",
+    dataCol: "AF",
+    runsThreshold: 99,
+    firstInningsOnly: false,
+  },
+  9: {
+    event: "highest individual score in the match",
+    dataCol: "P",
+    firstInningsOnly: false,
+    medianScore: true,
+  },
+  10: {
+    event: "rabbit batsman runs (11th batting position)",
+    dataCol: "P",
+    firstInningsOnly: true,
+    rabbitInnings: true,
+  },
+};
+
+const TABLE2_WEIGHT_FILTERS: Record<string, { filter: string; named: string[] }> = {
+  U: {
+    filter: "Data!AP = InfoVenueId (this venue only)",
+    named: ["InfoVenueId"],
+  },
+  V: {
+    filter: "Data!AQ = InfoHostId (host nation matches)",
+    named: ["InfoHostId"],
+  },
+  W: {
+    filter: "Data!AN = InfoCompetitionId (this competition)",
+    named: ["InfoCompetitionId"],
+  },
+  X: {
+    filter: "Data!C = n_tournament and Data!B within last ~3 years (TODAY()-1100)",
+    named: ["n_tournament"],
+  },
+  Y: {
+    filter: "No venue/host/comp filter — all qualifying innings in Data",
+    named: [],
+  },
+};
+
 const LAMBDA_FEEDS: Record<string, string> = {
   "Match Max Over": "MatchEvaluation.MatchMaxOver → MatchMaxOver.cs",
   "Fifty in 1st innings": "MatchEvaluation.FiftyInnings → FiftyInnings.cs",
@@ -102,6 +190,282 @@ const LAMBDA_FEEDS: Record<string, string> = {
   Ducks: "O16 per team → InningsDucks; 2×O16 → MatchDucks",
   "Run outs": "O17 per-innings blend → InningsRunOuts par",
 };
+
+function colToNum(col: string): number {
+  let n = 0;
+  for (const ch of col) n = n * 26 + (ch.charCodeAt(0) - 64);
+  return n;
+}
+
+function numToCol(n: number): string {
+  let s = "";
+  let x = n;
+  while (x > 0) {
+    const rem = (x - 1) % 26;
+    s = String.fromCharCode(65 + rem) + s;
+    x = Math.floor((x - 1) / 26);
+  }
+  return s;
+}
+
+function columnRange(startCol: string, endCol: string): string[] {
+  const cols: string[] = [];
+  for (let n = colToNum(startCol); n <= colToNum(endCol); n++) {
+    cols.push(numToCol(n));
+  }
+  return cols;
+}
+
+function explainTable2Cell(row: number, col: string): CellDoc | undefined {
+  const weight = TABLE2_COL_LABELS[col];
+  const market = TABLE2_ROW_LABELS[row];
+
+  if (row === 2 && weight) {
+    return {
+      summary: `Column header — ${weight}`,
+      calculation: [
+        `Labels the ${weight} weight column in Table 2.`,
+        col === "Z"
+          ? "Model column: calibrated value sent to Lambda MatchEvaluation."
+          : col === "AB"
+            ? "Now column: trader-facing published line or probability (mirrors PM Publication)."
+            : "Historical blend from the Data sheet using the filter in row 1 gates (U1/Z1).",
+      ],
+      dataSources: [],
+      namedInputs: [],
+      feedsTo: col === "Z" ? ["Lambda MatchEvaluation inputs"] : col === "AB" ? ["PM Publication"] : [],
+    };
+  }
+
+  if (col === "T" && market) {
+    return {
+      summary: market,
+      calculation: [
+        `Row label for the ${market} market block.`,
+        LAMBDA_FEEDS[market]
+          ? `Lambda: ${LAMBDA_FEEDS[market]}`
+          : "Reference / par row — may not have a dedicated Lambda class.",
+      ],
+      dataSources: [],
+      namedInputs: [],
+      feedsTo: [],
+    };
+  }
+
+  if (row === 3 && col === "Y") {
+    return {
+      summary: "Match Max Over — All-format par (format constant)",
+      calculation: [
+        "Static par by format: T20 → 18.9, Test → 15.9, ODI → 16.7.",
+        "Used as historical reference; the model column Z3 is what Lambda consumes.",
+      ],
+      dataSources: [],
+      namedInputs: ["n_format_a"],
+      feedsTo: [],
+    };
+  }
+
+  if (row === 3 && col === "Z") {
+    return {
+      summary: "Match Max Over — Model line → Lambda",
+      calculation: [
+        "Blank for T10/S6 and Test formats.",
+        "T20/ODI: (AG66 or AG67) × AVERAGE(home runs E6, away runs J6) + (AH66 or AH67).",
+        "Coefficients AG66:AH67 are format-specific multipliers on Prep Work.",
+        "E6/J6 are team expected innings runs from the player-adjustment chain.",
+      ],
+      dataSources: ["Prep Work!AG66:AH67", "Prep Work!E6", "Prep Work!J6"],
+      namedInputs: ["n_format_a"],
+      feedsTo: [LAMBDA_FEEDS["Match Max Over"]],
+      lambdaPath: LAMBDA_FEEDS["Match Max Over"],
+    };
+  }
+
+  if (row === 3 && col === "AB") {
+    return {
+      summary: "Match Max Over — published line (Now)",
+      calculation: [
+        "Trader-published over/under line on PM Publication (typically rounded from Z3).",
+        "On NZ v SA: 20.5 vs model 20.28.",
+      ],
+      dataSources: ["PM Publication"],
+      namedInputs: [],
+      feedsTo: ["PM Publication F55"],
+      pmPublication: TABLE2_PM_PUBLICATION[3],
+    };
+  }
+
+  if (row === 4 && col === "Y") {
+    return {
+      summary: "Team Max Over — All-format par",
+      calculation: [
+        "Format constant par for highest team over: T20 → 17, Test → 13.3, ODI → 15.",
+        "Reference only — no Model column on this row in T2:AB10.",
+      ],
+      dataSources: [],
+      namedInputs: ["n_format_a"],
+      feedsTo: [],
+    };
+  }
+
+  const hist = TABLE2_HISTORICAL_ROWS[row];
+  const weightMeta = TABLE2_WEIGHT_FILTERS[col];
+  if (hist && weightMeta && ["U", "V", "W", "X", "Y"].includes(col)) {
+    const steps: string[] = [
+      `Historical rate: ${hist.event}.`,
+      `Weight: ${TABLE2_COL_LABELS[col]} — ${weightMeta.filter}.`,
+      "Common filters: Data!D = n_max_original (match overs), Data!I = 1 (format flag), COUNTIFS denominator uses Data!M = 1 (first-innings rows where applicable).",
+    ];
+    const sources = ["Data", "Data!D", "Data!I", "Data!M", "Data!P"];
+
+    if (hist.medianScore) {
+      steps.push(
+        "Array formula: MEDIAN of Data!P (individual innings runs) where Data!AF = 1 (match played), overs match, and weight filter applies.",
+        "U9 is gated on U1 (venue column active); V/W/Y are always calculated."
+      );
+      sources.push("Data!AF");
+    } else if (hist.rabbitInnings) {
+      steps.push(
+        "SUMIFS on Data!P where Data!M = 11 (rabbit / No.11 batsman innings) ÷ count of qualifying first-innings samples.",
+        "Feeds RabbitRuns Lambda via Y10 / model column when present."
+      );
+      sources.push("Data!M");
+    } else if (hist.runsThreshold !== undefined) {
+      steps.push(
+        `SUMIFS on Data!${hist.dataCol} with Data!P > ${hist.runsThreshold} (event occurred) ÷ COUNTIFS sample size.`,
+        hist.firstInningsOnly
+          ? "Restricted to 1st-innings rows (Data!I = 1 in SUMIFS)."
+          : "Match-level flag column AF — any innings in the match."
+      );
+      sources.push(`Data!${hist.dataCol}`);
+    }
+
+    if (col === "U") {
+      steps.unshift('Gated: returns blank when U1 = "" (venue weighting disabled for this fixture).');
+    }
+
+    return {
+      summary: `${market ?? `Row ${row}`} — ${TABLE2_COL_LABELS[col]} historical`,
+      calculation: steps,
+      dataSources: Array.from(new Set(sources)),
+      namedInputs: ["n_max_original", ...weightMeta.named],
+      feedsTo:
+        col === "Y"
+          ? [`Model column Z${row}`, "PM Publication calibration"]
+          : [`Blends into Z${row} when sample gates pass`],
+    };
+  }
+
+  if (row === 5 && col === "Z") {
+    return {
+      summary: "Fifty in 1st innings — Model probability → Lambda",
+      calculation: [
+        "T20 only (other formats return blank).",
+        "When X18 > 100 samples: 30% × scaled Y5 + 70% × X5, where scale = ((E6+J6)/2) / O3.",
+        "Otherwise: Y5 × ((E6+J6)/2) / O3.",
+        "Player rating bump: × (1 + MAX(Q24:Q34,Q45:Q55) / 100), floor 10% if no positive rating.",
+        "O3 is Table 1 average 1st-innings runs (All weight).",
+      ],
+      dataSources: ["Prep Work!Y5", "Prep Work!X5", "Prep Work!E6", "Prep Work!J6", "Prep Work!O3", "Prep Work!Q24:Q55", "Prep Work!X18"],
+      namedInputs: ["n_format_a"],
+      feedsTo: [LAMBDA_FEEDS["Fifty in 1st innings"]],
+      lambdaPath: LAMBDA_FEEDS["Fifty in 1st innings"],
+    };
+  }
+
+  if (row === 6 && col === "Z") {
+    return {
+      summary: "Fifty in Match — Model probability (logistic)",
+      calculation: [
+        "Gated on Z1 (model column active for this fixture).",
+        "T20: logistic regression EXP(CI9 + CI10 × (E6+J6)/2) / (1 + …) using coefficients CI9:CI10.",
+        "No Lambda class in registry — PM rows 69–70 published directly from workbook.",
+      ],
+      dataSources: ["Prep Work!CI9", "Prep Work!CI10", "Prep Work!E6", "Prep Work!J6"],
+      namedInputs: ["n_format_a"],
+      feedsTo: ["PM Publication rows 69–70"],
+      pmPublication: TABLE2_PM_PUBLICATION[6],
+    };
+  }
+
+  if (row === 7 && col === "Z") {
+    return {
+      summary: "Hundred in 1st innings — Model (ratio from match hundred)",
+      calculation: [
+        "Blank in Test.",
+        "(Y7 / Y8) × Z8 — scales 1st-innings historical rate by the modelled match-hundred probability.",
+        "Derives first-innings hundred from match hundred model rather than direct calibration.",
+      ],
+      dataSources: ["Prep Work!Y7", "Prep Work!Y8", "Prep Work!Z8"],
+      namedInputs: ["n_format_a"],
+      feedsTo: [LAMBDA_FEEDS["Hundred in 1st innings"]],
+      lambdaPath: LAMBDA_FEEDS["Hundred in 1st innings"],
+    };
+  }
+
+  if (row === 8 && col === "Z") {
+    return {
+      summary: "Hundred in Match — Model probability → Lambda",
+      calculation: [
+        "Blank in Test.",
+        "Y8 × (((E6+J6)/2) / O3) ^ exponent — exponent 1.25 (ODI) or 1.625 (T20).",
+        "Scales all-format historical hundred rate by expected scoring vs par (O3).",
+      ],
+      dataSources: ["Prep Work!Y8", "Prep Work!E6", "Prep Work!J6", "Prep Work!O3"],
+      namedInputs: ["n_format_a"],
+      feedsTo: [LAMBDA_FEEDS["Hundred in Match"]],
+      lambdaPath: LAMBDA_FEEDS["Hundred in Match"],
+    };
+  }
+
+  if (row === 9 && col === "Z") {
+    return {
+      summary: "Highest individual score — Model line → Lambda",
+      calculation: [
+        "Test: MATCH lookup on PM Pricing calibration grid (XF145:ACZ145).",
+        "Limited overs: AVERAGE(Y9, Y9 × ((E6+J6)/2) / O3) — historical median scaled by run expectation.",
+        "Lambda rounds to line + 0.5 with trader adjust on I75.",
+      ],
+      dataSources: ["Prep Work!Y9", "Prep Work!E6", "Prep Work!J6", "Prep Work!O3", "PM Pricing"],
+      namedInputs: ["n_format_a"],
+      feedsTo: [LAMBDA_FEEDS["Highest individual score"]],
+      lambdaPath: LAMBDA_FEEDS["Highest individual score"],
+    };
+  }
+
+  if (row === 10 && col === "Z") {
+    return {
+      summary: "Rabbit runs — Model (when populated)",
+      calculation: [
+        "Often blank on T20 fixtures — model column may be unused when Z1 gate is off.",
+        "When present: scales Y10 historical rabbit average for Lambda RabbitRuns.",
+        "Lambda: Poisson-gamma median on team rabbit expectation, line = Round(total−0.8)+0.5.",
+      ],
+      dataSources: ["Prep Work!Y10"],
+      namedInputs: [],
+      feedsTo: [LAMBDA_FEEDS["Rabbit runs"]],
+      lambdaPath: LAMBDA_FEEDS["Rabbit runs"],
+    };
+  }
+
+  if (col === "AB" && row >= 3 && row <= 10 && TABLE2_PM_PUBLICATION[row]) {
+    const kind = row === 3 || row === 9 || row === 10 ? "published line" : "published yes probability";
+    return {
+      summary: `${market ?? `Row ${row}`} — Now (${kind})`,
+      calculation: [
+        `Trader-facing ${kind} copied to PM Publication.`,
+        "May be rounded from the Model (Z) column or manually set.",
+        "Purple adjust cells on PM Publication column I apply on top of Lambda output.",
+      ],
+      dataSources: ["PM Publication"],
+      namedInputs: [],
+      feedsTo: [`PM Publication row ${TABLE2_PM_PUBLICATION[row].match(/\d+/)?.[0] ?? "?"}`],
+      pmPublication: TABLE2_PM_PUBLICATION[row],
+    };
+  }
+
+  return undefined;
+}
 
 function isFormula(s: string | null): boolean {
   return !!s && s.startsWith("=");
@@ -298,22 +662,22 @@ export function explainPrepWorkCell(
       ? (TABLE1_COL_LABELS[cell.col] ?? cell.col)
       : (TABLE2_COL_LABELS[cell.col] ?? cell.col);
 
-  const { calculation, dataSources, summary } = explainFormula(
-    cell.formula,
-    cell.row,
-    cell.col,
-    tableId
-  );
+  const table2Doc =
+    tableId === "table-2" ? explainTable2Cell(cell.row, cell.col) : undefined;
 
-  const namedInputs = cell.formula && isFormula(cell.formula)
-    ? extractNamedRefs(cell.formula)
-    : [];
+  const generic = explainFormula(cell.formula, cell.row, cell.col, tableId);
 
-  const feedsTo: string[] = [];
-  const lambdaKey =
-    tableId === "table-1"
-      ? Object.keys(LAMBDA_FEEDS).find((k) => rowLabel.includes(k.split(" ")[0]) && rowLabel.toLowerCase().includes(k.toLowerCase().split(" ")[0]))
-      : TABLE2_ROW_LABELS[cell.row];
+  const calculation = table2Doc?.calculation ?? generic.calculation;
+  const dataSources = table2Doc?.dataSources ?? generic.dataSources;
+  const summary = table2Doc?.summary ?? generic.summary;
+
+  const namedInputs =
+    table2Doc?.namedInputs ??
+    (cell.formula && isFormula(cell.formula) ? extractNamedRefs(cell.formula) : []);
+
+  const feedsTo: string[] = [...(table2Doc?.feedsTo ?? [])];
+  const lambdaPath = table2Doc?.lambdaPath;
+  const pmPublication = table2Doc?.pmPublication;
 
   if (tableId === "table-1") {
     if (cell.row === 16 && cell.col === "O") {
@@ -333,7 +697,7 @@ export function explainPrepWorkCell(
     }
   }
 
-  if (tableId === "table-2" && cell.col === "Z") {
+  if (tableId === "table-2" && cell.col === "Z" && !lambdaPath) {
     const market = TABLE2_ROW_LABELS[cell.row];
     if (market && LAMBDA_FEEDS[market]) {
       feedsTo.push(LAMBDA_FEEDS[market]);
@@ -350,11 +714,13 @@ export function explainPrepWorkCell(
     calculation,
     dataSources,
     namedInputs,
-    feedsTo,
+    feedsTo: Array.from(new Set(feedsTo)),
     lambdaPath:
-      tableId === "table-2" && cell.col === "Z"
+      lambdaPath ??
+      (tableId === "table-2" && cell.col === "Z"
         ? LAMBDA_FEEDS[TABLE2_ROW_LABELS[cell.row] ?? ""]
-        : undefined,
+        : undefined),
+    pmPublication,
   };
 }
 
@@ -372,10 +738,7 @@ export function buildTableGrid(table: PrepWorkTable): {
   };
   const a = parse(start);
   const b = parse(end);
-  const colLetters: string[] = [];
-  for (let c = a.col.charCodeAt(0); c <= b.col.charCodeAt(0); c++) {
-    colLetters.push(String.fromCharCode(c));
-  }
+  const colLetters = columnRange(a.col, b.col);
   const rows: number[] = [];
   for (let r = a.row; r <= b.row; r++) rows.push(r);
 

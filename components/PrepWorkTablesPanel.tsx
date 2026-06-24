@@ -83,6 +83,13 @@ function CellDetail({ detail }: { detail: CellExplanation }) {
         </div>
       )}
 
+      {detail.pmPublication && (
+        <div className="rounded-lg border border-violet-900/40 bg-violet-950/20 p-4">
+          <p className="text-xs font-semibold uppercase text-slate-500">PM Publication</p>
+          <p className="mt-2 text-sm text-violet-200">{detail.pmPublication}</p>
+        </div>
+      )}
+
       {detail.feedsTo.length > 0 && (
         <div>
           <p className="text-xs font-semibold uppercase text-slate-500">Feeds into</p>
@@ -97,11 +104,18 @@ function CellDetail({ detail }: { detail: CellExplanation }) {
   );
 }
 
+const TABLE_DEFAULT_CELL: Record<string, string> = {
+  "table-1": "O16",
+  "table-2": "Z5",
+};
+
 export function PrepWorkTablesPanel() {
   const tables = getPrepWorkTables();
   const meta = getPrepWorkTableSnapshot();
   const [tableId, setTableId] = useState(tables[0]?.id ?? "table-1");
-  const [selectedAddress, setSelectedAddress] = useState<string | null>("O16");
+  const [selectedAddress, setSelectedAddress] = useState<string | null>(
+    TABLE_DEFAULT_CELL[tables[0]?.id ?? "table-1"] ?? null
+  );
 
   const table = tables.find((t) => t.id === tableId)!;
   const grid = useMemo(() => buildTableGrid(table), [table]);
@@ -135,7 +149,7 @@ export function PrepWorkTablesPanel() {
                 type="button"
                 onClick={() => {
                   setTableId(t.id);
-                  setSelectedAddress(null);
+                  setSelectedAddress(TABLE_DEFAULT_CELL[t.id] ?? null);
                 }}
                 className={`rounded-lg border px-4 py-2 text-sm font-medium transition ${
                   tableId === t.id
@@ -224,7 +238,7 @@ export function PrepWorkTablesPanel() {
 
           <p className="text-xs text-slate-500">
             <span className="text-sky-500">ƒx</span> = formula cell · Click to inspect · Column O / Y
-            / Z are the usual paths into Lambda
+            / Z are the usual paths into Lambda · AB = published Now on PM Publication
           </p>
         </div>
 

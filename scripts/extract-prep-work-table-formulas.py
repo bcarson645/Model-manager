@@ -6,6 +6,7 @@ from pathlib import Path
 
 import openpyxl
 from openpyxl.utils import get_column_letter
+from openpyxl.worksheet.formula import ArrayFormula
 
 path = Path(
     sys.argv[1]
@@ -20,6 +21,14 @@ prep = wb["Prep Work"]
 prepv = wbv["Prep Work"]
 
 
+def formula_text(value):
+    if value is None:
+        return None
+    if isinstance(value, ArrayFormula):
+        return value.text
+    return str(value)
+
+
 def dump_range(min_row, max_row, min_col, max_col):
     cells = []
     for r in range(min_row, max_row + 1):
@@ -29,9 +38,7 @@ def dump_range(min_row, max_row, min_col, max_col):
             v = prepv[addr].value
             if f is None and v is None:
                 continue
-            formula = None
-            if f is not None:
-                formula = str(f)
+            formula = formula_text(f)
             cells.append(
                 {
                     "address": addr,
