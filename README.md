@@ -28,7 +28,7 @@ python scripts/extract-odi-scorecards.py
 python scripts/extract-t20-scorecards.py
 ```
 
-Source workbooks must be available at the paths configured in those scripts.
+Source workbooks must be available at the paths configured in those scripts. Outputs write to `lib/*/matches.json` (gitignored). The app bundles empty fallbacks for production builds; locally, data is loaded at runtime from `matches.json` via `/api/scorecards/[format]`.
 
 ## Deploy to Vercel
 

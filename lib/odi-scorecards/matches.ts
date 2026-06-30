@@ -1,28 +1,19 @@
+import emptyMatches from "./matches.empty.json";
+import schemaProfile from "./schema-profile.json";
 import type { OdiMatch, OdiSchemaProfile } from "./types";
 
-let cachedMatches: OdiMatch[] | null | undefined;
-let cachedProfile: OdiSchemaProfile | null | undefined;
+let cachedMatches: OdiMatch[] = emptyMatches as OdiMatch[];
 
 export function getOdiMatches(): OdiMatch[] {
-  if (cachedMatches !== undefined) return cachedMatches ?? [];
-  try {
-    // eslint-disable-next-line @typescript-eslint/no-require-imports
-    cachedMatches = require("./matches.json") as OdiMatch[];
-  } catch {
-    cachedMatches = null;
-  }
-  return cachedMatches ?? [];
+  return cachedMatches;
+}
+
+export function setOdiMatches(matches: OdiMatch[]): void {
+  cachedMatches = matches;
 }
 
 export function getOdiSchemaProfile(): OdiSchemaProfile | null {
-  if (cachedProfile !== undefined) return cachedProfile;
-  try {
-    // eslint-disable-next-line @typescript-eslint/no-require-imports
-    cachedProfile = require("./schema-profile.json") as OdiSchemaProfile;
-  } catch {
-    cachedProfile = null;
-  }
-  return cachedProfile;
+  return schemaProfile as OdiSchemaProfile;
 }
 
 export function hasOdiData(): boolean {

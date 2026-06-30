@@ -1,28 +1,19 @@
+import emptyMatches from "./matches.empty.json";
+import schemaProfile from "./schema-profile.json";
 import type { T20Match, T20SchemaProfile } from "./types";
 
-let cachedMatches: T20Match[] | null | undefined;
-let cachedProfile: T20SchemaProfile | null | undefined;
+let cachedMatches: T20Match[] = emptyMatches as T20Match[];
 
 export function getT20Matches(): T20Match[] {
-  if (cachedMatches !== undefined) return cachedMatches ?? [];
-  try {
-    // eslint-disable-next-line @typescript-eslint/no-require-imports
-    cachedMatches = require("./matches.json") as T20Match[];
-  } catch {
-    cachedMatches = null;
-  }
-  return cachedMatches ?? [];
+  return cachedMatches;
+}
+
+export function setT20Matches(matches: T20Match[]): void {
+  cachedMatches = matches;
 }
 
 export function getT20SchemaProfile(): T20SchemaProfile | null {
-  if (cachedProfile !== undefined) return cachedProfile;
-  try {
-    // eslint-disable-next-line @typescript-eslint/no-require-imports
-    cachedProfile = require("./schema-profile.json") as T20SchemaProfile;
-  } catch {
-    cachedProfile = null;
-  }
-  return cachedProfile;
+  return schemaProfile as T20SchemaProfile;
 }
 
 export function hasT20Data(): boolean {
