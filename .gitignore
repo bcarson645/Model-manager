@@ -40,3 +40,11 @@ next-env.d.ts
 # internal Sportradar pricing lib (clone locally, do not push to GitHub)
 /pricing.models/*
 !/pricing.models/README.md
+
+# python
+__pycache__/
+*.pyc
+
+# generated scorecard extracts (too large for GitHub; run extract scripts locally)
+lib/odi-scorecards/matches.json
+lib/t20-scorecards/matches.json

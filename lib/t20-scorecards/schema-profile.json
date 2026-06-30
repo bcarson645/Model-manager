@@ -1,0 +1,74 @@
+{
+  "sourceFiles": [
+    {
+      "file": "T20 Major Scorecard Data.xlsm",
+      "rawRowCount": 127943,
+      "matchCount": 5776
+    }
+  ],
+  "sheetName": "Data",
+  "headerRow": 16,
+  "rawRowCount": 127943,
+  "matchCount": 5776,
+  "rowsPerMatch": {
+    "distribution": {
+      "22": 5355,
+      "23": 81,
+      "24": 337,
+      "25": 2,
+      "132": 1
+    },
+    "typical": 22
+  },
+  "formatCounts": {
+    "T20 Blast": 1140,
+    "T20I Major": 853,
+    "Indian Premier League": 705,
+    "Big Bash League": 489,
+    "Bangladesh Premier League": 385,
+    "Pakistan Super League": 341,
+    "Caribbean Premier League": 303,
+    "Pakistan National T20 Cup": 274,
+    "South Africa Domestic T20/Pro20": 254,
+    "New Zealand Domestic Twenty20": 244,
+    "International League T20": 132,
+    "SA20": 118,
+    "Lanka Premier League": 106,
+    "Major League Cricket": 74,
+    "Global T20 Canada": 70,
+    "Mzansi Super League": 49,
+    "T20I Minor": 30,
+    "National Cricket League T20": 28,
+    "Bangabandhu T20 Cup": 24,
+    "Afghanistan Premier League": 23,
+    "Champions T20 Cup": 22,
+    "Super Smash": 21,
+    "Global Super League": 20,
+    "Super T20 Provincial Tournament": 19,
+    "A Team Matches": 17,
+    "SLC Invitational T20 League": 15,
+    "Asia Cup Rising Stars 2025": 7,
+    "SLC T20 League": 6,
+    "Emirates T20 Trophy": 5,
+    "Youth T20I": 1,
+    "CSA Provincial One-Day Challenge": 1
+  },
+  "matchesPerSource": {
+    "T20 Major Scorecard Data.xlsm": 5776
+  },
+  "mergeInfo": {
+    "duplicateIds": []
+  },
+  "inferredKeys": {
+    "gameId": "ID",
+    "date": "Date",
+    "playerId": "PlayerID",
+    "playerName": "Name",
+    "team": "Team",
+    "innings": "Inns",
+    "teamTotal": "Total",
+    "matchTopBatter": "Match.Tp.Bt",
+    "matchTopBowler": "Wickets (inferred; ties by fewest Runs conceded)"
+  },
+  "gameStructure": "Each match is grouped by ID. Match-level fields repeat on every row. Total is the team innings score; winner inferred by higher Total across the two teams."
+}

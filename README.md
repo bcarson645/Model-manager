@@ -19,6 +19,17 @@ npm install
 npm run dev
 ```
 
+### Scorecard data (ODI / T20 analysis)
+
+`matches.json` files are generated locally and not committed (they exceed GitHub size limits). After cloning, run:
+
+```bash
+python scripts/extract-odi-scorecards.py
+python scripts/extract-t20-scorecards.py
+```
+
+Source workbooks must be available at the paths configured in those scripts.
+
 ## Deploy to Vercel
 
 Import [bcarson645/Model-manager](https://github.com/bcarson645/Model-manager) at [vercel.com/new](https://vercel.com/new). Next.js is auto-detected.

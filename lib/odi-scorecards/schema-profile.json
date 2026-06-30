@@ -1,0 +1,83 @@
+{
+  "sourceFiles": [
+    {
+      "file": "odi_major_scorecard_data.xlsm",
+      "rawRowCount": 23104,
+      "matchCount": 1050
+    },
+    {
+      "file": "List A Scorecard Data.xlsm",
+      "rawRowCount": 69849,
+      "matchCount": 3173
+    }
+  ],
+  "sheetName": "Data",
+  "headerRow": 16,
+  "rawRowCount": 92953,
+  "matchCount": 4222,
+  "rowsPerMatch": {
+    "distribution": {
+      "11": 2,
+      "22": 4201,
+      "23": 11,
+      "24": 7,
+      "66": 1
+    },
+    "typical": 22
+  },
+  "formatCounts": {
+    "ODI Major": 1050,
+    "Vijay Hazare Trophy": 889,
+    "Royal London One-Day Cup": 578,
+    "The Ford Trophy": 277,
+    "A Team Matches": 246,
+    "Regional Super50": 213,
+    "Momentum One Day Cup": 204,
+    "Australian Domestic One-Day Competition": 166,
+    "Pakistan Cup": 137,
+    "Pro50 Championship": 105,
+    "National Super League Limited Over Tournament": 59,
+    "Cricket Ireland Inter-Provincial Limited Over Cup": 56,
+    "Ghazi Amanullah Khan Regional One Day Tournament": 49,
+    "CSA Provincial One-Day Challenge": 40,
+    "Deodhar Trophy": 33,
+    "Marsh Cup": 25,
+    "Bangladesh Cricket League One-Day": 20,
+    "Sri Lanka Super Four Provincial Limited Over Tournament": 13,
+    "Champions One-Day Cup": 12,
+    "Pro 50 Championship": 12,
+    "Green Afghanistan One Day Cup": 7,
+    "WI Regional Super 50": 7,
+    "ODI Minor": 6,
+    "Zimbabwe Cricket Regionals Pro50": 6,
+    "North-South Series": 5,
+    "BCB President's Cup": 5,
+    "Ireland A tour of England 2020": 1,
+    "Dhaka Premier League": 1
+  },
+  "matchesPerSource": {
+    "odi_major_scorecard_data.xlsm": 1050,
+    "List A Scorecard Data.xlsm": 3172
+  },
+  "mergeInfo": {
+    "duplicateIds": [
+      {
+        "id": "1311523",
+        "kept": "odi_major_scorecard_data.xlsm",
+        "dropped": "List A Scorecard Data.xlsm"
+      }
+    ]
+  },
+  "inferredKeys": {
+    "gameId": "ID",
+    "date": "Date",
+    "playerId": "PlayerID",
+    "playerName": "Name",
+    "team": "Team",
+    "innings": "Inns",
+    "teamTotal": "Total",
+    "matchTopBatter": "Match.Tp.Bt",
+    "matchTopBowler": "Wickets (inferred; ties by fewest Runs conceded)"
+  },
+  "gameStructure": "Each match is grouped by ID. Match-level fields repeat on every row. Total is the team innings score; winner inferred by higher Total across the two teams."
+}

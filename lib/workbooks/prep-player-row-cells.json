@@ -1,0 +1,3675 @@
+{
+  "fixtureId": "nz-sa-63406779",
+  "label": "New Zealand v South Africa (63406779)",
+  "sheet": "Prep Work",
+  "headers": [
+    {
+      "address": "H23",
+      "row": 23,
+      "col": "H",
+      "formula": "playerID",
+      "value": "playerID"
+    },
+    {
+      "address": "I23",
+      "row": 23,
+      "col": "I",
+      "formula": "bat",
+      "value": "bat"
+    },
+    {
+      "address": "J23",
+      "row": 23,
+      "col": "J",
+      "formula": "bowl",
+      "value": "bowl"
+    },
+    {
+      "address": "K23",
+      "row": 23,
+      "col": "K",
+      "formula": "name",
+      "value": "name"
+    },
+    {
+      "address": "L23",
+      "row": 23,
+      "col": "L",
+      "formula": "bt.caz",
+      "value": "bt.caz"
+    },
+    {
+      "address": "M23",
+      "row": 23,
+      "col": "M",
+      "formula": "Raw",
+      "value": "Raw"
+    },
+    {
+      "address": "N23",
+      "row": 23,
+      "col": "N",
+      "formula": "sr.caz",
+      "value": "sr.caz"
+    },
+    {
+      "address": "O23",
+      "row": 23,
+      "col": "O",
+      "formula": "Fours",
+      "value": "Fours"
+    },
+    {
+      "address": "P23",
+      "row": 23,
+      "col": "P",
+      "formula": "Sixes",
+      "value": "Sixes"
+    }
+  ],
+  "sharedInputs": [
+    {
+      "address": "D3",
+      "row": 3,
+      "col": "D",
+      "formula": "1.01",
+      "value": 1.01
+    },
+    {
+      "address": "D5",
+      "row": 5,
+      "col": "D",
+      "formula": "=IFERROR(Z56,1)",
+      "value": 1.0090375757575758
+    },
+    {
+      "address": "BW3",
+      "row": 3,
+      "col": "BW",
+      "formula": "0.83",
+      "value": 0.83
+    },
+    {
+      "address": "M21",
+      "row": 21,
+      "col": "M",
+      "formula": "=IF('Match Info'!C34=\"Man\",D3*D5,D3*D5/BW3)",
+      "value": 1.0191279515151517
+    },
+    {
+      "address": "O21",
+      "row": 21,
+      "col": "O",
+      "formula": "1.03",
+      "value": 1.03
+    },
+    {
+      "address": "P21",
+      "row": 21,
+      "col": "P",
+      "formula": "1.2",
+      "value": 1.2
+    },
+    {
+      "address": "BT3",
+      "row": 3,
+      "col": "BT",
+      "formula": "=IF('Match Info'!AS59=1,100,IF('Match Info'!AS58=1,148,IF(n_format_a=\"T10\",IF(InfoCompetitionId=50,110,102),IF(n_format_a=\"T20\",165,IF(n_format_a=\"S6\",114,IF(n_format_a=\"Test\",IF(D1=\"First Class\",328,338),270))))))",
+      "value": 165
+    },
+    {
+      "address": "M21",
+      "row": 21,
+      "col": "M",
+      "formula": "=IF('Match Info'!C34=\"Man\",D3*D5,D3*D5/BW3)",
+      "value": 1.0191279515151517
+    },
+    {
+      "address": "O21",
+      "row": 21,
+      "col": "O",
+      "formula": "1.03",
+      "value": 1.03
+    },
+    {
+      "address": "P21",
+      "row": 21,
+      "col": "P",
+      "formula": "1.2",
+      "value": 1.2
+    }
+  ],
+  "squads": [
+    {
+      "id": "home",
+      "name": "Home XI (Team 1)",
+      "playerRows": [
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34
+      ],
+      "teamFoursTotal": {
+        "address": "O36",
+        "formula": "=SUM(O24:O35)",
+        "value": 14.616753501001249
+      },
+      "teamSixesTotal": {
+        "address": "P36",
+        "formula": "=SUM(P24:P34)",
+        "value": 7.3211418505229515
+      },
+      "cells": [
+        {
+          "address": "H24",
+          "row": 24,
+          "col": "H",
+          "formula": "=INDEX(Rosters!A:A,MATCH(K24,Rosters!C:C,0))",
+          "value": 379140
+        },
+        {
+          "address": "I24",
+          "row": 24,
+          "col": "I",
+          "formula": "1",
+          "value": 1
+        },
+        {
+          "address": "J24",
+          "row": 24,
+          "col": "J",
+          "formula": "10",
+          "value": 10
+        },
+        {
+          "address": "K24",
+          "row": 24,
+          "col": "K",
+          "formula": "='Match Info'!C43",
+          "value": "DP Conway"
+        },
+        {
+          "address": "L24",
+          "row": 24,
+          "col": "L",
+          "formula": "33",
+          "value": 33
+        },
+        {
+          "address": "M24",
+          "row": 24,
+          "col": "M",
+          "formula": "=((L24*CD24*$M$21)+DV24)*DH24",
+          "value": 31.949661280000004
+        },
+        {
+          "address": "N24",
+          "row": 24,
+          "col": "N",
+          "formula": "1.32",
+          "value": 1.32
+        },
+        {
+          "address": "O24",
+          "row": 24,
+          "col": "O",
+          "formula": "=($O$21*M24*AO24)/4",
+          "value": 3.538507909443381
+        },
+        {
+          "address": "P24",
+          "row": 24,
+          "col": "P",
+          "formula": "=($P$21*M24*AR24)/6",
+          "value": 0.9438268146720591
+        },
+        {
+          "address": "H25",
+          "row": 25,
+          "col": "H",
+          "formula": "=INDEX(Rosters!A:A,MATCH(K25,Rosters!C:C,0))",
+          "value": 388802
+        },
+        {
+          "address": "I25",
+          "row": 25,
+          "col": "I",
+          "formula": "2",
+          "value": 2
+        },
+        {
+          "address": "J25",
+          "row": 25,
+          "col": "J",
+          "formula": "11",
+          "value": 11
+        },
+        {
+          "address": "K25",
+          "row": 25,
+          "col": "K",
+          "formula": "='Match Info'!C44",
+          "value": "TWM Latham"
+        },
+        {
+          "address": "L25",
+          "row": 25,
+          "col": "L",
+          "formula": "30",
+          "value": 30
+        },
+        {
+          "address": "M25",
+          "row": 25,
+          "col": "M",
+          "formula": "=((L25*CD25*$M$21)+DV25)*DH25",
+          "value": 29.04514661818182
+        },
+        {
+          "address": "N25",
+          "row": 25,
+          "col": "N",
+          "formula": "1.33",
+          "value": 1.33
+        },
+        {
+          "address": "O25",
+          "row": 25,
+          "col": "O",
+          "formula": "=($O$21*M25*AO25)/4",
+          "value": 2.924239499235911
+        },
+        {
+          "address": "P25",
+          "row": 25,
+          "col": "P",
+          "formula": "=($P$21*M25*AR25)/6",
+          "value": 1.2385415939155169
+        },
+        {
+          "address": "H26",
+          "row": 26,
+          "col": "H",
+          "formula": "=INDEX(Rosters!A:A,MATCH(K26,Rosters!C:C,0))",
+          "value": 1290929
+        },
+        {
+          "address": "I26",
+          "row": 26,
+          "col": "I",
+          "formula": "3",
+          "value": 3
+        },
+        {
+          "address": "J26",
+          "row": 26,
+          "col": "J",
+          "formula": "9",
+          "value": 9
+        },
+        {
+          "address": "K26",
+          "row": 26,
+          "col": "K",
+          "formula": "='Match Info'!C45",
+          "value": "TB Robinson"
+        },
+        {
+          "address": "L26",
+          "row": 26,
+          "col": "L",
+          "formula": "29",
+          "value": 29
+        },
+        {
+          "address": "M26",
+          "row": 26,
+          "col": "M",
+          "formula": "=((L26*CD26*$M$21)+DV26)*DH26",
+          "value": 26.894786640484853
+        },
+        {
+          "address": "N26",
+          "row": 26,
+          "col": "N",
+          "formula": "1.38",
+          "value": 1.38
+        },
+        {
+          "address": "O26",
+          "row": 26,
+          "col": "O",
+          "formula": "=($O$21*M26*AO26)/4",
+          "value": 2.4744423499881822
+        },
+        {
+          "address": "P26",
+          "row": 26,
+          "col": "P",
+          "formula": "=($P$21*M26*AR26)/6",
+          "value": 1.2917924620580081
+        },
+        {
+          "address": "H27",
+          "row": 27,
+          "col": "H",
+          "formula": "=INDEX(Rosters!A:A,MATCH(K27,Rosters!C:C,0))",
+          "value": 559062
+        },
+        {
+          "address": "I27",
+          "row": 27,
+          "col": "I",
+          "formula": "4",
+          "value": 4
+        },
+        {
+          "address": "J27",
+          "row": 27,
+          "col": "J",
+          "formula": "8",
+          "value": 8
+        },
+        {
+          "address": "K27",
+          "row": 27,
+          "col": "K",
+          "formula": "='Match Info'!C46",
+          "value": "NF Kelly"
+        },
+        {
+          "address": "L27",
+          "row": 27,
+          "col": "L",
+          "formula": "26",
+          "value": 26
+        },
+        {
+          "address": "M27",
+          "row": 27,
+          "col": "M",
+          "formula": "=((L27*CD27*$M$21)+DV27)*DH27",
+          "value": 21.99278119369697
+        },
+        {
+          "address": "N27",
+          "row": 27,
+          "col": "N",
+          "formula": "1.25",
+          "value": 1.25
+        },
+        {
+          "address": "O27",
+          "row": 27,
+          "col": "O",
+          "formula": "=($O$21*M27*AO27)/4",
+          "value": 1.8991740291144685
+        },
+        {
+          "address": "P27",
+          "row": 27,
+          "col": "P",
+          "formula": "=($P$21*M27*AR27)/6",
+          "value": 1.053766154930415
+        },
+        {
+          "address": "H28",
+          "row": 28,
+          "col": "H",
+          "formula": "=INDEX(Rosters!A:A,MATCH(K28,Rosters!C:C,0))",
+          "value": 1410577
+        },
+        {
+          "address": "I28",
+          "row": 28,
+          "col": "I",
+          "formula": "5",
+          "value": 5
+        },
+        {
+          "address": "J28",
+          "row": 28,
+          "col": "J",
+          "formula": "7",
+          "value": 7
+        },
+        {
+          "address": "K28",
+          "row": 28,
+          "col": "K",
+          "formula": "='Match Info'!C47",
+          "value": "BJ Jacobs"
+        },
+        {
+          "address": "L28",
+          "row": 28,
+          "col": "L",
+          "formula": "27",
+          "value": 27
+        },
+        {
+          "address": "M28",
+          "row": 28,
+          "col": "M",
+          "formula": "=((L28*CD28*$M$21)+DV28)*DH28-1",
+          "value": 18.674265104000003
+        },
+        {
+          "address": "N28",
+          "row": 28,
+          "col": "N",
+          "formula": "1.38",
+          "value": 1.38
+        },
+        {
+          "address": "O28",
+          "row": 28,
+          "col": "O",
+          "formula": "=($O$21*M28*AO28)/4",
+          "value": 1.3465780071893858
+        },
+        {
+          "address": "P28",
+          "row": 28,
+          "col": "P",
+          "formula": "=($P$21*M28*AR28)/6",
+          "value": 1.1585812858763265
+        },
+        {
+          "address": "H29",
+          "row": 29,
+          "col": "H",
+          "formula": "=INDEX(Rosters!A:A,MATCH(K29,Rosters!C:C,0))",
+          "value": 502714
+        },
+        {
+          "address": "I29",
+          "row": 29,
+          "col": "I",
+          "formula": "6",
+          "value": 6
+        },
+        {
+          "address": "J29",
+          "row": 29,
+          "col": "J",
+          "formula": "4",
+          "value": 4
+        },
+        {
+          "address": "K29",
+          "row": 29,
+          "col": "K",
+          "formula": "='Match Info'!C48",
+          "value": "MJ Santner"
+        },
+        {
+          "address": "L29",
+          "row": 29,
+          "col": "L",
+          "formula": "24",
+          "value": 24
+        },
+        {
+          "address": "M29",
+          "row": 29,
+          "col": "M",
+          "formula": "=((L29*CD29*$M$21)+DV29)*DH29",
+          "value": 14.553147147636365
+        },
+        {
+          "address": "N29",
+          "row": 29,
+          "col": "N",
+          "formula": "1.35",
+          "value": 1.35
+        },
+        {
+          "address": "O29",
+          "row": 29,
+          "col": "O",
+          "formula": "=($O$21*M29*AO29)/4",
+          "value": 1.0755988989470482
+        },
+        {
+          "address": "P29",
+          "row": 29,
+          "col": "P",
+          "formula": "=($P$21*M29*AR29)/6",
+          "value": 0.8196999348072033
+        },
+        {
+          "address": "H30",
+          "row": 30,
+          "col": "H",
+          "formula": "=INDEX(Rosters!A:A,MATCH(K30,Rosters!C:C,0))",
+          "value": 355269
+        },
+        {
+          "address": "I30",
+          "row": 30,
+          "col": "I",
+          "formula": "7",
+          "value": 7
+        },
+        {
+          "address": "J30",
+          "row": 30,
+          "col": "J",
+          "formula": "5",
+          "value": 5
+        },
+        {
+          "address": "K30",
+          "row": 30,
+          "col": "K",
+          "formula": "='Match Info'!C49",
+          "value": "JDS Neesham"
+        },
+        {
+          "address": "L30",
+          "row": 30,
+          "col": "L",
+          "formula": "24",
+          "value": 24
+        },
+        {
+          "address": "M30",
+          "row": 30,
+          "col": "M",
+          "formula": "=((L30*CD30*$M$21)+DV30)*DH30-1",
+          "value": 10.251172584727275
+        },
+        {
+          "address": "N30",
+          "row": 30,
+          "col": "N",
+          "formula": "1.4",
+          "value": 1.4
+        },
+        {
+          "address": "O30",
+          "row": 30,
+          "col": "O",
+          "formula": "=($O$21*M30*AO30)/4",
+          "value": 0.7862110587940055
+        },
+        {
+          "address": "P30",
+          "row": 30,
+          "col": "P",
+          "formula": "=($P$21*M30*AR30)/6",
+          "value": 0.5609234129123306
+        },
+        {
+          "address": "H31",
+          "row": 31,
+          "col": "H",
+          "formula": "=INDEX(Rosters!A:A,MATCH(K31,Rosters!C:C,0))",
+          "value": 526021
+        },
+        {
+          "address": "I31",
+          "row": 31,
+          "col": "I",
+          "formula": "8",
+          "value": 8
+        },
+        {
+          "address": "J31",
+          "row": 31,
+          "col": "J",
+          "formula": "6",
+          "value": 6
+        },
+        {
+          "address": "K31",
+          "row": 31,
+          "col": "K",
+          "formula": "='Match Info'!C50",
+          "value": "CE McConchie"
+        },
+        {
+          "address": "L31",
+          "row": 31,
+          "col": "L",
+          "formula": "22",
+          "value": 22
+        },
+        {
+          "address": "M31",
+          "row": 31,
+          "col": "M",
+          "formula": "=((L31*CD31*$M$21)+DV31)*DH31-2",
+          "value": 5.174660778666667
+        },
+        {
+          "address": "N31",
+          "row": 31,
+          "col": "N",
+          "formula": "1.25",
+          "value": 1.25
+        },
+        {
+          "address": "O31",
+          "row": 31,
+          "col": "O",
+          "formula": "=($O$21*M31*AO31)/4",
+          "value": 0.39726014394660625
+        },
+        {
+          "address": "P31",
+          "row": 31,
+          "col": "P",
+          "formula": "=($P$21*M31*AR31)/6",
+          "value": 0.1533232823308642
+        },
+        {
+          "address": "H32",
+          "row": 32,
+          "col": "H",
+          "formula": "=INDEX(Rosters!A:A,MATCH(K32,Rosters!C:C,0))",
+          "value": 1202098
+        },
+        {
+          "address": "I32",
+          "row": 32,
+          "col": "I",
+          "formula": "9",
+          "value": 9
+        },
+        {
+          "address": "J32",
+          "row": 32,
+          "col": "J",
+          "formula": "2",
+          "value": 2
+        },
+        {
+          "address": "K32",
+          "row": 32,
+          "col": "K",
+          "formula": "='Match Info'!C51",
+          "value": "ZGF Foulkes"
+        },
+        {
+          "address": "L32",
+          "row": 32,
+          "col": "L",
+          "formula": "15",
+          "value": 15
+        },
+        {
+          "address": "M32",
+          "row": 32,
+          "col": "M",
+          "formula": "=((L32*CD32*$M$21)+DV32)*DH32-2",
+          "value": 1.1338184509090912
+        },
+        {
+          "address": "N32",
+          "row": 32,
+          "col": "N",
+          "formula": "1.25",
+          "value": 1.25
+        },
+        {
+          "address": "O32",
+          "row": 32,
+          "col": "O",
+          "formula": "=($O$21*M32*AO32)/4",
+          "value": 0.08342634035879497
+        },
+        {
+          "address": "P32",
+          "row": 32,
+          "col": "P",
+          "formula": "=($P$21*M32*AR32)/6",
+          "value": 0.051324786580992016
+        },
+        {
+          "address": "H33",
+          "row": 33,
+          "col": "H",
+          "formula": "=INDEX(Rosters!A:A,MATCH(K33,Rosters!C:C,0))",
+          "value": 493773
+        },
+        {
+          "address": "I33",
+          "row": 33,
+          "col": "I",
+          "formula": "10",
+          "value": 10
+        },
+        {
+          "address": "J33",
+          "row": 33,
+          "col": "J",
+          "formula": "3",
+          "value": 3
+        },
+        {
+          "address": "K33",
+          "row": 33,
+          "col": "K",
+          "formula": "='Match Info'!C52",
+          "value": "LH Ferguson"
+        },
+        {
+          "address": "L33",
+          "row": 33,
+          "col": "L",
+          "formula": "11",
+          "value": 11
+        },
+        {
+          "address": "M33",
+          "row": 33,
+          "col": "M",
+          "formula": "=((L33*CD33*$M$21)+DV33)*DH33-0.5",
+          "value": 0.7891968586666669
+        },
+        {
+          "address": "N33",
+          "row": 33,
+          "col": "N",
+          "formula": "1.1",
+          "value": 1.1
+        },
+        {
+          "address": "O33",
+          "row": 33,
+          "col": "O",
+          "formula": "=($O$21*M33*AO33)/4",
+          "value": 0.055551386023933245
+        },
+        {
+          "address": "P33",
+          "row": 33,
+          "col": "P",
+          "formula": "=($P$21*M33*AR33)/6",
+          "value": 0.03406089461007076
+        },
+        {
+          "address": "H34",
+          "row": 34,
+          "col": "H",
+          "formula": "=INDEX(Rosters!A:A,MATCH(K34,Rosters!C:C,0))",
+          "value": 959769
+        },
+        {
+          "address": "I34",
+          "row": 34,
+          "col": "I",
+          "formula": "11",
+          "value": 11
+        },
+        {
+          "address": "J34",
+          "row": 34,
+          "col": "J",
+          "formula": "1",
+          "value": 1
+        },
+        {
+          "address": "K34",
+          "row": 34,
+          "col": "K",
+          "formula": "='Match Info'!C53",
+          "value": "BV Sears"
+        },
+        {
+          "address": "L34",
+          "row": 34,
+          "col": "L",
+          "formula": "9",
+          "value": 9
+        },
+        {
+          "address": "M34",
+          "row": 34,
+          "col": "M",
+          "formula": "=((L34*CD34*$M$21)+DV34)*DH34",
+          "value": 0.45860757818181824
+        },
+        {
+          "address": "N34",
+          "row": 34,
+          "col": "N",
+          "formula": "0.9",
+          "value": 0.9
+        },
+        {
+          "address": "O34",
+          "row": 34,
+          "col": "O",
+          "formula": "=($O$21*M34*AO34)/4",
+          "value": 0.035763877959532266
+        },
+        {
+          "address": "P34",
+          "row": 34,
+          "col": "P",
+          "formula": "=($P$21*M34*AR34)/6",
+          "value": 0.015301227829166547
+        }
+      ],
+      "dependencyCells": [
+        {
+          "address": "AG24",
+          "row": 24,
+          "col": "AG",
+          "formula": "=SUMIFS(Data!P:P,Data!AM:AM,H24,Data!D:D,n_max_original)",
+          "value": 5687
+        },
+        {
+          "address": "AM24",
+          "row": 24,
+          "col": "AM",
+          "formula": "=SUMIFS(Data!R:R,Data!AM:AM,H24,Data!D:D,n_max_original)",
+          "value": 613
+        },
+        {
+          "address": "AN24",
+          "row": 24,
+          "col": "AN",
+          "formula": "=(AM24*4)/AG24",
+          "value": 0.43115878318973094
+        },
+        {
+          "address": "AO24",
+          "row": 24,
+          "col": "AO",
+          "formula": "=IF(AG24<10,CE24,IF(AG24>6000,AN24,((AG24*AN24)+((6000-AG24)*CE24))/6000))",
+          "value": 0.43010716666666665
+        },
+        {
+          "address": "AP24",
+          "row": 24,
+          "col": "AP",
+          "formula": "=SUMIFS(Data!S:S,Data!AM:AM,H24,Data!D:D,n_max_original)",
+          "value": 140
+        },
+        {
+          "address": "AQ24",
+          "row": 24,
+          "col": "AQ",
+          "formula": "=(AP24*6)/AG24",
+          "value": 0.14770529277299102
+        },
+        {
+          "address": "AR24",
+          "row": 24,
+          "col": "AR",
+          "formula": "=IF(AG24<10,CF24,IF(AG24>1500,AQ24,((AG24*AQ24)+((1500-AG24)*CF24))/1500))",
+          "value": 0.14770529277299102
+        },
+        {
+          "address": "CD24",
+          "row": 24,
+          "col": "CD",
+          "formula": "=IF(n_format_a=\"S6\",CG115,IF(n_format_a=\"t10\",CG102,IF(n_format_a=\"t20\",CG63,IF(n_format_a=\"test\",CG89,CG76))))",
+          "value": 0.95
+        },
+        {
+          "address": "CE24",
+          "row": 24,
+          "col": "CE",
+          "formula": "=IF(n_format_a=\"S6\",CH115,IF(n_format_a=\"t10\",IF('Match Info'!$C$27=50,CH102,CJ102),IF(n_format_a=\"t20\",IF(n_gender=\"woman\",CJ63,CH63),IF(n_format_a=\"test\",CH89,IF(n_gender=\"woman\",CJ76,CH76)))))",
+          "value": 0.411
+        },
+        {
+          "address": "CF24",
+          "row": 24,
+          "col": "CF",
+          "formula": "=IF(n_format_a=\"S6\",CI115,IF(n_format_a=\"t10\",IF('Match Info'!$C$27=50,CI102,CK102),IF(n_format_a=\"t20\",IF(n_gender=\"woman\",CK63,CI63),IF(n_format_a=\"test\",CI89,IF(n_gender=\"woman\",CK76,CI76)))))",
+          "value": 0.219
+        },
+        {
+          "address": "DF24",
+          "row": 24,
+          "col": "DF",
+          "formula": "=(0.5-Pricing!$J$30+1)*DG24+(1-DG24)",
+          "value": 1
+        },
+        {
+          "address": "DH24",
+          "row": 24,
+          "col": "DH",
+          "formula": "=IF(n_format_a=\"ODI\",DF24,1)",
+          "value": 1
+        },
+        {
+          "address": "DV24",
+          "row": 24,
+          "col": "DV",
+          "formula": "=IF(n_format_a=\"Test\",2,IF(n_format_a=\"ODI\",0,0))",
+          "value": 0
+        },
+        {
+          "address": "AG25",
+          "row": 25,
+          "col": "AG",
+          "formula": "=SUMIFS(Data!P:P,Data!AM:AM,H25,Data!D:D,n_max_original)",
+          "value": 2589
+        },
+        {
+          "address": "AM25",
+          "row": 25,
+          "col": "AM",
+          "formula": "=SUMIFS(Data!R:R,Data!AM:AM,H25,Data!D:D,n_max_original)",
+          "value": 236
+        },
+        {
+          "address": "AN25",
+          "row": 25,
+          "col": "AN",
+          "formula": "=(AM25*4)/AG25",
+          "value": 0.3646195442255697
+        },
+        {
+          "address": "AO25",
+          "row": 25,
+          "col": "AO",
+          "formula": "=IF(AG25<10,CE25,IF(AG25>6000,AN25,((AG25*AN25)+((6000-AG25)*CE25))/6000))",
+          "value": 0.3909868333333333
+        },
+        {
+          "address": "AP25",
+          "row": 25,
+          "col": "AP",
+          "formula": "=SUMIFS(Data!S:S,Data!AM:AM,H25,Data!D:D,n_max_original)",
+          "value": 92
+        },
+        {
+          "address": "AQ25",
+          "row": 25,
+          "col": "AQ",
+          "formula": "=(AP25*6)/AG25",
+          "value": 0.21320973348783315
+        },
+        {
+          "address": "AR25",
+          "row": 25,
+          "col": "AR",
+          "formula": "=IF(AG25<10,CF25,IF(AG25>1500,AQ25,((AG25*AQ25)+((1500-AG25)*CF25))/1500))",
+          "value": 0.21320973348783315
+        },
+        {
+          "address": "CD25",
+          "row": 25,
+          "col": "CD",
+          "formula": "=IF(n_format_a=\"S6\",CG116,IF(n_format_a=\"t10\",CG103,IF(n_format_a=\"t20\",CG64,IF(n_format_a=\"test\",CG90,CG77))))",
+          "value": 0.95
+        },
+        {
+          "address": "CE25",
+          "row": 25,
+          "col": "CE",
+          "formula": "=IF(n_format_a=\"S6\",CH116,IF(n_format_a=\"t10\",IF('Match Info'!$C$27=50,CH103,CJ103),IF(n_format_a=\"t20\",IF(n_gender=\"woman\",CJ64,CH64),IF(n_format_a=\"test\",CH90,IF(n_gender=\"woman\",CJ77,CH77)))))",
+          "value": 0.411
+        },
+        {
+          "address": "CF25",
+          "row": 25,
+          "col": "CF",
+          "formula": "=IF(n_format_a=\"S6\",CI116,IF(n_format_a=\"t10\",IF('Match Info'!$C$27=50,CI103,CK103),IF(n_format_a=\"t20\",IF(n_gender=\"woman\",CK64,CI64),IF(n_format_a=\"test\",CI90,IF(n_gender=\"woman\",CK77,CI77)))))",
+          "value": 0.219
+        },
+        {
+          "address": "DF25",
+          "row": 25,
+          "col": "DF",
+          "formula": "=(0.5-Pricing!$J$30+1)*DG25+(1-DG25)",
+          "value": 1
+        },
+        {
+          "address": "DH25",
+          "row": 25,
+          "col": "DH",
+          "formula": "=IF(n_format_a=\"ODI\",DF25,1)",
+          "value": 1
+        },
+        {
+          "address": "DV25",
+          "row": 25,
+          "col": "DV",
+          "formula": "=IF(n_format_a=\"Test\",2,IF(n_format_a=\"ODI\",0,0))",
+          "value": 0
+        },
+        {
+          "address": "AG26",
+          "row": 26,
+          "col": "AG",
+          "formula": "=SUMIFS(Data!P:P,Data!AM:AM,H26,Data!D:D,n_max_original)",
+          "value": 1471
+        },
+        {
+          "address": "AM26",
+          "row": 26,
+          "col": "AM",
+          "formula": "=SUMIFS(Data!R:R,Data!AM:AM,H26,Data!D:D,n_max_original)",
+          "value": 134
+        },
+        {
+          "address": "AN26",
+          "row": 26,
+          "col": "AN",
+          "formula": "=(AM26*4)/AG26",
+          "value": 0.36437797416723317
+        },
+        {
+          "address": "AO26",
+          "row": 26,
+          "col": "AO",
+          "formula": "=IF(AG26<10,CE26,IF(AG26>6000,AN26,((AG26*AN26)+((6000-AG26)*CE26))/6000))",
+          "value": 0.35729916666666667
+        },
+        {
+          "address": "AP26",
+          "row": 26,
+          "col": "AP",
+          "formula": "=SUMIFS(Data!S:S,Data!AM:AM,H26,Data!D:D,n_max_original)",
+          "value": 59
+        },
+        {
+          "address": "AQ26",
+          "row": 26,
+          "col": "AQ",
+          "formula": "=(AP26*6)/AG26",
+          "value": 0.2406526172671652
+        },
+        {
+          "address": "AR26",
+          "row": 26,
+          "col": "AR",
+          "formula": "=IF(AG26<10,CF26,IF(AG26>1500,AQ26,((AG26*AQ26)+((1500-AG26)*CF26))/1500))",
+          "value": 0.24015666666666668
+        },
+        {
+          "address": "CD26",
+          "row": 26,
+          "col": "CD",
+          "formula": "=IF(n_format_a=\"S6\",CG117,IF(n_format_a=\"t10\",CG104,IF(n_format_a=\"t20\",CG65,IF(n_format_a=\"test\",CG91,CG78))))",
+          "value": 0.91
+        },
+        {
+          "address": "CE26",
+          "row": 26,
+          "col": "CE",
+          "formula": "=IF(n_format_a=\"S6\",CH117,IF(n_format_a=\"t10\",IF('Match Info'!$C$27=50,CH104,CJ104),IF(n_format_a=\"t20\",IF(n_gender=\"woman\",CJ65,CH65),IF(n_format_a=\"test\",CH91,IF(n_gender=\"woman\",CJ78,CH78)))))",
+          "value": 0.355
+        },
+        {
+          "address": "CF26",
+          "row": 26,
+          "col": "CF",
+          "formula": "=IF(n_format_a=\"S6\",CI117,IF(n_format_a=\"t10\",IF('Match Info'!$C$27=50,CI104,CK104),IF(n_format_a=\"t20\",IF(n_gender=\"woman\",CK65,CI65),IF(n_format_a=\"test\",CI91,IF(n_gender=\"woman\",CK78,CI78)))))",
+          "value": 0.215
+        },
+        {
+          "address": "DF26",
+          "row": 26,
+          "col": "DF",
+          "formula": "=(0.5-Pricing!$J$30+1)*DG26+(1-DG26)",
+          "value": 1
+        },
+        {
+          "address": "DH26",
+          "row": 26,
+          "col": "DH",
+          "formula": "=IF(n_format_a=\"ODI\",DF26,1)",
+          "value": 1
+        },
+        {
+          "address": "DV26",
+          "row": 26,
+          "col": "DV",
+          "formula": "=IF(n_format_a=\"Test\",2,IF(n_format_a=\"ODI\",0,0))",
+          "value": 0
+        },
+        {
+          "address": "AG27",
+          "row": 27,
+          "col": "AG",
+          "formula": "=SUMIFS(Data!P:P,Data!AM:AM,H27,Data!D:D,n_max_original)",
+          "value": 1678
+        },
+        {
+          "address": "AM27",
+          "row": 27,
+          "col": "AM",
+          "formula": "=SUMIFS(Data!R:R,Data!AM:AM,H27,Data!D:D,n_max_original)",
+          "value": 167
+        },
+        {
+          "address": "AN27",
+          "row": 27,
+          "col": "AN",
+          "formula": "=(AM27*4)/AG27",
+          "value": 0.39809296781883197
+        },
+        {
+          "address": "AO27",
+          "row": 27,
+          "col": "AO",
+          "formula": "=IF(AG27<10,CE27,IF(AG27>6000,AN27,((AG27*AN27)+((6000-AG27)*CE27))/6000))",
+          "value": 0.335357
+        },
+        {
+          "address": "AP27",
+          "row": 27,
+          "col": "AP",
+          "formula": "=SUMIFS(Data!S:S,Data!AM:AM,H27,Data!D:D,n_max_original)",
+          "value": 67
+        },
+        {
+          "address": "AQ27",
+          "row": 27,
+          "col": "AQ",
+          "formula": "=(AP27*6)/AG27",
+          "value": 0.2395709177592372
+        },
+        {
+          "address": "AR27",
+          "row": 27,
+          "col": "AR",
+          "formula": "=IF(AG27<10,CF27,IF(AG27>1500,AQ27,((AG27*AQ27)+((1500-AG27)*CF27))/1500))",
+          "value": 0.2395709177592372
+        },
+        {
+          "address": "CD27",
+          "row": 27,
+          "col": "CD",
+          "formula": "=IF(n_format_a=\"S6\",CG118,IF(n_format_a=\"t10\",CG105,IF(n_format_a=\"t20\",CG66,IF(n_format_a=\"test\",CG92,CG79))))",
+          "value": 0.83
+        },
+        {
+          "address": "CE27",
+          "row": 27,
+          "col": "CE",
+          "formula": "=IF(n_format_a=\"S6\",CH118,IF(n_format_a=\"t10\",IF('Match Info'!$C$27=50,CH105,CJ105),IF(n_format_a=\"t20\",IF(n_gender=\"woman\",CJ66,CH66),IF(n_format_a=\"test\",CH92,IF(n_gender=\"woman\",CJ79,CH79)))))",
+          "value": 0.311
+        },
+        {
+          "address": "CF27",
+          "row": 27,
+          "col": "CF",
+          "formula": "=IF(n_format_a=\"S6\",CI118,IF(n_format_a=\"t10\",IF('Match Info'!$C$27=50,CI105,CK105),IF(n_format_a=\"t20\",IF(n_gender=\"woman\",CK66,CI66),IF(n_format_a=\"test\",CI92,IF(n_gender=\"woman\",CK79,CI79)))))",
+          "value": 0.232
+        },
+        {
+          "address": "DF27",
+          "row": 27,
+          "col": "DF",
+          "formula": "=(0.5-Pricing!$J$30+1)*DG27+(1-DG27)",
+          "value": 0.994481872788179
+        },
+        {
+          "address": "DH27",
+          "row": 27,
+          "col": "DH",
+          "formula": "=IF(n_format_a=\"ODI\",DF27,1)",
+          "value": 1
+        },
+        {
+          "address": "DV27",
+          "row": 27,
+          "col": "DV",
+          "formula": "=IF(n_format_a=\"Test\",2,IF(n_format_a=\"ODI\",0,0))",
+          "value": 0
+        },
+        {
+          "address": "AG28",
+          "row": 28,
+          "col": "AG",
+          "formula": "=SUMIFS(Data!P:P,Data!AM:AM,H28,Data!D:D,n_max_original)",
+          "value": 812
+        },
+        {
+          "address": "AM28",
+          "row": 28,
+          "col": "AM",
+          "formula": "=SUMIFS(Data!R:R,Data!AM:AM,H28,Data!D:D,n_max_original)",
+          "value": 53
+        },
+        {
+          "address": "AN28",
+          "row": 28,
+          "col": "AN",
+          "formula": "=(AM28*4)/AG28",
+          "value": 0.26108374384236455
+        },
+        {
+          "address": "AO28",
+          "row": 28,
+          "col": "AO",
+          "formula": "=IF(AG28<10,CE28,IF(AG28>6000,AN28,((AG28*AN28)+((6000-AG28)*CE28))/6000))",
+          "value": 0.280034
+        },
+        {
+          "address": "AP28",
+          "row": 28,
+          "col": "AP",
+          "formula": "=SUMIFS(Data!S:S,Data!AM:AM,H28,Data!D:D,n_max_original)",
+          "value": 49
+        },
+        {
+          "address": "AQ28",
+          "row": 28,
+          "col": "AQ",
+          "formula": "=(AP28*6)/AG28",
+          "value": 0.3620689655172414
+        },
+        {
+          "address": "AR28",
+          "row": 28,
+          "col": "AR",
+          "formula": "=IF(AG28<10,CF28,IF(AG28>1500,AQ28,((AG28*AQ28)+((1500-AG28)*CF28))/1500))",
+          "value": 0.310208
+        },
+        {
+          "address": "CD28",
+          "row": 28,
+          "col": "CD",
+          "formula": "=IF(n_format_a=\"S6\",CG119,IF(n_format_a=\"t10\",CG106,IF(n_format_a=\"t20\",CG67,IF(n_format_a=\"test\",CG93,CG80))))",
+          "value": 0.715
+        },
+        {
+          "address": "CE28",
+          "row": 28,
+          "col": "CE",
+          "formula": "=IF(n_format_a=\"S6\",CH119,IF(n_format_a=\"t10\",IF('Match Info'!$C$27=50,CH106,CJ106),IF(n_format_a=\"t20\",IF(n_gender=\"woman\",CJ67,CH67),IF(n_format_a=\"test\",CH93,IF(n_gender=\"woman\",CJ80,CH80)))))",
+          "value": 0.283
+        },
+        {
+          "address": "CF28",
+          "row": 28,
+          "col": "CF",
+          "formula": "=IF(n_format_a=\"S6\",CI119,IF(n_format_a=\"t10\",IF('Match Info'!$C$27=50,CI106,CK106),IF(n_format_a=\"t20\",IF(n_gender=\"woman\",CK67,CI67),IF(n_format_a=\"test\",CI93,IF(n_gender=\"woman\",CK80,CI80)))))",
+          "value": 0.249
+        },
+        {
+          "address": "DF28",
+          "row": 28,
+          "col": "DF",
+          "formula": "=(0.5-Pricing!$J$30+1)*DG28+(1-DG28)",
+          "value": 0.988963745576358
+        },
+        {
+          "address": "DH28",
+          "row": 28,
+          "col": "DH",
+          "formula": "=IF(n_format_a=\"ODI\",DF28,1)",
+          "value": 1
+        },
+        {
+          "address": "DV28",
+          "row": 28,
+          "col": "DV",
+          "formula": "=IF(n_format_a=\"Test\",2,IF(n_format_a=\"ODI\",0,0))",
+          "value": 0
+        },
+        {
+          "address": "AG29",
+          "row": 29,
+          "col": "AG",
+          "formula": "=SUMIFS(Data!P:P,Data!AM:AM,H29,Data!D:D,n_max_original)",
+          "value": 2514
+        },
+        {
+          "address": "AM29",
+          "row": 29,
+          "col": "AM",
+          "formula": "=SUMIFS(Data!R:R,Data!AM:AM,H29,Data!D:D,n_max_original)",
+          "value": 190
+        },
+        {
+          "address": "AN29",
+          "row": 29,
+          "col": "AN",
+          "formula": "=(AM29*4)/AG29",
+          "value": 0.3023070803500398
+        },
+        {
+          "address": "AO29",
+          "row": 29,
+          "col": "AO",
+          "formula": "=IF(AG29<10,CE29,IF(AG29>6000,AN29,((AG29*AN29)+((6000-AG29)*CE29))/6000))",
+          "value": 0.28702266666666665
+        },
+        {
+          "address": "AP29",
+          "row": 29,
+          "col": "AP",
+          "formula": "=SUMIFS(Data!S:S,Data!AM:AM,H29,Data!D:D,n_max_original)",
+          "value": 118
+        },
+        {
+          "address": "AQ29",
+          "row": 29,
+          "col": "AQ",
+          "formula": "=(AP29*6)/AG29",
+          "value": 0.28162291169451076
+        },
+        {
+          "address": "AR29",
+          "row": 29,
+          "col": "AR",
+          "formula": "=IF(AG29<10,CF29,IF(AG29>1500,AQ29,((AG29*AQ29)+((1500-AG29)*CF29))/1500))",
+          "value": 0.28162291169451076
+        },
+        {
+          "address": "CD29",
+          "row": 29,
+          "col": "CD",
+          "formula": "=IF(n_format_a=\"S6\",CG120,IF(n_format_a=\"t10\",CG107,IF(n_format_a=\"t20\",CG68,IF(n_format_a=\"test\",CG94,CG81))))",
+          "value": 0.595
+        },
+        {
+          "address": "CE29",
+          "row": 29,
+          "col": "CE",
+          "formula": "=IF(n_format_a=\"S6\",CH120,IF(n_format_a=\"t10\",IF('Match Info'!$C$27=50,CH107,CJ107),IF(n_format_a=\"t20\",IF(n_gender=\"woman\",CJ68,CH68),IF(n_format_a=\"test\",CH94,IF(n_gender=\"woman\",CJ81,CH81)))))",
+          "value": 0.276
+        },
+        {
+          "address": "CF29",
+          "row": 29,
+          "col": "CF",
+          "formula": "=IF(n_format_a=\"S6\",CI120,IF(n_format_a=\"t10\",IF('Match Info'!$C$27=50,CI107,CK107),IF(n_format_a=\"t20\",IF(n_gender=\"woman\",CK68,CI68),IF(n_format_a=\"test\",CI94,IF(n_gender=\"woman\",CK81,CI81)))))",
+          "value": 0.264
+        },
+        {
+          "address": "DF29",
+          "row": 29,
+          "col": "DF",
+          "formula": "=(0.5-Pricing!$J$30+1)*DG29+(1-DG29)",
+          "value": 0.977927491152716
+        },
+        {
+          "address": "DH29",
+          "row": 29,
+          "col": "DH",
+          "formula": "=IF(n_format_a=\"ODI\",DF29,1)",
+          "value": 1
+        },
+        {
+          "address": "DV29",
+          "row": 29,
+          "col": "DV",
+          "formula": "=IF(n_format_a=\"Test\",1,IF(n_format_a=\"ODI\",0,0))",
+          "value": 0
+        },
+        {
+          "address": "AG30",
+          "row": 30,
+          "col": "AG",
+          "formula": "=SUMIFS(Data!P:P,Data!AM:AM,H30,Data!D:D,n_max_original)",
+          "value": 3794
+        },
+        {
+          "address": "AM30",
+          "row": 30,
+          "col": "AM",
+          "formula": "=SUMIFS(Data!R:R,Data!AM:AM,H30,Data!D:D,n_max_original)",
+          "value": 294
+        },
+        {
+          "address": "AN30",
+          "row": 30,
+          "col": "AN",
+          "formula": "=(AM30*4)/AG30",
+          "value": 0.30996309963099633
+        },
+        {
+          "address": "AO30",
+          "row": 30,
+          "col": "AO",
+          "formula": "=IF(AG30<10,CE30,IF(AG30>6000,AN30,((AG30*AN30)+((6000-AG30)*CE30))/6000))",
+          "value": 0.2978436666666667
+        },
+        {
+          "address": "AP30",
+          "row": 30,
+          "col": "AP",
+          "formula": "=SUMIFS(Data!S:S,Data!AM:AM,H30,Data!D:D,n_max_original)",
+          "value": 173
+        },
+        {
+          "address": "AQ30",
+          "row": 30,
+          "col": "AQ",
+          "formula": "=(AP30*6)/AG30",
+          "value": 0.27358987875593044
+        },
+        {
+          "address": "AR30",
+          "row": 30,
+          "col": "AR",
+          "formula": "=IF(AG30<10,CF30,IF(AG30>1500,AQ30,((AG30*AQ30)+((1500-AG30)*CF30))/1500))",
+          "value": 0.27358987875593044
+        },
+        {
+          "address": "CD30",
+          "row": 30,
+          "col": "CD",
+          "formula": "=IF(n_format_a=\"S6\",CG121,IF(n_format_a=\"t10\",CG108,IF(n_format_a=\"t20\",CG69,IF(n_format_a=\"test\",CG95,CG82))))",
+          "value": 0.46
+        },
+        {
+          "address": "CE30",
+          "row": 30,
+          "col": "CE",
+          "formula": "=IF(n_format_a=\"S6\",CH121,IF(n_format_a=\"t10\",IF('Match Info'!$C$27=50,CH108,CJ108),IF(n_format_a=\"t20\",IF(n_gender=\"woman\",CJ69,CH69),IF(n_format_a=\"test\",CH95,IF(n_gender=\"woman\",CJ82,CH82)))))",
+          "value": 0.277
+        },
+        {
+          "address": "CF30",
+          "row": 30,
+          "col": "CF",
+          "formula": "=IF(n_format_a=\"S6\",CI121,IF(n_format_a=\"t10\",IF('Match Info'!$C$27=50,CI108,CK108),IF(n_format_a=\"t20\",IF(n_gender=\"woman\",CK69,CI69),IF(n_format_a=\"test\",CI95,IF(n_gender=\"woman\",CK82,CI82)))))",
+          "value": 0.273
+        },
+        {
+          "address": "DF30",
+          "row": 30,
+          "col": "DF",
+          "formula": "=(0.5-Pricing!$J$30+1)*DG30+(1-DG30)",
+          "value": 0.94481872788179
+        },
+        {
+          "address": "DH30",
+          "row": 30,
+          "col": "DH",
+          "formula": "=IF(n_format_a=\"ODI\",DF30,1)",
+          "value": 1
+        },
+        {
+          "address": "DV30",
+          "row": 30,
+          "col": "DV",
+          "formula": "=IF(n_format_a=\"Test\",0,IF(n_format_a=\"ODI\",0,0))",
+          "value": 0
+        },
+        {
+          "address": "AG31",
+          "row": 31,
+          "col": "AG",
+          "formula": "=SUMIFS(Data!P:P,Data!AM:AM,H31,Data!D:D,n_max_original)",
+          "value": 1782
+        },
+        {
+          "address": "AM31",
+          "row": 31,
+          "col": "AM",
+          "formula": "=SUMIFS(Data!R:R,Data!AM:AM,H31,Data!D:D,n_max_original)",
+          "value": 153
+        },
+        {
+          "address": "AN31",
+          "row": 31,
+          "col": "AN",
+          "formula": "=(AM31*4)/AG31",
+          "value": 0.3434343434343434
+        },
+        {
+          "address": "AO31",
+          "row": 31,
+          "col": "AO",
+          "formula": "=IF(AG31<10,CE31,IF(AG31>6000,AN31,((AG31*AN31)+((6000-AG31)*CE31))/6000))",
+          "value": 0.29813700000000004
+        },
+        {
+          "address": "AP31",
+          "row": 31,
+          "col": "AP",
+          "formula": "=SUMIFS(Data!S:S,Data!AM:AM,H31,Data!D:D,n_max_original)",
+          "value": 44
+        },
+        {
+          "address": "AQ31",
+          "row": 31,
+          "col": "AQ",
+          "formula": "=(AP31*6)/AG31",
+          "value": 0.14814814814814814
+        },
+        {
+          "address": "AR31",
+          "row": 31,
+          "col": "AR",
+          "formula": "=IF(AG31<10,CF31,IF(AG31>1500,AQ31,((AG31*AQ31)+((1500-AG31)*CF31))/1500))",
+          "value": 0.14814814814814814
+        },
+        {
+          "address": "CD31",
+          "row": 31,
+          "col": "CD",
+          "formula": "=IF(n_format_a=\"S6\",CG122,IF(n_format_a=\"t10\",CG109,IF(n_format_a=\"t20\",CG70,IF(n_format_a=\"test\",CG96,CG83))))",
+          "value": 0.32
+        },
+        {
+          "address": "CE31",
+          "row": 31,
+          "col": "CE",
+          "formula": "=IF(n_format_a=\"S6\",CH122,IF(n_format_a=\"t10\",IF('Match Info'!$C$27=50,CH109,CJ109),IF(n_format_a=\"t20\",IF(n_gender=\"woman\",CJ70,CH70),IF(n_format_a=\"test\",CH96,IF(n_gender=\"woman\",CJ83,CH83)))))",
+          "value": 0.279
+        },
+        {
+          "address": "CF31",
+          "row": 31,
+          "col": "CF",
+          "formula": "=IF(n_format_a=\"S6\",CI122,IF(n_format_a=\"t10\",IF('Match Info'!$C$27=50,CI109,CK109),IF(n_format_a=\"t20\",IF(n_gender=\"woman\",CK70,CI70),IF(n_format_a=\"test\",CI96,IF(n_gender=\"woman\",CK83,CI83)))))",
+          "value": 0.27
+        },
+        {
+          "address": "DF31",
+          "row": 31,
+          "col": "DF",
+          "formula": "=(0.5-Pricing!$J$30+1)*DG31+(1-DG31)",
+          "value": 0.94481872788179
+        },
+        {
+          "address": "DH31",
+          "row": 31,
+          "col": "DH",
+          "formula": "=IF(n_format_a=\"ODI\",DF31,1)",
+          "value": 1
+        },
+        {
+          "address": "DV31",
+          "row": 31,
+          "col": "DV",
+          "formula": "=IF(n_format_a=\"Test\",0,IF(n_format_a=\"ODI\",0,0))",
+          "value": 0
+        },
+        {
+          "address": "AG32",
+          "row": 32,
+          "col": "AG",
+          "formula": "=SUMIFS(Data!P:P,Data!AM:AM,H32,Data!D:D,n_max_original)",
+          "value": 279
+        },
+        {
+          "address": "AM32",
+          "row": 32,
+          "col": "AM",
+          "formula": "=SUMIFS(Data!R:R,Data!AM:AM,H32,Data!D:D,n_max_original)",
+          "value": 21
+        },
+        {
+          "address": "AN32",
+          "row": 32,
+          "col": "AN",
+          "formula": "=(AM32*4)/AG32",
+          "value": 0.3010752688172043
+        },
+        {
+          "address": "AO32",
+          "row": 32,
+          "col": "AO",
+          "formula": "=IF(AG32<10,CE32,IF(AG32>6000,AN32,((AG32*AN32)+((6000-AG32)*CE32))/6000))",
+          "value": 0.2857475
+        },
+        {
+          "address": "AP32",
+          "row": 32,
+          "col": "AP",
+          "formula": "=SUMIFS(Data!S:S,Data!AM:AM,H32,Data!D:D,n_max_original)",
+          "value": 11
+        },
+        {
+          "address": "AQ32",
+          "row": 32,
+          "col": "AQ",
+          "formula": "=(AP32*6)/AG32",
+          "value": 0.23655913978494625
+        },
+        {
+          "address": "AR32",
+          "row": 32,
+          "col": "AR",
+          "formula": "=IF(AG32<10,CF32,IF(AG32>1500,AQ32,((AG32*AQ32)+((1500-AG32)*CF32))/1500))",
+          "value": 0.226336
+        },
+        {
+          "address": "CD32",
+          "row": 32,
+          "col": "CD",
+          "formula": "=IF(n_format_a=\"S6\",CG123,IF(n_format_a=\"t10\",CG110,IF(n_format_a=\"t20\",CG71,IF(n_format_a=\"test\",CG97,CG84))))",
+          "value": 0.205
+        },
+        {
+          "address": "CE32",
+          "row": 32,
+          "col": "CE",
+          "formula": "=IF(n_format_a=\"S6\",CH123,IF(n_format_a=\"t10\",IF('Match Info'!$C$27=50,CH110,CJ110),IF(n_format_a=\"t20\",IF(n_gender=\"woman\",CJ71,CH71),IF(n_format_a=\"test\",CH97,IF(n_gender=\"woman\",CJ84,CH84)))))",
+          "value": 0.285
+        },
+        {
+          "address": "CF32",
+          "row": 32,
+          "col": "CF",
+          "formula": "=IF(n_format_a=\"S6\",CI123,IF(n_format_a=\"t10\",IF('Match Info'!$C$27=50,CI110,CK110),IF(n_format_a=\"t20\",IF(n_gender=\"woman\",CK71,CI71),IF(n_format_a=\"test\",CI97,IF(n_gender=\"woman\",CK84,CI84)))))",
+          "value": 0.224
+        },
+        {
+          "address": "DF32",
+          "row": 32,
+          "col": "DF",
+          "formula": "=(0.5-Pricing!$J$30+1)*DG32+(1-DG32)",
+          "value": 0.94481872788179
+        },
+        {
+          "address": "DH32",
+          "row": 32,
+          "col": "DH",
+          "formula": "=IF(n_format_a=\"ODI\",DF32,1)",
+          "value": 1
+        },
+        {
+          "address": "DV32",
+          "row": 32,
+          "col": "DV",
+          "formula": "=IF(n_format_a=\"Test\",0,IF(n_format_a=\"ODI\",0,0))",
+          "value": 0
+        },
+        {
+          "address": "AG33",
+          "row": 33,
+          "col": "AG",
+          "formula": "=SUMIFS(Data!P:P,Data!AM:AM,H33,Data!D:D,n_max_original)",
+          "value": 254
+        },
+        {
+          "address": "AM33",
+          "row": 33,
+          "col": "AM",
+          "formula": "=SUMIFS(Data!R:R,Data!AM:AM,H33,Data!D:D,n_max_original)",
+          "value": 15
+        },
+        {
+          "address": "AN33",
+          "row": 33,
+          "col": "AN",
+          "formula": "=(AM33*4)/AG33",
+          "value": 0.23622047244094488
+        },
+        {
+          "address": "AO33",
+          "row": 33,
+          "col": "AO",
+          "formula": "=IF(AG33<10,CE33,IF(AG33>6000,AN33,((AG33*AN33)+((6000-AG33)*CE33))/6000))",
+          "value": 0.27335833333333337
+        },
+        {
+          "address": "AP33",
+          "row": 33,
+          "col": "AP",
+          "formula": "=SUMIFS(Data!S:S,Data!AM:AM,H33,Data!D:D,n_max_original)",
+          "value": 12
+        },
+        {
+          "address": "AQ33",
+          "row": 33,
+          "col": "AQ",
+          "formula": "=(AP33*6)/AG33",
+          "value": 0.28346456692913385
+        },
+        {
+          "address": "AR33",
+          "row": 33,
+          "col": "AR",
+          "formula": "=IF(AG33<10,CF33,IF(AG33>1500,AQ33,((AG33*AQ33)+((1500-AG33)*CF33))/1500))",
+          "value": 0.21579466666666666
+        },
+        {
+          "address": "CD33",
+          "row": 33,
+          "col": "CD",
+          "formula": "=IF(n_format_a=\"S6\",CG124,IF(n_format_a=\"t10\",CG111,IF(n_format_a=\"t20\",CG72,IF(n_format_a=\"test\",CG98,CG85))))",
+          "value": 0.115
+        },
+        {
+          "address": "CE33",
+          "row": 33,
+          "col": "CE",
+          "formula": "=IF(n_format_a=\"S6\",CH124,IF(n_format_a=\"t10\",IF('Match Info'!$C$27=50,CH111,CJ111),IF(n_format_a=\"t20\",IF(n_gender=\"woman\",CJ72,CH72),IF(n_format_a=\"test\",CH98,IF(n_gender=\"woman\",CJ85,CH85)))))",
+          "value": 0.275
+        },
+        {
+          "address": "CF33",
+          "row": 33,
+          "col": "CF",
+          "formula": "=IF(n_format_a=\"S6\",CI124,IF(n_format_a=\"t10\",IF('Match Info'!$C$27=50,CI111,CK111),IF(n_format_a=\"t20\",IF(n_gender=\"woman\",CK72,CI72),IF(n_format_a=\"test\",CI98,IF(n_gender=\"woman\",CK85,CI85)))))",
+          "value": 0.202
+        },
+        {
+          "address": "DF33",
+          "row": 33,
+          "col": "DF",
+          "formula": "=(0.5-Pricing!$J$30+1)*DG33+(1-DG33)",
+          "value": 0.94481872788179
+        },
+        {
+          "address": "DH33",
+          "row": 33,
+          "col": "DH",
+          "formula": "=IF(n_format_a=\"ODI\",DF33,1)",
+          "value": 1
+        },
+        {
+          "address": "DV33",
+          "row": 33,
+          "col": "DV",
+          "formula": "=IF(n_format_a=\"Test\",0,IF(n_format_a=\"ODI\",0,0))",
+          "value": 0
+        },
+        {
+          "address": "AG34",
+          "row": 34,
+          "col": "AG",
+          "formula": "=SUMIFS(Data!P:P,Data!AM:AM,H34,Data!D:D,n_max_original)",
+          "value": 101
+        },
+        {
+          "address": "AM34",
+          "row": 34,
+          "col": "AM",
+          "formula": "=SUMIFS(Data!R:R,Data!AM:AM,H34,Data!D:D,n_max_original)",
+          "value": 3
+        },
+        {
+          "address": "AN34",
+          "row": 34,
+          "col": "AN",
+          "formula": "=(AM34*4)/AG34",
+          "value": 0.1188118811881188
+        },
+        {
+          "address": "AO34",
+          "row": 34,
+          "col": "AO",
+          "formula": "=IF(AG34<10,CE34,IF(AG34>6000,AN34,((AG34*AN34)+((6000-AG34)*CE34))/6000))",
+          "value": 0.30284900000000003
+        },
+        {
+          "address": "AP34",
+          "row": 34,
+          "col": "AP",
+          "formula": "=SUMIFS(Data!S:S,Data!AM:AM,H34,Data!D:D,n_max_original)",
+          "value": 3
+        },
+        {
+          "address": "AQ34",
+          "row": 34,
+          "col": "AQ",
+          "formula": "=(AP34*6)/AG34",
+          "value": 0.1782178217821782
+        },
+        {
+          "address": "AR34",
+          "row": 34,
+          "col": "AR",
+          "formula": "=IF(AG34<10,CF34,IF(AG34>1500,AQ34,((AG34*AQ34)+((1500-AG34)*CF34))/1500))",
+          "value": 0.16682266666666667
+        },
+        {
+          "address": "CD34",
+          "row": 34,
+          "col": "CD",
+          "formula": "=IF(n_format_a=\"S6\",CG125,IF(n_format_a=\"t10\",CG112,IF(n_format_a=\"t20\",CG73,IF(n_format_a=\"test\",CG99,CG86))))",
+          "value": 0.05
+        },
+        {
+          "address": "CE34",
+          "row": 34,
+          "col": "CE",
+          "formula": "=IF(n_format_a=\"S6\",CH125,IF(n_format_a=\"t10\",IF('Match Info'!$C$27=50,CH112,CJ112),IF(n_format_a=\"t20\",IF(n_gender=\"woman\",CJ73,CH73),IF(n_format_a=\"test\",CH99,IF(n_gender=\"woman\",CJ86,CH86)))))",
+          "value": 0.306
+        },
+        {
+          "address": "CF34",
+          "row": 34,
+          "col": "CF",
+          "formula": "=IF(n_format_a=\"S6\",CI125,IF(n_format_a=\"t10\",IF('Match Info'!$C$27=50,CI112,CK112),IF(n_format_a=\"t20\",IF(n_gender=\"woman\",CK73,CI73),IF(n_format_a=\"test\",CI99,IF(n_gender=\"woman\",CK86,CI86)))))",
+          "value": 0.166
+        },
+        {
+          "address": "DF34",
+          "row": 34,
+          "col": "DF",
+          "formula": "=(0.5-Pricing!$J$30+1)*DG34+(1-DG34)",
+          "value": 0.94481872788179
+        },
+        {
+          "address": "DH34",
+          "row": 34,
+          "col": "DH",
+          "formula": "=IF(n_format_a=\"ODI\",DF34,1)",
+          "value": 1
+        },
+        {
+          "address": "DV34",
+          "row": 34,
+          "col": "DV",
+          "formula": "=IF(n_format_a=\"Test\",0,IF(n_format_a=\"ODI\",0,0))",
+          "value": 0
+        }
+      ],
+      "players": [
+        {
+          "row": 24,
+          "name": "DP Conway",
+          "battingPosition": 1,
+          "bowlingPosition": 10,
+          "playerId": 379140
+        },
+        {
+          "row": 25,
+          "name": "TWM Latham",
+          "battingPosition": 2,
+          "bowlingPosition": 11,
+          "playerId": 388802
+        },
+        {
+          "row": 26,
+          "name": "TB Robinson",
+          "battingPosition": 3,
+          "bowlingPosition": 9,
+          "playerId": 1290929
+        },
+        {
+          "row": 27,
+          "name": "NF Kelly",
+          "battingPosition": 4,
+          "bowlingPosition": 8,
+          "playerId": 559062
+        },
+        {
+          "row": 28,
+          "name": "BJ Jacobs",
+          "battingPosition": 5,
+          "bowlingPosition": 7,
+          "playerId": 1410577
+        },
+        {
+          "row": 29,
+          "name": "MJ Santner",
+          "battingPosition": 6,
+          "bowlingPosition": 4,
+          "playerId": 502714
+        },
+        {
+          "row": 30,
+          "name": "JDS Neesham",
+          "battingPosition": 7,
+          "bowlingPosition": 5,
+          "playerId": 355269
+        },
+        {
+          "row": 31,
+          "name": "CE McConchie",
+          "battingPosition": 8,
+          "bowlingPosition": 6,
+          "playerId": 526021
+        },
+        {
+          "row": 32,
+          "name": "ZGF Foulkes",
+          "battingPosition": 9,
+          "bowlingPosition": 2,
+          "playerId": 1202098
+        },
+        {
+          "row": 33,
+          "name": "LH Ferguson",
+          "battingPosition": 10,
+          "bowlingPosition": 3,
+          "playerId": 493773
+        },
+        {
+          "row": 34,
+          "name": "BV Sears",
+          "battingPosition": 11,
+          "bowlingPosition": 1,
+          "playerId": 959769
+        }
+      ]
+    },
+    {
+      "id": "away",
+      "name": "Away XI (Team 2)",
+      "playerRows": [
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55
+      ],
+      "teamFoursTotal": {
+        "address": "O57",
+        "formula": "=SUM(O45:O55)",
+        "value": 12.28480629504142
+      },
+      "teamSixesTotal": {
+        "address": "P57",
+        "formula": "=SUM(P45:P55)",
+        "value": 6.467800082764577
+      },
+      "cells": [
+        {
+          "address": "H45",
+          "row": 45,
+          "col": "H",
+          "formula": "=INDEX(Rosters!E:E,MATCH(K45,Rosters!G:G,0))",
+          "value": 1070997
+        },
+        {
+          "address": "I45",
+          "row": 45,
+          "col": "I",
+          "formula": "1",
+          "value": 1
+        },
+        {
+          "address": "J45",
+          "row": 45,
+          "col": "J",
+          "formula": "11",
+          "value": 11
+        },
+        {
+          "address": "K45",
+          "row": 45,
+          "col": "K",
+          "formula": "='Match Info'!C56",
+          "value": "C Esterhuizen"
+        },
+        {
+          "address": "L45",
+          "row": 45,
+          "col": "L",
+          "formula": "24",
+          "value": 24
+        },
+        {
+          "address": "M45",
+          "row": 45,
+          "col": "M",
+          "formula": "=((L45*CD45*$M$42)+DV24)*DH45",
+          "value": 23.06301651636363
+        },
+        {
+          "address": "N45",
+          "row": 45,
+          "col": "N",
+          "formula": "1.28",
+          "value": 1.28
+        },
+        {
+          "address": "O45",
+          "row": 45,
+          "col": "O",
+          "formula": "=($O$42*M45*AO45)/4",
+          "value": 2.3114600796638562
+        },
+        {
+          "address": "P45",
+          "row": 45,
+          "col": "P",
+          "formula": "=($P$42*M45*AR45)/6",
+          "value": 1.0657327680145567
+        },
+        {
+          "address": "H46",
+          "row": 46,
+          "col": "H",
+          "formula": "=INDEX(Rosters!E:E,MATCH(K46,Rosters!G:G,0))",
+          "value": 697183
+        },
+        {
+          "address": "I46",
+          "row": 46,
+          "col": "I",
+          "formula": "2",
+          "value": 2
+        },
+        {
+          "address": "J46",
+          "row": 46,
+          "col": "J",
+          "formula": "10",
+          "value": 10
+        },
+        {
+          "address": "K46",
+          "row": 46,
+          "col": "K",
+          "formula": "='Match Info'!C57",
+          "value": "T de Zorzi"
+        },
+        {
+          "address": "L46",
+          "row": 46,
+          "col": "L",
+          "formula": "24",
+          "value": 24
+        },
+        {
+          "address": "M46",
+          "row": 46,
+          "col": "M",
+          "formula": "=((L46*CD46*$M$42)+DV25)*DH46",
+          "value": 23.06301651636363
+        },
+        {
+          "address": "N46",
+          "row": 46,
+          "col": "N",
+          "formula": "1.23",
+          "value": 1.23
+        },
+        {
+          "address": "O46",
+          "row": 46,
+          "col": "O",
+          "formula": "=($O$42*M46*AO46)/4",
+          "value": 2.392057634716375
+        },
+        {
+          "address": "P46",
+          "row": 46,
+          "col": "P",
+          "formula": "=($P$42*M46*AR46)/6",
+          "value": 0.7640316111540941
+        },
+        {
+          "address": "H47",
+          "row": 47,
+          "col": "H",
+          "formula": "=INDEX(Rosters!E:E,MATCH(K47,Rosters!G:G,0))",
+          "value": 596097
+        },
+        {
+          "address": "I47",
+          "row": 47,
+          "col": "I",
+          "formula": "3",
+          "value": 3
+        },
+        {
+          "address": "J47",
+          "row": 47,
+          "col": "J",
+          "formula": "9",
+          "value": 9
+        },
+        {
+          "address": "K47",
+          "row": 47,
+          "col": "K",
+          "formula": "='Match Info'!C58",
+          "value": "RA Hermann"
+        },
+        {
+          "address": "L47",
+          "row": 47,
+          "col": "L",
+          "formula": "28",
+          "value": 28
+        },
+        {
+          "address": "M47",
+          "row": 47,
+          "col": "M",
+          "formula": "=((L47*CD47*$M$42)+DV26)*DH47",
+          "value": 25.77393249284848
+        },
+        {
+          "address": "N47",
+          "row": 47,
+          "col": "N",
+          "formula": "1.3",
+          "value": 1.3
+        },
+        {
+          "address": "O47",
+          "row": 47,
+          "col": "O",
+          "formula": "=($O$42*M47*AO47)/4",
+          "value": 2.295276079873544
+        },
+        {
+          "address": "P47",
+          "row": 47,
+          "col": "P",
+          "formula": "=($P$42*M47*AR47)/6",
+          "value": 1.1113719690916264
+        },
+        {
+          "address": "H48",
+          "row": 48,
+          "col": "H",
+          "formula": "=INDEX(Rosters!E:E,MATCH(K48,Rosters!G:G,0))",
+          "value": 498582
+        },
+        {
+          "address": "I48",
+          "row": 48,
+          "col": "I",
+          "formula": "4",
+          "value": 4
+        },
+        {
+          "address": "J48",
+          "row": 48,
+          "col": "J",
+          "formula": "8",
+          "value": 8
+        },
+        {
+          "address": "K48",
+          "row": 48,
+          "col": "K",
+          "formula": "='Match Info'!C59",
+          "value": "JF Smith"
+        },
+        {
+          "address": "L48",
+          "row": 48,
+          "col": "L",
+          "formula": "26",
+          "value": 26
+        },
+        {
+          "address": "M48",
+          "row": 48,
+          "col": "M",
+          "formula": "=((L48*CD48*$M$42)+DV27)*DH48+2",
+          "value": 23.82894282557575
+        },
+        {
+          "address": "N48",
+          "row": 48,
+          "col": "N",
+          "formula": "1.28",
+          "value": 1.28
+        },
+        {
+          "address": "O48",
+          "row": 48,
+          "col": "O",
+          "formula": "=($O$42*M48*AO48)/4",
+          "value": 1.7948962537567565
+        },
+        {
+          "address": "P48",
+          "row": 48,
+          "col": "P",
+          "formula": "=($P$42*M48*AR48)/6",
+          "value": 0.9622826095290372
+        },
+        {
+          "address": "H49",
+          "row": 49,
+          "col": "H",
+          "formula": "=INDEX(Rosters!E:E,MATCH(K49,Rosters!G:G,0))",
+          "value": 698189
+        },
+        {
+          "address": "I49",
+          "row": 49,
+          "col": "I",
+          "formula": "5",
+          "value": 5
+        },
+        {
+          "address": "J49",
+          "row": 49,
+          "col": "J",
+          "formula": "6",
+          "value": 6
+        },
+        {
+          "address": "K49",
+          "row": 49,
+          "col": "K",
+          "formula": "='Match Info'!C60",
+          "value": "PWA Mulder"
+        },
+        {
+          "address": "L49",
+          "row": 49,
+          "col": "L",
+          "formula": "26",
+          "value": 26
+        },
+        {
+          "address": "M49",
+          "row": 49,
+          "col": "M",
+          "formula": "=((L49*CD49*$M$42)+DV28)*DH49+1",
+          "value": 19.80445074733333
+        },
+        {
+          "address": "N49",
+          "row": 49,
+          "col": "N",
+          "formula": "1.3",
+          "value": 1.3
+        },
+        {
+          "address": "O49",
+          "row": 49,
+          "col": "O",
+          "formula": "=($O$42*M49*AO49)/4",
+          "value": 1.4307931738772914
+        },
+        {
+          "address": "P49",
+          "row": 49,
+          "col": "P",
+          "formula": "=($P$42*M49*AR49)/6",
+          "value": 0.8828854378963865
+        },
+        {
+          "address": "H50",
+          "row": 50,
+          "col": "H",
+          "formula": "=INDEX(Rosters!E:E,MATCH(K50,Rosters!G:G,0))",
+          "value": 696471
+        },
+        {
+          "address": "I50",
+          "row": 50,
+          "col": "I",
+          "formula": "6",
+          "value": 6
+        },
+        {
+          "address": "J50",
+          "row": 50,
+          "col": "J",
+          "formula": "7",
+          "value": 7
+        },
+        {
+          "address": "K50",
+          "row": 50,
+          "col": "K",
+          "formula": "='Match Info'!C61",
+          "value": "D Forrester"
+        },
+        {
+          "address": "L50",
+          "row": 50,
+          "col": "L",
+          "formula": "25",
+          "value": 25
+        },
+        {
+          "address": "M50",
+          "row": 50,
+          "col": "M",
+          "formula": "=((L50*CD50*$M$42)+DV29)*DH50+1",
+          "value": 16.046595205303028
+        },
+        {
+          "address": "N50",
+          "row": 50,
+          "col": "N",
+          "formula": "1.35",
+          "value": 1.35
+        },
+        {
+          "address": "O50",
+          "row": 50,
+          "col": "O",
+          "formula": "=($O$42*M50*AO50)/4",
+          "value": 1.1014730625149447
+        },
+        {
+          "address": "P50",
+          "row": 50,
+          "col": "P",
+          "formula": "=($P$42*M50*AR50)/6",
+          "value": 0.8399173048740532
+        },
+        {
+          "address": "H51",
+          "row": 51,
+          "col": "H",
+          "formula": "=INDEX(Rosters!E:E,MATCH(K51,Rosters!G:G,0))",
+          "value": 481875
+        },
+        {
+          "address": "I51",
+          "row": 51,
+          "col": "I",
+          "formula": "7",
+          "value": 7
+        },
+        {
+          "address": "J51",
+          "row": 51,
+          "col": "J",
+          "formula": "5",
+          "value": 5
+        },
+        {
+          "address": "K51",
+          "row": 51,
+          "col": "K",
+          "formula": "='Match Info'!C62",
+          "value": "GF Linde"
+        },
+        {
+          "address": "L51",
+          "row": 51,
+          "col": "L",
+          "formula": "21",
+          "value": 21
+        },
+        {
+          "address": "M51",
+          "row": 51,
+          "col": "M",
+          "formula": "=((L51*CD51*$M$42)+DV30)*DH51+1",
+          "value": 10.771435945090907
+        },
+        {
+          "address": "N51",
+          "row": 51,
+          "col": "N",
+          "formula": "1.35",
+          "value": 1.35
+        },
+        {
+          "address": "O51",
+          "row": 51,
+          "col": "O",
+          "formula": "=($O$42*M51*AO51)/4",
+          "value": 0.7025408785483538
+        },
+        {
+          "address": "P51",
+          "row": 51,
+          "col": "P",
+          "formula": "=($P$42*M51*AR51)/6",
+          "value": 0.6780903965433273
+        },
+        {
+          "address": "H52",
+          "row": 52,
+          "col": "H",
+          "formula": "=INDEX(Rosters!E:E,MATCH(K52,Rosters!G:G,0))",
+          "value": 596010
+        },
+        {
+          "address": "I52",
+          "row": 52,
+          "col": "I",
+          "formula": "8",
+          "value": 8
+        },
+        {
+          "address": "J52",
+          "row": 52,
+          "col": "J",
+          "formula": "2",
+          "value": 2
+        },
+        {
+          "address": "K52",
+          "row": 52,
+          "col": "K",
+          "formula": "='Match Info'!C63",
+          "value": "G Coetzee"
+        },
+        {
+          "address": "L52",
+          "row": 52,
+          "col": "L",
+          "formula": "12",
+          "value": 12
+        },
+        {
+          "address": "M52",
+          "row": 52,
+          "col": "M",
+          "formula": "=((L52*CD52*$M$42)+DV31)*DH52-3",
+          "value": 0.8842975185454538
+        },
+        {
+          "address": "N52",
+          "row": 52,
+          "col": "N",
+          "formula": "1.2",
+          "value": 1.2
+        },
+        {
+          "address": "O52",
+          "row": 52,
+          "col": "O",
+          "formula": "=($O$42*M52*AO52)/4",
+          "value": 0.06073801190702445
+        },
+        {
+          "address": "P52",
+          "row": 52,
+          "col": "P",
+          "formula": "=($P$42*M52*AR52)/6",
+          "value": 0.05238932218870687
+        },
+        {
+          "address": "H53",
+          "row": 53,
+          "col": "H",
+          "formula": "=INDEX(Rosters!E:E,MATCH(K53,Rosters!G:G,0))",
+          "value": 267724
+        },
+        {
+          "address": "I53",
+          "row": 53,
+          "col": "I",
+          "formula": "9",
+          "value": 9
+        },
+        {
+          "address": "J53",
+          "row": 53,
+          "col": "J",
+          "formula": "4",
+          "value": 4
+        },
+        {
+          "address": "K53",
+          "row": 53,
+          "col": "K",
+          "formula": "='Match Info'!C64",
+          "value": "KA Maharaj"
+        },
+        {
+          "address": "L53",
+          "row": 53,
+          "col": "L",
+          "formula": "12",
+          "value": 12
+        },
+        {
+          "address": "M53",
+          "row": 53,
+          "col": "M",
+          "formula": "=((L53*CD53*$M$42)+DV32)*DH53-1",
+          "value": 1.488378097818181
+        },
+        {
+          "address": "N53",
+          "row": 53,
+          "col": "N",
+          "formula": "1.05",
+          "value": 1.05
+        },
+        {
+          "address": "O53",
+          "row": 53,
+          "col": "O",
+          "formula": "=($O$42*M53*AO53)/4",
+          "value": 0.10700725342140852
+        },
+        {
+          "address": "P53",
+          "row": 53,
+          "col": "P",
+          "formula": "=($P$42*M53*AR53)/6",
+          "value": 0.06324694043827274
+        },
+        {
+          "address": "H54",
+          "row": 54,
+          "col": "H",
+          "formula": "=INDEX(Rosters!E:E,MATCH(K54,Rosters!G:G,0))",
+          "value": 1414819
+        },
+        {
+          "address": "I54",
+          "row": 54,
+          "col": "I",
+          "formula": "10",
+          "value": 10
+        },
+        {
+          "address": "J54",
+          "row": 54,
+          "col": "J",
+          "formula": "3",
+          "value": 3
+        },
+        {
+          "address": "K54",
+          "row": 54,
+          "col": "K",
+          "formula": "='Match Info'!C65",
+          "value": "N Mokoena"
+        },
+        {
+          "address": "L54",
+          "row": 54,
+          "col": "L",
+          "formula": "12",
+          "value": 12
+        },
+        {
+          "address": "M54",
+          "row": 54,
+          "col": "M",
+          "formula": "=((L54*CD54*$M$42)+DV33)*DH54-0.5",
+          "value": 0.8959194207272725
+        },
+        {
+          "address": "N54",
+          "row": 54,
+          "col": "N",
+          "formula": "0.95",
+          "value": 0.95
+        },
+        {
+          "address": "O54",
+          "row": 54,
+          "col": "O",
+          "formula": "=($O$42*M54*AO54)/4",
+          "value": 0.06149740223775453
+        },
+        {
+          "address": "P54",
+          "row": 54,
+          "col": "P",
+          "formula": "=($P$42*M54*AR54)/6",
+          "value": 0.03633275782040552
+        },
+        {
+          "address": "H55",
+          "row": 55,
+          "col": "H",
+          "formula": "=INDEX(Rosters!E:E,MATCH(K55,Rosters!G:G,0))",
+          "value": 535353
+        },
+        {
+          "address": "I55",
+          "row": 55,
+          "col": "I",
+          "formula": "11",
+          "value": 11
+        },
+        {
+          "address": "J55",
+          "row": 55,
+          "col": "J",
+          "formula": "1",
+          "value": 1
+        },
+        {
+          "address": "K55",
+          "row": 55,
+          "col": "K",
+          "formula": "='Match Info'!C66",
+          "value": "OEG Baartman"
+        },
+        {
+          "address": "L55",
+          "row": 55,
+          "col": "L",
+          "formula": "7",
+          "value": 7
+        },
+        {
+          "address": "M55",
+          "row": 55,
+          "col": "M",
+          "formula": "=((L55*CD55*$M$42)+DV34)*DH55",
+          "value": 0.3540375342424242
+        },
+        {
+          "address": "N55",
+          "row": 55,
+          "col": "N",
+          "formula": "0.65",
+          "value": 0.65
+        },
+        {
+          "address": "O55",
+          "row": 55,
+          "col": "O",
+          "formula": "=($O$42*M55*AO55)/4",
+          "value": 0.027066464524111863
+        },
+        {
+          "address": "P55",
+          "row": 55,
+          "col": "P",
+          "formula": "=($P$42*M55*AR55)/6",
+          "value": 0.011518965214111514
+        }
+      ],
+      "dependencyCells": [
+        {
+          "address": "AG45",
+          "row": 45,
+          "col": "AG",
+          "formula": "=SUMIFS(Data!P:P,Data!AM:AM,H45,Data!D:D,n_max_original)",
+          "value": 712
+        },
+        {
+          "address": "AM45",
+          "row": 45,
+          "col": "AM",
+          "formula": "=SUMIFS(Data!R:R,Data!AM:AM,H45,Data!D:D,n_max_original)",
+          "value": 58
+        },
+        {
+          "address": "AN45",
+          "row": 45,
+          "col": "AN",
+          "formula": "=(AM45*4)/AG45",
+          "value": 0.3258426966292135
+        },
+        {
+          "address": "AO45",
+          "row": 45,
+          "col": "AO",
+          "formula": "=IF(AG45<10,CE45,IF(AG45>6000,AN45,((AG45*AN45)+((6000-AG45)*CE45))/6000))",
+          "value": 0.4008946666666667
+        },
+        {
+          "address": "AP45",
+          "row": 45,
+          "col": "AP",
+          "formula": "=SUMIFS(Data!S:S,Data!AM:AM,H45,Data!D:D,n_max_original)",
+          "value": 29
+        },
+        {
+          "address": "AQ45",
+          "row": 45,
+          "col": "AQ",
+          "formula": "=(AP45*6)/AG45",
+          "value": 0.2443820224719101
+        },
+        {
+          "address": "AR45",
+          "row": 45,
+          "col": "AR",
+          "formula": "=IF(AG45<10,CF45,IF(AG45>1500,AQ45,((AG45*AQ45)+((1500-AG45)*CF45))/1500))",
+          "value": 0.231048
+        },
+        {
+          "address": "CD45",
+          "row": 45,
+          "col": "CD",
+          "formula": "=CD24",
+          "value": 0.95
+        },
+        {
+          "address": "CE45",
+          "row": 45,
+          "col": "CE",
+          "formula": "=CE24",
+          "value": 0.411
+        },
+        {
+          "address": "CF45",
+          "row": 45,
+          "col": "CF",
+          "formula": "=CF24",
+          "value": 0.219
+        },
+        {
+          "address": "DF45",
+          "row": 45,
+          "col": "DF",
+          "formula": "=(0.5-Pricing!$J$31+1)*DG45+(1-DG45)",
+          "value": 1
+        },
+        {
+          "address": "DH45",
+          "row": 45,
+          "col": "DH",
+          "formula": "=IF(n_format_a=\"ODI\",DF45,1)",
+          "value": 1
+        },
+        {
+          "address": "AG46",
+          "row": 46,
+          "col": "AG",
+          "formula": "=SUMIFS(Data!P:P,Data!AM:AM,H46,Data!D:D,n_max_original)",
+          "value": 1160
+        },
+        {
+          "address": "AM46",
+          "row": 46,
+          "col": "AM",
+          "formula": "=SUMIFS(Data!R:R,Data!AM:AM,H46,Data!D:D,n_max_original)",
+          "value": 125
+        },
+        {
+          "address": "AN46",
+          "row": 46,
+          "col": "AN",
+          "formula": "=(AM46*4)/AG46",
+          "value": 0.43103448275862066
+        },
+        {
+          "address": "AO46",
+          "row": 46,
+          "col": "AO",
+          "formula": "=IF(AG46<10,CE46,IF(AG46>6000,AN46,((AG46*AN46)+((6000-AG46)*CE46))/6000))",
+          "value": 0.4148733333333333
+        },
+        {
+          "address": "AP46",
+          "row": 46,
+          "col": "AP",
+          "formula": "=SUMIFS(Data!S:S,Data!AM:AM,H46,Data!D:D,n_max_original)",
+          "value": 29
+        },
+        {
+          "address": "AQ46",
+          "row": 46,
+          "col": "AQ",
+          "formula": "=(AP46*6)/AG46",
+          "value": 0.15
+        },
+        {
+          "address": "AR46",
+          "row": 46,
+          "col": "AR",
+          "formula": "=IF(AG46<10,CF46,IF(AG46>1500,AQ46,((AG46*AQ46)+((1500-AG46)*CF46))/1500))",
+          "value": 0.16563999999999998
+        },
+        {
+          "address": "CD46",
+          "row": 46,
+          "col": "CD",
+          "formula": "=CD25",
+          "value": 0.95
+        },
+        {
+          "address": "CE46",
+          "row": 46,
+          "col": "CE",
+          "formula": "=CE25",
+          "value": 0.411
+        },
+        {
+          "address": "CF46",
+          "row": 46,
+          "col": "CF",
+          "formula": "=CF25",
+          "value": 0.219
+        },
+        {
+          "address": "DF46",
+          "row": 46,
+          "col": "DF",
+          "formula": "=(0.5-Pricing!$J$31+1)*DG46+(1-DG46)",
+          "value": 1
+        },
+        {
+          "address": "DH46",
+          "row": 46,
+          "col": "DH",
+          "formula": "=IF(n_format_a=\"ODI\",DF46,1)",
+          "value": 1
+        },
+        {
+          "address": "AG47",
+          "row": 47,
+          "col": "AG",
+          "formula": "=SUMIFS(Data!P:P,Data!AM:AM,H47,Data!D:D,n_max_original)",
+          "value": 1140
+        },
+        {
+          "address": "AM47",
+          "row": 47,
+          "col": "AM",
+          "formula": "=SUMIFS(Data!R:R,Data!AM:AM,H47,Data!D:D,n_max_original)",
+          "value": 103
+        },
+        {
+          "address": "AN47",
+          "row": 47,
+          "col": "AN",
+          "formula": "=(AM47*4)/AG47",
+          "value": 0.36140350877192984
+        },
+        {
+          "address": "AO47",
+          "row": 47,
+          "col": "AO",
+          "formula": "=IF(AG47<10,CE47,IF(AG47>6000,AN47,((AG47*AN47)+((6000-AG47)*CE47))/6000))",
+          "value": 0.3562166666666667
+        },
+        {
+          "address": "AP47",
+          "row": 47,
+          "col": "AP",
+          "formula": "=SUMIFS(Data!S:S,Data!AM:AM,H47,Data!D:D,n_max_original)",
+          "value": 41
+        },
+        {
+          "address": "AQ47",
+          "row": 47,
+          "col": "AQ",
+          "formula": "=(AP47*6)/AG47",
+          "value": 0.21578947368421053
+        },
+        {
+          "address": "AR47",
+          "row": 47,
+          "col": "AR",
+          "formula": "=IF(AG47<10,CF47,IF(AG47>1500,AQ47,((AG47*AQ47)+((1500-AG47)*CF47))/1500))",
+          "value": 0.21559999999999999
+        },
+        {
+          "address": "CD47",
+          "row": 47,
+          "col": "CD",
+          "formula": "=CD26",
+          "value": 0.91
+        },
+        {
+          "address": "CE47",
+          "row": 47,
+          "col": "CE",
+          "formula": "=CE26",
+          "value": 0.355
+        },
+        {
+          "address": "CF47",
+          "row": 47,
+          "col": "CF",
+          "formula": "=CF26",
+          "value": 0.215
+        },
+        {
+          "address": "DF47",
+          "row": 47,
+          "col": "DF",
+          "formula": "=(0.5-Pricing!$J$31+1)*DG47+(1-DG47)",
+          "value": 1
+        },
+        {
+          "address": "DH47",
+          "row": 47,
+          "col": "DH",
+          "formula": "=IF(n_format_a=\"ODI\",DF47,1)",
+          "value": 1
+        },
+        {
+          "address": "AG48",
+          "row": 48,
+          "col": "AG",
+          "formula": "=SUMIFS(Data!P:P,Data!AM:AM,H48,Data!D:D,n_max_original)",
+          "value": 1229
+        },
+        {
+          "address": "AM48",
+          "row": 48,
+          "col": "AM",
+          "formula": "=SUMIFS(Data!R:R,Data!AM:AM,H48,Data!D:D,n_max_original)",
+          "value": 81
+        },
+        {
+          "address": "AN48",
+          "row": 48,
+          "col": "AN",
+          "formula": "=(AM48*4)/AG48",
+          "value": 0.2636289666395443
+        },
+        {
+          "address": "AO48",
+          "row": 48,
+          "col": "AO",
+          "formula": "=IF(AG48<10,CE48,IF(AG48>6000,AN48,((AG48*AN48)+((6000-AG48)*CE48))/6000))",
+          "value": 0.30129683333333335
+        },
+        {
+          "address": "AP48",
+          "row": 48,
+          "col": "AP",
+          "formula": "=SUMIFS(Data!S:S,Data!AM:AM,H48,Data!D:D,n_max_original)",
+          "value": 40
+        },
+        {
+          "address": "AQ48",
+          "row": 48,
+          "col": "AQ",
+          "formula": "=(AP48*6)/AG48",
+          "value": 0.19528071602929212
+        },
+        {
+          "address": "AR48",
+          "row": 48,
+          "col": "AR",
+          "formula": "=IF(AG48<10,CF48,IF(AG48>1500,AQ48,((AG48*AQ48)+((1500-AG48)*CF48))/1500))",
+          "value": 0.2019146666666667
+        },
+        {
+          "address": "CD48",
+          "row": 48,
+          "col": "CD",
+          "formula": "=CD27",
+          "value": 0.83
+        },
+        {
+          "address": "CE48",
+          "row": 48,
+          "col": "CE",
+          "formula": "=CE27",
+          "value": 0.311
+        },
+        {
+          "address": "CF48",
+          "row": 48,
+          "col": "CF",
+          "formula": "=CF27",
+          "value": 0.232
+        },
+        {
+          "address": "DF48",
+          "row": 48,
+          "col": "DF",
+          "formula": "=(0.5-Pricing!$J$31+1)*DG48+(1-DG48)",
+          "value": 1.005518127211821
+        },
+        {
+          "address": "DH48",
+          "row": 48,
+          "col": "DH",
+          "formula": "=IF(n_format_a=\"ODI\",DF48,1)",
+          "value": 1
+        },
+        {
+          "address": "AG49",
+          "row": 49,
+          "col": "AG",
+          "formula": "=SUMIFS(Data!P:P,Data!AM:AM,H49,Data!D:D,n_max_original)",
+          "value": 1965
+        },
+        {
+          "address": "AM49",
+          "row": 49,
+          "col": "AM",
+          "formula": "=SUMIFS(Data!R:R,Data!AM:AM,H49,Data!D:D,n_max_original)",
+          "value": 148
+        },
+        {
+          "address": "AN49",
+          "row": 49,
+          "col": "AN",
+          "formula": "=(AM49*4)/AG49",
+          "value": 0.30127226463104323
+        },
+        {
+          "address": "AO49",
+          "row": 49,
+          "col": "AO",
+          "formula": "=IF(AG49<10,CE49,IF(AG49>6000,AN49,((AG49*AN49)+((6000-AG49)*CE49))/6000))",
+          "value": 0.28898416666666665
+        },
+        {
+          "address": "AP49",
+          "row": 49,
+          "col": "AP",
+          "formula": "=SUMIFS(Data!S:S,Data!AM:AM,H49,Data!D:D,n_max_original)",
+          "value": 73
+        },
+        {
+          "address": "AQ49",
+          "row": 49,
+          "col": "AQ",
+          "formula": "=(AP49*6)/AG49",
+          "value": 0.22290076335877862
+        },
+        {
+          "address": "AR49",
+          "row": 49,
+          "col": "AR",
+          "formula": "=IF(AG49<10,CF49,IF(AG49>1500,AQ49,((AG49*AQ49)+((1500-AG49)*CF49))/1500))",
+          "value": 0.22290076335877862
+        },
+        {
+          "address": "CD49",
+          "row": 49,
+          "col": "CD",
+          "formula": "=CD28",
+          "value": 0.715
+        },
+        {
+          "address": "CE49",
+          "row": 49,
+          "col": "CE",
+          "formula": "=CE28",
+          "value": 0.283
+        },
+        {
+          "address": "CF49",
+          "row": 49,
+          "col": "CF",
+          "formula": "=CF28",
+          "value": 0.249
+        },
+        {
+          "address": "DF49",
+          "row": 49,
+          "col": "DF",
+          "formula": "=(0.5-Pricing!$J$31+1)*DG49+(1-DG49)",
+          "value": 1.011036254423642
+        },
+        {
+          "address": "DH49",
+          "row": 49,
+          "col": "DH",
+          "formula": "=IF(n_format_a=\"ODI\",DF49,1)",
+          "value": 1
+        },
+        {
+          "address": "AG50",
+          "row": 50,
+          "col": "AG",
+          "formula": "=SUMIFS(Data!P:P,Data!AM:AM,H50,Data!D:D,n_max_original)",
+          "value": 263
+        },
+        {
+          "address": "AM50",
+          "row": 50,
+          "col": "AM",
+          "formula": "=SUMIFS(Data!R:R,Data!AM:AM,H50,Data!D:D,n_max_original)",
+          "value": 16
+        },
+        {
+          "address": "AN50",
+          "row": 50,
+          "col": "AN",
+          "formula": "=(AM50*4)/AG50",
+          "value": 0.24334600760456274
+        },
+        {
+          "address": "AO50",
+          "row": 50,
+          "col": "AO",
+          "formula": "=IF(AG50<10,CE50,IF(AG50>6000,AN50,((AG50*AN50)+((6000-AG50)*CE50))/6000))",
+          "value": 0.2745686666666667
+        },
+        {
+          "address": "AP50",
+          "row": 50,
+          "col": "AP",
+          "formula": "=SUMIFS(Data!S:S,Data!AM:AM,H50,Data!D:D,n_max_original)",
+          "value": 11
+        },
+        {
+          "address": "AQ50",
+          "row": 50,
+          "col": "AQ",
+          "formula": "=(AP50*6)/AG50",
+          "value": 0.2509505703422053
+        },
+        {
+          "address": "AR50",
+          "row": 50,
+          "col": "AR",
+          "formula": "=IF(AG50<10,CF50,IF(AG50>1500,AQ50,((AG50*AQ50)+((1500-AG50)*CF50))/1500))",
+          "value": 0.261712
+        },
+        {
+          "address": "CD50",
+          "row": 50,
+          "col": "CD",
+          "formula": "=CD29",
+          "value": 0.595
+        },
+        {
+          "address": "CE50",
+          "row": 50,
+          "col": "CE",
+          "formula": "=CE29",
+          "value": 0.276
+        },
+        {
+          "address": "CF50",
+          "row": 50,
+          "col": "CF",
+          "formula": "=CF29",
+          "value": 0.264
+        },
+        {
+          "address": "DF50",
+          "row": 50,
+          "col": "DF",
+          "formula": "=(0.5-Pricing!$J$31+1)*DG50+(1-DG50)",
+          "value": 1.022072508847284
+        },
+        {
+          "address": "DH50",
+          "row": 50,
+          "col": "DH",
+          "formula": "=IF(n_format_a=\"ODI\",DF50,1)",
+          "value": 1
+        },
+        {
+          "address": "AG51",
+          "row": 51,
+          "col": "AG",
+          "formula": "=SUMIFS(Data!P:P,Data!AM:AM,H51,Data!D:D,n_max_original)",
+          "value": 2154
+        },
+        {
+          "address": "AM51",
+          "row": 51,
+          "col": "AM",
+          "formula": "=SUMIFS(Data!R:R,Data!AM:AM,H51,Data!D:D,n_max_original)",
+          "value": 125
+        },
+        {
+          "address": "AN51",
+          "row": 51,
+          "col": "AN",
+          "formula": "=(AM51*4)/AG51",
+          "value": 0.23212627669452182
+        },
+        {
+          "address": "AO51",
+          "row": 51,
+          "col": "AO",
+          "formula": "=IF(AG51<10,CE51,IF(AG51>6000,AN51,((AG51*AN51)+((6000-AG51)*CE51))/6000))",
+          "value": 0.26089033333333334
+        },
+        {
+          "address": "AP51",
+          "row": 51,
+          "col": "AP",
+          "formula": "=SUMIFS(Data!S:S,Data!AM:AM,H51,Data!D:D,n_max_original)",
+          "value": 113
+        },
+        {
+          "address": "AQ51",
+          "row": 51,
+          "col": "AQ",
+          "formula": "=(AP51*6)/AG51",
+          "value": 0.3147632311977716
+        },
+        {
+          "address": "AR51",
+          "row": 51,
+          "col": "AR",
+          "formula": "=IF(AG51<10,CF51,IF(AG51>1500,AQ51,((AG51*AQ51)+((1500-AG51)*CF51))/1500))",
+          "value": 0.3147632311977716
+        },
+        {
+          "address": "CD51",
+          "row": 51,
+          "col": "CD",
+          "formula": "=CD30",
+          "value": 0.46
+        },
+        {
+          "address": "CE51",
+          "row": 51,
+          "col": "CE",
+          "formula": "=CE30",
+          "value": 0.277
+        },
+        {
+          "address": "CF51",
+          "row": 51,
+          "col": "CF",
+          "formula": "=CF30",
+          "value": 0.273
+        },
+        {
+          "address": "DF51",
+          "row": 51,
+          "col": "DF",
+          "formula": "=(0.5-Pricing!$J$31+1)*DG51+(1-DG51)",
+          "value": 1.05518127211821
+        },
+        {
+          "address": "DH51",
+          "row": 51,
+          "col": "DH",
+          "formula": "=IF(n_format_a=\"ODI\",DF51,1)",
+          "value": 1
+        },
+        {
+          "address": "AG52",
+          "row": 52,
+          "col": "AG",
+          "formula": "=SUMIFS(Data!P:P,Data!AM:AM,H52,Data!D:D,n_max_original)",
+          "value": 321
+        },
+        {
+          "address": "AM52",
+          "row": 52,
+          "col": "AM",
+          "formula": "=SUMIFS(Data!R:R,Data!AM:AM,H52,Data!D:D,n_max_original)",
+          "value": 16
+        },
+        {
+          "address": "AN52",
+          "row": 52,
+          "col": "AN",
+          "formula": "=(AM52*4)/AG52",
+          "value": 0.19937694704049844
+        },
+        {
+          "address": "AO52",
+          "row": 52,
+          "col": "AO",
+          "formula": "=IF(AG52<10,CE52,IF(AG52>6000,AN52,((AG52*AN52)+((6000-AG52)*CE52))/6000))",
+          "value": 0.27474016666666673
+        },
+        {
+          "address": "AP52",
+          "row": 52,
+          "col": "AP",
+          "formula": "=SUMIFS(Data!S:S,Data!AM:AM,H52,Data!D:D,n_max_original)",
+          "value": 21
+        },
+        {
+          "address": "AQ52",
+          "row": 52,
+          "col": "AQ",
+          "formula": "=(AP52*6)/AG52",
+          "value": 0.3925233644859813
+        },
+        {
+          "address": "AR52",
+          "row": 52,
+          "col": "AR",
+          "formula": "=IF(AG52<10,CF52,IF(AG52>1500,AQ52,((AG52*AQ52)+((1500-AG52)*CF52))/1500))",
+          "value": 0.29622000000000004
+        },
+        {
+          "address": "CD52",
+          "row": 52,
+          "col": "CD",
+          "formula": "=CD31",
+          "value": 0.32
+        },
+        {
+          "address": "CE52",
+          "row": 52,
+          "col": "CE",
+          "formula": "=CE31",
+          "value": 0.279
+        },
+        {
+          "address": "CF52",
+          "row": 52,
+          "col": "CF",
+          "formula": "=CF31",
+          "value": 0.27
+        },
+        {
+          "address": "DF52",
+          "row": 52,
+          "col": "DF",
+          "formula": "=(0.5-Pricing!$J$31+1)*DG52+(1-DG52)",
+          "value": 1.05518127211821
+        },
+        {
+          "address": "DH52",
+          "row": 52,
+          "col": "DH",
+          "formula": "=IF(n_format_a=\"ODI\",DF52,1)",
+          "value": 1
+        },
+        {
+          "address": "AG53",
+          "row": 53,
+          "col": "AG",
+          "formula": "=SUMIFS(Data!P:P,Data!AM:AM,H53,Data!D:D,n_max_original)",
+          "value": 479
+        },
+        {
+          "address": "AM53",
+          "row": 53,
+          "col": "AM",
+          "formula": "=SUMIFS(Data!R:R,Data!AM:AM,H53,Data!D:D,n_max_original)",
+          "value": 38
+        },
+        {
+          "address": "AN53",
+          "row": 53,
+          "col": "AN",
+          "formula": "=(AM53*4)/AG53",
+          "value": 0.3173277661795407
+        },
+        {
+          "address": "AO53",
+          "row": 53,
+          "col": "AO",
+          "formula": "=IF(AG53<10,CE53,IF(AG53>6000,AN53,((AG53*AN53)+((6000-AG53)*CE53))/6000))",
+          "value": 0.28758083333333334
+        },
+        {
+          "address": "AP53",
+          "row": 53,
+          "col": "AP",
+          "formula": "=SUMIFS(Data!S:S,Data!AM:AM,H53,Data!D:D,n_max_original)",
+          "value": 15
+        },
+        {
+          "address": "AQ53",
+          "row": 53,
+          "col": "AQ",
+          "formula": "=(AP53*6)/AG53",
+          "value": 0.18789144050104384
+        },
+        {
+          "address": "AR53",
+          "row": 53,
+          "col": "AR",
+          "formula": "=IF(AG53<10,CF53,IF(AG53>1500,AQ53,((AG53*AQ53)+((1500-AG53)*CF53))/1500))",
+          "value": 0.21246933333333334
+        },
+        {
+          "address": "CD53",
+          "row": 53,
+          "col": "CD",
+          "formula": "=CD32",
+          "value": 0.205
+        },
+        {
+          "address": "CE53",
+          "row": 53,
+          "col": "CE",
+          "formula": "=CE32",
+          "value": 0.285
+        },
+        {
+          "address": "CF53",
+          "row": 53,
+          "col": "CF",
+          "formula": "=CF32",
+          "value": 0.224
+        },
+        {
+          "address": "DF53",
+          "row": 53,
+          "col": "DF",
+          "formula": "=(0.5-Pricing!$J$31+1)*DG53+(1-DG53)",
+          "value": 1.05518127211821
+        },
+        {
+          "address": "DH53",
+          "row": 53,
+          "col": "DH",
+          "formula": "=IF(n_format_a=\"ODI\",DF53,1)",
+          "value": 1
+        },
+        {
+          "address": "AG54",
+          "row": 54,
+          "col": "AG",
+          "formula": "=SUMIFS(Data!P:P,Data!AM:AM,H54,Data!D:D,n_max_original)",
+          "value": 24
+        },
+        {
+          "address": "AM54",
+          "row": 54,
+          "col": "AM",
+          "formula": "=SUMIFS(Data!R:R,Data!AM:AM,H54,Data!D:D,n_max_original)",
+          "value": 1
+        },
+        {
+          "address": "AN54",
+          "row": 54,
+          "col": "AN",
+          "formula": "=(AM54*4)/AG54",
+          "value": 0.16666666666666666
+        },
+        {
+          "address": "AO54",
+          "row": 54,
+          "col": "AO",
+          "formula": "=IF(AG54<10,CE54,IF(AG54>6000,AN54,((AG54*AN54)+((6000-AG54)*CE54))/6000))",
+          "value": 0.2745666666666667
+        },
+        {
+          "address": "AP54",
+          "row": 54,
+          "col": "AP",
+          "formula": "=SUMIFS(Data!S:S,Data!AM:AM,H54,Data!D:D,n_max_original)",
+          "value": 1
+        },
+        {
+          "address": "AQ54",
+          "row": 54,
+          "col": "AQ",
+          "formula": "=(AP54*6)/AG54",
+          "value": 0.25
+        },
+        {
+          "address": "AR54",
+          "row": 54,
+          "col": "AR",
+          "formula": "=IF(AG54<10,CF54,IF(AG54>1500,AQ54,((AG54*AQ54)+((1500-AG54)*CF54))/1500))",
+          "value": 0.20276800000000003
+        },
+        {
+          "address": "CD54",
+          "row": 54,
+          "col": "CD",
+          "formula": "=CD33",
+          "value": 0.115
+        },
+        {
+          "address": "CE54",
+          "row": 54,
+          "col": "CE",
+          "formula": "=CE33",
+          "value": 0.275
+        },
+        {
+          "address": "CF54",
+          "row": 54,
+          "col": "CF",
+          "formula": "=CF33",
+          "value": 0.202
+        },
+        {
+          "address": "DF54",
+          "row": 54,
+          "col": "DF",
+          "formula": "=(0.5-Pricing!$J$31+1)*DG54+(1-DG54)",
+          "value": 1.05518127211821
+        },
+        {
+          "address": "DH54",
+          "row": 54,
+          "col": "DH",
+          "formula": "=IF(n_format_a=\"ODI\",DF54,1)",
+          "value": 1
+        },
+        {
+          "address": "AG55",
+          "row": 55,
+          "col": "AG",
+          "formula": "=SUMIFS(Data!P:P,Data!AM:AM,H55,Data!D:D,n_max_original)",
+          "value": 30
+        },
+        {
+          "address": "AM55",
+          "row": 55,
+          "col": "AM",
+          "formula": "=SUMIFS(Data!R:R,Data!AM:AM,H55,Data!D:D,n_max_original)",
+          "value": 2
+        },
+        {
+          "address": "AN55",
+          "row": 55,
+          "col": "AN",
+          "formula": "=(AM55*4)/AG55",
+          "value": 0.26666666666666666
+        },
+        {
+          "address": "AO55",
+          "row": 55,
+          "col": "AO",
+          "formula": "=IF(AG55<10,CE55,IF(AG55>6000,AN55,((AG55*AN55)+((6000-AG55)*CE55))/6000))",
+          "value": 0.3058033333333333
+        },
+        {
+          "address": "AP55",
+          "row": 55,
+          "col": "AP",
+          "formula": "=SUMIFS(Data!S:S,Data!AM:AM,H55,Data!D:D,n_max_original)",
+          "value": 0
+        },
+        {
+          "address": "AQ55",
+          "row": 55,
+          "col": "AQ",
+          "formula": "=(AP55*6)/AG55",
+          "value": 0
+        },
+        {
+          "address": "AR55",
+          "row": 55,
+          "col": "AR",
+          "formula": "=IF(AG55<10,CF55,IF(AG55>1500,AQ55,((AG55*AQ55)+((1500-AG55)*CF55))/1500))",
+          "value": 0.16268000000000002
+        },
+        {
+          "address": "CD55",
+          "row": 55,
+          "col": "CD",
+          "formula": "=CD34",
+          "value": 0.05
+        },
+        {
+          "address": "CE55",
+          "row": 55,
+          "col": "CE",
+          "formula": "=CE34",
+          "value": 0.306
+        },
+        {
+          "address": "CF55",
+          "row": 55,
+          "col": "CF",
+          "formula": "=CF34",
+          "value": 0.166
+        },
+        {
+          "address": "DF55",
+          "row": 55,
+          "col": "DF",
+          "formula": "=(0.5-Pricing!$J$31+1)*DG55+(1-DG55)",
+          "value": 1.05518127211821
+        },
+        {
+          "address": "DH55",
+          "row": 55,
+          "col": "DH",
+          "formula": "=IF(n_format_a=\"ODI\",DF55,1)",
+          "value": 1
+        }
+      ],
+      "players": [
+        {
+          "row": 45,
+          "name": "C Esterhuizen",
+          "battingPosition": 1,
+          "bowlingPosition": 11,
+          "playerId": 1070997
+        },
+        {
+          "row": 46,
+          "name": "T de Zorzi",
+          "battingPosition": 2,
+          "bowlingPosition": 10,
+          "playerId": 697183
+        },
+        {
+          "row": 47,
+          "name": "RA Hermann",
+          "battingPosition": 3,
+          "bowlingPosition": 9,
+          "playerId": 596097
+        },
+        {
+          "row": 48,
+          "name": "JF Smith",
+          "battingPosition": 4,
+          "bowlingPosition": 8,
+          "playerId": 498582
+        },
+        {
+          "row": 49,
+          "name": "PWA Mulder",
+          "battingPosition": 5,
+          "bowlingPosition": 6,
+          "playerId": 698189
+        },
+        {
+          "row": 50,
+          "name": "D Forrester",
+          "battingPosition": 6,
+          "bowlingPosition": 7,
+          "playerId": 696471
+        },
+        {
+          "row": 51,
+          "name": "GF Linde",
+          "battingPosition": 7,
+          "bowlingPosition": 5,
+          "playerId": 481875
+        },
+        {
+          "row": 52,
+          "name": "G Coetzee",
+          "battingPosition": 8,
+          "bowlingPosition": 2,
+          "playerId": 596010
+        },
+        {
+          "row": 53,
+          "name": "KA Maharaj",
+          "battingPosition": 9,
+          "bowlingPosition": 4,
+          "playerId": 267724
+        },
+        {
+          "row": 54,
+          "name": "N Mokoena",
+          "battingPosition": 10,
+          "bowlingPosition": 3,
+          "playerId": 1414819
+        },
+        {
+          "row": 55,
+          "name": "OEG Baartman",
+          "battingPosition": 11,
+          "bowlingPosition": 1,
+          "playerId": 535353
+        }
+      ]
+    }
+  ]
+}
