@@ -94,6 +94,407 @@ const TABLE2_COL_LABELS: Record<string, string> = {
   AB: "Now (published)",
 };
 
+const TEAM_COL_LABELS: Record<string, string> = {
+  B: "Metric",
+  D: "For (batting)",
+  E: "Against (bowling)",
+  F: "Now (fixture)",
+};
+
+/** Row offsets shared by home (24+) and away (45+) team blocks. */
+const TEAM_METRIC_ROWS: Record<number, string> = {
+  1: "1st Inns",
+  2: "Wickets Taken",
+  3: "Fours",
+  4: "Sixes",
+  6: "1st over",
+  7: "1st 6 / partnership",
+  8: "1st 12 / group overs",
+  9: "Run Outs",
+  10: "Max Over",
+  11: "Wides Conceded",
+  12: "Ducks Conceded",
+  13: "Run Rate",
+  14: "Samples",
+  15: "Samples (3 yrs)",
+  16: "T.Runs Calc",
+};
+
+function teamBlockBaseRow(tableId: string): number {
+  return tableId === "table-3" ? 24 : 45;
+}
+
+function teamMetricIndex(tableId: string, row: number): number | null {
+  const base = teamBlockBaseRow(tableId);
+  if (row < base || row > base + 15) return null;
+  const offset = row - base + 1;
+  if (offset === 5) return null;
+  return offset;
+}
+
+function teamFixtureRefs(tableId: string) {
+  const home = tableId === "table-3";
+  return {
+    teamNamed: home ? "InfoTeam1Id" : "InfoTeam2Id",
+    expectedRuns: home ? "E6" : "J6",
+    totalFactor: home ? "D6" : "I6",
+    foursTotal: home ? "O36" : "O57",
+    sixesTotal: home ? "P36" : "P57",
+    wicketsNow: home ? "U38" : "U59",
+    widesNow: home ? "W38" : "W59",
+    runOutsNow: home ? "U36" : "U57",
+    samplesFor: home ? "D37" : "D58",
+    samplesAgainst: home ? "E37" : "E58",
+    oversBowled: home ? "V59" : "V38",
+    side: home ? "home (team 1)" : "away (team 2)",
+  };
+}
+
+function explainTeamTableCell(
+  tableId: string,
+  row: number,
+  col: string
+): CellDoc | undefined {
+  const refs = teamFixtureRefs(tableId);
+  const metricIdx = teamMetricIndex(tableId, row);
+  const colSide = col === "D" ? "for" : col === "E" ? "against" : col === "F" ? "now" : null;
+
+  if (row === teamBlockBaseRow(tableId) - 1 && col === "D") {
+    return {
+      summary: "For — team batting historical column",
+      calculation: [
+        `Historical stats when ${refs.side} batted (Data!AR = ${refs.teamNamed}).`,
+        "Used as the ‘For’ side of the home/away team block.",
+      ],
+      dataSources: ["Data!AR"],
+      namedInputs: [refs.teamNamed],
+      feedsTo: [],
+    };
+  }
+  if (row === teamBlockBaseRow(tableId) - 1 && col === "E") {
+    return {
+      summary: "Against — team bowling historical column",
+      calculation: [
+        `Historical stats when ${refs.side} bowled (Data!AS = ${refs.teamNamed}).`,
+        "Opponent innings while this team fielded.",
+      ],
+      dataSources: ["Data!AS"],
+      namedInputs: [refs.teamNamed],
+      feedsTo: [],
+    };
+  }
+  if (row === teamBlockBaseRow(tableId) - 1 && col === "F") {
+    return {
+      summary: "Now — fixture model / published values",
+      calculation: [
+        "Trader or model column for this fixture — references Prep Work player chain (E6/J6, O36/O57, etc.).",
+      ],
+      dataSources: ["Prep Work"],
+      namedInputs: [],
+      feedsTo: ["PM Publication", "Lambda team markets"],
+    };
+  }
+
+  if (col === "B" && metricIdx) {
+    return {
+      summary: TEAM_METRIC_ROWS[metricIdx] ?? `Metric row ${row}`,
+      calculation: [`Row label for ${refs.side} team block.`],
+      dataSources: [],
+      namedInputs: [],
+      feedsTo: [],
+    };
+  }
+
+  if (!metricIdx || !colSide) return undefined;
+
+  const metric = TEAM_METRIC_ROWS[metricIdx];
+  const dataBat = "Data!AR";
+  const dataBowl = "Data!AS";
+
+  if (metricIdx === 1) {
+    if (colSide === "for") {
+      return {
+        summary: `${metric} — For (team batting 1st innings)`,
+        calculation: [
+          `AVERAGEIFS Data!J (innings runs) where Data!I=1, Data!D=n_max_original, ${dataBat}=${refs.teamNamed}.`,
+          "Average 1st-innings score when this team batted first.",
+        ],
+        dataSources: ["Data!J", "Data!I", "Data!D", dataBat],
+        namedInputs: ["n_max_original", refs.teamNamed],
+        feedsTo: [`Prep Work!${refs.expectedRuns} calibration`, "Team run expectation"],
+      };
+    }
+    if (colSide === "against") {
+      return {
+        summary: `${metric} — Against (runs conceded 1st innings)`,
+        calculation: [
+          `AVERAGEIFS Data!J where Data!I=1, Data!D=n_max_original, ${dataBowl}=${refs.teamNamed}.`,
+          "Opponent 1st-innings runs when this team bowled first.",
+        ],
+        dataSources: ["Data!J", "Data!I", "Data!D", dataBowl],
+        namedInputs: ["n_max_original", refs.teamNamed],
+        feedsTo: [],
+      };
+    }
+    return {
+      summary: `${metric} — Now (expected innings runs)`,
+      calculation: [
+        `Fixture expected runs from player adjustment chain: Prep Work!${refs.expectedRuns}.`,
+        `= ${refs.totalFactor} × BT3 (team total factor × format par).`,
+      ],
+      dataSources: [`Prep Work!${refs.expectedRuns}`, `Prep Work!${refs.totalFactor}`, "Prep Work!BT3"],
+      namedInputs: ["n_format_a"],
+      feedsTo: ["MatchBetting.GetInningsRuns", "TeamEvaluation.GetRunsExpected"],
+    };
+  }
+
+  if (metricIdx === 2) {
+    if (colSide === "for") {
+      return {
+        summary: `${metric} — For (wickets taken bowling)`,
+        calculation: [
+          `AVERAGEIFS Data!K (wickets) where ${dataBowl}=${refs.teamNamed}, Data!D=n_max_original.`,
+          "Wickets taken when this team bowled.",
+        ],
+        dataSources: ["Data!K", dataBowl, "Data!D"],
+        namedInputs: [refs.teamNamed, "n_max_original"],
+        feedsTo: [`Prep Work!${refs.wicketsNow}`],
+      };
+    }
+    if (colSide === "against") {
+      return {
+        summary: `${metric} — Against (wickets lost batting)`,
+        calculation: [
+          `AVERAGEIFS Data!K where ${dataBat}=${refs.teamNamed}, Data!D=n_max_original.`,
+          "Wickets lost when this team batted.",
+        ],
+        dataSources: ["Data!K", dataBat, "Data!D"],
+        namedInputs: [refs.teamNamed, "n_max_original"],
+        feedsTo: [],
+      };
+    }
+    return {
+      summary: `${metric} — Now (model wickets)`,
+      calculation: [`Published / model team wickets: Prep Work!${refs.wicketsNow}.`],
+      dataSources: [`Prep Work!${refs.wicketsNow}`],
+      namedInputs: [],
+      feedsTo: ["TeamWickets", "MatchWickets"],
+    };
+  }
+
+  if (metricIdx === 3 || metricIdx === 4) {
+    const boundary = metricIdx === 3 ? "R (fours)" : "S (sixes)";
+    const sampleCell = colSide === "for" ? refs.samplesFor : refs.samplesAgainst;
+    const filter = colSide === "for" ? dataBat : dataBowl;
+    if (colSide === "now") {
+      const totalCell = metricIdx === 3 ? refs.foursTotal : refs.sixesTotal;
+      return {
+        summary: `${metric} — Now (team total from player rows)`,
+        calculation: [
+          `Sum of player expected ${metric.toLowerCase()} on Prep Work: ${totalCell}.`,
+          "Built from O/P columns on player rows (M chain).",
+        ],
+        dataSources: [`Prep Work!${totalCell}`],
+        namedInputs: [],
+        feedsTo: metricIdx === 3 ? ["TeamFours"] : ["TeamSixes"],
+      };
+    }
+    return {
+      summary: `${metric} — ${colSide === "for" ? "For" : "Against"} historical per innings`,
+      calculation: [
+        `SUMIFS Data!${boundary} where Data!D=n_max_original, ${filter}=${refs.teamNamed}.`,
+        `Divided by sample count (${sampleCell}) → per-innings rate.`,
+      ],
+      dataSources: [`Data!${boundary.split(" ")[0]}`, "Data!D", filter, `Prep Work!${sampleCell}`],
+      namedInputs: [refs.teamNamed, "n_max_original"],
+      feedsTo: [`Prep Work!${metricIdx === 3 ? refs.foursTotal : refs.sixesTotal}`],
+    };
+  }
+
+  if (metricIdx === 6 || metricIdx === 7 || metricIdx === 8) {
+    if (colSide === "now") {
+      return {
+        summary: `${metric} — Now (trader / model)`,
+        calculation: ["Fixture-scaled value or trader override in column F."],
+        dataSources: ["Prep Work"],
+        namedInputs: ["n_format_a", "n_tournament"],
+        feedsTo: ["Group overs / partnership markets"],
+      };
+    }
+    return {
+      summary: `${metric} — model from expected runs`,
+      calculation: [
+        `Scales Prep Work!${refs.totalFactor} (team total factor) by format/tournament coefficients (CC block / D6 multiples).`,
+        metricIdx === 8 ? "B31 may reference Table 1 K11 (1st group overs label)." : "",
+      ].filter(Boolean),
+      dataSources: [`Prep Work!${refs.totalFactor}`, "Prep Work!CC5:CC8", "Table 1"],
+      namedInputs: ["n_format_a", "n_tournament", "InfoCompetitionId"],
+      feedsTo: ["Progressive over expectations"],
+    };
+  }
+
+  if (metricIdx === 9) {
+    if (colSide === "now") {
+      return {
+        summary: `${metric} — Now`,
+        calculation: [`Trader value; historical leg uses Prep Work!${refs.runOutsNow} and BQ run-out rates.`],
+        dataSources: [`Prep Work!${refs.runOutsNow}`, "Prep Work!BQ"],
+        namedInputs: ["InfoCompetitionId"],
+        feedsTo: ["TeamRunOuts", "InningsRunOuts"],
+      };
+    }
+    return {
+      summary: `${metric} — historical blend`,
+      calculation: [
+        "Complex blend of team run-out par (U36/U57) and Table 1 BQ run-out rates.",
+        "Competition-specific adjustments for WBBL / The Hundred.",
+      ],
+      dataSources: [`Prep Work!${refs.runOutsNow}`, "Prep Work!BQ"],
+      namedInputs: ["InfoCompetitionId"],
+      feedsTo: [],
+    };
+  }
+
+  if (metricIdx === 10) {
+    if (colSide === "now") {
+      return {
+        summary: `${metric} — Now (rounded publish line)`,
+        calculation: ["Trader-facing max-over line for this team."],
+        dataSources: ["Prep Work"],
+        namedInputs: ["n_format_a"],
+        feedsTo: ["TeamMaxOver"],
+      };
+    }
+    return {
+      summary: `${metric} — model from expected runs`,
+      calculation: [
+        `AI66:AI67 × ${refs.expectedRuns} + AH66:AH67 (format coefficients on team expected runs).`,
+      ],
+      dataSources: ["Prep Work!AI66:AH67", `Prep Work!${refs.expectedRuns}`],
+      namedInputs: ["n_format_a"],
+      feedsTo: ["TeamMaxOver"],
+    };
+  }
+
+  if (metricIdx === 11) {
+    if (colSide === "now") {
+      return {
+        summary: `${metric} — Now`,
+        calculation: [`Prep Work!${refs.widesNow} — team wides par with Table 1 O15 blend.`],
+        dataSources: [`Prep Work!${refs.widesNow}`, "Prep Work!O15", "Prep Work!N15"],
+        namedInputs: ["n_format_a"],
+        feedsTo: ["TeamWides", "InningsWides"],
+      };
+    }
+    return {
+      summary: `${metric} — historical / Table 1 blend`,
+      calculation: [
+        `MAX of ${refs.widesNow}×0.4 plus Table 1 N15/O15 wides par (same pattern as team innings wides rows).`,
+      ],
+      dataSources: [`Prep Work!${refs.widesNow}`, "Prep Work!N15", "Prep Work!O15"],
+      namedInputs: ["n_format_a"],
+      feedsTo: [],
+    };
+  }
+
+  if (metricIdx === 12) {
+    if (colSide === "now") {
+      return {
+        summary: `${metric} — Now`,
+        calculation: ["Scaled from Table 1 O16 ducks par and team total factor."],
+        dataSources: ["Prep Work!O16", "Prep Work!N16", `Prep Work!${refs.totalFactor}`],
+        namedInputs: ["n_format_a", "n_gender"],
+        feedsTo: ["TeamDucks", "InningsDucks"],
+      };
+    }
+    return {
+      summary: `${metric} — historical ducks blend`,
+      calculation: [
+        "Blends Table 1 N16/O16 ducks rate with sample gate N18 (same as W39/W60 par rows).",
+      ],
+      dataSources: ["Prep Work!N16", "Prep Work!O16", "Prep Work!N18"],
+      namedInputs: ["n_format_a"],
+      feedsTo: [],
+    };
+  }
+
+  if (metricIdx === 13) {
+    if (colSide === "now") {
+      return {
+        summary: `${metric} — Now (implied from expected runs)`,
+        calculation: [
+          `F${row} = expected runs (${refs.expectedRuns}) ÷ n_max_overs (or ÷ ${refs.oversBowled} in Test).`,
+        ],
+        dataSources: [`Prep Work!${refs.expectedRuns}`, `Prep Work!${refs.oversBowled}`],
+        namedInputs: ["n_max_overs", "n_format_a"],
+        feedsTo: [],
+      };
+    }
+    const filter = colSide === "for" ? dataBat : dataBowl;
+    return {
+      summary: `${metric} — historical run rate`,
+      calculation: [
+        `SUMIFS Data!J (1st innings, Data!M=1) where ${filter}=${refs.teamNamed}.`,
+        "Scaled by balls-per-over factor from Match Info!AS58 (The Hundred = 5, else 6).",
+      ],
+      dataSources: ["Data!J", "Data!M", filter, "Match Info!AS58"],
+      namedInputs: [refs.teamNamed, "n_max_original"],
+      feedsTo: [],
+    };
+  }
+
+  if (metricIdx === 14) {
+    const filter = colSide === "for" ? dataBat : dataBowl;
+    return {
+      summary: `${metric} — ${colSide === "for" ? "For" : "Against"} sample count`,
+      calculation: [
+        `COUNTIFS ${filter}=${refs.teamNamed}, Data!D=n_max_original, Data!M=1 (1st-innings rows).`,
+        "Denominator for fours/sixes per-innings rates above.",
+      ],
+      dataSources: [filter, "Data!D", "Data!M"],
+      namedInputs: [refs.teamNamed, "n_max_original"],
+      feedsTo: [],
+    };
+  }
+
+  if (metricIdx === 15) {
+    const filter = colSide === "for" ? dataBat : dataBowl;
+    return {
+      summary: `${metric} — recent sample count`,
+      calculation: [
+        `Same as Samples row plus Data!B >= Prep Work!P1 (~3-year cutoff).`,
+      ],
+      dataSources: [filter, "Data!B", "Data!D", "Data!M", "Prep Work!P1"],
+      namedInputs: [refs.teamNamed, "n_max_original"],
+      feedsTo: [],
+    };
+  }
+
+  if (metricIdx === 16) {
+    if (colSide === "now") {
+      return {
+        summary: `${metric} — chase-adjusted expected runs`,
+        calculation: [
+          `${refs.expectedRuns} × (avg 2nd-innings runs ÷ avg 1st-innings runs) from Data.`,
+          "Secondary total-runs calculation for chase context.",
+        ],
+        dataSources: [`Prep Work!${refs.expectedRuns}`, "Data!J", "Data!I"],
+        namedInputs: [],
+        feedsTo: [],
+      };
+    }
+    return {
+      summary: `${metric} — equals fixture expected runs`,
+      calculation: [`References Prep Work!${refs.expectedRuns} on this row.`],
+      dataSources: [`Prep Work!${refs.expectedRuns}`],
+      namedInputs: [],
+      feedsTo: [],
+    };
+  }
+
+  return undefined;
+}
+
 const TABLE2_PM_PUBLICATION: Record<number, string> = {
   3: "PM Publication row 55 — Max Runs in Over (F55 line, G55/H55 U/O probs, I55 adjust)",
   5: "PM Publication row 67 — Fifty in First Innings (G67 yes prob, I67 adjust)",
@@ -486,6 +887,8 @@ function extractNamedRefs(formula: string): string[] {
     "n_host",
     "n_tournament",
     "InfoCompetitionId",
+    "InfoTeam1Id",
+    "InfoTeam2Id",
   ];
   return names.filter((n) => formula.includes(n));
 }
@@ -655,27 +1058,42 @@ export function explainPrepWorkCell(
   const rowLabel =
     tableId === "table-1"
       ? (TABLE1_ROW_LABELS[cell.row] ?? `Row ${cell.row}`)
-      : (TABLE2_ROW_LABELS[cell.row] ?? `Row ${cell.row}`);
+      : tableId === "table-3" || tableId === "table-4"
+        ? (() => {
+            const b = table?.cells.find((c) => c.row === cell.row && c.col === "B");
+            const text = b?.value ?? b?.formula;
+            if (text != null && String(text).trim()) return String(text).replace(/^=/, "");
+            const idx = teamMetricIndex(tableId, cell.row);
+            return idx ? (TEAM_METRIC_ROWS[idx] ?? `Row ${cell.row}`) : `Row ${cell.row}`;
+          })()
+        : (TABLE2_ROW_LABELS[cell.row] ?? `Row ${cell.row}`);
 
   const colLabel =
     tableId === "table-1"
       ? (TABLE1_COL_LABELS[cell.col] ?? cell.col)
-      : (TABLE2_COL_LABELS[cell.col] ?? cell.col);
+      : tableId === "table-3" || tableId === "table-4"
+        ? (TEAM_COL_LABELS[cell.col] ?? cell.col)
+        : (TABLE2_COL_LABELS[cell.col] ?? cell.col);
 
   const table2Doc =
     tableId === "table-2" ? explainTable2Cell(cell.row, cell.col) : undefined;
+  const teamDoc =
+    tableId === "table-3" || tableId === "table-4"
+      ? explainTeamTableCell(tableId, cell.row, cell.col)
+      : undefined;
 
   const generic = explainFormula(cell.formula, cell.row, cell.col, tableId);
 
-  const calculation = table2Doc?.calculation ?? generic.calculation;
-  const dataSources = table2Doc?.dataSources ?? generic.dataSources;
-  const summary = table2Doc?.summary ?? generic.summary;
+  const calculation = teamDoc?.calculation ?? table2Doc?.calculation ?? generic.calculation;
+  const dataSources = teamDoc?.dataSources ?? table2Doc?.dataSources ?? generic.dataSources;
+  const summary = teamDoc?.summary ?? table2Doc?.summary ?? generic.summary;
 
   const namedInputs =
+    teamDoc?.namedInputs ??
     table2Doc?.namedInputs ??
     (cell.formula && isFormula(cell.formula) ? extractNamedRefs(cell.formula) : []);
 
-  const feedsTo: string[] = [...(table2Doc?.feedsTo ?? [])];
+  const feedsTo: string[] = [...(teamDoc?.feedsTo ?? []), ...(table2Doc?.feedsTo ?? [])];
   const lambdaPath = table2Doc?.lambdaPath;
   const pmPublication = table2Doc?.pmPublication;
 
@@ -729,6 +1147,7 @@ export function buildTableGrid(table: PrepWorkTable): {
   rows: number[];
   cols: string[];
   cellMap: Map<string, PrepWorkTableCell>;
+  rowLabels: Map<number, string>;
 } {
   const [start, end] = table.range.split(":");
   const parse = (ref: string) => {
@@ -743,7 +1162,17 @@ export function buildTableGrid(table: PrepWorkTable): {
   for (let r = a.row; r <= b.row; r++) rows.push(r);
 
   const cellMap = new Map(table.cells.map((c) => [c.address, c]));
-  return { rows, cols: colLetters, cellMap };
+  const rowLabels = new Map<number, string>();
+  for (const r of rows) {
+    const labelCell = cellMap.get(`B${r}`) ?? cellMap.get(`K${r}`) ?? cellMap.get(`T${r}`);
+    if (labelCell) {
+      const text = labelCell.value ?? labelCell.formula;
+      if (text != null && String(text).trim()) {
+        rowLabels.set(r, String(text).replace(/^=/, ""));
+      }
+    }
+  }
+  return { rows, cols: colLetters, cellMap, rowLabels };
 }
 
 export function formatCellValue(value: PrepWorkTableCell["value"]): string {

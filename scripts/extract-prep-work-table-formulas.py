@@ -68,6 +68,18 @@ out = {
             "range": "T2:AB10",
             "cells": dump_range(2, 10, 20, 28),
         },
+        {
+            "id": "table-3",
+            "name": "Home team — For / Against",
+            "range": "B23:F39",
+            "cells": dump_range(23, 39, 2, 6),
+        },
+        {
+            "id": "table-4",
+            "name": "Away team — For / Against",
+            "range": "B44:F60",
+            "cells": dump_range(44, 60, 2, 6),
+        },
     ],
 }
 

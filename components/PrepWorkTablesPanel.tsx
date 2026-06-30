@@ -216,6 +216,8 @@ function PlayerCellDetail({ detail }: { detail: PlayerCellExplanation }) {
 const TABLE_DEFAULT_CELL: Record<string, string> = {
   "table-1": "O16",
   "table-2": "Z5",
+  "table-3": "D24",
+  "table-4": "D45",
   "player-bat": "Q24",
   "player-bowl": "Z24",
   "player-raw": "M24",
@@ -224,8 +226,17 @@ const TABLE_DEFAULT_CELL: Record<string, string> = {
 const BAT_HIGHLIGHT = new Set(["L", "N", "Q"]);
 const RAW_HIGHLIGHT = new Set(["M", "O", "P"]);
 const BOWL_HIGHLIGHT = new Set(["V", "W", "X", "Z"]);
+const TEAM_HIGHLIGHT = new Set(["D", "E", "F"]);
 
-type ViewId = "table-1" | "table-2" | "player-bat" | "player-bowl" | "player-raw" | "batting-refs";
+type ViewId =
+  | "table-1"
+  | "table-2"
+  | "table-3"
+  | "table-4"
+  | "player-bat"
+  | "player-bowl"
+  | "player-raw"
+  | "batting-refs";
 
 export function PrepWorkTablesPanel() {
   const tables = getPrepWorkTables();
@@ -241,6 +252,7 @@ export function PrepWorkTablesPanel() {
   const isPlayerBowl = viewId === "player-bowl";
   const isPlayerRaw = viewId === "player-raw";
   const isBattingRefs = viewId === "batting-refs";
+  const isTeamTable = viewId === "table-3" || viewId === "table-4";
   const isPlayerView = isPlayerBat || isPlayerBowl || isPlayerRaw;
 
   const table = tables.find((t) => t.id === viewId);
@@ -263,7 +275,9 @@ export function PrepWorkTablesPanel() {
       ? RAW_HIGHLIGHT
       : isPlayerBowl
         ? BOWL_HIGHLIGHT
-        : new Set<string>();
+        : isTeamTable
+          ? TEAM_HIGHLIGHT
+          : new Set<string>();
 
   const prepDetail = useMemo(
     () =>
@@ -471,6 +485,10 @@ export function PrepWorkTablesPanel() {
                         <span className="block truncate" title={playerGrid!.rowLabels.get(row)}>
                           {playerGrid!.rowLabels.get(row) ?? row}
                         </span>
+                      ) : grid!.rowLabels.has(row) ? (
+                        <span className="block truncate" title={grid!.rowLabels.get(row)}>
+                          {grid!.rowLabels.get(row) ?? row}
+                        </span>
                       ) : (
                         row
                       )}
@@ -490,7 +508,9 @@ export function PrepWorkTablesPanel() {
                       const cell = cellMap.get(addr);
                       const isSelected = selectedAddress === addr;
                       const hasFormula = cell?.formula?.startsWith("=");
-                      const isHighlight = (isPlayerBat || isPlayerBowl || isPlayerRaw) && highlightCols.has(col);
+                      const isHighlight =
+                        (isPlayerBat || isPlayerBowl || isPlayerRaw || isTeamTable) &&
+                        highlightCols.has(col);
                       return (
                         <td key={addr} className="border border-surface-border p-0">
                           <button
@@ -516,7 +536,7 @@ export function PrepWorkTablesPanel() {
                                 <span className="block truncate font-mono text-xs text-white">
                                   {formatCellValue(cell.value)}
                                 </span>
-                                {col === "K" || col === "T" ? (
+                                {col === "K" || col === "T" || col === "B" ? (
                                   <span className="mt-0.5 block truncate text-[10px] text-slate-500">
                                     {String(cell.formula ?? "").replace(/^=/, "").slice(0, 24)}
                                   </span>
@@ -553,6 +573,11 @@ export function PrepWorkTablesPanel() {
             ) : isPlayerRaw ? (
               <>
                 <span className="text-emerald-400">M → O → P</span> Raw / Fours / Sixes chain
+              </>
+            ) : isTeamTable ? (
+              <>
+                <span className="text-emerald-400">D/E</span> = For/Against from Data!AR/AS ·{" "}
+                <span className="text-violet-400">F</span> = Now (E6/J6, O36/O57, U38/U59…)
               </>
             ) : (
               <>

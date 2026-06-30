@@ -1122,6 +1122,762 @@
           "value": 0.965104517869184
         }
       ]
+    },
+    {
+      "id": "table-3",
+      "name": "Home team \u2014 For / Against",
+      "range": "B23:F39",
+      "cells": [
+        {
+          "address": "D23",
+          "row": 23,
+          "col": "D",
+          "formula": "For",
+          "value": "For"
+        },
+        {
+          "address": "E23",
+          "row": 23,
+          "col": "E",
+          "formula": "Against",
+          "value": "Against"
+        },
+        {
+          "address": "F23",
+          "row": 23,
+          "col": "F",
+          "formula": "Now",
+          "value": "Now"
+        },
+        {
+          "address": "B24",
+          "row": 24,
+          "col": "B",
+          "formula": "1st Inns",
+          "value": "1st Inns"
+        },
+        {
+          "address": "D24",
+          "row": 24,
+          "col": "D",
+          "formula": "=AVERAGEIFS(Data!$J:$J,Data!$I:$I,1,Data!$D:$D,n_max_original,Data!AR:AR,InfoTeam1Id)",
+          "value": 175.52272727272728
+        },
+        {
+          "address": "E24",
+          "row": 24,
+          "col": "E",
+          "formula": "=AVERAGEIFS(Data!$J:$J,Data!$I:$I,1,Data!$D:$D,n_max_original,Data!AS:AS,InfoTeam1Id)",
+          "value": 170.49253731343285
+        },
+        {
+          "address": "F24",
+          "row": 24,
+          "col": "F",
+          "formula": "=E6",
+          "value": 175.42328952467037
+        },
+        {
+          "address": "B25",
+          "row": 25,
+          "col": "B",
+          "formula": "Wickets Taken",
+          "value": "Wickets Taken"
+        },
+        {
+          "address": "D25",
+          "row": 25,
+          "col": "D",
+          "formula": "=AVERAGEIFS(Data!$K:$K,Data!AS:AS,InfoTeam1Id,Data!$D:$D,n_max_original)",
+          "value": 6.683870967741935
+        },
+        {
+          "address": "E25",
+          "row": 25,
+          "col": "E",
+          "formula": "=AVERAGEIFS(Data!$K:$K,Data!AR:AR,InfoTeam1Id,Data!$D:$D,n_max_original)",
+          "value": 6.174193548387096
+        },
+        {
+          "address": "F25",
+          "row": 25,
+          "col": "F",
+          "formula": "=U38",
+          "value": 6.865033922301514
+        },
+        {
+          "address": "B26",
+          "row": 26,
+          "col": "B",
+          "formula": "Fours",
+          "value": "Fours"
+        },
+        {
+          "address": "D26",
+          "row": 26,
+          "col": "D",
+          "formula": "=SUMIFS(Data!$R:$R,Data!$D:$D,n_max_original,Data!AR:AR,InfoTeam1Id)/D37",
+          "value": 12.664516129032258
+        },
+        {
+          "address": "E26",
+          "row": 26,
+          "col": "E",
+          "formula": "=SUMIFS(Data!$R:$R,Data!$D:$D,n_max_original,Data!AS:AS,InfoTeam1Id)/E37",
+          "value": 12.87741935483871
+        },
+        {
+          "address": "F26",
+          "row": 26,
+          "col": "F",
+          "formula": "=O36",
+          "value": 14.616753501001249
+        },
+        {
+          "address": "B27",
+          "row": 27,
+          "col": "B",
+          "formula": "Sixes",
+          "value": "Sixes"
+        },
+        {
+          "address": "D27",
+          "row": 27,
+          "col": "D",
+          "formula": "=SUMIFS(Data!$S:$S,Data!$D:$D,n_max_original,Data!AR:AR,InfoTeam1Id)/D37",
+          "value": 6.851612903225806
+        },
+        {
+          "address": "E27",
+          "row": 27,
+          "col": "E",
+          "formula": "=SUMIFS(Data!$S:$S,Data!$D:$D,n_max_original,Data!AS:AS,InfoTeam1Id)/E37",
+          "value": 6.47741935483871
+        },
+        {
+          "address": "F27",
+          "row": 27,
+          "col": "F",
+          "formula": "=P36",
+          "value": 7.3211418505229515
+        },
+        {
+          "address": "B29",
+          "row": 29,
+          "col": "B",
+          "formula": "1st over",
+          "value": "1st over"
+        },
+        {
+          "address": "D29",
+          "row": 29,
+          "col": "D",
+          "formula": "=IF(n_tournament=\"The Hundred Men\",D6*5.8,IF(n_format_a=\"T20\",D6*6,IF(n_format_a=\"ODI\",CC5,\"\")))",
+          "value": 6.379028709988013
+        },
+        {
+          "address": "F29",
+          "row": 29,
+          "col": "F",
+          "formula": "6.4",
+          "value": 6.4
+        },
+        {
+          "address": "B30",
+          "row": 30,
+          "col": "B",
+          "formula": "=IF(OR(n_tournament=\"The Hundred Men\", n_tournament=\"The Hundred Women\"), \"1st 5\", IF(n_format_a=\"t20\", \"1st 6\", IF(n_format_a=\"t10\", \"1st 4\", \"1st 5\")))",
+          "value": "1st 6"
+        },
+        {
+          "address": "D30",
+          "row": 30,
+          "col": "D",
+          "formula": "=IF(n_tournament=\"The Hundred Men\",D6*36.3,IF(n_format_a=\"T20\",D6*46.8-IF(OR(InfoCompetitionId=6,n_tournament=\"Women's Big Bash League\"),2,0),IF(n_format_a=\"ODI\",CC6,\"\")))",
+          "value": 49.7564239379065
+        },
+        {
+          "address": "F30",
+          "row": 30,
+          "col": "F",
+          "formula": "50.2",
+          "value": 50.2
+        },
+        {
+          "address": "B31",
+          "row": 31,
+          "col": "B",
+          "formula": "=K11",
+          "value": "1st 12"
+        },
+        {
+          "address": "D31",
+          "row": 31,
+          "col": "D",
+          "formula": "=IF(n_tournament=\"The Hundred Men\",D6*66.5,IF(n_format_a=\"T20\",D6*91.1-IF(OR(InfoCompetitionId=6,n_tournament=\"Women's Big Bash League\"),2,0),IF(n_format_a=\"ODI\",CC8,\"\")))",
+          "value": 96.85491924665132
+        },
+        {
+          "address": "F31",
+          "row": 31,
+          "col": "F",
+          "formula": "97",
+          "value": 97
+        },
+        {
+          "address": "B32",
+          "row": 32,
+          "col": "B",
+          "formula": "Run Outs",
+          "value": "Run Outs"
+        },
+        {
+          "address": "D32",
+          "row": 32,
+          "col": "D",
+          "formula": "=IF(F32=\"\",(U59*BQ16)/(BQ18-BQ16),U59*BQ16)+IF(OR(InfoCompetitionId=6,InfoCompetitionId=40),0.05,0)-IF(InfoCompetitionId=5,0.05,0)",
+          "value": 0.39375131025785165
+        },
+        {
+          "address": "F32",
+          "row": 32,
+          "col": "F",
+          "formula": "0.4",
+          "value": 0.4
+        },
+        {
+          "address": "B33",
+          "row": 33,
+          "col": "B",
+          "formula": "Max Over",
+          "value": "Max Over"
+        },
+        {
+          "address": "D33",
+          "row": 33,
+          "col": "D",
+          "formula": "=IF(OR(n_format_a=\"t10\",n_format_a=\"S6\"),\"\",IF(n_format_a=\"test\",\"\",IF(n_format_a=\"t20\",AI66,AI67)*E6+IF(n_format_a=\"t20\",AJ66,AJ67)))",
+          "value": 18.78254933610927
+        },
+        {
+          "address": "F33",
+          "row": 33,
+          "col": "F",
+          "formula": "19",
+          "value": 19
+        },
+        {
+          "address": "B34",
+          "row": 34,
+          "col": "B",
+          "formula": "Wides Conceded",
+          "value": "Wides Conceded"
+        },
+        {
+          "address": "D34",
+          "row": 34,
+          "col": "D",
+          "formula": "=IF(n_format_a=\"Test\",W38*0.4+IF(N18>200,IFERROR(N15,O15),(IFERROR(N15,O15)*N18+O15*(200-N18))/200)*0.6,MAX(W38*0.4+IF(N18>200,IFERROR(N15,O15),(IFERROR(N15,O15)*N18+O15*(200-N18))/200)*0.6,3.5))*IF(n_format_a=\"T20\",1.05,1)+IF(InfoCompetitionId=47,1,0)",
+          "value": 5.421831421805452
+        },
+        {
+          "address": "F34",
+          "row": 34,
+          "col": "F",
+          "formula": "5.5",
+          "value": 5.5
+        },
+        {
+          "address": "B35",
+          "row": 35,
+          "col": "B",
+          "formula": "Ducks Conceded",
+          "value": "Ducks Conceded"
+        },
+        {
+          "address": "D35",
+          "row": 35,
+          "col": "D",
+          "formula": "=IF(n_format_a=\"Test\",\"\",IF(N18>200,IFERROR(N16,O16),(IFERROR(N16,O16)*N18+O16*(200-N18))/200)/(D6/IF(n_gender=\"Woman\",BW3,1))^1.5-IF(n_tournament=\"T20 Major\",0.05,0))",
+          "value": 0.6681541412931182
+        },
+        {
+          "address": "F35",
+          "row": 35,
+          "col": "F",
+          "formula": "0.7",
+          "value": 0.7
+        },
+        {
+          "address": "B36",
+          "row": 36,
+          "col": "B",
+          "formula": "Run Rate",
+          "value": "Run Rate"
+        },
+        {
+          "address": "D36",
+          "row": 36,
+          "col": "D",
+          "formula": "=SUMIFS(Data!$J:$J,Data!$M:$M,1,Data!$D:$D,n_max_original,Data!AR:AR,InfoTeam1Id)*IF('Match Info'!AS58=1,5,6)/SUMIFS(Data!$Q:$Q,Data!$D:$D,n_max_original,Data!AR:AR,InfoTeam1Id)",
+          "value": 8.646386535509183
+        },
+        {
+          "address": "E36",
+          "row": 36,
+          "col": "E",
+          "formula": "=SUMIFS(Data!$J:$J,Data!$M:$M,1,Data!$D:$D,n_max_original,Data!AS:AS,InfoTeam1Id)*IF('Match Info'!AS58=1,5,6)/SUMIFS(Data!$Q:$Q,Data!$D:$D,n_max_original,Data!AS:AS,InfoTeam1Id)",
+          "value": 8.197017925950746
+        },
+        {
+          "address": "F36",
+          "row": 36,
+          "col": "F",
+          "formula": "=IF(n_format_a=\"Test\",F24/V59,F24/n_max_overs)",
+          "value": 8.771164476233519
+        },
+        {
+          "address": "B37",
+          "row": 37,
+          "col": "B",
+          "formula": "Samples",
+          "value": "Samples"
+        },
+        {
+          "address": "D37",
+          "row": 37,
+          "col": "D",
+          "formula": "=COUNTIFS(Data!AR:AR,InfoTeam1Id,Data!$D:$D,n_max_original,Data!$M:$M,1)",
+          "value": 155
+        },
+        {
+          "address": "E37",
+          "row": 37,
+          "col": "E",
+          "formula": "=COUNTIFS(Data!AS:AS,InfoTeam1Id,Data!$D:$D,n_max_original,Data!$M:$M,1)",
+          "value": 155
+        },
+        {
+          "address": "B38",
+          "row": 38,
+          "col": "B",
+          "formula": "Samples (3 yrs)",
+          "value": "Samples (3 yrs)"
+        },
+        {
+          "address": "D38",
+          "row": 38,
+          "col": "D",
+          "formula": "=COUNTIFS(Data!AR:AR,InfoTeam1Id,Data!$D:$D,n_max_original,Data!$M:$M,1,Data!$B:$B,$P$1)",
+          "value": 47
+        },
+        {
+          "address": "E38",
+          "row": 38,
+          "col": "E",
+          "formula": "=COUNTIFS(Data!AS:AS,InfoTeam1Id,Data!$D:$D,n_max_original,Data!$M:$M,1,Data!$B:$B,$P$1)",
+          "value": 47
+        },
+        {
+          "address": "B39",
+          "row": 39,
+          "col": "B",
+          "formula": "T.Runs Calc",
+          "value": "T.Runs Calc"
+        },
+        {
+          "address": "D39",
+          "row": 39,
+          "col": "D",
+          "formula": "=E6",
+          "value": 175.42328952467037
+        },
+        {
+          "address": "F39",
+          "row": 39,
+          "col": "F",
+          "formula": "=E6*(AVERAGEIFS(Data!J:J,Data!I:I,2)/AVERAGEIFS(Data!J:J,Data!I:I,1))",
+          "value": 159.50860072879323
+        }
+      ]
+    },
+    {
+      "id": "table-4",
+      "name": "Away team \u2014 For / Against",
+      "range": "B44:F60",
+      "cells": [
+        {
+          "address": "D44",
+          "row": 44,
+          "col": "D",
+          "formula": "For",
+          "value": "For"
+        },
+        {
+          "address": "E44",
+          "row": 44,
+          "col": "E",
+          "formula": "Against",
+          "value": "Against"
+        },
+        {
+          "address": "F44",
+          "row": 44,
+          "col": "F",
+          "formula": "Now",
+          "value": "Now"
+        },
+        {
+          "address": "B45",
+          "row": 45,
+          "col": "B",
+          "formula": "1st Inns",
+          "value": "1st Inns"
+        },
+        {
+          "address": "D45",
+          "row": 45,
+          "col": "D",
+          "formula": "=AVERAGEIFS(Data!$J:$J,Data!$I:$I,1,Data!$D:$D,n_max_original,Data!AR:AR,InfoTeam2Id)",
+          "value": 173.16901408450704
+        },
+        {
+          "address": "E45",
+          "row": 45,
+          "col": "E",
+          "formula": "=AVERAGEIFS(Data!$J:$J,Data!$I:$I,1,Data!$D:$D,n_max_original,Data!AS:AS,InfoTeam2Id)",
+          "value": 169.48529411764707
+        },
+        {
+          "address": "F45",
+          "row": 45,
+          "col": "F",
+          "formula": "=J6",
+          "value": 163.4498143968411
+        },
+        {
+          "address": "B46",
+          "row": 46,
+          "col": "B",
+          "formula": "Wickets Taken",
+          "value": "Wickets Taken"
+        },
+        {
+          "address": "D46",
+          "row": 46,
+          "col": "D",
+          "formula": "=AVERAGEIFS(Data!$K:$K,Data!AS:AS,InfoTeam2Id,Data!$D:$D,n_max_original)",
+          "value": 6.83453237410072
+        },
+        {
+          "address": "E46",
+          "row": 46,
+          "col": "E",
+          "formula": "=AVERAGEIFS(Data!$K:$K,Data!AR:AR,InfoTeam2Id,Data!$D:$D,n_max_original)",
+          "value": 6
+        },
+        {
+          "address": "F46",
+          "row": 46,
+          "col": "F",
+          "formula": "=U59",
+          "value": 6.570574269328193
+        },
+        {
+          "address": "B47",
+          "row": 47,
+          "col": "B",
+          "formula": "Fours",
+          "value": "Fours"
+        },
+        {
+          "address": "D47",
+          "row": 47,
+          "col": "D",
+          "formula": "=SUMIFS(Data!$R:$R,Data!$D:$D,n_max_original,Data!AR:AR,InfoTeam2Id)/D58",
+          "value": 12.920863309352518
+        },
+        {
+          "address": "E47",
+          "row": 47,
+          "col": "E",
+          "formula": "=SUMIFS(Data!$R:$R,Data!$D:$D,n_max_original,Data!AS:AS,InfoTeam2Id)/E58",
+          "value": 13.129496402877697
+        },
+        {
+          "address": "F47",
+          "row": 47,
+          "col": "F",
+          "formula": "=O57",
+          "value": 12.28480629504142
+        },
+        {
+          "address": "B48",
+          "row": 48,
+          "col": "B",
+          "formula": "Sixes",
+          "value": "Sixes"
+        },
+        {
+          "address": "D48",
+          "row": 48,
+          "col": "D",
+          "formula": "=SUMIFS(Data!$S:$S,Data!$D:$D,n_max_original,Data!AR:AR,InfoTeam2Id)/D58",
+          "value": 6.64748201438849
+        },
+        {
+          "address": "E48",
+          "row": 48,
+          "col": "E",
+          "formula": "=SUMIFS(Data!$S:$S,Data!$D:$D,n_max_original,Data!AS:AS,InfoTeam2Id)/E58",
+          "value": 7.093525179856115
+        },
+        {
+          "address": "F48",
+          "row": 48,
+          "col": "F",
+          "formula": "=P57",
+          "value": 6.467800082764577
+        },
+        {
+          "address": "B50",
+          "row": 50,
+          "col": "B",
+          "formula": "1st over",
+          "value": "1st over"
+        },
+        {
+          "address": "D50",
+          "row": 50,
+          "col": "D",
+          "formula": "=IF(n_tournament=\"The Hundred Men\",I6*5.8,IF(n_format_a=\"T20\",I6*6,IF(n_format_a=\"ODI\",CC13,\"\")))",
+          "value": 5.943629614430585
+        },
+        {
+          "address": "F50",
+          "row": 50,
+          "col": "F",
+          "formula": "6",
+          "value": 6
+        },
+        {
+          "address": "B51",
+          "row": 51,
+          "col": "B",
+          "formula": "=B30",
+          "value": "1st 6"
+        },
+        {
+          "address": "D51",
+          "row": 51,
+          "col": "D",
+          "formula": "=IF(n_tournament=\"The Hundred Men\",I6*36.3,IF(n_format_a=\"T20\",I6*46.8-IF(OR(InfoCompetitionId=6,n_tournament=\"Women's Big Bash League\"),2,0),IF(n_format_a=\"ODI\",CC14,\"\")))",
+          "value": 46.36031099255856
+        },
+        {
+          "address": "F51",
+          "row": 51,
+          "col": "F",
+          "formula": "45.5",
+          "value": 45.5
+        },
+        {
+          "address": "B52",
+          "row": 52,
+          "col": "B",
+          "formula": "=B31",
+          "value": "1st 12"
+        },
+        {
+          "address": "D52",
+          "row": 52,
+          "col": "D",
+          "formula": "=IF(n_tournament=\"The Hundred Men\",I6*66.5,IF(n_format_a=\"T20\",I6*91.1-IF(OR(InfoCompetitionId=6,n_tournament=\"Women's Big Bash League\"),2,0),IF(n_format_a=\"ODI\",CC16,\"\")))",
+          "value": 90.24410964577105
+        },
+        {
+          "address": "F52",
+          "row": 52,
+          "col": "F",
+          "formula": "89.5",
+          "value": 89.5
+        },
+        {
+          "address": "B53",
+          "row": 53,
+          "col": "B",
+          "formula": "Run Outs",
+          "value": "Run Outs"
+        },
+        {
+          "address": "D53",
+          "row": 53,
+          "col": "D",
+          "formula": "=IF(F53=\"\",(U38*BQ8)/(BQ10-BQ8),U38*BQ8)+IF(OR(InfoCompetitionId=6,InfoCompetitionId=40),0.05,0)-IF(InfoCompetitionId=5,0.05,0)",
+          "value": 0.3196259469274273
+        },
+        {
+          "address": "F53",
+          "row": 53,
+          "col": "F",
+          "formula": "0.33",
+          "value": 0.33
+        },
+        {
+          "address": "B54",
+          "row": 54,
+          "col": "B",
+          "formula": "Max Over",
+          "value": "Max Over"
+        },
+        {
+          "address": "D54",
+          "row": 54,
+          "col": "D",
+          "formula": "=IF(OR(n_format_a=\"t10\",n_format_a=\"S6\"),\"\",IF(n_format_a=\"test\",\"\",IF(n_format_a=\"t20\",AI66,AI67)*J6+IF(n_format_a=\"t20\",AJ66,AJ67)))",
+          "value": 17.945568511347464
+        },
+        {
+          "address": "F54",
+          "row": 54,
+          "col": "F",
+          "formula": "18",
+          "value": 18
+        },
+        {
+          "address": "B55",
+          "row": 55,
+          "col": "B",
+          "formula": "Wides Conceded",
+          "value": "Wides Conceded"
+        },
+        {
+          "address": "D55",
+          "row": 55,
+          "col": "D",
+          "formula": "=IF(n_format_a=\"Test\",W59*0.4+IF(N18>200,IFERROR(N15,O15),(IFERROR(N15,O15)*N18+O15*(200-N18))/200)*0.6,MAX(W59*0.4+IF(N18>200,IFERROR(N15,O15),(IFERROR(N15,O15)*N18+O15*(200-N18))/200)*0.6,3.5))*IF(n_format_a=\"T20\",1.05,1)+IF(InfoCompetitionId=47,1,0)",
+          "value": 5.586509122588746
+        },
+        {
+          "address": "F55",
+          "row": 55,
+          "col": "F",
+          "formula": "5.6",
+          "value": 5.6
+        },
+        {
+          "address": "B56",
+          "row": 56,
+          "col": "B",
+          "formula": "Ducks Conceded",
+          "value": "Ducks Conceded"
+        },
+        {
+          "address": "D56",
+          "row": 56,
+          "col": "D",
+          "formula": "=IF(n_format_a=\"Test\",\"\",IF(N18>200,IFERROR(N16,O16),(IFERROR(N16,O16)*N18+O16*(200-N18))/200)/(I6/IF(n_gender=\"Woman\",BW3,1))^1.5-IF(n_tournament=\"T20 Major\",0.05,0))",
+          "value": 0.7429009142767173
+        },
+        {
+          "address": "F56",
+          "row": 56,
+          "col": "F",
+          "formula": "0.75",
+          "value": 0.75
+        },
+        {
+          "address": "B57",
+          "row": 57,
+          "col": "B",
+          "formula": "Run Rate",
+          "value": "Run Rate"
+        },
+        {
+          "address": "D57",
+          "row": 57,
+          "col": "D",
+          "formula": "=SUMIFS(Data!$J:$J,Data!$M:$M,1,Data!$D:$D,n_max_original,Data!AR:AR,InfoTeam2Id)*IF('Match Info'!AS58=1,5,6)/SUMIFS(Data!$Q:$Q,Data!$D:$D,n_max_original,Data!AR:AR,InfoTeam2Id)",
+          "value": 8.51928053013569
+        },
+        {
+          "address": "E57",
+          "row": 57,
+          "col": "E",
+          "formula": "=SUMIFS(Data!$J:$J,Data!$M:$M,1,Data!$D:$D,n_max_original,Data!AS:AS,InfoTeam2Id)*IF('Match Info'!AS58=1,5,6)/SUMIFS(Data!$Q:$Q,Data!$D:$D,n_max_original,Data!AS:AS,InfoTeam2Id)",
+          "value": 8.42308410633132
+        },
+        {
+          "address": "F57",
+          "row": 57,
+          "col": "F",
+          "formula": "=IF(n_format_a=\"test\",F45/V38,F45/n_max_overs)",
+          "value": 8.172490719842056
+        },
+        {
+          "address": "B58",
+          "row": 58,
+          "col": "B",
+          "formula": "Samples",
+          "value": "Samples"
+        },
+        {
+          "address": "D58",
+          "row": 58,
+          "col": "D",
+          "formula": "=COUNTIFS(Data!AR:AR,InfoTeam2Id,Data!$D:$D,n_max_original,Data!$M:$M,1)",
+          "value": 139
+        },
+        {
+          "address": "E58",
+          "row": 58,
+          "col": "E",
+          "formula": "=COUNTIFS(Data!AS:AS,InfoTeam2Id,Data!$D:$D,n_max_original,Data!$M:$M,1)",
+          "value": 139
+        },
+        {
+          "address": "B59",
+          "row": 59,
+          "col": "B",
+          "formula": "Samples (3 yrs)",
+          "value": "Samples (3 yrs)"
+        },
+        {
+          "address": "D59",
+          "row": 59,
+          "col": "D",
+          "formula": "=COUNTIFS(Data!AR:AR,InfoTeam2Id,Data!$D:$D,n_max_original,Data!$M:$M,1,Data!$B:$B,$P$1)",
+          "value": 47
+        },
+        {
+          "address": "E59",
+          "row": 59,
+          "col": "E",
+          "formula": "=COUNTIFS(Data!AS:AS,InfoTeam2Id,Data!$D:$D,n_max_original,Data!$M:$M,1,Data!$B:$B,$P$1)",
+          "value": 47
+        },
+        {
+          "address": "B60",
+          "row": 60,
+          "col": "B",
+          "formula": "T.Runs Calc",
+          "value": "T.Runs Calc"
+        },
+        {
+          "address": "D60",
+          "row": 60,
+          "col": "D",
+          "formula": "=J6",
+          "value": 163.4498143968411
+        },
+        {
+          "address": "F60",
+          "row": 60,
+          "col": "F",
+          "formula": "=J6*(AVERAGEIFS(Data!J:J,Data!I:I,2)/AVERAGEIFS(Data!J:J,Data!I:I,1))",
+          "value": 148.62137891989843
+        }
+      ]
     }
   ]
 }

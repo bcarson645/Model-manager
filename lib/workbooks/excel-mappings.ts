@@ -77,6 +77,8 @@ export const prepWorkMappings = {
     highestScore: { row: 9, modelCell: "Z9", feeds: "MatchEvaluation.MatchHighScore" },
   },
   teamInningsTotals: {
+    homeBlock: "B23:F39",
+    awayBlock: "B44:F60",
     homeExtras: "M35",
     awayExtras: "M56",
     homeRunOuts: "U36",
