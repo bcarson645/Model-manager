@@ -1,9 +1,18 @@
 "use client";
 
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { computeMatchAnalysis } from "@/lib/scorecards/match-analysis";
+import {
+  filterMatchesByDateRange,
+  getMatchDateBounds,
+  type DateRange,
+} from "@/lib/scorecards/date-range";
 import { getMatchesForFormat, getProfileForFormat, formatLabel } from "@/lib/scorecards/format-source";
+import { DateRangeSlider } from "./DateRangeSlider";
 import { ModelTablesPanel } from "./ModelTablesPanel";
+import { WinProbabilityChart } from "./WinProbabilityChart";
+import { ChaseScoreDensityChart } from "./ChaseScoreDensityChart";
+import { computeWinProbabilityCurves } from "@/lib/scorecards/win-probability-curves";
 
 import type { DataFormat } from "@/lib/scorecards/types";
 
@@ -30,11 +39,29 @@ function StatCard({
 }
 
 export function MatchAnalysisPanel({ format }: MatchAnalysisPanelProps) {
-  const matches = useMemo(() => getMatchesForFormat(format), [format]);
+  const allMatches = useMemo(() => getMatchesForFormat(format), [format]);
   const profile = useMemo(() => getProfileForFormat(format), [format]);
-  const analysis = useMemo(() => computeMatchAnalysis(matches), [matches]);
+  const dateBounds = useMemo(() => getMatchDateBounds(allMatches), [allMatches]);
 
-  if (!profile || matches.length === 0) {
+  const [dateRange, setDateRange] = useState<DateRange | null>(null);
+
+  useEffect(() => {
+    if (dateBounds) {
+      setDateRange({ start: dateBounds.min, end: dateBounds.max });
+    } else {
+      setDateRange(null);
+    }
+  }, [format, dateBounds?.min, dateBounds?.max]);
+
+  const matches = useMemo(() => {
+    if (!dateBounds || !dateRange) return allMatches;
+    return filterMatchesByDateRange(allMatches, dateRange, dateBounds);
+  }, [allMatches, dateBounds, dateRange]);
+
+  const analysis = useMemo(() => computeMatchAnalysis(matches), [matches]);
+  const winCurves = useMemo(() => computeWinProbabilityCurves(matches, format), [matches, format]);
+
+  if (!profile || allMatches.length === 0) {
     return (
       <div className="rounded-2xl border border-dashed border-surface-border bg-surface-raised p-8 text-center text-sm text-slate-400">
         No {formatLabel(format)} data loaded. Run the extractor for this format.
@@ -49,9 +76,19 @@ export function MatchAnalysisPanel({ format }: MatchAnalysisPanelProps) {
       <section className="rounded-2xl border border-surface-border bg-surface-raised p-6">
         <h2 className="text-lg font-semibold text-white">Match analysis</h2>
         <p className="mt-1 text-sm text-slate-400">
-          {profile.matchCount.toLocaleString()} {formatLabel(format)} matches ·{" "}
-          {analysis.decidedMatches.toLocaleString()} decided · {analysis.ties} ties
+          {matches.length.toLocaleString()} of {profile.matchCount.toLocaleString()}{" "}
+          {formatLabel(format)} matches · {analysis.decidedMatches.toLocaleString()} decided ·{" "}
+          {analysis.ties} ties
         </p>
+        {dateBounds && dateRange && (
+          <DateRangeSlider
+            bounds={dateBounds}
+            value={dateRange}
+            onChange={setDateRange}
+            matchCount={matches.length}
+            totalCount={allMatches.length}
+          />
+        )}
       </section>
 
       <section className="rounded-2xl border border-surface-border bg-surface-raised p-6">
@@ -74,6 +111,36 @@ export function MatchAnalysisPanel({ format }: MatchAnalysisPanelProps) {
               </div>
             </div>
           ))}
+        </div>
+      </section>
+
+      <section className="rounded-2xl border border-surface-border bg-surface-raised p-6">
+        <h3 className="text-sm font-semibold text-white">Win probability vs first-innings score</h3>
+        <p className="mt-1 text-sm text-slate-400">
+          How often the team batting first defends their total, and how often the chaser wins, by
+          target score. Based on {winCurves.pairs.length.toLocaleString()} decided two-innings
+          matches in the selected date range.
+        </p>
+        <div className="mt-5">
+          <WinProbabilityChart
+            points={winCurves.byTarget}
+            xLabel={`First innings total (target) — ${formatLabel(format)}`}
+            binWidth={winCurves.binWidth}
+          />
+        </div>
+      </section>
+
+      <section className="rounded-2xl border border-surface-border bg-surface-raised p-6">
+        <h3 className="text-sm font-semibold text-white">Chase innings score distribution</h3>
+        <p className="mt-1 text-sm text-slate-400">
+          Empirical distribution of second-innings totals across all chases in the filter. Compare
+          the peak to common par scores when sanity-checking chase models.
+        </p>
+        <div className="mt-5">
+          <ChaseScoreDensityChart
+            points={winCurves.chaseScoreDensity}
+            binWidth={winCurves.binWidth}
+          />
         </div>
       </section>
 
@@ -100,7 +167,7 @@ export function MatchAnalysisPanel({ format }: MatchAnalysisPanelProps) {
         <p className="mt-2 text-sm text-slate-500">{analysis.toss.note}</p>
       </section>
 
-      <ModelTablesPanel format={format} />
+      <ModelTablesPanel format={format} matches={matches} dateRange={dateRange} />
     </div>
   );
 }

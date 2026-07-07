@@ -13,3 +13,25 @@ body {
 textarea {
   field-sizing: content;
 }
+
+.date-range-thumb::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  pointer-events: auto;
+  height: 1rem;
+  width: 1rem;
+  border-radius: 9999px;
+  border: 2px solid rgb(16 185 129);
+  background: rgb(15 23 42);
+  cursor: grab;
+}
+
+.date-range-thumb::-moz-range-thumb {
+  pointer-events: auto;
+  height: 1rem;
+  width: 1rem;
+  border-radius: 9999px;
+  border: 2px solid rgb(16 185 129);
+  background: rgb(15 23 42);
+  cursor: grab;
+}

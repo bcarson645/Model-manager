@@ -9,8 +9,9 @@ import {
   type ModelTable,
   type TableFilterContext,
 } from "@/lib/scorecards/model-tables";
-import type { DataFormat } from "@/lib/scorecards/types";
+import type { DataFormat, ScorecardMatch } from "@/lib/scorecards/types";
 import { getMatchesForFormat } from "@/lib/scorecards/format-source";
+import { referenceYearFromRange, type DateRange } from "@/lib/scorecards/date-range";
 import { SearchableSelect } from "./SearchableSelect";
 
 function formatValue(table: ModelTable, value: number | null, rowIdx: number): string {
@@ -74,11 +75,13 @@ function ModelTableView({ table }: { table: ModelTable }) {
 
 type ModelTablesPanelProps = {
   format: DataFormat;
+  matches?: ScorecardMatch[];
+  dateRange?: DateRange | null;
 };
 
-export function ModelTablesPanel({ format }: ModelTablesPanelProps) {
-  const matches = useMemo(() => getMatchesForFormat(format), [format]);
-  const flat = useMemo(() => flattenScorecardData(matches), [matches]);
+export function ModelTablesPanel({ format, matches: matchesProp, dateRange }: ModelTablesPanelProps) {
+  const allMatches = useMemo(() => matchesProp ?? getMatchesForFormat(format), [matchesProp, format]);
+  const flat = useMemo(() => flattenScorecardData(allMatches), [allMatches]);
   const options = useMemo(() => listFilterOptions(flat), [flat]);
 
   const [venue, setVenue] = useState("");
@@ -95,8 +98,19 @@ export function ModelTablesPanel({ format }: ModelTablesPanelProps) {
     return c;
   }, [venue, host, tournament, team]);
 
-  const table1 = useMemo(() => computeTable1(flat, format, ctx), [flat, format, ctx]);
-  const table2 = useMemo(() => computeTable2(flat, format, ctx), [flat, format, ctx]);
+  const referenceYear = useMemo(
+    () => (dateRange ? referenceYearFromRange(dateRange) : new Date().getFullYear()),
+    [dateRange]
+  );
+
+  const table1 = useMemo(
+    () => computeTable1(flat, format, ctx, referenceYear),
+    [flat, format, ctx, referenceYear]
+  );
+  const table2 = useMemo(
+    () => computeTable2(flat, format, ctx, referenceYear),
+    [flat, format, ctx, referenceYear]
+  );
 
   return (
     <div className="space-y-6">
@@ -104,8 +118,8 @@ export function ModelTablesPanel({ format }: ModelTablesPanelProps) {
         <h3 className="text-sm font-semibold text-white">Fixture context (optional)</h3>
         <p className="mt-1 text-sm text-slate-400">
           Search and pick venue, host, competition, or team to populate the matching weight
-          columns. The <span className="text-slate-300">All</span> column always uses the full
-          format dataset for comparison.
+          columns. The <span className="text-slate-300">All</span> column uses matches in the
+          selected date range. Dataset: {allMatches.length.toLocaleString()} matches.
         </p>
         <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           <SearchableSelect

@@ -1,0 +1,1816 @@
+[
+  {
+    "category": "Match Market",
+    "market": "Match Betting (3-Way)",
+    "firstRow": 14,
+    "selectionCount": 3,
+    "rows": [
+      14,
+      15,
+      16
+    ],
+    "lastRow": 16
+  },
+  {
+    "category": "Match Market",
+    "market": "Match Winner Double Chance",
+    "firstRow": 17,
+    "selectionCount": 3,
+    "rows": [
+      17,
+      18,
+      19
+    ],
+    "lastRow": 19
+  },
+  {
+    "category": "Match Market",
+    "market": "Match Betting",
+    "firstRow": 20,
+    "selectionCount": 2,
+    "rows": [
+      20,
+      21
+    ],
+    "lastRow": 21
+  },
+  {
+    "category": "Match Market",
+    "market": "Tied Match",
+    "firstRow": 22,
+    "selectionCount": 2,
+    "rows": [
+      22,
+      23
+    ],
+    "lastRow": 23
+  },
+  {
+    "category": "Match Market",
+    "market": "Toss Winner",
+    "firstRow": 24,
+    "selectionCount": 2,
+    "rows": [
+      24,
+      25
+    ],
+    "lastRow": 25
+  },
+  {
+    "category": "Match Market",
+    "market": "Toss/Win Double",
+    "firstRow": 26,
+    "selectionCount": 3,
+    "rows": [
+      26,
+      27,
+      28
+    ],
+    "lastRow": 28
+  },
+  {
+    "category": "Match Market",
+    "market": "Windex 0",
+    "firstRow": 29,
+    "selectionCount": 2,
+    "rows": [
+      29,
+      30
+    ],
+    "lastRow": 30
+  },
+  {
+    "category": "First Inns Market",
+    "market": "Runs in First Innings",
+    "firstRow": 32,
+    "selectionCount": 1,
+    "rows": [
+      32
+    ],
+    "lastRow": 32
+  },
+  {
+    "category": "First Inns Market",
+    "market": "Runs in First Over",
+    "firstRow": 33,
+    "selectionCount": 1,
+    "rows": [
+      33
+    ],
+    "lastRow": 33
+  },
+  {
+    "category": "First Inns Market",
+    "market": "Alternative Runs in First Over",
+    "firstRow": 34,
+    "selectionCount": 1,
+    "rows": [
+      34
+    ],
+    "lastRow": 34
+  },
+  {
+    "category": "First Inns Market",
+    "market": "Runs off First Delivery",
+    "firstRow": 35,
+    "selectionCount": 1,
+    "rows": [
+      35
+    ],
+    "lastRow": 35
+  },
+  {
+    "category": "First Inns Market",
+    "market": "Runs off First Delivery.",
+    "firstRow": 36,
+    "selectionCount": 1,
+    "rows": [
+      36
+    ],
+    "lastRow": 36
+  },
+  {
+    "category": "First Inns Market",
+    "market": "Runs off First Delivery..",
+    "firstRow": 37,
+    "selectionCount": 1,
+    "rows": [
+      37
+    ],
+    "lastRow": 37
+  },
+  {
+    "category": "First Inns Market",
+    "market": "Runs in First 6 Overs",
+    "firstRow": 38,
+    "selectionCount": 3,
+    "rows": [
+      38,
+      138,
+      204
+    ],
+    "lastRow": 204
+  },
+  {
+    "category": "First Inns Market",
+    "market": "Runs in First 8 Overs",
+    "firstRow": 39,
+    "selectionCount": 3,
+    "rows": [
+      39,
+      141,
+      207
+    ],
+    "lastRow": 207
+  },
+  {
+    "category": "First Inns Market",
+    "market": "Runs in First 10 Overs",
+    "firstRow": 40,
+    "selectionCount": 3,
+    "rows": [
+      40,
+      144,
+      210
+    ],
+    "lastRow": 210
+  },
+  {
+    "category": "First Inns Market",
+    "market": "Wickets in First 6 Overs",
+    "firstRow": 41,
+    "selectionCount": 1,
+    "rows": [
+      41
+    ],
+    "lastRow": 41
+  },
+  {
+    "category": "First Inns Market",
+    "market": "Wickets in First 8 Overs",
+    "firstRow": 42,
+    "selectionCount": 1,
+    "rows": [
+      42
+    ],
+    "lastRow": 42
+  },
+  {
+    "category": "First Inns Market",
+    "market": "Wickets in First 10 Overs",
+    "firstRow": 43,
+    "selectionCount": 1,
+    "rows": [
+      43
+    ],
+    "lastRow": 43
+  },
+  {
+    "category": "First Inns Market",
+    "market": "Runs in First Partnership",
+    "firstRow": 44,
+    "selectionCount": 1,
+    "rows": [
+      44
+    ],
+    "lastRow": 44
+  },
+  {
+    "category": "First Inns Market",
+    "market": "Method of First Dismissal",
+    "firstRow": 45,
+    "selectionCount": 7,
+    "rows": [
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51
+    ],
+    "lastRow": 51
+  },
+  {
+    "category": "Match Market",
+    "market": "Match Fours",
+    "firstRow": 52,
+    "selectionCount": 1,
+    "rows": [
+      52
+    ],
+    "lastRow": 52
+  },
+  {
+    "category": "Match Market",
+    "market": "Match Sixes",
+    "firstRow": 53,
+    "selectionCount": 1,
+    "rows": [
+      53
+    ],
+    "lastRow": 53
+  },
+  {
+    "category": "Match Market",
+    "market": "Match Run Outs",
+    "firstRow": 54,
+    "selectionCount": 1,
+    "rows": [
+      54
+    ],
+    "lastRow": 54
+  },
+  {
+    "category": "Match Market",
+    "market": "Max Runs Scored in an Over",
+    "firstRow": 55,
+    "selectionCount": 1,
+    "rows": [
+      55
+    ],
+    "lastRow": 55
+  },
+  {
+    "category": "Match Market",
+    "market": "Match Ducks",
+    "firstRow": 56,
+    "selectionCount": 1,
+    "rows": [
+      56
+    ],
+    "lastRow": 56
+  },
+  {
+    "category": "Match Market",
+    "market": "Match Wides",
+    "firstRow": 57,
+    "selectionCount": 1,
+    "rows": [
+      57
+    ],
+    "lastRow": 57
+  },
+  {
+    "category": "Match Market",
+    "market": "Match Extras",
+    "firstRow": 58,
+    "selectionCount": 1,
+    "rows": [
+      58
+    ],
+    "lastRow": 58
+  },
+  {
+    "category": "Match Market",
+    "market": "Match Wickets",
+    "firstRow": 59,
+    "selectionCount": 1,
+    "rows": [
+      59
+    ],
+    "lastRow": 59
+  },
+  {
+    "category": "Match Market",
+    "market": "Team of Top Bat",
+    "firstRow": 60,
+    "selectionCount": 2,
+    "rows": [
+      60,
+      61
+    ],
+    "lastRow": 61
+  },
+  {
+    "category": "Match Market",
+    "market": "Team of Top Bowl",
+    "firstRow": 62,
+    "selectionCount": 2,
+    "rows": [
+      62,
+      63
+    ],
+    "lastRow": 63
+  },
+  {
+    "category": "Match Market",
+    "market": "First Innings Lead",
+    "firstRow": 64,
+    "selectionCount": 3,
+    "rows": [
+      64,
+      65,
+      66
+    ],
+    "lastRow": 66
+  },
+  {
+    "category": "Match Market",
+    "market": "Fifty in First Innings",
+    "firstRow": 67,
+    "selectionCount": 2,
+    "rows": [
+      67,
+      68
+    ],
+    "lastRow": 68
+  },
+  {
+    "category": "Match Market",
+    "market": "Fifty in Match",
+    "firstRow": 69,
+    "selectionCount": 2,
+    "rows": [
+      69,
+      70
+    ],
+    "lastRow": 70
+  },
+  {
+    "category": "Match Market",
+    "market": "Hundred in First Innings",
+    "firstRow": 71,
+    "selectionCount": 2,
+    "rows": [
+      71,
+      72
+    ],
+    "lastRow": 72
+  },
+  {
+    "category": "Match Market",
+    "market": "Hundred in Match",
+    "firstRow": 73,
+    "selectionCount": 2,
+    "rows": [
+      73,
+      74
+    ],
+    "lastRow": 74
+  },
+  {
+    "category": "Match Market",
+    "market": "Highest Individual Score",
+    "firstRow": 75,
+    "selectionCount": 1,
+    "rows": [
+      75
+    ],
+    "lastRow": 75
+  },
+  {
+    "category": "Match Market",
+    "market": "Rabbit Runs",
+    "firstRow": 76,
+    "selectionCount": 1,
+    "rows": [
+      76
+    ],
+    "lastRow": 76
+  },
+  {
+    "category": "Match Market",
+    "market": "Runs in Highest Scoring Session",
+    "firstRow": 77,
+    "selectionCount": 1,
+    "rows": [
+      77
+    ],
+    "lastRow": 77
+  },
+  {
+    "category": "Match Market",
+    "market": "Test Match Session End",
+    "firstRow": 78,
+    "selectionCount": 7,
+    "rows": [
+      78,
+      79,
+      80,
+      81,
+      82,
+      83,
+      84
+    ],
+    "lastRow": 84
+  },
+  {
+    "category": "Head to Heads",
+    "market": "Highest 1st Over Total",
+    "firstRow": 86,
+    "selectionCount": 3,
+    "rows": [
+      86,
+      87,
+      88
+    ],
+    "lastRow": 88
+  },
+  {
+    "category": "Head to Heads",
+    "market": "Highest 1st 6 Overs Total",
+    "firstRow": 89,
+    "selectionCount": 3,
+    "rows": [
+      89,
+      90,
+      91
+    ],
+    "lastRow": 91
+  },
+  {
+    "category": "Head to Heads",
+    "market": "Highest Opening Partnership",
+    "firstRow": 92,
+    "selectionCount": 3,
+    "rows": [
+      92,
+      93,
+      94
+    ],
+    "lastRow": 94
+  },
+  {
+    "category": "Head to Heads",
+    "market": "Most Fours",
+    "firstRow": 95,
+    "selectionCount": 3,
+    "rows": [
+      95,
+      96,
+      97
+    ],
+    "lastRow": 97
+  },
+  {
+    "category": "Head to Heads",
+    "market": "Most Sixes",
+    "firstRow": 98,
+    "selectionCount": 3,
+    "rows": [
+      98,
+      99,
+      100
+    ],
+    "lastRow": 100
+  },
+  {
+    "category": "Team Market",
+    "market": "1st Over Runs",
+    "firstRow": 102,
+    "selectionCount": 2,
+    "rows": [
+      102,
+      168
+    ],
+    "lastRow": 168
+  },
+  {
+    "category": "Team Market",
+    "market": "1st Over Alternative Runs",
+    "firstRow": 103,
+    "selectionCount": 2,
+    "rows": [
+      103,
+      169
+    ],
+    "lastRow": 169
+  },
+  {
+    "category": "Team Market",
+    "market": "2nd Over Runs",
+    "firstRow": 104,
+    "selectionCount": 2,
+    "rows": [
+      104,
+      170
+    ],
+    "lastRow": 170
+  },
+  {
+    "category": "Team Market",
+    "market": "2nd Over Alternative Runs",
+    "firstRow": 105,
+    "selectionCount": 2,
+    "rows": [
+      105,
+      171
+    ],
+    "lastRow": 171
+  },
+  {
+    "category": "Team Market",
+    "market": "3rd Over Runs",
+    "firstRow": 106,
+    "selectionCount": 2,
+    "rows": [
+      106,
+      172
+    ],
+    "lastRow": 172
+  },
+  {
+    "category": "Team Market",
+    "market": "3rd Over Alternative Runs",
+    "firstRow": 107,
+    "selectionCount": 2,
+    "rows": [
+      107,
+      173
+    ],
+    "lastRow": 173
+  },
+  {
+    "category": "Team Market",
+    "market": "4th Over Runs",
+    "firstRow": 108,
+    "selectionCount": 2,
+    "rows": [
+      108,
+      174
+    ],
+    "lastRow": 174
+  },
+  {
+    "category": "Team Market",
+    "market": "4th Over Alternative Runs",
+    "firstRow": 109,
+    "selectionCount": 2,
+    "rows": [
+      109,
+      175
+    ],
+    "lastRow": 175
+  },
+  {
+    "category": "Team Market",
+    "market": "5th Over Runs",
+    "firstRow": 110,
+    "selectionCount": 2,
+    "rows": [
+      110,
+      176
+    ],
+    "lastRow": 176
+  },
+  {
+    "category": "Team Market",
+    "market": "5th Over Alternative Runs",
+    "firstRow": 111,
+    "selectionCount": 2,
+    "rows": [
+      111,
+      177
+    ],
+    "lastRow": 177
+  },
+  {
+    "category": "Team Market",
+    "market": "6th Over Runs",
+    "firstRow": 112,
+    "selectionCount": 2,
+    "rows": [
+      112,
+      178
+    ],
+    "lastRow": 178
+  },
+  {
+    "category": "Team Market",
+    "market": "6th Over Alternative Runs",
+    "firstRow": 113,
+    "selectionCount": 2,
+    "rows": [
+      113,
+      179
+    ],
+    "lastRow": 179
+  },
+  {
+    "category": "Team Market",
+    "market": "1st Over - Wicket?",
+    "firstRow": 114,
+    "selectionCount": 4,
+    "rows": [
+      114,
+      115,
+      180,
+      181
+    ],
+    "lastRow": 181
+  },
+  {
+    "category": "Team Market",
+    "market": "2nd Over - Wicket?",
+    "firstRow": 116,
+    "selectionCount": 4,
+    "rows": [
+      116,
+      117,
+      182,
+      183
+    ],
+    "lastRow": 183
+  },
+  {
+    "category": "Team Market",
+    "market": "3rd Over - Wicket?",
+    "firstRow": 118,
+    "selectionCount": 4,
+    "rows": [
+      118,
+      119,
+      184,
+      185
+    ],
+    "lastRow": 185
+  },
+  {
+    "category": "Team Market",
+    "market": "4th Over - Wicket?",
+    "firstRow": 120,
+    "selectionCount": 4,
+    "rows": [
+      120,
+      121,
+      186,
+      187
+    ],
+    "lastRow": 187
+  },
+  {
+    "category": "Team Market",
+    "market": "5th Over - Wicket?",
+    "firstRow": 122,
+    "selectionCount": 4,
+    "rows": [
+      122,
+      123,
+      188,
+      189
+    ],
+    "lastRow": 189
+  },
+  {
+    "category": "Team Market",
+    "market": "6th Over - Wicket?",
+    "firstRow": 124,
+    "selectionCount": 4,
+    "rows": [
+      124,
+      125,
+      190,
+      191
+    ],
+    "lastRow": 191
+  },
+  {
+    "category": "Team Market",
+    "market": "1st Over - Boundary?",
+    "firstRow": 126,
+    "selectionCount": 4,
+    "rows": [
+      126,
+      127,
+      192,
+      193
+    ],
+    "lastRow": 193
+  },
+  {
+    "category": "Team Market",
+    "market": "2nd Over - Boundary?",
+    "firstRow": 128,
+    "selectionCount": 4,
+    "rows": [
+      128,
+      129,
+      194,
+      195
+    ],
+    "lastRow": 195
+  },
+  {
+    "category": "Team Market",
+    "market": "3rd Over - Boundary?",
+    "firstRow": 130,
+    "selectionCount": 4,
+    "rows": [
+      130,
+      131,
+      196,
+      197
+    ],
+    "lastRow": 197
+  },
+  {
+    "category": "Team Market",
+    "market": "4th Over - Boundary?",
+    "firstRow": 132,
+    "selectionCount": 4,
+    "rows": [
+      132,
+      133,
+      198,
+      199
+    ],
+    "lastRow": 199
+  },
+  {
+    "category": "Team Market",
+    "market": "5th Over - Boundary?",
+    "firstRow": 134,
+    "selectionCount": 4,
+    "rows": [
+      134,
+      135,
+      200,
+      201
+    ],
+    "lastRow": 201
+  },
+  {
+    "category": "Team Market",
+    "market": "6th Over - Boundary?",
+    "firstRow": 136,
+    "selectionCount": 4,
+    "rows": [
+      136,
+      137,
+      202,
+      203
+    ],
+    "lastRow": 203
+  },
+  {
+    "category": "Team Market",
+    "market": "Runs in First 6 Overs.",
+    "firstRow": 139,
+    "selectionCount": 2,
+    "rows": [
+      139,
+      205
+    ],
+    "lastRow": 205
+  },
+  {
+    "category": "Team Market",
+    "market": "Runs in First 6 Overs..",
+    "firstRow": 140,
+    "selectionCount": 2,
+    "rows": [
+      140,
+      206
+    ],
+    "lastRow": 206
+  },
+  {
+    "category": "Team Market",
+    "market": "Runs in First 8 Overs.",
+    "firstRow": 142,
+    "selectionCount": 2,
+    "rows": [
+      142,
+      208
+    ],
+    "lastRow": 208
+  },
+  {
+    "category": "Team Market",
+    "market": "Runs in First 8 Overs..",
+    "firstRow": 143,
+    "selectionCount": 2,
+    "rows": [
+      143,
+      209
+    ],
+    "lastRow": 209
+  },
+  {
+    "category": "Team Market",
+    "market": "Runs in First 10 Overs.",
+    "firstRow": 145,
+    "selectionCount": 2,
+    "rows": [
+      145,
+      211
+    ],
+    "lastRow": 211
+  },
+  {
+    "category": "Team Market",
+    "market": "Runs in First 10 Overs..",
+    "firstRow": 146,
+    "selectionCount": 2,
+    "rows": [
+      146,
+      212
+    ],
+    "lastRow": 212
+  },
+  {
+    "category": "Team Market",
+    "market": "Runs at Fall of 1st Wicket",
+    "firstRow": 147,
+    "selectionCount": 2,
+    "rows": [
+      147,
+      213
+    ],
+    "lastRow": 213
+  },
+  {
+    "category": "Team Market",
+    "market": "1st Wicket Method of Dismissal",
+    "firstRow": 148,
+    "selectionCount": 14,
+    "rows": [
+      148,
+      149,
+      150,
+      151,
+      152,
+      153,
+      154,
+      214,
+      215,
+      216,
+      217,
+      218,
+      219,
+      220
+    ],
+    "lastRow": 220
+  },
+  {
+    "category": "Team Market",
+    "market": "Fours.",
+    "firstRow": 155,
+    "selectionCount": 2,
+    "rows": [
+      155,
+      221
+    ],
+    "lastRow": 221
+  },
+  {
+    "category": "Team Market",
+    "market": "Fours",
+    "firstRow": 156,
+    "selectionCount": 4,
+    "rows": [
+      156,
+      222,
+      244,
+      245
+    ],
+    "lastRow": 245
+  },
+  {
+    "category": "Team Market",
+    "market": "Fours..",
+    "firstRow": 157,
+    "selectionCount": 2,
+    "rows": [
+      157,
+      223
+    ],
+    "lastRow": 223
+  },
+  {
+    "category": "Team Market",
+    "market": "Sixes.",
+    "firstRow": 158,
+    "selectionCount": 2,
+    "rows": [
+      158,
+      224
+    ],
+    "lastRow": 224
+  },
+  {
+    "category": "Team Market",
+    "market": "Sixes",
+    "firstRow": 159,
+    "selectionCount": 4,
+    "rows": [
+      159,
+      225,
+      238,
+      239
+    ],
+    "lastRow": 239
+  },
+  {
+    "category": "Team Market",
+    "market": "Sixes..",
+    "firstRow": 160,
+    "selectionCount": 2,
+    "rows": [
+      160,
+      226
+    ],
+    "lastRow": 226
+  },
+  {
+    "category": "Team Market",
+    "market": "Innings Run Outs",
+    "firstRow": 161,
+    "selectionCount": 2,
+    "rows": [
+      161,
+      227
+    ],
+    "lastRow": 227
+  },
+  {
+    "category": "Team Market",
+    "market": "Max Runs in an Over",
+    "firstRow": 162,
+    "selectionCount": 2,
+    "rows": [
+      162,
+      228
+    ],
+    "lastRow": 228
+  },
+  {
+    "category": "Team Market",
+    "market": "Wides Faced",
+    "firstRow": 163,
+    "selectionCount": 2,
+    "rows": [
+      163,
+      229
+    ],
+    "lastRow": 229
+  },
+  {
+    "category": "Team Market",
+    "market": "Innings Ducks",
+    "firstRow": 164,
+    "selectionCount": 2,
+    "rows": [
+      164,
+      230
+    ],
+    "lastRow": 230
+  },
+  {
+    "category": "Team Market",
+    "market": "Innings Extras",
+    "firstRow": 165,
+    "selectionCount": 2,
+    "rows": [
+      165,
+      231
+    ],
+    "lastRow": 231
+  },
+  {
+    "category": "Team Market",
+    "market": "Wickets Lost",
+    "firstRow": 166,
+    "selectionCount": 2,
+    "rows": [
+      166,
+      232
+    ],
+    "lastRow": 232
+  },
+  {
+    "category": "Spread Market",
+    "market": "Supremacy",
+    "firstRow": 234,
+    "selectionCount": 2,
+    "rows": [
+      234,
+      235
+    ],
+    "lastRow": 235
+  },
+  {
+    "category": "Spread Market",
+    "market": "Total Sixes",
+    "firstRow": 236,
+    "selectionCount": 1,
+    "rows": [
+      236
+    ],
+    "lastRow": 236
+  },
+  {
+    "category": "Spread Market",
+    "market": "Multi-Sixes",
+    "firstRow": 237,
+    "selectionCount": 1,
+    "rows": [
+      237
+    ],
+    "lastRow": 237
+  },
+  {
+    "category": "Spread Market",
+    "market": "10-3 Sixes Matchbet",
+    "firstRow": 240,
+    "selectionCount": 2,
+    "rows": [
+      240,
+      241
+    ],
+    "lastRow": 241
+  },
+  {
+    "category": "Spread Market",
+    "market": "Total Fours",
+    "firstRow": 242,
+    "selectionCount": 1,
+    "rows": [
+      242
+    ],
+    "lastRow": 242
+  },
+  {
+    "category": "Spread Market",
+    "market": "Multi-Fours",
+    "firstRow": 243,
+    "selectionCount": 1,
+    "rows": [
+      243
+    ],
+    "lastRow": 243
+  },
+  {
+    "category": "Spread Market",
+    "market": "First 6 Overs H2H Supremacy",
+    "firstRow": 246,
+    "selectionCount": 2,
+    "rows": [
+      246,
+      247
+    ],
+    "lastRow": 247
+  },
+  {
+    "category": "Spread Market",
+    "market": "First 15 Overs H2H Supremacy",
+    "firstRow": 248,
+    "selectionCount": 2,
+    "rows": [
+      248,
+      249
+    ],
+    "lastRow": 249
+  },
+  {
+    "category": "Spread Market",
+    "market": "Total Wides",
+    "firstRow": 250,
+    "selectionCount": 1,
+    "rows": [
+      250
+    ],
+    "lastRow": 250
+  },
+  {
+    "category": "Spread Market",
+    "market": "Multi-Wides",
+    "firstRow": 251,
+    "selectionCount": 1,
+    "rows": [
+      251
+    ],
+    "lastRow": 251
+  },
+  {
+    "category": "Spread Market",
+    "market": "Total Run Outs",
+    "firstRow": 252,
+    "selectionCount": 1,
+    "rows": [
+      252
+    ],
+    "lastRow": 252
+  },
+  {
+    "category": "Spread Market",
+    "market": "Launch",
+    "firstRow": 253,
+    "selectionCount": 1,
+    "rows": [
+      253
+    ],
+    "lastRow": 253
+  },
+  {
+    "category": "Spread Market",
+    "market": "Off To A Flyer",
+    "firstRow": 254,
+    "selectionCount": 1,
+    "rows": [
+      254
+    ],
+    "lastRow": 254
+  },
+  {
+    "category": "Spread Market",
+    "market": "Multi-Flyer",
+    "firstRow": 255,
+    "selectionCount": 1,
+    "rows": [
+      255
+    ],
+    "lastRow": 255
+  },
+  {
+    "category": "Player Market",
+    "market": "- Runs",
+    "firstRow": 257,
+    "selectionCount": 10,
+    "rows": [
+      257,
+      258,
+      259,
+      260,
+      261,
+      262,
+      263,
+      264,
+      265,
+      266
+    ],
+    "lastRow": 266
+  },
+  {
+    "category": "Player Market",
+    "market": "- Fours",
+    "firstRow": 267,
+    "selectionCount": 10,
+    "rows": [
+      267,
+      268,
+      269,
+      270,
+      271,
+      272,
+      273,
+      274,
+      275,
+      276
+    ],
+    "lastRow": 276
+  },
+  {
+    "category": "Player Market",
+    "market": "- Sixes",
+    "firstRow": 277,
+    "selectionCount": 10,
+    "rows": [
+      277,
+      278,
+      279,
+      280,
+      281,
+      282,
+      283,
+      284,
+      285,
+      286
+    ],
+    "lastRow": 286
+  },
+  {
+    "category": "Player Market",
+    "market": "- To Score 50?",
+    "firstRow": 287,
+    "selectionCount": 20,
+    "rows": [
+      287,
+      288,
+      289,
+      290,
+      291,
+      292,
+      293,
+      294,
+      295,
+      296,
+      297,
+      298,
+      299,
+      300,
+      301,
+      302,
+      303,
+      304,
+      305,
+      306
+    ],
+    "lastRow": 306
+  },
+  {
+    "category": "Player Market",
+    "market": "- To Score 100?",
+    "firstRow": 307,
+    "selectionCount": 20,
+    "rows": [
+      307,
+      308,
+      309,
+      310,
+      311,
+      312,
+      313,
+      314,
+      315,
+      316,
+      317,
+      318,
+      319,
+      320,
+      321,
+      322,
+      323,
+      324,
+      325,
+      326
+    ],
+    "lastRow": 326
+  },
+  {
+    "category": "Player Market",
+    "market": "#N/A",
+    "firstRow": 327,
+    "selectionCount": 50,
+    "rows": [
+      327,
+      328,
+      329,
+      330,
+      331,
+      332,
+      333,
+      334,
+      335,
+      336,
+      337,
+      338,
+      339,
+      340,
+      341,
+      342,
+      343,
+      344,
+      345,
+      346,
+      579,
+      580,
+      581,
+      582,
+      583,
+      584,
+      585,
+      586,
+      587,
+      588,
+      589,
+      590,
+      591,
+      592,
+      593,
+      594,
+      595,
+      596,
+      597,
+      598,
+      599,
+      600,
+      601,
+      602,
+      630,
+      631,
+      632,
+      633,
+      634,
+      635
+    ],
+    "lastRow": 635
+  },
+  {
+    "category": "Player Market",
+    "market": "Batsman Match Bet I",
+    "firstRow": 348,
+    "selectionCount": 2,
+    "rows": [
+      348,
+      349
+    ],
+    "lastRow": 349
+  },
+  {
+    "category": "Player Market",
+    "market": "Batsman Match Bet II",
+    "firstRow": 350,
+    "selectionCount": 2,
+    "rows": [
+      350,
+      351
+    ],
+    "lastRow": 351
+  },
+  {
+    "category": "Player Market",
+    "market": "Batsman Match Bet III",
+    "firstRow": 352,
+    "selectionCount": 2,
+    "rows": [
+      352,
+      353
+    ],
+    "lastRow": 353
+  },
+  {
+    "category": "Player Market",
+    "market": "Batsman Match Bet IV",
+    "firstRow": 354,
+    "selectionCount": 2,
+    "rows": [
+      354,
+      355
+    ],
+    "lastRow": 355
+  },
+  {
+    "category": "Player Market",
+    "market": "Batsman Match Bet V",
+    "firstRow": 356,
+    "selectionCount": 2,
+    "rows": [
+      356,
+      357
+    ],
+    "lastRow": 357
+  },
+  {
+    "category": "Team Market",
+    "market": "- Top Bat",
+    "firstRow": 359,
+    "selectionCount": 40,
+    "rows": [
+      359,
+      360,
+      361,
+      362,
+      363,
+      364,
+      365,
+      366,
+      367,
+      368,
+      369,
+      370,
+      371,
+      372,
+      373,
+      374,
+      375,
+      376,
+      377,
+      378,
+      399,
+      400,
+      401,
+      402,
+      403,
+      404,
+      405,
+      406,
+      407,
+      408,
+      409,
+      410,
+      411,
+      412,
+      413,
+      414,
+      415,
+      416,
+      417,
+      418
+    ],
+    "lastRow": 418
+  },
+  {
+    "category": "Team Market",
+    "market": "- Top Bowl",
+    "firstRow": 379,
+    "selectionCount": 40,
+    "rows": [
+      379,
+      380,
+      381,
+      382,
+      383,
+      384,
+      385,
+      386,
+      387,
+      388,
+      389,
+      390,
+      391,
+      392,
+      393,
+      394,
+      395,
+      396,
+      397,
+      398,
+      419,
+      420,
+      421,
+      422,
+      423,
+      424,
+      425,
+      426,
+      427,
+      428,
+      429,
+      430,
+      431,
+      432,
+      433,
+      434,
+      435,
+      436,
+      437,
+      438
+    ],
+    "lastRow": 438
+  },
+  {
+    "category": "Match Market",
+    "market": "Match Top Bat.",
+    "firstRow": 439,
+    "selectionCount": 32,
+    "rows": [
+      439,
+      440,
+      441,
+      442,
+      443,
+      444,
+      445,
+      446,
+      447,
+      448,
+      449,
+      450,
+      451,
+      452,
+      453,
+      454,
+      455,
+      456,
+      457,
+      458,
+      459,
+      460,
+      461,
+      462,
+      463,
+      464,
+      465,
+      466,
+      467,
+      468,
+      469,
+      470
+    ],
+    "lastRow": 470
+  },
+  {
+    "category": "Match Market",
+    "market": "Match Top Bowler.",
+    "firstRow": 471,
+    "selectionCount": 32,
+    "rows": [
+      471,
+      472,
+      473,
+      474,
+      475,
+      476,
+      477,
+      478,
+      479,
+      480,
+      481,
+      482,
+      483,
+      484,
+      485,
+      486,
+      487,
+      488,
+      489,
+      490,
+      491,
+      492,
+      493,
+      494,
+      495,
+      496,
+      497,
+      498,
+      499,
+      500,
+      501,
+      502
+    ],
+    "lastRow": 502
+  },
+  {
+    "category": "Match Market",
+    "market": "Man of the Match.",
+    "firstRow": 503,
+    "selectionCount": 40,
+    "rows": [
+      503,
+      504,
+      505,
+      506,
+      507,
+      508,
+      509,
+      510,
+      511,
+      512,
+      513,
+      514,
+      515,
+      516,
+      517,
+      518,
+      519,
+      520,
+      521,
+      522,
+      523,
+      524,
+      525,
+      526,
+      527,
+      528,
+      529,
+      530,
+      531,
+      532,
+      533,
+      534,
+      535,
+      536,
+      537,
+      538,
+      539,
+      540,
+      541,
+      542
+    ],
+    "lastRow": 542
+  },
+  {
+    "category": "Head to Heads",
+    "market": "To Take Most Wickets",
+    "firstRow": 544,
+    "selectionCount": 3,
+    "rows": [
+      544,
+      545,
+      546
+    ],
+    "lastRow": 546
+  },
+  {
+    "category": "Head to Heads",
+    "market": "Highest Player Perf",
+    "firstRow": 547,
+    "selectionCount": 3,
+    "rows": [
+      547,
+      548,
+      549
+    ],
+    "lastRow": 549
+  },
+  {
+    "category": "Head to Heads",
+    "market": "Highest Player Perf By Keeper",
+    "firstRow": 550,
+    "selectionCount": 3,
+    "rows": [
+      550,
+      551,
+      552
+    ],
+    "lastRow": 552
+  },
+  {
+    "category": "Head to Heads",
+    "market": "Most Keeper Catches",
+    "firstRow": 553,
+    "selectionCount": 3,
+    "rows": [
+      553,
+      554,
+      555
+    ],
+    "lastRow": 555
+  },
+  {
+    "category": "Head to Heads",
+    "market": "Most Catches",
+    "firstRow": 556,
+    "selectionCount": 3,
+    "rows": [
+      556,
+      557,
+      558
+    ],
+    "lastRow": 558
+  },
+  {
+    "category": "Head to Heads",
+    "market": "Most Stumpings",
+    "firstRow": 559,
+    "selectionCount": 3,
+    "rows": [
+      559,
+      560,
+      561
+    ],
+    "lastRow": 561
+  },
+  {
+    "category": "Head to Heads",
+    "market": "Most Run Outs When Batting",
+    "firstRow": 562,
+    "selectionCount": 3,
+    "rows": [
+      562,
+      563,
+      564
+    ],
+    "lastRow": 564
+  },
+  {
+    "category": null,
+    "market": "Pre Match Batsmen Fixed (Match Bets)",
+    "firstRow": 567,
+    "selectionCount": 1,
+    "rows": [
+      567
+    ],
+    "lastRow": 567
+  },
+  {
+    "category": "Player Market",
+    "market": "&  to score half centuries",
+    "firstRow": 603,
+    "selectionCount": 9,
+    "rows": [
+      603,
+      604,
+      605,
+      606,
+      607,
+      608,
+      609,
+      610,
+      611
+    ],
+    "lastRow": 611
+  },
+  {
+    "category": "Player Market",
+    "market": "&  to score centuries",
+    "firstRow": 612,
+    "selectionCount": 9,
+    "rows": [
+      612,
+      613,
+      614,
+      615,
+      616,
+      617,
+      618,
+      619,
+      620
+    ],
+    "lastRow": 620
+  },
+  {
+    "category": "Player Market",
+    "market": "to score century and  to score half century",
+    "firstRow": 621,
+    "selectionCount": 9,
+    "rows": [
+      621,
+      622,
+      623,
+      624,
+      625,
+      626,
+      627,
+      628,
+      629
+    ],
+    "lastRow": 629
+  },
+  {
+    "category": "Player Market",
+    "market": "&  combined runs",
+    "firstRow": 636,
+    "selectionCount": 9,
+    "rows": [
+      636,
+      637,
+      638,
+      639,
+      640,
+      641,
+      642,
+      643,
+      644
+    ],
+    "lastRow": 644
+  },
+  {
+    "category": "Player Market",
+    "market": "&  &  combined runs",
+    "firstRow": 645,
+    "selectionCount": 6,
+    "rows": [
+      645,
+      646,
+      647,
+      648,
+      649,
+      650
+    ],
+    "lastRow": 650
+  },
+  {
+    "category": "Team Market",
+    "market": "Runs",
+    "firstRow": 652,
+    "selectionCount": 2,
+    "rows": [
+      652,
+      653
+    ],
+    "lastRow": 653
+  }
+]
