@@ -104,9 +104,45 @@ export const pmQaFixtures: Record<string, PmQaFixture> = {
       "pm-match-ducks": [{ field: "line", note: "Match ducks line", expected: "1.5" }],
       "pm-match-extras": [{ field: "line", note: "M35+M56 ≈ 18.51", expected: "18.5" }],
       "pm-match-wickets": [{ field: "line", note: "U38+U59 ≈ 13.44", expected: "13.5" }],
-      "pm-fifty-first-innings": [{ field: "probability", note: "Prep Work Z5=0.6505", expected: "0.65" }],
-      "pm-hundred-first-innings": [{ field: "probability", note: "Prep Work Z7=0.0582", expected: "0.058" }],
-      "pm-hundred-match": [{ field: "probability", note: "Prep Work Z8=0.084", expected: "0.084" }],
+      "pm-fifty-first-innings": [
+        {
+          field: "probability",
+          note: "Initially mapped — Z5 → FiftyInnings matches interface (Z5=0.6505)",
+          expected: "0.65",
+        },
+      ],
+      "pm-hundred-first-innings": [
+        {
+          field: "probability",
+          note: "Initially mapped — Z7 → HundredInnings matches interface (Z7=0.0582)",
+          expected: "0.058",
+        },
+      ],
+      "pm-hundred-match": [
+        {
+          field: "probability",
+          note: "Initially mapped — Z8 → HundredMatch matches interface (Z8=0.084)",
+          expected: "0.084",
+        },
+      ],
+      "pm-first-partnership": [
+        {
+          field: "line",
+          note: "Initially mapped — opener ExpectedRuns from home/away tables → FirstPartnership",
+        },
+      ],
+      "pm-team-of-top-bat": [
+        {
+          field: "probability",
+          note: "Initially mapped — TeamOfTopBat from MatchBetting blend + I60",
+        },
+      ],
+      "pm-team-of-top-bowl": [
+        {
+          field: "probability",
+          note: "Initially mapped — TeamOfTopBowl from MatchBetting blend + I62",
+        },
+      ],
     },
   },
 };

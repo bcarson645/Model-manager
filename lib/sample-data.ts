@@ -56,13 +56,21 @@ export const models: ModelDefinition[] = [
     market: "Partnership",
     marketCode: "01FONW",
     phase: "pre_match",
+    excelOutputs: [
+      { sheet: "PM Publication", cell: "F44", description: "Partnership run line" },
+      { sheet: "PM Publication", cell: "G44:H44", description: "Under / over probabilities" },
+    ],
     sources: {
+      excel: {
+        version: workbookRef,
+        location: "PM Publication!B44:I44; Prep Work home/away opener ExpectedRuns",
+      },
       lambda: {
         version: "main",
         location: "PreMatch.Models.Matches.FirstPartnership",
       },
     },
-    status: "migrating",
+    status: "parity_check",
   },
   {
     id: "pm-match-betting-3w",
@@ -371,7 +379,7 @@ export const models: ModelDefinition[] = [
       excel: { version: workbookRef, location: "PM Publication!B24:I25" },
       lambda: { version: "main", location: "PreMatch.Models.Matches.TossWinner" },
     },
-    status: "migrating",
+    status: "parity_check",
   },
   {
     id: "pm-fifty-first-innings",
@@ -387,7 +395,7 @@ export const models: ModelDefinition[] = [
       excel: { version: workbookRef, location: "PM Publication!B67:I68; Prep Work!Z5" },
       lambda: { version: "main", location: "PreMatch.Models.Matches.FiftyInnings" },
     },
-    status: "migrating",
+    status: "parity_check",
   },
   {
     id: "pm-hundred-first-innings",
@@ -403,7 +411,7 @@ export const models: ModelDefinition[] = [
       excel: { version: workbookRef, location: "PM Publication!B71:I72; Prep Work!Z7" },
       lambda: { version: "main", location: "PreMatch.Models.Matches.HundredInnings" },
     },
-    status: "migrating",
+    status: "parity_check",
   },
   {
     id: "pm-hundred-match",
@@ -419,7 +427,7 @@ export const models: ModelDefinition[] = [
       excel: { version: workbookRef, location: "PM Publication!B73:I74; Prep Work!Z8" },
       lambda: { version: "main", location: "PreMatch.Models.Matches.HundredMatch" },
     },
-    status: "migrating",
+    status: "parity_check",
   },
   {
     id: "pm-rabbit-runs",
@@ -499,7 +507,7 @@ export const models: ModelDefinition[] = [
       excel: { version: workbookRef, location: "PM Publication!B60:I61" },
       lambda: { version: "main", location: "PreMatch.Models.HeadToHeads.TeamOfTopBat" },
     },
-    status: "migrating",
+    status: "parity_check",
   },
   {
     id: "pm-team-of-top-bowl",
@@ -516,7 +524,7 @@ export const models: ModelDefinition[] = [
       excel: { version: workbookRef, location: "PM Publication!B62:I63" },
       lambda: { version: "main", location: "PreMatch.Models.HeadToHeads.TeamOfTopBowl" },
     },
-    status: "migrating",
+    status: "parity_check",
   },
   {
     id: "pm-team-top-batter",
@@ -863,7 +871,7 @@ export const variables: VariableDefinition[] = [
         notes: "AdjustmentsPM.MatchAdjustments.FirstPartnership",
       },
     },
-    parity: "unverified",
+    parity: "matched",
   },
   {
     id: "match-fours-adjust",
@@ -1013,7 +1021,7 @@ export const variables: VariableDefinition[] = [
       excel: { present: true, defaultValue: 0, notes: "PM Publication!I67 (purple)" },
       lambda: { present: true, notes: "AdjustmentsPM.MatchAdjustments.FirstInningsFifty" },
     },
-    parity: "unverified",
+    parity: "matched",
   },
   {
     id: "first-innings-hundred-adjust",
@@ -1027,7 +1035,7 @@ export const variables: VariableDefinition[] = [
       excel: { present: true, defaultValue: 0, notes: "PM Publication!I71 (purple)" },
       lambda: { present: true, notes: "AdjustmentsPM.MatchAdjustments.FirstInningsHundred" },
     },
-    parity: "unverified",
+    parity: "matched",
   },
   {
     id: "match-hundred-adjust",
@@ -1041,7 +1049,7 @@ export const variables: VariableDefinition[] = [
       excel: { present: true, defaultValue: 0, notes: "PM Publication!I73 (purple)" },
       lambda: { present: true, notes: "AdjustmentsPM.MatchAdjustments.MatchHundred" },
     },
-    parity: "unverified",
+    parity: "matched",
   },
   {
     id: "rabbit-runs-adjust",

@@ -5,9 +5,7 @@ import type {
   ComparisonFixture,
   ModelDefinition,
   ModelPhase,
-  RegistrySummary,
   VariableDefinition,
-  WorkbookSnapshot,
 } from "@/lib/types";
 import { LambdaCodePanel } from "./LambdaCodePanel";
 import { MarketTradingGuidePanel } from "./MarketTradingGuidePanel";
@@ -16,7 +14,6 @@ import { OutputComparison } from "./OutputComparison";
 import { PrepWorkTablesPanel } from "./PrepWorkTablesPanel";
 import { PmMarketCatalog } from "./PmMarketCatalog";
 import { PmPublicationQaPanel } from "./PmPublicationQaPanel";
-import { RatingFormulaPanel } from "./RatingFormulaPanel";
 import { RegistryOverview } from "./RegistryOverview";
 import { VariableMatrix } from "./VariableMatrix";
 
@@ -44,21 +41,18 @@ const tabs: Array<{ id: Tab; label: string }> = [
 ];
 
 type ModelManagerDashboardProps = {
-  summary: RegistrySummary;
   models: ModelDefinition[];
   variables: VariableDefinition[];
   comparison: ComparisonFixture;
-  workbook: WorkbookSnapshot;
 };
 
 export function ModelManagerDashboard({
-  summary,
   models,
   variables,
   comparison,
-  workbook,
 }: ModelManagerDashboardProps) {
   const [activeTab, setActiveTab] = useState<Tab>("overview");
+  const [guideMarketId, setGuideMarketId] = useState<string | undefined>();
   const [phaseFilter, setPhaseFilter] = useState<ModelPhase>("pre_match");
 
   const phaseModelIds = useMemo(
@@ -118,15 +112,22 @@ export function ModelManagerDashboard({
       </div>
 
       {activeTab === "overview" && (
-        <>
-          <RegistryOverview summary={summary} workbook={workbook} />
-          <RatingFormulaPanel />
-        </>
+        <RegistryOverview
+          onSelectMarket={(guideId) => {
+            setGuideMarketId(guideId);
+            setActiveTab("guide");
+          }}
+        />
       )}
       {activeTab === "models" && <ModelRegistry models={models} />}
       {activeTab === "pm-markets" && <PmMarketCatalog />}
       {activeTab === "lambda" && <LambdaCodePanel />}
-      {activeTab === "guide" && <MarketTradingGuidePanel />}
+      {activeTab === "guide" && (
+        <MarketTradingGuidePanel
+          selectedGuideId={guideMarketId}
+          onSelectedGuideIdChange={setGuideMarketId}
+        />
+      )}
       {activeTab === "tables" && <PrepWorkTablesPanel />}
       {activeTab === "pm-qa" && <PmPublicationQaPanel />}
       {activeTab === "variables" && (

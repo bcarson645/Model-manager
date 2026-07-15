@@ -126,6 +126,7 @@ export const nzSaDerivativeParity = [
     prepModel: 0.6505,
     lambdaPath: "FiftyInnings",
     status: "aligned",
+    notes: "Initially mapped — Z5 → MatchEvaluation.FiftyInnings matches interface",
   },
   {
     market: "Hundred in First Innings",
@@ -134,6 +135,7 @@ export const nzSaDerivativeParity = [
     prepModel: 0.0582,
     lambdaPath: "HundredInnings",
     status: "aligned",
+    notes: "Initially mapped — Z7 → MatchEvaluation.HundredInnings matches interface",
   },
   {
     market: "Hundred in Match",
@@ -142,6 +144,29 @@ export const nzSaDerivativeParity = [
     prepModel: 0.084,
     lambdaPath: "HundredMatch",
     status: "aligned",
+    notes: "Initially mapped — Z8 → MatchEvaluation.HundredMatch matches interface",
+  },
+  {
+    market: "Runs in First Partnership",
+    pmRow: 44,
+    lambdaPath: "FirstPartnership — opener ExpectedRuns",
+    status: "aligned",
+    notes:
+      "Initially mapped — home/away for–against / opener ExpectedRuns → FirstPartnership matches interface",
+  },
+  {
+    market: "Team of Top Bat",
+    pmRow: 60,
+    lambdaPath: "TeamOfTopBat — MatchBetting blend 0.86/0.14 + I60",
+    status: "aligned",
+    notes: "Initially mapped — match odds → TeamOfTopBat matches interface",
+  },
+  {
+    market: "Team of Top Bowl",
+    pmRow: 62,
+    lambdaPath: "TeamOfTopBowl — MatchBetting format blend + I62",
+    status: "aligned",
+    notes: "Initially mapped — match odds → TeamOfTopBowl matches interface",
   },
   {
     market: "Match Ducks",

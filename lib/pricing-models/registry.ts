@@ -329,8 +329,7 @@ export const pricingModels: PricingModelDefinition[] = [
       },
     ],
     missingForParity: [
-      "Exact Prep Work cells for each opener ExpectedRuns",
-      "Under/over probabilities after line set (G44/H44)",
+      "Initially mapped — opener ExpectedRuns from home/away tables; full G44/H44 U/O QA still optional",
     ],
   },
   ...additionalPricingModels,

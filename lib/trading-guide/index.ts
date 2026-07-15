@@ -1,6 +1,13 @@
 export { buildMarketGuides, getMarketGuide } from "./build-guides";
 export { buildTraderSkewGuide } from "./trader-skew-guides";
 export {
+  buildJiraTicketDraft,
+  buildJiraAcceptanceCriteria,
+  buildJiraProcessFlow,
+  buildExpectedValueCriteria,
+  formatJiraPaste,
+} from "./jira-ticket";
+export {
   getIntegrationWiring,
   listMarketsByReadiness,
   listConnectedMarkets,
@@ -16,6 +23,11 @@ export type {
   ExcelTradingMapping,
   TraderSkewGuide,
 } from "./types";
+export type {
+  JiraTicketDraft,
+  JiraAcceptanceCriterion,
+  JiraProcessStep,
+} from "./jira-ticket";
 export type {
   IntegrationReadiness,
   IntegrationWiringGuide,

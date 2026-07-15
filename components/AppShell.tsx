@@ -242,11 +242,9 @@ export function AppShell({
         <main className="min-w-0 flex-1 px-6 py-8">
           {activeArea === "model-manager" && activeModelLane === "pre_match" && (
             <ModelManagerDashboard
-              summary={summary}
               models={models}
               variables={variables}
               comparison={comparison}
-              workbook={workbook}
             />
           )}
           {activeArea === "model-manager" && activeModelLane === "live" && (

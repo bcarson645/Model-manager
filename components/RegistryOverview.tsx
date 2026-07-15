@@ -1,146 +1,90 @@
-import type { RegistrySummary, WorkbookSnapshot } from "@/lib/types";
-import { excelConventions, pmPublicationMappings } from "@/lib/workbooks/excel-mappings";
-import { nzSaMatchMarket } from "@/lib/workbooks/nz-sa-63406779";
-import { PhaseBadge } from "./StatusBadge";
+"use client";
 
-type StatCardProps = {
-  label: string;
-  value: number;
-  hint: string;
-  accent?: "default" | "warn" | "ok";
-};
+import { useMemo } from "react";
+import { buildMarketGuides } from "@/lib/trading-guide";
+import { PM_QA_DEFAULT_FIXTURE_ID } from "@/lib/workbooks/pm-publication-qa";
 
-function StatCard({ label, value, hint, accent = "default" }: StatCardProps) {
-  const valueStyles = {
-    default: "text-white",
-    warn: "text-amber-300",
-    ok: "text-emerald-300",
-  };
-
-  return (
-    <div className="rounded-xl border border-surface-border bg-surface p-4">
-      <p className="text-xs font-medium uppercase tracking-wide text-slate-500">{label}</p>
-      <p className={`mt-2 text-3xl font-semibold ${valueStyles[accent]}`}>{value}</p>
-      <p className="mt-1 text-xs text-slate-400">{hint}</p>
-    </div>
-  );
+function parsePmRowOrder(rows?: string): number {
+  if (!rows) return 9999;
+  const match = rows.match(/(\d+)/);
+  return match ? Number(match[1]) : 9999;
 }
 
-export function RegistryOverview({
-  summary,
-  workbook,
-}: {
-  summary: RegistrySummary;
-  workbook: WorkbookSnapshot;
-}) {
+type RegistryOverviewProps = {
+  onSelectMarket: (guideId: string) => void;
+};
+
+export function RegistryOverview({ onSelectMarket }: RegistryOverviewProps) {
+  const guides = useMemo(() => {
+    const { guides: list } = buildMarketGuides(PM_QA_DEFAULT_FIXTURE_ID);
+    return [...list]
+      .filter((g) => g.phase === "pre_match")
+      .sort((a, b) => {
+        const rowDiff =
+          parsePmRowOrder(a.excelTrading?.rows) - parsePmRowOrder(b.excelTrading?.rows);
+        if (rowDiff !== 0) return rowDiff;
+        return a.marketName.localeCompare(b.marketName);
+      });
+  }, []);
+
+  const matchedCount = guides.filter((g) => g.integrationWiring.connected).length;
+
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <div className="rounded-2xl border border-surface-border bg-surface-raised p-6">
-        <div className="flex flex-wrap items-start justify-between gap-4">
-          <div>
-            <h2 className="text-lg font-semibold text-white">Linked workbook</h2>
-            <p className="mt-1 text-sm text-slate-400">
-              {workbook.homeTeam} vs {workbook.awayTeam} · {workbook.format} · {workbook.venue}
-            </p>
-            <p className="mt-1 font-mono text-xs text-slate-500">{workbook.filename}</p>
-          </div>
-          <PhaseBadge phase={workbook.phase} />
-        </div>
-
-        <div className="mt-6 rounded-xl border border-surface-border bg-surface p-4">
-          <p className="text-xs font-medium uppercase tracking-wide text-slate-500">
-            Match market — Prep Work
-          </p>
-          <p className="mt-1 text-xs text-slate-400">
-            Probabilities in <span className="font-mono text-slate-300">C10:C11</span>,
-            decimal prices in <span className="font-mono text-slate-300">D10:D11</span>{" "}
-            ({nzSaMatchMarket.marketType} market)
-          </p>
-          <div className="mt-4 grid gap-3 sm:grid-cols-2">
-            {nzSaMatchMarket.selections.map((sel) => (
-              <div
-                key={sel.team}
-                className="rounded-lg border border-surface-border bg-surface-raised p-3"
-              >
-                <p className="font-medium text-white">{sel.team}</p>
-                <dl className="mt-2 grid grid-cols-2 gap-2 text-xs">
-                  <div>
-                    <dt className="text-slate-500">C — probability</dt>
-                    <dd className="font-mono text-slate-200">
-                      {(sel.probability * 100).toFixed(1)}%
-                    </dd>
-                  </div>
-                  <div>
-                    <dt className="text-slate-500">D — price</dt>
-                    <dd className="font-mono text-slate-200">{sel.price.toFixed(3)}</dd>
-                  </div>
-                </dl>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      <div className="rounded-2xl border border-surface-border bg-surface-raised p-6">
-        <h2 className="text-lg font-semibold text-white">Excel conventions</h2>
+        <h2 className="text-lg font-semibold text-white">Pre-match markets</h2>
         <p className="mt-1 text-sm text-slate-400">
-          Pre-match trader adjusts:{" "}
-          <span className="font-mono text-slate-300">
-            {excelConventions.preMatchAdjustSheet}!{excelConventions.preMatchAdjustColumn}
-          </span>{" "}
-          (purple cells, one per selection row). Live adjusts:{" "}
-          <span className="font-mono text-slate-300">
-            {excelConventions.liveAdjustSheets.join(", ")}
-          </span>
-          .
+          PM Publication order. Click a market for the trading guide (how to map inputs).
         </p>
-        <ul className="mt-4 space-y-2 text-xs text-slate-400">
-          {pmPublicationMappings.markets.map((m) => (
-            <li key={m.modelId}>
-              <span className="font-medium text-slate-300">{m.market}</span>
-              {m.rows && ` — rows ${m.rows}`}
-              {"adjustCell" in m && m.adjustCell && ` · adjust ${m.adjustCell}`}
-              {"adjustCells" in m && m.adjustCells && ` · adjusts ${m.adjustCells.join(", ")}`}
-            </li>
-          ))}
-          <li>
-            <span className="font-medium text-slate-300">Dismissal probabilities</span> — Prep
-            Work AO4:AQ9 · published PM Publication G45:G51
-          </li>
-          <li>
-            <span className="font-medium text-slate-300">Dismissal method rates</span> — Prep
-            Work AD3:AM18
-          </li>
-          <li>
-            <span className="font-medium text-slate-300">Player ratings</span> — formulas e.g.
-            Prep Work Q24 (bat), Z24 (bowl) → team D4/I4/D5/I5
-          </li>
-        </ul>
+        <p className="mt-3 text-xs text-slate-500">
+          <span className="text-emerald-400">{matchedCount}</span> matched ·{" "}
+          <span className="text-slate-400">{guides.length - matchedCount}</span> not yet ·{" "}
+          {guides.length} total
+        </p>
       </div>
 
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <StatCard
-          label="Pre-match models"
-          value={summary.preMatchModels}
-          hint="PM sheets, Prep Work outputs"
-        />
-        <StatCard
-          label="Live models"
-          value={summary.inPlayModels}
-          hint="UI, Scoring, Pricing"
-        />
-        <StatCard
-          label="Trading inputs"
-          value={summary.tradingInputsRequired}
-          hint="Must exist in the trading interface"
-          accent="ok"
-        />
-        <StatCard
-          label="Parity issues"
-          value={summary.parityIssues}
-          hint="Variables not yet matched to Lambda"
-          accent="warn"
-        />
+      <div className="overflow-hidden rounded-2xl border border-surface-border bg-surface-raised">
+        <table className="w-full text-left text-sm">
+          <thead className="border-b border-surface-border bg-surface text-xs uppercase tracking-wide text-slate-500">
+            <tr>
+              <th className="px-4 py-3 font-medium">PM rows</th>
+              <th className="px-4 py-3 font-medium">Market</th>
+              <th className="px-4 py-3 font-medium">Code</th>
+              <th className="px-4 py-3 font-medium">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            {guides.map((guide) => {
+              const matched = Boolean(guide.integrationWiring.connected);
+              return (
+                <tr
+                  key={guide.id}
+                  className="cursor-pointer border-b border-surface-border/60 last:border-0 transition hover:bg-surface"
+                  onClick={() => onSelectMarket(guide.id)}
+                >
+                  <td className="px-4 py-3 font-mono text-xs text-slate-500">
+                    {guide.excelTrading?.rows ?? "—"}
+                  </td>
+                  <td className="px-4 py-3 font-medium text-white">{guide.marketName}</td>
+                  <td className="px-4 py-3 font-mono text-xs text-slate-400">
+                    {guide.marketCode || "—"}
+                  </td>
+                  <td className="px-4 py-3">
+                    {matched ? (
+                      <span className="inline-flex rounded-full border border-emerald-500/40 bg-emerald-500/15 px-2 py-0.5 text-xs font-medium text-emerald-300">
+                        Matched
+                      </span>
+                    ) : (
+                      <span className="inline-flex rounded-full border border-slate-600 bg-slate-800/80 px-2 py-0.5 text-xs font-medium text-slate-400">
+                        Not matched
+                      </span>
+                    )}
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
       </div>
     </div>
   );

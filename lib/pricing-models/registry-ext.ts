@@ -579,9 +579,8 @@ export const additionalPricingModels: PricingModelDefinition[] = [
       },
     ],
     missingForParity: [
-      "HeadStandardMarketPricingModel base class",
-      "Confirm I60 adjust cell vs PM Publication layout",
-      "Relationship to TeamTopBatter per-team markets",
+      "Initially mapped — match odds blend + I60 matches interface",
+      "Relationship to TeamTopBatter per-team markets (child spawn)",
     ],
   },
   {
@@ -642,9 +641,8 @@ export const additionalPricingModels: PricingModelDefinition[] = [
       },
     ],
     missingForParity: [
-      "HeadStandardMarketPricingModel base class",
-      "Confirm I62 adjust cell vs PM Publication layout",
-      "T10 uses same blend as T20 in Lambda",
+      "Initially mapped — match odds blend + I62 matches interface",
+      "T10 uses same blend as T20 in Lambda (format quirk)",
     ],
   },
   {
@@ -1824,7 +1822,7 @@ export const additionalPricingModels: PricingModelDefinition[] = [
       },
     ],
     missingForParity: [
-      "marketId 700 shared with HundredInnings",
+      "Initially mapped — Z5 → FiftyInnings matches interface; marketId 700 shared with HundredInnings (Lambda)",
       "Fifty in Match (row 69) has no Lambda class in paste",
     ],
   },
@@ -1869,7 +1867,10 @@ export const additionalPricingModels: PricingModelDefinition[] = [
         excelRef: "PM Publication!G71 / G72",
       },
     ],
-    missingForParity: ["marketId 700 collision with FiftyInnings", "Confirm HUNDIN code in PM"],
+    missingForParity: [
+      "Initially mapped — Z7 → HundredInnings matches interface",
+      "marketId 700 collision with FiftyInnings (Lambda quirk)",
+    ],
   },
   {
     id: "hundred-match",
@@ -1909,7 +1910,9 @@ export const additionalPricingModels: PricingModelDefinition[] = [
         excelRef: "PM Publication!G73 / G74",
       },
     ],
-    missingForParity: ["Confirm Z8 vs PM G73 after adjust"],
+    missingForParity: [
+      "Initially mapped — Z8 → HundredMatch matches interface",
+    ],
   },
   {
     id: "team-fours",

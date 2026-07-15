@@ -17,6 +17,7 @@ import {
   ReadinessBadge,
   ReadyMarketsSummary,
 } from "@/components/IntegrationWiringSection";
+import { JiraTicketSection } from "@/components/JiraTicketSection";
 
 function groupLabel(guide: MarketTradingGuide): string {
   if (guide.lambdaClass.includes(".Groups.")) return "Group markets";
@@ -189,6 +190,8 @@ function GuideDetail({ guide }: { guide: MarketTradingGuide }) {
 
       <IntegrationWiringSection wiring={guide.integrationWiring} />
 
+      <JiraTicketSection guide={guide} />
+
       <div className="grid gap-6 lg:grid-cols-2">
         <section className="rounded-2xl border border-accent/40 bg-accent/5 p-6">
           <h3 className="text-lg font-semibold text-white">
@@ -319,10 +322,24 @@ function GuideDetail({ guide }: { guide: MarketTradingGuide }) {
   );
 }
 
-export function MarketTradingGuidePanel() {
+type MarketTradingGuidePanelProps = {
+  selectedGuideId?: string;
+  onSelectedGuideIdChange?: (id: string) => void;
+};
+
+export function MarketTradingGuidePanel({
+  selectedGuideId,
+  onSelectedGuideIdChange,
+}: MarketTradingGuidePanelProps) {
   const [fixtureId, setFixtureId] = useState(PM_QA_DEFAULT_FIXTURE_ID);
   const { guides } = useMemo(() => buildMarketGuides(fixtureId), [fixtureId]);
-  const [selectedId, setSelectedId] = useState(guides[0]?.id ?? "");
+  const [localSelectedId, setLocalSelectedId] = useState(guides[0]?.id ?? "");
+
+  const selectedId = selectedGuideId ?? localSelectedId;
+  const setSelectedId = (id: string) => {
+    setLocalSelectedId(id);
+    onSelectedGuideIdChange?.(id);
+  };
 
   const grouped = useMemo(() => {
     const map = new Map<string, MarketTradingGuide[]>();
@@ -335,7 +352,10 @@ export function MarketTradingGuidePanel() {
     return Array.from(map.entries());
   }, [guides]);
 
-  const selected = guides.find((g) => g.id === selectedId);
+  const selected =
+    guides.find((g) => g.id === selectedId) ??
+    guides.find((g) => g.registryModelId === selectedId) ??
+    guides[0];
 
   return (
     <div className="space-y-6">
@@ -376,7 +396,7 @@ export function MarketTradingGuidePanel() {
             Market
           </label>
           <select
-            value={selectedId}
+            value={selected?.id ?? ""}
             onChange={(e) => setSelectedId(e.target.value)}
             className="mt-2 w-full rounded-lg border border-surface-border bg-surface px-3 py-2.5 text-sm text-white"
           >

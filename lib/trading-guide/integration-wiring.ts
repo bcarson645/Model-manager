@@ -168,7 +168,8 @@ export const wiringByRegistryId: Record<string, IntegrationWiringGuide> = {
   "pm-toss-winner": {
     readiness: "ready",
     connected: true,
-    connectedNote: "Fixed 50/50 — rows 24–25 in Market Configuration. No trader adjust.",
+    connectedNote:
+      "Initially mapped — fixed 50/50 TossWinner; Market Configuration rows 24–25. No trader adjust.",
     readinessSummary: "Connected — basic probability market; format only for MaxOver specifier.",
     fromPlayerAdjustment: [],
     extraEvaluationInputs: [],
@@ -246,8 +247,12 @@ export const wiringByRegistryId: Record<string, IntegrationWiringGuide> = {
 
   "pm-team-of-top-bat": {
     readiness: "ready",
-    readinessSummary: "Spawned from match odds — no extra prep blocks.",
-    fromPlayerAdjustment: ["Match betting probabilities"],
+    connected: true,
+    connectedNote:
+      "Initially mapped — derived from MatchBetting probs; Market Configuration rows 60–61.",
+    readinessSummary:
+      "Connected — TeamOfTopBat matches sheet inputs (match odds blend + I60).",
+    fromPlayerAdjustment: ["Match betting probabilities (same evaluation payload)"],
     extraEvaluationInputs: [],
     backendOnly: defaultBackendLookups.filter((x) => x.id === "overs"),
     marketConfiguration: [
@@ -255,35 +260,49 @@ export const wiringByRegistryId: Record<string, IntegrationWiringGuide> = {
       "Single adjust I60 (home skew ÷100).",
     ],
     wiringSteps: [
-      "Price MatchBetting first; pass match market to TeamOfTopBat or call standalone.",
-      "Blend 0.86/0.14 on match probs + adjust.",
+      "✓ MatchBetting priced in same evaluation.",
+      "✓ TeamOfTopBat blend 0.86/0.14 + adjust I60.",
+      "✓ Market Configuration rows 60–61.",
     ],
   },
 
   "pm-team-of-top-bowl": {
     readiness: "ready",
-    readinessSummary: "Same pattern as Team of Top Bat.",
-    fromPlayerAdjustment: ["Match betting probabilities"],
+    connected: true,
+    connectedNote:
+      "Initially mapped — derived from MatchBetting probs; Market Configuration rows 62–63.",
+    readinessSummary:
+      "Connected — TeamOfTopBowl matches sheet inputs (match odds blend + I62).",
+    fromPlayerAdjustment: ["Match betting probabilities (same evaluation payload)"],
     extraEvaluationInputs: [],
     backendOnly: defaultBackendLookups.filter((x) => x.id === "overs"),
     marketConfiguration: ["Rows 62–63: two-way; adjust I62."],
-    wiringSteps: ["Same as Team of Top Bat with format-dependent blend weights."],
+    wiringSteps: [
+      "✓ MatchBetting priced in same evaluation.",
+      "✓ TeamOfTopBowl format blend + adjust I62.",
+      "✓ Market Configuration rows 62–63.",
+    ],
   },
 
   "pm-first-partnership": {
-    readiness: "ready_soon",
-    readinessSummary: "Openers only — needs ExpectedRuns on positions 1–2 (likely already in evaluation if match price works).",
+    readiness: "ready",
+    connected: true,
+    connectedNote:
+      "Initially mapped — opener ExpectedRuns from team for/against tables feed Lambda; Market Configuration row 44.",
+    readinessSummary:
+      "Connected — FirstPartnership inputs match Prep Work opener / team table mapping.",
     fromPlayerAdjustment: [
       "Opener batting average (BT CAZ) — T10 uses average directly",
-      "Opener ExpectedRuns — non-T10 uses ExpectedRuns from evaluation",
+      "Opener ExpectedRuns — non-T10 from home/away for–against table mapping",
     ],
     extraEvaluationInputs: [
       {
         id: "expected-runs",
         label: "Opener ExpectedRuns",
-        status: "need",
-        detail: "Confirm evaluation maps player ratings → BatsmanEvaluation.ExpectedRuns for openers.",
-        source: "PlayerEvaluation pipeline (same as match betting)",
+        status: "have",
+        detail:
+          "Mapped from home/away team table inputs → BatsmanEvaluation.ExpectedRuns for openers [0],[1].",
+        source: "Team for/against tables + player evaluation",
       },
     ],
     backendOnly: defaultBackendLookups.filter((x) => x.id === "overs"),
@@ -292,67 +311,89 @@ export const wiringByRegistryId: Record<string, IntegrationWiringGuide> = {
       "U/O at 50/50 after line set.",
     ],
     wiringSteps: [
-      "Verify openers [0],[1] have ExpectedRuns in payload.",
-      "Call FirstPartnership; store line + apply adjust to line.",
+      "✓ Opener ExpectedRuns on evaluation payload.",
+      "✓ FirstPartnership.GetMarkets → line + U/O.",
+      "✓ Market Configuration row 44: line, adjust I44, publish.",
     ],
     uiNotes: ["Adjust shifts the line integer, not probability (÷100 pattern does not apply)."],
   },
 
   "pm-fifty-first-innings": {
-    readiness: "ready_soon",
-    readinessSummary: "Single milestone probability from prep — may need Z5-style field on backend.",
+    readiness: "ready",
+    connected: true,
+    connectedNote:
+      "Initially mapped — MatchEvaluation.FiftyInnings from match-level model stats (Prep Work Z5) matches interface.",
+    readinessSummary:
+      "Connected — FiftyInnings milestone mapped from match-level model stats table.",
     fromPlayerAdjustment: ["Conditions + team factors feed milestone calc"],
     extraEvaluationInputs: [
       {
         id: "fifty-prob",
         label: "FiftyInnings probability",
-        status: "need",
-        detail: "MatchEvaluation.FiftyInnings — from Prep Work Z5 or equivalent.",
+        status: "have",
+        detail: "MatchEvaluation.FiftyInnings — Prep Work!Z5 / match-level model stats row 5.",
         source: "Prep Work!Z5 / prep match stats block",
       },
     ],
     backendOnly: defaultBackendLookups.filter((x) => x.id === "format"),
     marketConfiguration: ["Rows 67–68: Yes/No; adjust I67 (÷100 on Yes)."],
     wiringSteps: [
-      "Export or compute FiftyInnings on evaluation build.",
-      "Call FiftyInnings milestone model; Yes/No + adjust.",
+      "✓ FiftyInnings on evaluation from match-level model stats.",
+      "✓ FiftyInnings model → Yes/No + adjust.",
+      "✓ Market Configuration rows 67–68.",
     ],
   },
 
   "pm-hundred-first-innings": {
-    readiness: "ready_soon",
-    readinessSummary: "Same as Fifty — needs HundredInnings from Z7.",
+    readiness: "ready",
+    connected: true,
+    connectedNote:
+      "Initially mapped — MatchEvaluation.HundredInnings from match-level model stats (Prep Work Z7) matches interface.",
+    readinessSummary:
+      "Connected — HundredInnings milestone mapped from match-level model stats table.",
     fromPlayerAdjustment: ["Conditions + team factors"],
     extraEvaluationInputs: [
       {
         id: "hundred-prob",
         label: "HundredInnings probability",
-        status: "need",
-        detail: "MatchEvaluation.HundredInnings from Prep Work Z7.",
+        status: "have",
+        detail: "MatchEvaluation.HundredInnings — Prep Work!Z7 / match-level model stats row 7.",
         source: "Prep Work!Z7",
       },
     ],
     backendOnly: defaultBackendLookups.filter((x) => x.id === "format"),
     marketConfiguration: ["Rows 71–72: Yes/No; adjust I71."],
-    wiringSteps: ["Export HundredInnings; call HundredInnings model."],
+    wiringSteps: [
+      "✓ HundredInnings on evaluation from match-level model stats.",
+      "✓ HundredInnings model → Yes/No + adjust.",
+      "✓ Market Configuration rows 71–72.",
+    ],
   },
 
   "pm-hundred-match": {
-    readiness: "ready_soon",
-    readinessSummary: "Needs HundredMatch from Z8.",
+    readiness: "ready",
+    connected: true,
+    connectedNote:
+      "Initially mapped — MatchEvaluation.HundredMatch from match-level model stats (Prep Work Z8) matches interface.",
+    readinessSummary:
+      "Connected — HundredMatch milestone mapped from match-level model stats table.",
     fromPlayerAdjustment: ["Conditions + team factors"],
     extraEvaluationInputs: [
       {
         id: "hundred-match-prob",
         label: "HundredMatch probability",
-        status: "need",
-        detail: "MatchEvaluation.HundredMatch from Prep Work Z8.",
+        status: "have",
+        detail: "MatchEvaluation.HundredMatch — Prep Work!Z8 / match-level model stats row 8.",
         source: "Prep Work!Z8",
       },
     ],
     backendOnly: defaultBackendLookups.filter((x) => x.id === "format"),
     marketConfiguration: ["Rows 73–74: Yes/No; adjust I73."],
-    wiringSteps: ["Export HundredMatch; call HundredMatch model."],
+    wiringSteps: [
+      "✓ HundredMatch on evaluation from match-level model stats.",
+      "✓ HundredMatch model → Yes/No + adjust.",
+      "✓ Market Configuration rows 73–74.",
+    ],
   },
 
   "pm-first-innings-lead": {
