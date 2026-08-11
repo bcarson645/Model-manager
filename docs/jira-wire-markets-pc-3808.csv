@@ -1,0 +1,1157 @@
+Summary,Issue Type,Description,Component,Epic Link,Labels,Assignee
+Wire (1st Wicket Method of Dismissal (per team)),Story,"Wire pre-match market *1st Wicket Method of Dismissal (per team)* into Player Adjustment → Lambda → Market Configuration.
+
+h3. Data flow
+# *Player Adjustment / Prep* — Capture fixture, squad, conditions, and team/player ratings used by this market.
+# *Evaluation payload* — Map prep outputs into the pre-match evaluation object required by *1st Wicket Method of Dismissal (per team)* (see Excel notes below).
+# *Lambda* — Invoke `PreMatch.Models.Teams.TeamFirstDismissal` and capture base line / outcome probabilities.
+# *Trader skew (FE)* — Store purple adjust (PM column I) on the FE; apply after Lambda returns base probs/line (do not send skew as a Lambda input unless the model already expects it).
+# *Market Configuration* — Display published line/prob/price; publish selections for trading.
+*Lambda / class:* `PreMatch.Models.Teams.TeamFirstDismissal`
+*Registry:* `pm-team-first-dismissal`
+*Market code:* `11MOPD / 21MOPD`
+*Excel today:* PM Publication rows NZ 148-154 / SA 214-220 ({Team} 1st Wicket Method of Dismissal)
+*Trader adjust:* none / TBC
+*Notes:* 7 selections per team; Prep Work AD:AM dismissal rates; no PM adjust in Lambda
+*Default QA fixture:* NZ v SA (Atlas / workbook default) with adjust = 0
+*Component:* development — deliver for all formats where the model applies
+*Epic:* PCS Trading UI: Pre Match (PC-3808)
+
+h3. Process flow
+# *Map evaluation inputs* — Confirm fixture + format and any player/team fields required for 1st Wicket Method of Dismissal (per team).
+# *Wire extra evaluation fields* — Add any missing MatchEvaluation / BatterEvaluation / Innings fields called out in the Excel mapping notes.
+# *Call Lambda market* — Invoke PreMatch.Models.Teams.TeamFirstDismissal and capture base outcomes / line.
+# *Market Configuration UI* — Render 1st Wicket Method of Dismissal (per team) in Market Configuration (prob / line / adjust / price) aligned to PM rows NZ 148-154 / SA 214-220.
+# *Apply trader adjust post-model* — Store purple skew; apply after Lambda per market skew rules (÷100 / ÷10 / line nudge as documented).
+# *QA against default fixture* — Compare published outputs to PM Publication defaults (adjust = 0) before marking Matched.
+
+h3. Acceptance criteria
+* [ ] AC1: 1st Wicket Method of Dismissal (per team) appears in Market Configuration (PM rows NZ 148-154 / SA 214-220) with correct market code 11MOPD / 21MOPD.
+* [ ] AC2: Pricing call returns Lambda outcomes for 1st Wicket Method of Dismissal (per team); UI displays base probabilities and/or line without requiring a non-zero trader adjust.
+* [ ] AC3: Trader adjust control is available where the sheet has a purple I column; +1 / −1 (or documented unit) updates published values after Lambda.
+* [ ] AC4 (expected value): With default fixture inputs and adjust = 0, published probs/lines match captured PM Publication for the default NZ v SA fixture (capture from QA tab if missing).
+* [ ] AC5 (wiring): Model Manager Overview can mark this market Matched once QA passes on the default fixture.
+* [ ] AC6: Behaviour is validated for applicable formats (T20 / ODI / Test as relevant to the model).",development,PC-3808,pre-match trading-ui development pm-team-first-dismissal,
+Wire (First Over Runs),Story,"Wire pre-match market *First Over Runs* into Player Adjustment → Lambda → Market Configuration.
+
+h3. Data flow
+# *Player Adjustment / Prep* — Capture fixture, squad, conditions, and team/player ratings used by this market.
+# *Evaluation payload* — Map prep outputs into the pre-match evaluation object required by *First Over Runs* (see Excel notes below).
+# *Lambda* — Invoke `TBC` and capture base line / outcome probabilities.
+# *Trader skew (FE)* — Store purple adjust (PM column I) on the FE; apply after Lambda returns base probs/line (do not send skew as a Lambda input unless the model already expects it).
+# *Market Configuration* — Display published line/prob/price; publish selections for trading.
+*Lambda / class:* `TBC`
+*Registry:* `pm-first-over`
+*Market code:* TBC
+*Excel today:* PM Publication rows — (First Over Runs)
+*Trader adjust:* none / TBC
+*Notes:* Expected runs and over/under lines for the first over of each innings.
+*Default QA fixture:* NZ v SA (Atlas / workbook default) with adjust = 0
+*Component:* development — deliver for all formats where the model applies
+*Epic:* PCS Trading UI: Pre Match (PC-3808)
+
+h3. Process flow
+# *Map evaluation inputs* — Confirm fixture + format and any player/team fields required for First Over Runs.
+# *Wire extra evaluation fields* — Add any missing MatchEvaluation / BatterEvaluation / Innings fields called out in the Excel mapping notes.
+# *Call Lambda market* — Invoke First Over Runs and capture base outcomes / line.
+# *Market Configuration UI* — Render First Over Runs in Market Configuration (prob / line / adjust / price) aligned to PM rows —.
+# *Apply trader adjust post-model* — Store purple skew; apply after Lambda per market skew rules (÷100 / ÷10 / line nudge as documented).
+# *QA against default fixture* — Compare published outputs to PM Publication defaults (adjust = 0) before marking Matched.
+
+h3. Acceptance criteria
+* [ ] AC1: First Over Runs appears in Market Configuration with correct market code (TBC).
+* [ ] AC2: Pricing call returns Lambda outcomes for First Over Runs; UI displays base probabilities and/or line without requiring a non-zero trader adjust.
+* [ ] AC3: Trader adjust control is available where the sheet has a purple I column; +1 / −1 (or documented unit) updates published values after Lambda.
+* [ ] AC4 (expected value): With default fixture inputs and adjust = 0, published probs/lines match captured PM Publication for the default NZ v SA fixture (capture from QA tab if missing).
+* [ ] AC5 (wiring): Model Manager Overview can mark this market Matched once QA passes on the default fixture.
+* [ ] AC6: Behaviour is validated for applicable formats (T20 / ODI / Test as relevant to the model).",development,PC-3808,pre-match trading-ui development pm-first-over,
+Wire (Highest Individual Score),Story,"Wire pre-match market *Highest Individual Score* into Player Adjustment → Lambda → Market Configuration.
+
+h3. Data flow
+# *Player Adjustment / Prep* — Capture fixture, squad, conditions, and team/player ratings used by this market.
+# *Evaluation payload* — Map prep outputs into the pre-match evaluation object required by *Highest Individual Score* (see Excel notes below).
+# *Lambda* — Invoke `PreMatch.Models.Matches.HighestIndividualScore` and capture base line / outcome probabilities.
+# *Trader skew (FE)* — Store purple adjust (PM column I) on the FE; apply after Lambda returns base probs/line (do not send skew as a Lambda input unless the model already expects it).
+# *Market Configuration* — Display published line/prob/price; publish selections for trading.
+*Lambda / class:* `PreMatch.Models.Matches.HighestIndividualScore`
+*Registry:* `pm-highest-individual-score`
+*Market code:* `63BARUA`
+*Excel today:* PM Publication rows 75 (Highest Individual Score)
+*Line cell:* F75
+*Adjust cell:* I75
+*Lambda adjust path:* `AdjustmentsPM.MatchAdjustments.HighestIndividualScore`
+*Notes:* Line = Round(MatchHighScore) + adjust + 0.5
+*Default QA fixture:* NZ v SA (Atlas / workbook default) with adjust = 0
+*Component:* development — deliver for all formats where the model applies
+*Epic:* PCS Trading UI: Pre Match (PC-3808)
+
+h3. Process flow
+# *Map evaluation inputs* — Confirm fixture + format and any player/team fields required for Highest Individual Score.
+# *Wire extra evaluation fields* — Add any missing MatchEvaluation / BatterEvaluation / Innings fields called out in the Excel mapping notes.
+# *Call Lambda market* — Invoke PreMatch.Models.Matches.HighestIndividualScore and capture base outcomes / line.
+# *Market Configuration UI* — Render Highest Individual Score in Market Configuration (prob / line / adjust / price) aligned to PM rows 75.
+# *Apply trader adjust post-model* — Store purple skew; apply after Lambda per market skew rules (÷100 / ÷10 / line nudge as documented).
+# *QA against default fixture* — Compare published outputs to PM Publication defaults (adjust = 0) before marking Matched.
+
+h3. Acceptance criteria
+* [ ] AC1: Highest Individual Score appears in Market Configuration (PM rows 75) with correct market code 63BARUA.
+* [ ] AC2: Pricing call returns Lambda outcomes for Highest Individual Score; UI displays base probabilities and/or line without requiring a non-zero trader adjust.
+* [ ] AC3: Trader adjust control is available where the sheet has a purple I column; +1 / −1 (or documented unit) updates published values after Lambda.
+* [ ] AC4 (expected value): With default fixture inputs and adjust = 0, published probs/lines match captured PM Publication for the default NZ v SA fixture (capture from QA tab if missing).
+* [ ] AC5 (wiring): Model Manager Overview can mark this market Matched once QA passes on the default fixture.
+* [ ] AC6: Behaviour is validated for applicable formats (T20 / ODI / Test as relevant to the model).",development,PC-3808,pre-match trading-ui development pm-highest-individual-score,
+Wire (Highest Opening Partnership),Story,"Wire pre-match market *Highest Opening Partnership* into Player Adjustment → Lambda → Market Configuration.
+
+h3. Data flow
+# *Player Adjustment / Prep* — Capture fixture, squad, conditions, and team/player ratings used by this market.
+# *Evaluation payload* — Map prep outputs into the pre-match evaluation object required by *Highest Opening Partnership* (see Excel notes below).
+# *Lambda* — Invoke `PreMatch.Models.….HighestOpeningPartnership` and capture base line / outcome probabilities.
+# *Trader skew (FE)* — Store purple adjust (PM column I) on the FE; apply after Lambda returns base probs/line (do not send skew as a Lambda input unless the model already expects it).
+# *Market Configuration* — Display published line/prob/price; publish selections for trading.
+*Lambda / class:* `PreMatch.Models.….HighestOpeningPartnership`
+*Registry:* `pm-highest-opening-partnership`
+*Market code:* `HOPA`
+*Excel today:* PM Publication rows 92-94 (Highest Opening Partnership)
+*Trader adjust:* none / TBC
+*Lambda adjust path:* `MatchAdjustments.HighestOpeningPartnership + HighestOpeningPartnershipTie`
+*Notes:* 3-way opening-partnership race. homeProb + homeAdj/100 − tieAdj/100; awayProb − homeAdj/100. Test/FC market name prefixed \
+*Default QA fixture:* NZ v SA (Atlas / workbook default) with adjust = 0
+*Component:* development — deliver for all formats where the model applies
+*Epic:* PCS Trading UI: Pre Match (PC-3808)
+
+h3. Process flow
+# *Map evaluation inputs* — Confirm fixture + format and any player/team fields required for Highest Opening Partnership.
+# *Wire extra evaluation fields* — Add any missing MatchEvaluation / BatterEvaluation / Innings fields called out in the Excel mapping notes.
+# *Call Lambda market* — Invoke PreMatch.Models.….HighestOpeningPartnership and capture base outcomes / line.
+# *Market Configuration UI* — Render Highest Opening Partnership in Market Configuration (prob / line / adjust / price) aligned to PM rows 92-94.
+# *Apply trader adjust post-model* — Store purple skew; apply after Lambda per market skew rules (÷100 / ÷10 / line nudge as documented).
+# *QA against default fixture* — Compare published outputs to PM Publication defaults (adjust = 0) before marking Matched.
+
+h3. Acceptance criteria
+* [ ] AC1: Highest Opening Partnership appears in Market Configuration (PM rows 92-94) with correct market code HOPA.
+* [ ] AC2: Pricing call returns Lambda outcomes for Highest Opening Partnership; UI displays base probabilities and/or line without requiring a non-zero trader adjust.
+* [ ] AC3: Trader adjust control is available where the sheet has a purple I column; +1 / −1 (or documented unit) updates published values after Lambda.
+* [ ] AC4 (expected value): With default fixture inputs and adjust = 0, published probs/lines match captured PM Publication for the default NZ v SA fixture (capture from QA tab if missing).
+* [ ] AC5 (wiring): Model Manager Overview can mark this market Matched once QA passes on the default fixture.
+* [ ] AC6: Behaviour is validated for applicable formats (T20 / ODI / Test as relevant to the model).",development,PC-3808,pre-match trading-ui development pm-highest-opening-partnership,
+Wire (Match Betting (3-way)),Story,"Wire pre-match market *Match Betting (3-way)* into Player Adjustment → Lambda → Market Configuration.
+
+h3. Data flow
+# *Player Adjustment / Prep* — Capture fixture, squad, conditions, and team/player ratings used by this market.
+# *Evaluation payload* — Map prep outputs into the pre-match evaluation object required by *Match Betting (3-way)* (see Excel notes below).
+# *Lambda* — Invoke `TBC` and capture base line / outcome probabilities.
+# *Trader skew (FE)* — Store purple adjust (PM column I) on the FE; apply after Lambda returns base probs/line (do not send skew as a Lambda input unless the model already expects it).
+# *Market Configuration* — Display published line/prob/price; publish selections for trading.
+*Lambda / class:* `TBC`
+*Registry:* `pm-match-betting-3w`
+*Market code:* TBC
+*Excel today:* PM Publication rows — (Match Betting (3-way))
+*Trader adjust:* none / TBC
+*Notes:* Includes draw selection for Test cricket. Published from PM Publication.
+*Default QA fixture:* NZ v SA (Atlas / workbook default) with adjust = 0
+*Component:* development — deliver for all formats where the model applies
+*Epic:* PCS Trading UI: Pre Match (PC-3808)
+
+h3. Process flow
+# *Map evaluation inputs* — Confirm fixture + format and any player/team fields required for Match Betting (3-way).
+# *Wire extra evaluation fields* — Add any missing MatchEvaluation / BatterEvaluation / Innings fields called out in the Excel mapping notes.
+# *Call Lambda market* — Invoke Match Betting (3-way) and capture base outcomes / line.
+# *Market Configuration UI* — Render Match Betting (3-way) in Market Configuration (prob / line / adjust / price) aligned to PM rows —.
+# *Apply trader adjust post-model* — Store purple skew; apply after Lambda per market skew rules (÷100 / ÷10 / line nudge as documented).
+# *QA against default fixture* — Compare published outputs to PM Publication defaults (adjust = 0) before marking Matched.
+
+h3. Acceptance criteria
+* [ ] AC1: Match Betting (3-way) appears in Market Configuration with correct market code (TBC).
+* [ ] AC2: Pricing call returns Lambda outcomes for Match Betting (3-way); UI displays base probabilities and/or line without requiring a non-zero trader adjust.
+* [ ] AC3: Trader adjust control is available where the sheet has a purple I column; +1 / −1 (or documented unit) updates published values after Lambda.
+* [ ] AC4 (expected value): With default fixture inputs and adjust = 0, published probs/lines match captured PM Publication for the default NZ v SA fixture (capture from QA tab if missing).
+* [ ] AC5 (wiring): Model Manager Overview can mark this market Matched once QA passes on the default fixture.
+* [ ] AC6: Behaviour is validated for applicable formats (T20 / ODI / Test as relevant to the model).",development,PC-3808,pre-match trading-ui development pm-match-betting-3w,
+Wire (Match Ducks),Story,"Wire pre-match market *Match Ducks* into Player Adjustment → Lambda → Market Configuration.
+
+h3. Data flow
+# *Player Adjustment / Prep* — Capture fixture, squad, conditions, and team/player ratings used by this market.
+# *Evaluation payload* — Map prep outputs into the pre-match evaluation object required by *Match Ducks* (see Excel notes below).
+# *Lambda* — Invoke `PreMatch.Models.Matches.MatchDucks` and capture base line / outcome probabilities.
+# *Trader skew (FE)* — Store purple adjust (PM column I) on the FE; apply after Lambda returns base probs/line (do not send skew as a Lambda input unless the model already expects it).
+# *Market Configuration* — Display published line/prob/price; publish selections for trading.
+*Lambda / class:* `PreMatch.Models.Matches.MatchDucks`
+*Registry:* `pm-match-ducks`
+*Market code:* `55BARUA`
+*Excel today:* PM Publication rows 56 (Match Ducks)
+*Line cell:* F56
+*Adjust cell:* I56
+*Lambda adjust path:* `AdjustmentsPM.MatchAdjustments.MatchDucks`
+*Notes:* Per-innings ducks K16:P16 — O16 per team, sum 2×O16=1.31 → line 1.5; adjust÷10
+*Default QA fixture:* NZ v SA (Atlas / workbook default) with adjust = 0
+*Component:* development — deliver for all formats where the model applies
+*Epic:* PCS Trading UI: Pre Match (PC-3808)
+
+h3. Process flow
+# *Map evaluation inputs* — Confirm fixture + format and any player/team fields required for Match Ducks.
+# *Wire extra evaluation fields* — Add any missing MatchEvaluation / BatterEvaluation / Innings fields called out in the Excel mapping notes.
+# *Call Lambda market* — Invoke PreMatch.Models.Matches.MatchDucks and capture base outcomes / line.
+# *Market Configuration UI* — Render Match Ducks in Market Configuration (prob / line / adjust / price) aligned to PM rows 56.
+# *Apply trader adjust post-model* — Store purple skew; apply after Lambda per market skew rules (÷100 / ÷10 / line nudge as documented).
+# *QA against default fixture* — Compare published outputs to PM Publication defaults (adjust = 0) before marking Matched.
+
+h3. Acceptance criteria
+* [ ] AC1: Match Ducks appears in Market Configuration (PM rows 56) with correct market code 55BARUA.
+* [ ] AC2: Pricing call returns Lambda outcomes for Match Ducks; UI displays base probabilities and/or line without requiring a non-zero trader adjust.
+* [ ] AC3: Trader adjust control is available where the sheet has a purple I column; +1 / −1 (or documented unit) updates published values after Lambda.
+* [ ] AC4 (expected value): With default fixture inputs and adjust = 0, published probs/lines match captured PM Publication for the default NZ v SA fixture (capture from QA tab if missing).
+* [ ] AC5 (wiring): Model Manager Overview can mark this market Matched once QA passes on the default fixture.
+* [ ] AC6: Behaviour is validated for applicable formats (T20 / ODI / Test as relevant to the model).",development,PC-3808,pre-match trading-ui development pm-match-ducks,
+Wire (Match Extras),Story,"Wire pre-match market *Match Extras* into Player Adjustment → Lambda → Market Configuration.
+
+h3. Data flow
+# *Player Adjustment / Prep* — Capture fixture, squad, conditions, and team/player ratings used by this market.
+# *Evaluation payload* — Map prep outputs into the pre-match evaluation object required by *Match Extras* (see Excel notes below).
+# *Lambda* — Invoke `PreMatch.Models.Matches.MatchExtras` and capture base line / outcome probabilities.
+# *Trader skew (FE)* — Store purple adjust (PM column I) on the FE; apply after Lambda returns base probs/line (do not send skew as a Lambda input unless the model already expects it).
+# *Market Configuration* — Display published line/prob/price; publish selections for trading.
+*Lambda / class:* `PreMatch.Models.Matches.MatchExtras`
+*Registry:* `pm-match-extras`
+*Market code:* `57BARUA`
+*Excel today:* PM Publication rows 58 (Match Extras)
+*Line cell:* F58
+*Adjust cell:* I58
+*Lambda adjust path:* `AdjustmentsPM.MatchAdjustments.MatchExtras`
+*Notes:* ExtrasPrediction sum or MatchExtras; total rounded to 2dp before line
+*Default QA fixture:* NZ v SA (Atlas / workbook default) with adjust = 0
+*Component:* development — deliver for all formats where the model applies
+*Epic:* PCS Trading UI: Pre Match (PC-3808)
+
+h3. Process flow
+# *Map evaluation inputs* — Confirm fixture + format and any player/team fields required for Match Extras.
+# *Wire extra evaluation fields* — Add any missing MatchEvaluation / BatterEvaluation / Innings fields called out in the Excel mapping notes.
+# *Call Lambda market* — Invoke PreMatch.Models.Matches.MatchExtras and capture base outcomes / line.
+# *Market Configuration UI* — Render Match Extras in Market Configuration (prob / line / adjust / price) aligned to PM rows 58.
+# *Apply trader adjust post-model* — Store purple skew; apply after Lambda per market skew rules (÷100 / ÷10 / line nudge as documented).
+# *QA against default fixture* — Compare published outputs to PM Publication defaults (adjust = 0) before marking Matched.
+
+h3. Acceptance criteria
+* [ ] AC1: Match Extras appears in Market Configuration (PM rows 58) with correct market code 57BARUA.
+* [ ] AC2: Pricing call returns Lambda outcomes for Match Extras; UI displays base probabilities and/or line without requiring a non-zero trader adjust.
+* [ ] AC3: Trader adjust control is available where the sheet has a purple I column; +1 / −1 (or documented unit) updates published values after Lambda.
+* [ ] AC4 (expected value): With default fixture inputs and adjust = 0, published probs/lines match captured PM Publication for the default NZ v SA fixture (capture from QA tab if missing).
+* [ ] AC5 (wiring): Model Manager Overview can mark this market Matched once QA passes on the default fixture.
+* [ ] AC6: Behaviour is validated for applicable formats (T20 / ODI / Test as relevant to the model).",development,PC-3808,pre-match trading-ui development pm-match-extras,
+Wire (Match Fours),Story,"Wire pre-match market *Match Fours* into Player Adjustment → Lambda → Market Configuration.
+
+h3. Data flow
+# *Player Adjustment / Prep* — Capture fixture, squad, conditions, and team/player ratings used by this market.
+# *Evaluation payload* — Map prep outputs into the pre-match evaluation object required by *Match Fours* (see Excel notes below).
+# *Lambda* — Invoke `PreMatch.Models.Matches.MatchFours` and capture base line / outcome probabilities.
+# *Trader skew (FE)* — Store purple adjust (PM column I) on the FE; apply after Lambda returns base probs/line (do not send skew as a Lambda input unless the model already expects it).
+# *Market Configuration* — Display published line/prob/price; publish selections for trading.
+*Lambda / class:* `PreMatch.Models.Matches.MatchFours`
+*Registry:* `pm-match-fours`
+*Market code:* `51BARUA`
+*Excel today:* PM Publication rows 52 (Match Fours)
+*Line cell:* F52
+*Adjust cell:* I52
+*Lambda adjust path:* `AdjustmentsPM.MatchAdjustments.MatchFours`
+*Notes:* Total = SUM(player O col) both teams + I52 purple adjust; line from Poisson-gamma median
+*Default QA fixture:* NZ v SA (Atlas / workbook default) with adjust = 0
+*Component:* development — deliver for all formats where the model applies
+*Epic:* PCS Trading UI: Pre Match (PC-3808)
+
+h3. Process flow
+# *Map evaluation inputs* — Confirm fixture + format and any player/team fields required for Match Fours.
+# *Wire extra evaluation fields* — Add any missing MatchEvaluation / BatterEvaluation / Innings fields called out in the Excel mapping notes.
+# *Call Lambda market* — Invoke PreMatch.Models.Matches.MatchFours and capture base outcomes / line.
+# *Market Configuration UI* — Render Match Fours in Market Configuration (prob / line / adjust / price) aligned to PM rows 52.
+# *Apply trader adjust post-model* — Store purple skew; apply after Lambda per market skew rules (÷100 / ÷10 / line nudge as documented).
+# *QA against default fixture* — Compare published outputs to PM Publication defaults (adjust = 0) before marking Matched.
+
+h3. Acceptance criteria
+* [ ] AC1: Match Fours appears in Market Configuration (PM rows 52) with correct market code 51BARUA.
+* [ ] AC2: Pricing call returns Lambda outcomes for Match Fours; UI displays base probabilities and/or line without requiring a non-zero trader adjust.
+* [ ] AC3: Trader adjust control is available where the sheet has a purple I column; +1 / −1 (or documented unit) updates published values after Lambda.
+* [ ] AC4 (expected value): With default fixture inputs and adjust = 0, published probs/lines match captured PM Publication for the default NZ v SA fixture (capture from QA tab if missing).
+* [ ] AC5 (wiring): Model Manager Overview can mark this market Matched once QA passes on the default fixture.
+* [ ] AC6: Behaviour is validated for applicable formats (T20 / ODI / Test as relevant to the model).",development,PC-3808,pre-match trading-ui development pm-match-fours,
+Wire (Match Run Outs),Story,"Wire pre-match market *Match Run Outs* into Player Adjustment → Lambda → Market Configuration.
+
+h3. Data flow
+# *Player Adjustment / Prep* — Capture fixture, squad, conditions, and team/player ratings used by this market.
+# *Evaluation payload* — Map prep outputs into the pre-match evaluation object required by *Match Run Outs* (see Excel notes below).
+# *Lambda* — Invoke `PreMatch.Models.Matches.MatchRunOuts` and capture base line / outcome probabilities.
+# *Trader skew (FE)* — Store purple adjust (PM column I) on the FE; apply after Lambda returns base probs/line (do not send skew as a Lambda input unless the model already expects it).
+# *Market Configuration* — Display published line/prob/price; publish selections for trading.
+*Lambda / class:* `PreMatch.Models.Matches.MatchRunOuts`
+*Registry:* `pm-match-run-outs`
+*Market code:* `53BARUA`
+*Excel today:* PM Publication rows 54 (Match Run Outs)
+*Line cell:* F54
+*Adjust cell:* I54
+*Lambda adjust path:* `AdjustmentsPM.MatchAdjustments.MatchRunOuts`
+*Notes:* Lambda divides adjust by 10; line = Round(total−0.8)+0.5 via Poisson
+*Default QA fixture:* NZ v SA (Atlas / workbook default) with adjust = 0
+*Component:* development — deliver for all formats where the model applies
+*Epic:* PCS Trading UI: Pre Match (PC-3808)
+
+h3. Process flow
+# *Map evaluation inputs* — Confirm fixture + format and any player/team fields required for Match Run Outs.
+# *Wire extra evaluation fields* — Add any missing MatchEvaluation / BatterEvaluation / Innings fields called out in the Excel mapping notes.
+# *Call Lambda market* — Invoke PreMatch.Models.Matches.MatchRunOuts and capture base outcomes / line.
+# *Market Configuration UI* — Render Match Run Outs in Market Configuration (prob / line / adjust / price) aligned to PM rows 54.
+# *Apply trader adjust post-model* — Store purple skew; apply after Lambda per market skew rules (÷100 / ÷10 / line nudge as documented).
+# *QA against default fixture* — Compare published outputs to PM Publication defaults (adjust = 0) before marking Matched.
+
+h3. Acceptance criteria
+* [ ] AC1: Match Run Outs appears in Market Configuration (PM rows 54) with correct market code 53BARUA.
+* [ ] AC2: Pricing call returns Lambda outcomes for Match Run Outs; UI displays base probabilities and/or line without requiring a non-zero trader adjust.
+* [ ] AC3: Trader adjust control is available where the sheet has a purple I column; +1 / −1 (or documented unit) updates published values after Lambda.
+* [ ] AC4 (expected value): With default fixture inputs and adjust = 0, published probs/lines match captured PM Publication for the default NZ v SA fixture (capture from QA tab if missing).
+* [ ] AC5 (wiring): Model Manager Overview can mark this market Matched once QA passes on the default fixture.
+* [ ] AC6: Behaviour is validated for applicable formats (T20 / ODI / Test as relevant to the model).",development,PC-3808,pre-match trading-ui development pm-match-run-outs,
+Wire (Match Sixes),Story,"Wire pre-match market *Match Sixes* into Player Adjustment → Lambda → Market Configuration.
+
+h3. Data flow
+# *Player Adjustment / Prep* — Capture fixture, squad, conditions, and team/player ratings used by this market.
+# *Evaluation payload* — Map prep outputs into the pre-match evaluation object required by *Match Sixes* (see Excel notes below).
+# *Lambda* — Invoke `PreMatch.Models.Matches.MatchSixes` and capture base line / outcome probabilities.
+# *Trader skew (FE)* — Store purple adjust (PM column I) on the FE; apply after Lambda returns base probs/line (do not send skew as a Lambda input unless the model already expects it).
+# *Market Configuration* — Display published line/prob/price; publish selections for trading.
+*Lambda / class:* `PreMatch.Models.Matches.MatchSixes`
+*Registry:* `pm-match-sixes`
+*Market code:* `52BARUA`
+*Excel today:* PM Publication rows 53 (Match Sixes)
+*Line cell:* F53
+*Adjust cell:* I53
+*Lambda adjust path:* `AdjustmentsPM.MatchAdjustments.MatchSixes`
+*Notes:* Total = SUM(player P col) both teams + I53 purple adjust; line from Poisson-gamma median
+*Default QA fixture:* NZ v SA (Atlas / workbook default) with adjust = 0
+*Component:* development — deliver for all formats where the model applies
+*Epic:* PCS Trading UI: Pre Match (PC-3808)
+
+h3. Process flow
+# *Map evaluation inputs* — Confirm fixture + format and any player/team fields required for Match Sixes.
+# *Wire extra evaluation fields* — Add any missing MatchEvaluation / BatterEvaluation / Innings fields called out in the Excel mapping notes.
+# *Call Lambda market* — Invoke PreMatch.Models.Matches.MatchSixes and capture base outcomes / line.
+# *Market Configuration UI* — Render Match Sixes in Market Configuration (prob / line / adjust / price) aligned to PM rows 53.
+# *Apply trader adjust post-model* — Store purple skew; apply after Lambda per market skew rules (÷100 / ÷10 / line nudge as documented).
+# *QA against default fixture* — Compare published outputs to PM Publication defaults (adjust = 0) before marking Matched.
+
+h3. Acceptance criteria
+* [ ] AC1: Match Sixes appears in Market Configuration (PM rows 53) with correct market code 52BARUA.
+* [ ] AC2: Pricing call returns Lambda outcomes for Match Sixes; UI displays base probabilities and/or line without requiring a non-zero trader adjust.
+* [ ] AC3: Trader adjust control is available where the sheet has a purple I column; +1 / −1 (or documented unit) updates published values after Lambda.
+* [ ] AC4 (expected value): With default fixture inputs and adjust = 0, published probs/lines match captured PM Publication for the default NZ v SA fixture (capture from QA tab if missing).
+* [ ] AC5 (wiring): Model Manager Overview can mark this market Matched once QA passes on the default fixture.
+* [ ] AC6: Behaviour is validated for applicable formats (T20 / ODI / Test as relevant to the model).",development,PC-3808,pre-match trading-ui development pm-match-sixes,
+Wire (Match Top Bowler),Story,"Wire pre-match market *Match Top Bowler* into Player Adjustment → Lambda → Market Configuration.
+
+h3. Data flow
+# *Player Adjustment / Prep* — Capture fixture, squad, conditions, and team/player ratings used by this market.
+# *Evaluation payload* — Map prep outputs into the pre-match evaluation object required by *Match Top Bowler* (see Excel notes below).
+# *Lambda* — Invoke `PreMatch.Models.Matches.MatchTopBowler` and capture base line / outcome probabilities.
+# *Trader skew (FE)* — Store purple adjust (PM column I) on the FE; apply after Lambda returns base probs/line (do not send skew as a Lambda input unless the model already expects it).
+# *Market Configuration* — Display published line/prob/price; publish selections for trading.
+*Lambda / class:* `PreMatch.Models.Matches.MatchTopBowler`
+*Registry:* `pm-match-top-bowler`
+*Market code:* `PMTWTNL`
+*Excel today:* PM Publication rows — (Match Top Bowler)
+*Trader adjust:* none / TBC
+*Notes:* Race market across bowlers for match top wicket-taker.
+*Default QA fixture:* NZ v SA (Atlas / workbook default) with adjust = 0
+*Component:* development — deliver for all formats where the model applies
+*Epic:* PCS Trading UI: Pre Match (PC-3808)
+
+h3. Process flow
+# *Map evaluation inputs* — Confirm fixture + format and any player/team fields required for Match Top Bowler.
+# *Wire extra evaluation fields* — Add any missing MatchEvaluation / BatterEvaluation / Innings fields called out in the Excel mapping notes.
+# *Call Lambda market* — Invoke PreMatch.Models.Matches.MatchTopBowler and capture base outcomes / line.
+# *Market Configuration UI* — Render Match Top Bowler in Market Configuration (prob / line / adjust / price) aligned to PM rows —.
+# *Apply trader adjust post-model* — Store purple skew; apply after Lambda per market skew rules (÷100 / ÷10 / line nudge as documented).
+# *QA against default fixture* — Compare published outputs to PM Publication defaults (adjust = 0) before marking Matched.
+
+h3. Acceptance criteria
+* [ ] AC1: Match Top Bowler appears in Market Configuration with correct market code PMTWTNL.
+* [ ] AC2: Pricing call returns Lambda outcomes for Match Top Bowler; UI displays base probabilities and/or line without requiring a non-zero trader adjust.
+* [ ] AC3: Trader adjust control is available where the sheet has a purple I column; +1 / −1 (or documented unit) updates published values after Lambda.
+* [ ] AC4 (expected value): With default fixture inputs and adjust = 0, published probs/lines match captured PM Publication for the default NZ v SA fixture (capture from QA tab if missing).
+* [ ] AC5 (wiring): Model Manager Overview can mark this market Matched once QA passes on the default fixture.
+* [ ] AC6: Behaviour is validated for applicable formats (T20 / ODI / Test as relevant to the model).",development,PC-3808,pre-match trading-ui development pm-match-top-bowler,
+Wire (Match Wickets),Story,"Wire pre-match market *Match Wickets* into Player Adjustment → Lambda → Market Configuration.
+
+h3. Data flow
+# *Player Adjustment / Prep* — Capture fixture, squad, conditions, and team/player ratings used by this market.
+# *Evaluation payload* — Map prep outputs into the pre-match evaluation object required by *Match Wickets* (see Excel notes below).
+# *Lambda* — Invoke `PreMatch.Models.Matches.MatchWickets` and capture base line / outcome probabilities.
+# *Trader skew (FE)* — Store purple adjust (PM column I) on the FE; apply after Lambda returns base probs/line (do not send skew as a Lambda input unless the model already expects it).
+# *Market Configuration* — Display published line/prob/price; publish selections for trading.
+*Lambda / class:* `PreMatch.Models.Matches.MatchWickets`
+*Registry:* `pm-match-wickets`
+*Market code:* `58BARUA`
+*Excel today:* PM Publication rows 59 (Match Wickets)
+*Line cell:* F59
+*Adjust cell:* I59
+*Lambda adjust path:* `AdjustmentsPM.MatchAdjustments.MatchWickets`
+*Notes:* Limited overs: U38+U59 (13.44) → line 13.5; Test: T17!Y MatchWickets
+*Default QA fixture:* NZ v SA (Atlas / workbook default) with adjust = 0
+*Component:* development — deliver for all formats where the model applies
+*Epic:* PCS Trading UI: Pre Match (PC-3808)
+
+h3. Process flow
+# *Map evaluation inputs* — Confirm fixture + format and any player/team fields required for Match Wickets.
+# *Wire extra evaluation fields* — Add any missing MatchEvaluation / BatterEvaluation / Innings fields called out in the Excel mapping notes.
+# *Call Lambda market* — Invoke PreMatch.Models.Matches.MatchWickets and capture base outcomes / line.
+# *Market Configuration UI* — Render Match Wickets in Market Configuration (prob / line / adjust / price) aligned to PM rows 59.
+# *Apply trader adjust post-model* — Store purple skew; apply after Lambda per market skew rules (÷100 / ÷10 / line nudge as documented).
+# *QA against default fixture* — Compare published outputs to PM Publication defaults (adjust = 0) before marking Matched.
+
+h3. Acceptance criteria
+* [ ] AC1: Match Wickets appears in Market Configuration (PM rows 59) with correct market code 58BARUA.
+* [ ] AC2: Pricing call returns Lambda outcomes for Match Wickets; UI displays base probabilities and/or line without requiring a non-zero trader adjust.
+* [ ] AC3: Trader adjust control is available where the sheet has a purple I column; +1 / −1 (or documented unit) updates published values after Lambda.
+* [ ] AC4 (expected value): With default fixture inputs and adjust = 0, published probs/lines match captured PM Publication for the default NZ v SA fixture (capture from QA tab if missing).
+* [ ] AC5 (wiring): Model Manager Overview can mark this market Matched once QA passes on the default fixture.
+* [ ] AC6: Behaviour is validated for applicable formats (T20 / ODI / Test as relevant to the model).",development,PC-3808,pre-match trading-ui development pm-match-wickets,
+Wire (Match Wides),Story,"Wire pre-match market *Match Wides* into Player Adjustment → Lambda → Market Configuration.
+
+h3. Data flow
+# *Player Adjustment / Prep* — Capture fixture, squad, conditions, and team/player ratings used by this market.
+# *Evaluation payload* — Map prep outputs into the pre-match evaluation object required by *Match Wides* (see Excel notes below).
+# *Lambda* — Invoke `PreMatch.Models.Matches.MatchWides` and capture base line / outcome probabilities.
+# *Trader skew (FE)* — Store purple adjust (PM column I) on the FE; apply after Lambda returns base probs/line (do not send skew as a Lambda input unless the model already expects it).
+# *Market Configuration* — Display published line/prob/price; publish selections for trading.
+*Lambda / class:* `PreMatch.Models.Matches.MatchWides`
+*Registry:* `pm-match-wides`
+*Market code:* `56BARUA`
+*Excel today:* PM Publication rows 57 (Match Wides)
+*Line cell:* F57
+*Adjust cell:* I57
+*Lambda adjust path:* `AdjustmentsPM.MatchAdjustments.MatchWides`
+*Notes:* InningsWides sum or MatchWides; Poisson-gamma with MatchWides variance lookup
+*Default QA fixture:* NZ v SA (Atlas / workbook default) with adjust = 0
+*Component:* development — deliver for all formats where the model applies
+*Epic:* PCS Trading UI: Pre Match (PC-3808)
+
+h3. Process flow
+# *Map evaluation inputs* — Confirm fixture + format and any player/team fields required for Match Wides.
+# *Wire extra evaluation fields* — Add any missing MatchEvaluation / BatterEvaluation / Innings fields called out in the Excel mapping notes.
+# *Call Lambda market* — Invoke PreMatch.Models.Matches.MatchWides and capture base outcomes / line.
+# *Market Configuration UI* — Render Match Wides in Market Configuration (prob / line / adjust / price) aligned to PM rows 57.
+# *Apply trader adjust post-model* — Store purple skew; apply after Lambda per market skew rules (÷100 / ÷10 / line nudge as documented).
+# *QA against default fixture* — Compare published outputs to PM Publication defaults (adjust = 0) before marking Matched.
+
+h3. Acceptance criteria
+* [ ] AC1: Match Wides appears in Market Configuration (PM rows 57) with correct market code 56BARUA.
+* [ ] AC2: Pricing call returns Lambda outcomes for Match Wides; UI displays base probabilities and/or line without requiring a non-zero trader adjust.
+* [ ] AC3: Trader adjust control is available where the sheet has a purple I column; +1 / −1 (or documented unit) updates published values after Lambda.
+* [ ] AC4 (expected value): With default fixture inputs and adjust = 0, published probs/lines match captured PM Publication for the default NZ v SA fixture (capture from QA tab if missing).
+* [ ] AC5 (wiring): Model Manager Overview can mark this market Matched once QA passes on the default fixture.
+* [ ] AC6: Behaviour is validated for applicable formats (T20 / ODI / Test as relevant to the model).",development,PC-3808,pre-match trading-ui development pm-match-wides,
+Wire (Max Runs Scored in an Over),Story,"Wire pre-match market *Max Runs Scored in an Over* into Player Adjustment → Lambda → Market Configuration.
+
+h3. Data flow
+# *Player Adjustment / Prep* — Capture fixture, squad, conditions, and team/player ratings used by this market.
+# *Evaluation payload* — Map prep outputs into the pre-match evaluation object required by *Max Runs Scored in an Over* (see Excel notes below).
+# *Lambda* — Invoke `PreMatch.Models.Matches.MatchMaxOver` and capture base line / outcome probabilities.
+# *Trader skew (FE)* — Store purple adjust (PM column I) on the FE; apply after Lambda returns base probs/line (do not send skew as a Lambda input unless the model already expects it).
+# *Market Configuration* — Display published line/prob/price; publish selections for trading.
+*Lambda / class:* `PreMatch.Models.Matches.MatchMaxOver`
+*Registry:* `pm-match-max-over`
+*Market code:* `54BARUA`
+*Excel today:* PM Publication rows 55 (Max Runs Scored in an Over)
+*Line cell:* F55
+*Adjust cell:* I55
+*Lambda adjust path:* `AdjustmentsPM.MatchAdjustments.MaxRunsInOver`
+*Notes:* MatchMaxOver + adjust; Poisson line Round(total−0.8)+0.5
+*Default QA fixture:* NZ v SA (Atlas / workbook default) with adjust = 0
+*Component:* development — deliver for all formats where the model applies
+*Epic:* PCS Trading UI: Pre Match (PC-3808)
+
+h3. Process flow
+# *Map evaluation inputs* — Confirm fixture + format and any player/team fields required for Max Runs Scored in an Over.
+# *Wire extra evaluation fields* — Add any missing MatchEvaluation / BatterEvaluation / Innings fields called out in the Excel mapping notes.
+# *Call Lambda market* — Invoke PreMatch.Models.Matches.MatchMaxOver and capture base outcomes / line.
+# *Market Configuration UI* — Render Max Runs Scored in an Over in Market Configuration (prob / line / adjust / price) aligned to PM rows 55.
+# *Apply trader adjust post-model* — Store purple skew; apply after Lambda per market skew rules (÷100 / ÷10 / line nudge as documented).
+# *QA against default fixture* — Compare published outputs to PM Publication defaults (adjust = 0) before marking Matched.
+
+h3. Acceptance criteria
+* [ ] AC1: Max Runs Scored in an Over appears in Market Configuration (PM rows 55) with correct market code 54BARUA.
+* [ ] AC2: Pricing call returns Lambda outcomes for Max Runs Scored in an Over; UI displays base probabilities and/or line without requiring a non-zero trader adjust.
+* [ ] AC3: Trader adjust control is available where the sheet has a purple I column; +1 / −1 (or documented unit) updates published values after Lambda.
+* [ ] AC4 (expected value): With default fixture inputs and adjust = 0, published probs/lines match captured PM Publication for the default NZ v SA fixture (capture from QA tab if missing).
+* [ ] AC5 (wiring): Model Manager Overview can mark this market Matched once QA passes on the default fixture.
+* [ ] AC6: Behaviour is validated for applicable formats (T20 / ODI / Test as relevant to the model).",development,PC-3808,pre-match trading-ui development pm-match-max-over,
+Wire (Player Balls Faced),Story,"Wire pre-match market *Player Balls Faced* into Player Adjustment → Lambda → Market Configuration.
+
+h3. Data flow
+# *Player Adjustment / Prep* — Capture fixture, squad, conditions, and team/player ratings used by this market.
+# *Evaluation payload* — Map prep outputs into the pre-match evaluation object required by *Player Balls Faced* (see Excel notes below).
+# *Lambda* — Invoke `PreMatch.Models.Players.PlayerBallsFaced` and capture base line / outcome probabilities.
+# *Trader skew (FE)* — Store purple adjust (PM column I) on the FE; apply after Lambda returns base probs/line (do not send skew as a Lambda input unless the model already expects it).
+# *Market Configuration* — Display published line/prob/price; publish selections for trading.
+*Lambda / class:* `PreMatch.Models.Players.PlayerBallsFaced`
+*Registry:* `pm-player-balls-faced`
+*Market code:* `BABF`
+*Excel today:* PM Publication rows 610-619 (Player - Balls Faced)
+*Trader adjust:* none / TBC
+*Notes:* Line from expected runs/strike rate; fixed 50/50 in Lambda
+*Default QA fixture:* NZ v SA (Atlas / workbook default) with adjust = 0
+*Component:* development — deliver for all formats where the model applies
+*Epic:* PCS Trading UI: Pre Match (PC-3808)
+
+h3. Process flow
+# *Map evaluation inputs* — Confirm fixture + format and any player/team fields required for Player Balls Faced.
+# *Wire extra evaluation fields* — Add any missing MatchEvaluation / BatterEvaluation / Innings fields called out in the Excel mapping notes.
+# *Call Lambda market* — Invoke PreMatch.Models.Players.PlayerBallsFaced and capture base outcomes / line.
+# *Market Configuration UI* — Render Player Balls Faced in Market Configuration (prob / line / adjust / price) aligned to PM rows 610-619.
+# *Apply trader adjust post-model* — Store purple skew; apply after Lambda per market skew rules (÷100 / ÷10 / line nudge as documented).
+# *QA against default fixture* — Compare published outputs to PM Publication defaults (adjust = 0) before marking Matched.
+
+h3. Acceptance criteria
+* [ ] AC1: Player Balls Faced appears in Market Configuration (PM rows 610-619) with correct market code BABF.
+* [ ] AC2: Pricing call returns Lambda outcomes for Player Balls Faced; UI displays base probabilities and/or line without requiring a non-zero trader adjust.
+* [ ] AC3: Trader adjust control is available where the sheet has a purple I column; +1 / −1 (or documented unit) updates published values after Lambda.
+* [ ] AC4 (expected value): With default fixture inputs and adjust = 0, published probs/lines match captured PM Publication for the default NZ v SA fixture (capture from QA tab if missing).
+* [ ] AC5 (wiring): Model Manager Overview can mark this market Matched once QA passes on the default fixture.
+* [ ] AC6: Behaviour is validated for applicable formats (T20 / ODI / Test as relevant to the model).",development,PC-3808,pre-match trading-ui development pm-player-balls-faced,
+Wire (Player Fours),Story,"Wire pre-match market *Player Fours* into Player Adjustment → Lambda → Market Configuration.
+
+h3. Data flow
+# *Player Adjustment / Prep* — Capture fixture, squad, conditions, and team/player ratings used by this market.
+# *Evaluation payload* — Map prep outputs into the pre-match evaluation object required by *Player Fours* (see Excel notes below).
+# *Lambda* — Invoke `PreMatch.Models.Players.PlayerFours` and capture base line / outcome probabilities.
+# *Trader skew (FE)* — Store purple adjust (PM column I) on the FE; apply after Lambda returns base probs/line (do not send skew as a Lambda input unless the model already expects it).
+# *Market Configuration* — Display published line/prob/price; publish selections for trading.
+*Lambda / class:* `PreMatch.Models.Players.PlayerFours`
+*Registry:* `pm-player-fours`
+*Market code:* `BA4U`
+*Excel today:* PM Publication rows 267-276 (Player - Fours)
+*Trader adjust:* none / TBC
+*Notes:* Line Round(ExpectedFours/2); BatsmanFours adjust÷10; Prep Work O per player
+*Default QA fixture:* NZ v SA (Atlas / workbook default) with adjust = 0
+*Component:* development — deliver for all formats where the model applies
+*Epic:* PCS Trading UI: Pre Match (PC-3808)
+
+h3. Process flow
+# *Map evaluation inputs* — Confirm fixture + format and any player/team fields required for Player Fours.
+# *Wire extra evaluation fields* — Add any missing MatchEvaluation / BatterEvaluation / Innings fields called out in the Excel mapping notes.
+# *Call Lambda market* — Invoke PreMatch.Models.Players.PlayerFours and capture base outcomes / line.
+# *Market Configuration UI* — Render Player Fours in Market Configuration (prob / line / adjust / price) aligned to PM rows 267-276.
+# *Apply trader adjust post-model* — Store purple skew; apply after Lambda per market skew rules (÷100 / ÷10 / line nudge as documented).
+# *QA against default fixture* — Compare published outputs to PM Publication defaults (adjust = 0) before marking Matched.
+
+h3. Acceptance criteria
+* [ ] AC1: Player Fours appears in Market Configuration (PM rows 267-276) with correct market code BA4U.
+* [ ] AC2: Pricing call returns Lambda outcomes for Player Fours; UI displays base probabilities and/or line without requiring a non-zero trader adjust.
+* [ ] AC3: Trader adjust control is available where the sheet has a purple I column; +1 / −1 (or documented unit) updates published values after Lambda.
+* [ ] AC4 (expected value): With default fixture inputs and adjust = 0, published probs/lines match captured PM Publication for the default NZ v SA fixture (capture from QA tab if missing).
+* [ ] AC5 (wiring): Model Manager Overview can mark this market Matched once QA passes on the default fixture.
+* [ ] AC6: Behaviour is validated for applicable formats (T20 / ODI / Test as relevant to the model).",development,PC-3808,pre-match trading-ui development pm-player-fours,
+Wire (Player Performance),Story,"Wire pre-match market *Player Performance* into Player Adjustment → Lambda → Market Configuration.
+
+h3. Data flow
+# *Player Adjustment / Prep* — Capture fixture, squad, conditions, and team/player ratings used by this market.
+# *Evaluation payload* — Map prep outputs into the pre-match evaluation object required by *Player Performance* (see Excel notes below).
+# *Lambda* — Invoke `PreMatch.Models.Players.PlayerPerformance` and capture base line / outcome probabilities.
+# *Trader skew (FE)* — Store purple adjust (PM column I) on the FE; apply after Lambda returns base probs/line (do not send skew as a Lambda input unless the model already expects it).
+# *Market Configuration* — Display published line/prob/price; publish selections for trading.
+*Lambda / class:* `PreMatch.Models.Players.PlayerPerformance`
+*Registry:* `pm-player-performance`
+*Market code:* `PERF`
+*Excel today:* PM Publication rows 337-346 (Player - Player Perf)
+*Trader adjust:* none / TBC
+*Notes:* Top 5 per team; line Round(points×0.9); trader adjust in I (no Lambda adjust yet)
+*Default QA fixture:* NZ v SA (Atlas / workbook default) with adjust = 0
+*Component:* development — deliver for all formats where the model applies
+*Epic:* PCS Trading UI: Pre Match (PC-3808)
+
+h3. Process flow
+# *Map evaluation inputs* — Confirm fixture + format and any player/team fields required for Player Performance.
+# *Wire extra evaluation fields* — Add any missing MatchEvaluation / BatterEvaluation / Innings fields called out in the Excel mapping notes.
+# *Call Lambda market* — Invoke PreMatch.Models.Players.PlayerPerformance and capture base outcomes / line.
+# *Market Configuration UI* — Render Player Performance in Market Configuration (prob / line / adjust / price) aligned to PM rows 337-346.
+# *Apply trader adjust post-model* — Store purple skew; apply after Lambda per market skew rules (÷100 / ÷10 / line nudge as documented).
+# *QA against default fixture* — Compare published outputs to PM Publication defaults (adjust = 0) before marking Matched.
+
+h3. Acceptance criteria
+* [ ] AC1: Player Performance appears in Market Configuration (PM rows 337-346) with correct market code PERF.
+* [ ] AC2: Pricing call returns Lambda outcomes for Player Performance; UI displays base probabilities and/or line without requiring a non-zero trader adjust.
+* [ ] AC3: Trader adjust control is available where the sheet has a purple I column; +1 / −1 (or documented unit) updates published values after Lambda.
+* [ ] AC4 (expected value): With default fixture inputs and adjust = 0, published probs/lines match captured PM Publication for the default NZ v SA fixture (capture from QA tab if missing).
+* [ ] AC5 (wiring): Model Manager Overview can mark this market Matched once QA passes on the default fixture.
+* [ ] AC6: Behaviour is validated for applicable formats (T20 / ODI / Test as relevant to the model).",development,PC-3808,pre-match trading-ui development pm-player-performance,
+Wire (Player Sixes),Story,"Wire pre-match market *Player Sixes* into Player Adjustment → Lambda → Market Configuration.
+
+h3. Data flow
+# *Player Adjustment / Prep* — Capture fixture, squad, conditions, and team/player ratings used by this market.
+# *Evaluation payload* — Map prep outputs into the pre-match evaluation object required by *Player Sixes* (see Excel notes below).
+# *Lambda* — Invoke `PreMatch.Models.Players.PlayerSixes` and capture base line / outcome probabilities.
+# *Trader skew (FE)* — Store purple adjust (PM column I) on the FE; apply after Lambda returns base probs/line (do not send skew as a Lambda input unless the model already expects it).
+# *Market Configuration* — Display published line/prob/price; publish selections for trading.
+*Lambda / class:* `PreMatch.Models.Players.PlayerSixes`
+*Registry:* `pm-player-sixes`
+*Market code:* `BA6U`
+*Excel today:* PM Publication rows 277-286 (Player - Sixes)
+*Trader adjust:* none / TBC
+*Notes:* Line 0 (F=0.5 placeholder); Poisson-gamma under prob in G
+*Default QA fixture:* NZ v SA (Atlas / workbook default) with adjust = 0
+*Component:* development — deliver for all formats where the model applies
+*Epic:* PCS Trading UI: Pre Match (PC-3808)
+
+h3. Process flow
+# *Map evaluation inputs* — Confirm fixture + format and any player/team fields required for Player Sixes.
+# *Wire extra evaluation fields* — Add any missing MatchEvaluation / BatterEvaluation / Innings fields called out in the Excel mapping notes.
+# *Call Lambda market* — Invoke PreMatch.Models.Players.PlayerSixes and capture base outcomes / line.
+# *Market Configuration UI* — Render Player Sixes in Market Configuration (prob / line / adjust / price) aligned to PM rows 277-286.
+# *Apply trader adjust post-model* — Store purple skew; apply after Lambda per market skew rules (÷100 / ÷10 / line nudge as documented).
+# *QA against default fixture* — Compare published outputs to PM Publication defaults (adjust = 0) before marking Matched.
+
+h3. Acceptance criteria
+* [ ] AC1: Player Sixes appears in Market Configuration (PM rows 277-286) with correct market code BA6U.
+* [ ] AC2: Pricing call returns Lambda outcomes for Player Sixes; UI displays base probabilities and/or line without requiring a non-zero trader adjust.
+* [ ] AC3: Trader adjust control is available where the sheet has a purple I column; +1 / −1 (or documented unit) updates published values after Lambda.
+* [ ] AC4 (expected value): With default fixture inputs and adjust = 0, published probs/lines match captured PM Publication for the default NZ v SA fixture (capture from QA tab if missing).
+* [ ] AC5 (wiring): Model Manager Overview can mark this market Matched once QA passes on the default fixture.
+* [ ] AC6: Behaviour is validated for applicable formats (T20 / ODI / Test as relevant to the model).",development,PC-3808,pre-match trading-ui development pm-player-sixes,
+Wire (Rabbit Runs),Story,"Wire pre-match market *Rabbit Runs* into Player Adjustment → Lambda → Market Configuration.
+
+h3. Data flow
+# *Player Adjustment / Prep* — Capture fixture, squad, conditions, and team/player ratings used by this market.
+# *Evaluation payload* — Map prep outputs into the pre-match evaluation object required by *Rabbit Runs* (see Excel notes below).
+# *Lambda* — Invoke `PreMatch.Models.Matches.RabbitRuns` and capture base line / outcome probabilities.
+# *Trader skew (FE)* — Store purple adjust (PM column I) on the FE; apply after Lambda returns base probs/line (do not send skew as a Lambda input unless the model already expects it).
+# *Market Configuration* — Display published line/prob/price; publish selections for trading.
+*Lambda / class:* `PreMatch.Models.Matches.RabbitRuns`
+*Registry:* `pm-rabbit-runs`
+*Market code:* `64BARUA`
+*Excel today:* PM Publication rows 76 (Rabbit Runs)
+*Line cell:* F76
+*Adjust cell:* I76
+*Lambda adjust path:* `AdjustmentsPM.MatchAdjustments.RabbitRuns`
+*Notes:* Prep Work Y10=0.965; Lambda subtracts adjust÷100 from underProb (not added to total)
+*Default QA fixture:* NZ v SA (Atlas / workbook default) with adjust = 0
+*Component:* development — deliver for all formats where the model applies
+*Epic:* PCS Trading UI: Pre Match (PC-3808)
+
+h3. Process flow
+# *Map evaluation inputs* — Confirm fixture + format and any player/team fields required for Rabbit Runs.
+# *Wire extra evaluation fields* — Add any missing MatchEvaluation / BatterEvaluation / Innings fields called out in the Excel mapping notes.
+# *Call Lambda market* — Invoke PreMatch.Models.Matches.RabbitRuns and capture base outcomes / line.
+# *Market Configuration UI* — Render Rabbit Runs in Market Configuration (prob / line / adjust / price) aligned to PM rows 76.
+# *Apply trader adjust post-model* — Store purple skew; apply after Lambda per market skew rules (÷100 / ÷10 / line nudge as documented).
+# *QA against default fixture* — Compare published outputs to PM Publication defaults (adjust = 0) before marking Matched.
+
+h3. Acceptance criteria
+* [ ] AC1: Rabbit Runs appears in Market Configuration (PM rows 76) with correct market code 64BARUA.
+* [ ] AC2: Pricing call returns Lambda outcomes for Rabbit Runs; UI displays base probabilities and/or line without requiring a non-zero trader adjust.
+* [ ] AC3: Trader adjust control is available where the sheet has a purple I column; +1 / −1 (or documented unit) updates published values after Lambda.
+* [ ] AC4 (expected value): With default fixture inputs and adjust = 0, published probs/lines match captured PM Publication for the default NZ v SA fixture (capture from QA tab if missing).
+* [ ] AC5 (wiring): Model Manager Overview can mark this market Matched once QA passes on the default fixture.
+* [ ] AC6: Behaviour is validated for applicable formats (T20 / ODI / Test as relevant to the model).",development,PC-3808,pre-match trading-ui development pm-rabbit-runs,
+Wire (Runs at Fall of 1st Wicket),Story,"Wire pre-match market *Runs at Fall of 1st Wicket* into Player Adjustment → Lambda → Market Configuration.
+
+h3. Data flow
+# *Player Adjustment / Prep* — Capture fixture, squad, conditions, and team/player ratings used by this market.
+# *Evaluation payload* — Map prep outputs into the pre-match evaluation object required by *Runs at Fall of 1st Wicket* (see Excel notes below).
+# *Lambda* — Invoke `PreMatch.Models.Teams.TeamFirstPartnership` and capture base line / outcome probabilities.
+# *Trader skew (FE)* — Store purple adjust (PM column I) on the FE; apply after Lambda returns base probs/line (do not send skew as a Lambda input unless the model already expects it).
+# *Market Configuration* — Display published line/prob/price; publish selections for trading.
+*Lambda / class:* `PreMatch.Models.Teams.TeamFirstPartnership`
+*Registry:* `pm-team-first-partnership`
+*Market code:* `11FONW / 21FONW`
+*Excel today:* PM Publication rows NZ 147 / SA 213 ({Team} Runs at Fall of 1st Wicket)
+*Trader adjust:* none / TBC
+*Lambda adjust path:* `InningsAdjustmentsPM.FallOfWicket + BatterAdjustments`
+*Notes:* Per-team opener line; fixed 50/50 outcomes — differs from match FirstPartnership row 44
+*Default QA fixture:* NZ v SA (Atlas / workbook default) with adjust = 0
+*Component:* development — deliver for all formats where the model applies
+*Epic:* PCS Trading UI: Pre Match (PC-3808)
+
+h3. Process flow
+# *Map evaluation inputs* — Confirm fixture + format and any player/team fields required for Runs at Fall of 1st Wicket.
+# *Wire extra evaluation fields* — Add any missing MatchEvaluation / BatterEvaluation / Innings fields called out in the Excel mapping notes.
+# *Call Lambda market* — Invoke PreMatch.Models.Teams.TeamFirstPartnership and capture base outcomes / line.
+# *Market Configuration UI* — Render Runs at Fall of 1st Wicket in Market Configuration (prob / line / adjust / price) aligned to PM rows NZ 147 / SA 213.
+# *Apply trader adjust post-model* — Store purple skew; apply after Lambda per market skew rules (÷100 / ÷10 / line nudge as documented).
+# *QA against default fixture* — Compare published outputs to PM Publication defaults (adjust = 0) before marking Matched.
+
+h3. Acceptance criteria
+* [ ] AC1: Runs at Fall of 1st Wicket appears in Market Configuration (PM rows NZ 147 / SA 213) with correct market code 11FONW / 21FONW.
+* [ ] AC2: Pricing call returns Lambda outcomes for Runs at Fall of 1st Wicket; UI displays base probabilities and/or line without requiring a non-zero trader adjust.
+* [ ] AC3: Trader adjust control is available where the sheet has a purple I column; +1 / −1 (or documented unit) updates published values after Lambda.
+* [ ] AC4 (expected value): With default fixture inputs and adjust = 0, published probs/lines match captured PM Publication for the default NZ v SA fixture (capture from QA tab if missing).
+* [ ] AC5 (wiring): Model Manager Overview can mark this market Matched once QA passes on the default fixture.
+* [ ] AC6: Behaviour is validated for applicable formats (T20 / ODI / Test as relevant to the model).",development,PC-3808,pre-match trading-ui development pm-team-first-partnership,
+Wire (Runs in First N Overs (match + team)),Story,"Wire pre-match market *Runs in First N Overs (match + team)* into Player Adjustment → Lambda → Market Configuration.
+
+h3. Data flow
+# *Player Adjustment / Prep* — Capture fixture, squad, conditions, and team/player ratings used by this market.
+# *Evaluation payload* — Map prep outputs into the pre-match evaluation object required by *Runs in First N Overs (match + team)* (see Excel notes below).
+# *Lambda* — Invoke `PreMatch.Models.….GroupRuns` and capture base line / outcome probabilities.
+# *Trader skew (FE)* — Store purple adjust (PM column I) on the FE; apply after Lambda returns base probs/line (do not send skew as a Lambda input unless the model already expects it).
+# *Market Configuration* — Display published line/prob/price; publish selections for trading.
+*Lambda / class:* `PreMatch.Models.….GroupRuns`
+*Registry:* `pm-group-runs`
+*Market code:* `0RPGO{n} / 1|2RPGO{n}[A|B]`
+*Excel today:* PM Publication rows 38-40 (Runs in First N Overs (match))
+*Line cell:* F38
+*Adjust cell:* I38
+*Lambda adjust path:* `AdjustmentsPM.MatchAdjustments.FirstGroup / SecondGroup / ThirdGroup`
+*Notes:* T20 rows 38–40 = 6/8/10 overs. Line = Round(mean−1.2)+0.5. Group-specific adjust by over count.
+*Default QA fixture:* NZ v SA (Atlas / workbook default) with adjust = 0
+*Component:* development — deliver for all formats where the model applies
+*Epic:* PCS Trading UI: Pre Match (PC-3808)
+
+h3. Process flow
+# *Map evaluation inputs* — Confirm fixture + format and any player/team fields required for Runs in First N Overs (match + team).
+# *Wire extra evaluation fields* — Add any missing MatchEvaluation / BatterEvaluation / Innings fields called out in the Excel mapping notes.
+# *Call Lambda market* — Invoke PreMatch.Models.….GroupRuns and capture base outcomes / line.
+# *Market Configuration UI* — Render Runs in First N Overs (match + team) in Market Configuration (prob / line / adjust / price) aligned to PM rows 38-40.
+# *Apply trader adjust post-model* — Store purple skew; apply after Lambda per market skew rules (÷100 / ÷10 / line nudge as documented).
+# *QA against default fixture* — Compare published outputs to PM Publication defaults (adjust = 0) before marking Matched.
+
+h3. Acceptance criteria
+* [ ] AC1: Runs in First N Overs (match + team) appears in Market Configuration (PM rows 38-40) with correct market code 0RPGO{n} / 1|2RPGO{n}[A|B].
+* [ ] AC2: Pricing call returns Lambda outcomes for Runs in First N Overs (match + team); UI displays base probabilities and/or line without requiring a non-zero trader adjust.
+* [ ] AC3: Trader adjust control is available where the sheet has a purple I column; +1 / −1 (or documented unit) updates published values after Lambda.
+* [ ] AC4 (expected value): With default fixture inputs and adjust = 0, published probs/lines match captured PM Publication for the default NZ v SA fixture (capture from QA tab if missing).
+* [ ] AC5 (wiring): Model Manager Overview can mark this market Matched once QA passes on the default fixture.
+* [ ] AC6: Behaviour is validated for applicable formats (T20 / ODI / Test as relevant to the model).",development,PC-3808,pre-match trading-ui development pm-group-runs,
+Wire (Runs in First N Overs (team only)),Story,"Wire pre-match market *Runs in First N Overs (team only)* into Player Adjustment → Lambda → Market Configuration.
+
+h3. Data flow
+# *Player Adjustment / Prep* — Capture fixture, squad, conditions, and team/player ratings used by this market.
+# *Evaluation payload* — Map prep outputs into the pre-match evaluation object required by *Runs in First N Overs (team only)* (see Excel notes below).
+# *Lambda* — Invoke `PreMatch.Models.….TeamGroupRuns` and capture base line / outcome probabilities.
+# *Trader skew (FE)* — Store purple adjust (PM column I) on the FE; apply after Lambda returns base probs/line (do not send skew as a Lambda input unless the model already expects it).
+# *Market Configuration* — Display published line/prob/price; publish selections for trading.
+*Lambda / class:* `PreMatch.Models.….TeamGroupRuns`
+*Registry:* `pm-team-group-runs`
+*Market code:* `1|2RPGO{n}[A|B]`
+*Excel today:* PM Publication rows NZ 138-146 / SA 204-212 ({Team} Runs in First N Overs)
+*Trader adjust:* none / TBC
+*Lambda adjust path:* `InningsAdjustmentsPM.FirstGroup / SecondGroup / ThirdGroup`
+*Notes:* Three lines per team per group (. and .. suffix rows = alternate lines). TeamGroupRuns or GroupRuns team branch.
+*Default QA fixture:* NZ v SA (Atlas / workbook default) with adjust = 0
+*Component:* development — deliver for all formats where the model applies
+*Epic:* PCS Trading UI: Pre Match (PC-3808)
+
+h3. Process flow
+# *Map evaluation inputs* — Confirm fixture + format and any player/team fields required for Runs in First N Overs (team only).
+# *Wire extra evaluation fields* — Add any missing MatchEvaluation / BatterEvaluation / Innings fields called out in the Excel mapping notes.
+# *Call Lambda market* — Invoke PreMatch.Models.….TeamGroupRuns and capture base outcomes / line.
+# *Market Configuration UI* — Render Runs in First N Overs (team only) in Market Configuration (prob / line / adjust / price) aligned to PM rows NZ 138-146 / SA 204-212.
+# *Apply trader adjust post-model* — Store purple skew; apply after Lambda per market skew rules (÷100 / ÷10 / line nudge as documented).
+# *QA against default fixture* — Compare published outputs to PM Publication defaults (adjust = 0) before marking Matched.
+
+h3. Acceptance criteria
+* [ ] AC1: Runs in First N Overs (team only) appears in Market Configuration (PM rows NZ 138-146 / SA 204-212) with correct market code 1|2RPGO{n}[A|B].
+* [ ] AC2: Pricing call returns Lambda outcomes for Runs in First N Overs (team only); UI displays base probabilities and/or line without requiring a non-zero trader adjust.
+* [ ] AC3: Trader adjust control is available where the sheet has a purple I column; +1 / −1 (or documented unit) updates published values after Lambda.
+* [ ] AC4 (expected value): With default fixture inputs and adjust = 0, published probs/lines match captured PM Publication for the default NZ v SA fixture (capture from QA tab if missing).
+* [ ] AC5 (wiring): Model Manager Overview can mark this market Matched once QA passes on the default fixture.
+* [ ] AC6: Behaviour is validated for applicable formats (T20 / ODI / Test as relevant to the model).",development,PC-3808,pre-match trading-ui development pm-team-group-runs,
+Wire (Team Fours),Story,"Wire pre-match market *Team Fours* into Player Adjustment → Lambda → Market Configuration.
+
+h3. Data flow
+# *Player Adjustment / Prep* — Capture fixture, squad, conditions, and team/player ratings used by this market.
+# *Evaluation payload* — Map prep outputs into the pre-match evaluation object required by *Team Fours* (see Excel notes below).
+# *Lambda* — Invoke `PreMatch.Models.Teams.TeamFours` and capture base line / outcome probabilities.
+# *Trader skew (FE)* — Store purple adjust (PM column I) on the FE; apply after Lambda returns base probs/line (do not send skew as a Lambda input unless the model already expects it).
+# *Market Configuration* — Display published line/prob/price; publish selections for trading.
+*Lambda / class:* `PreMatch.Models.Teams.TeamFours`
+*Registry:* `pm-team-fours`
+*Market code:* `54PIN / 64PIN`
+*Excel today:* PM Publication rows NZ 155-157 / SA 221-223 ({Team} Fours (3 lines))
+*Trader adjust:* none / TBC
+*Lambda adjust path:* `InningsAdjustmentsPM.InningsFours`
+*Notes:* GetTeamFours() + adjust; middle ± max(round(expected/10),1)
+*Default QA fixture:* NZ v SA (Atlas / workbook default) with adjust = 0
+*Component:* development — deliver for all formats where the model applies
+*Epic:* PCS Trading UI: Pre Match (PC-3808)
+
+h3. Process flow
+# *Map evaluation inputs* — Confirm fixture + format and any player/team fields required for Team Fours.
+# *Wire extra evaluation fields* — Add any missing MatchEvaluation / BatterEvaluation / Innings fields called out in the Excel mapping notes.
+# *Call Lambda market* — Invoke PreMatch.Models.Teams.TeamFours and capture base outcomes / line.
+# *Market Configuration UI* — Render Team Fours in Market Configuration (prob / line / adjust / price) aligned to PM rows NZ 155-157 / SA 221-223.
+# *Apply trader adjust post-model* — Store purple skew; apply after Lambda per market skew rules (÷100 / ÷10 / line nudge as documented).
+# *QA against default fixture* — Compare published outputs to PM Publication defaults (adjust = 0) before marking Matched.
+
+h3. Acceptance criteria
+* [ ] AC1: Team Fours appears in Market Configuration (PM rows NZ 155-157 / SA 221-223) with correct market code 54PIN / 64PIN.
+* [ ] AC2: Pricing call returns Lambda outcomes for Team Fours; UI displays base probabilities and/or line without requiring a non-zero trader adjust.
+* [ ] AC3: Trader adjust control is available where the sheet has a purple I column; +1 / −1 (or documented unit) updates published values after Lambda.
+* [ ] AC4 (expected value): With default fixture inputs and adjust = 0, published probs/lines match captured PM Publication for the default NZ v SA fixture (capture from QA tab if missing).
+* [ ] AC5 (wiring): Model Manager Overview can mark this market Matched once QA passes on the default fixture.
+* [ ] AC6: Behaviour is validated for applicable formats (T20 / ODI / Test as relevant to the model).",development,PC-3808,pre-match trading-ui development pm-team-fours,
+Wire (Team Innings Ducks),Story,"Wire pre-match market *Team Innings Ducks* into Player Adjustment → Lambda → Market Configuration.
+
+h3. Data flow
+# *Player Adjustment / Prep* — Capture fixture, squad, conditions, and team/player ratings used by this market.
+# *Evaluation payload* — Map prep outputs into the pre-match evaluation object required by *Team Innings Ducks* (see Excel notes below).
+# *Lambda* — Invoke `PreMatch.Models.Teams.TeamDucks` and capture base line / outcome probabilities.
+# *Trader skew (FE)* — Store purple adjust (PM column I) on the FE; apply after Lambda returns base probs/line (do not send skew as a Lambda input unless the model already expects it).
+# *Market Configuration* — Display published line/prob/price; publish selections for trading.
+*Lambda / class:* `PreMatch.Models.Teams.TeamDucks`
+*Registry:* `pm-team-ducks`
+*Market code:* `54PIN / 64PIN`
+*Excel today:* PM Publication rows NZ 164 / SA 230 ({Team} Innings Ducks)
+*Trader adjust:* none / TBC
+*Lambda adjust path:* `InningsAdjustments.InningsDucks / 10`
+*Notes:* InningsDucks from O16; skipped if ≤0
+*Default QA fixture:* NZ v SA (Atlas / workbook default) with adjust = 0
+*Component:* development — deliver for all formats where the model applies
+*Epic:* PCS Trading UI: Pre Match (PC-3808)
+
+h3. Process flow
+# *Map evaluation inputs* — Confirm fixture + format and any player/team fields required for Team Innings Ducks.
+# *Wire extra evaluation fields* — Add any missing MatchEvaluation / BatterEvaluation / Innings fields called out in the Excel mapping notes.
+# *Call Lambda market* — Invoke PreMatch.Models.Teams.TeamDucks and capture base outcomes / line.
+# *Market Configuration UI* — Render Team Innings Ducks in Market Configuration (prob / line / adjust / price) aligned to PM rows NZ 164 / SA 230.
+# *Apply trader adjust post-model* — Store purple skew; apply after Lambda per market skew rules (÷100 / ÷10 / line nudge as documented).
+# *QA against default fixture* — Compare published outputs to PM Publication defaults (adjust = 0) before marking Matched.
+
+h3. Acceptance criteria
+* [ ] AC1: Team Innings Ducks appears in Market Configuration (PM rows NZ 164 / SA 230) with correct market code 54PIN / 64PIN.
+* [ ] AC2: Pricing call returns Lambda outcomes for Team Innings Ducks; UI displays base probabilities and/or line without requiring a non-zero trader adjust.
+* [ ] AC3: Trader adjust control is available where the sheet has a purple I column; +1 / −1 (or documented unit) updates published values after Lambda.
+* [ ] AC4 (expected value): With default fixture inputs and adjust = 0, published probs/lines match captured PM Publication for the default NZ v SA fixture (capture from QA tab if missing).
+* [ ] AC5 (wiring): Model Manager Overview can mark this market Matched once QA passes on the default fixture.
+* [ ] AC6: Behaviour is validated for applicable formats (T20 / ODI / Test as relevant to the model).",development,PC-3808,pre-match trading-ui development pm-team-ducks,
+Wire (Team Innings Extras),Story,"Wire pre-match market *Team Innings Extras* into Player Adjustment → Lambda → Market Configuration.
+
+h3. Data flow
+# *Player Adjustment / Prep* — Capture fixture, squad, conditions, and team/player ratings used by this market.
+# *Evaluation payload* — Map prep outputs into the pre-match evaluation object required by *Team Innings Extras* (see Excel notes below).
+# *Lambda* — Invoke `PreMatch.Models.Teams.TeamExtras` and capture base line / outcome probabilities.
+# *Trader skew (FE)* — Store purple adjust (PM column I) on the FE; apply after Lambda returns base probs/line (do not send skew as a Lambda input unless the model already expects it).
+# *Market Configuration* — Display published line/prob/price; publish selections for trading.
+*Lambda / class:* `PreMatch.Models.Teams.TeamExtras`
+*Registry:* `pm-team-extras`
+*Market code:* `54PINA / 64PINA`
+*Excel today:* PM Publication rows NZ 165 / SA 231 ({Team} Innings Extras)
+*Trader adjust:* none / TBC
+*Lambda adjust path:* `InningsAdjustments.InningsExtras`
+*Notes:* ExtrasPrediction M35/M56 + adjust
+*Default QA fixture:* NZ v SA (Atlas / workbook default) with adjust = 0
+*Component:* development — deliver for all formats where the model applies
+*Epic:* PCS Trading UI: Pre Match (PC-3808)
+
+h3. Process flow
+# *Map evaluation inputs* — Confirm fixture + format and any player/team fields required for Team Innings Extras.
+# *Wire extra evaluation fields* — Add any missing MatchEvaluation / BatterEvaluation / Innings fields called out in the Excel mapping notes.
+# *Call Lambda market* — Invoke PreMatch.Models.Teams.TeamExtras and capture base outcomes / line.
+# *Market Configuration UI* — Render Team Innings Extras in Market Configuration (prob / line / adjust / price) aligned to PM rows NZ 165 / SA 231.
+# *Apply trader adjust post-model* — Store purple skew; apply after Lambda per market skew rules (÷100 / ÷10 / line nudge as documented).
+# *QA against default fixture* — Compare published outputs to PM Publication defaults (adjust = 0) before marking Matched.
+
+h3. Acceptance criteria
+* [ ] AC1: Team Innings Extras appears in Market Configuration (PM rows NZ 165 / SA 231) with correct market code 54PINA / 64PINA.
+* [ ] AC2: Pricing call returns Lambda outcomes for Team Innings Extras; UI displays base probabilities and/or line without requiring a non-zero trader adjust.
+* [ ] AC3: Trader adjust control is available where the sheet has a purple I column; +1 / −1 (or documented unit) updates published values after Lambda.
+* [ ] AC4 (expected value): With default fixture inputs and adjust = 0, published probs/lines match captured PM Publication for the default NZ v SA fixture (capture from QA tab if missing).
+* [ ] AC5 (wiring): Model Manager Overview can mark this market Matched once QA passes on the default fixture.
+* [ ] AC6: Behaviour is validated for applicable formats (T20 / ODI / Test as relevant to the model).",development,PC-3808,pre-match trading-ui development pm-team-extras,
+Wire (Team Innings Run Outs),Story,"Wire pre-match market *Team Innings Run Outs* into Player Adjustment → Lambda → Market Configuration.
+
+h3. Data flow
+# *Player Adjustment / Prep* — Capture fixture, squad, conditions, and team/player ratings used by this market.
+# *Evaluation payload* — Map prep outputs into the pre-match evaluation object required by *Team Innings Run Outs* (see Excel notes below).
+# *Lambda* — Invoke `PreMatch.Models.Teams.TeamRunOuts` and capture base line / outcome probabilities.
+# *Trader skew (FE)* — Store purple adjust (PM column I) on the FE; apply after Lambda returns base probs/line (do not send skew as a Lambda input unless the model already expects it).
+# *Market Configuration* — Display published line/prob/price; publish selections for trading.
+*Lambda / class:* `PreMatch.Models.Teams.TeamRunOuts`
+*Registry:* `pm-team-run-outs`
+*Market code:* `5INRU / 6INRU`
+*Excel today:* PM Publication rows NZ 161 / SA 227 ({Team} Innings Run Outs)
+*Trader adjust:* none / TBC
+*Lambda adjust path:* `InningsAdjustments.InningsRunOuts / 10`
+*Notes:* Poisson P(X≤0); line 0.5
+*Default QA fixture:* NZ v SA (Atlas / workbook default) with adjust = 0
+*Component:* development — deliver for all formats where the model applies
+*Epic:* PCS Trading UI: Pre Match (PC-3808)
+
+h3. Process flow
+# *Map evaluation inputs* — Confirm fixture + format and any player/team fields required for Team Innings Run Outs.
+# *Wire extra evaluation fields* — Add any missing MatchEvaluation / BatterEvaluation / Innings fields called out in the Excel mapping notes.
+# *Call Lambda market* — Invoke PreMatch.Models.Teams.TeamRunOuts and capture base outcomes / line.
+# *Market Configuration UI* — Render Team Innings Run Outs in Market Configuration (prob / line / adjust / price) aligned to PM rows NZ 161 / SA 227.
+# *Apply trader adjust post-model* — Store purple skew; apply after Lambda per market skew rules (÷100 / ÷10 / line nudge as documented).
+# *QA against default fixture* — Compare published outputs to PM Publication defaults (adjust = 0) before marking Matched.
+
+h3. Acceptance criteria
+* [ ] AC1: Team Innings Run Outs appears in Market Configuration (PM rows NZ 161 / SA 227) with correct market code 5INRU / 6INRU.
+* [ ] AC2: Pricing call returns Lambda outcomes for Team Innings Run Outs; UI displays base probabilities and/or line without requiring a non-zero trader adjust.
+* [ ] AC3: Trader adjust control is available where the sheet has a purple I column; +1 / −1 (or documented unit) updates published values after Lambda.
+* [ ] AC4 (expected value): With default fixture inputs and adjust = 0, published probs/lines match captured PM Publication for the default NZ v SA fixture (capture from QA tab if missing).
+* [ ] AC5 (wiring): Model Manager Overview can mark this market Matched once QA passes on the default fixture.
+* [ ] AC6: Behaviour is validated for applicable formats (T20 / ODI / Test as relevant to the model).",development,PC-3808,pre-match trading-ui development pm-team-run-outs,
+Wire (Team Max Runs in an Over),Story,"Wire pre-match market *Team Max Runs in an Over* into Player Adjustment → Lambda → Market Configuration.
+
+h3. Data flow
+# *Player Adjustment / Prep* — Capture fixture, squad, conditions, and team/player ratings used by this market.
+# *Evaluation payload* — Map prep outputs into the pre-match evaluation object required by *Team Max Runs in an Over* (see Excel notes below).
+# *Lambda* — Invoke `PreMatch.Models.Teams.TeamMaxOver` and capture base line / outcome probabilities.
+# *Trader skew (FE)* — Store purple adjust (PM column I) on the FE; apply after Lambda returns base probs/line (do not send skew as a Lambda input unless the model already expects it).
+# *Market Configuration* — Display published line/prob/price; publish selections for trading.
+*Lambda / class:* `PreMatch.Models.Teams.TeamMaxOver`
+*Registry:* `pm-team-max-over`
+*Market code:* `5INRUA / 6INRUA`
+*Excel today:* PM Publication rows NZ 162 / SA 228 ({Team} Max Runs in an Over)
+*Trader adjust:* none / TBC
+*Lambda adjust path:* `InningsAdjustments.MaxRunsInOver`
+*Notes:* InningsMaxOver + adjust; Poisson line; skipped if ≤0
+*Default QA fixture:* NZ v SA (Atlas / workbook default) with adjust = 0
+*Component:* development — deliver for all formats where the model applies
+*Epic:* PCS Trading UI: Pre Match (PC-3808)
+
+h3. Process flow
+# *Map evaluation inputs* — Confirm fixture + format and any player/team fields required for Team Max Runs in an Over.
+# *Wire extra evaluation fields* — Add any missing MatchEvaluation / BatterEvaluation / Innings fields called out in the Excel mapping notes.
+# *Call Lambda market* — Invoke PreMatch.Models.Teams.TeamMaxOver and capture base outcomes / line.
+# *Market Configuration UI* — Render Team Max Runs in an Over in Market Configuration (prob / line / adjust / price) aligned to PM rows NZ 162 / SA 228.
+# *Apply trader adjust post-model* — Store purple skew; apply after Lambda per market skew rules (÷100 / ÷10 / line nudge as documented).
+# *QA against default fixture* — Compare published outputs to PM Publication defaults (adjust = 0) before marking Matched.
+
+h3. Acceptance criteria
+* [ ] AC1: Team Max Runs in an Over appears in Market Configuration (PM rows NZ 162 / SA 228) with correct market code 5INRUA / 6INRUA.
+* [ ] AC2: Pricing call returns Lambda outcomes for Team Max Runs in an Over; UI displays base probabilities and/or line without requiring a non-zero trader adjust.
+* [ ] AC3: Trader adjust control is available where the sheet has a purple I column; +1 / −1 (or documented unit) updates published values after Lambda.
+* [ ] AC4 (expected value): With default fixture inputs and adjust = 0, published probs/lines match captured PM Publication for the default NZ v SA fixture (capture from QA tab if missing).
+* [ ] AC5 (wiring): Model Manager Overview can mark this market Matched once QA passes on the default fixture.
+* [ ] AC6: Behaviour is validated for applicable formats (T20 / ODI / Test as relevant to the model).",development,PC-3808,pre-match trading-ui development pm-team-max-over,
+Wire (Team Sixes),Story,"Wire pre-match market *Team Sixes* into Player Adjustment → Lambda → Market Configuration.
+
+h3. Data flow
+# *Player Adjustment / Prep* — Capture fixture, squad, conditions, and team/player ratings used by this market.
+# *Evaluation payload* — Map prep outputs into the pre-match evaluation object required by *Team Sixes* (see Excel notes below).
+# *Lambda* — Invoke `PreMatch.Models.Teams.TeamSixes` and capture base line / outcome probabilities.
+# *Trader skew (FE)* — Store purple adjust (PM column I) on the FE; apply after Lambda returns base probs/line (do not send skew as a Lambda input unless the model already expects it).
+# *Market Configuration* — Display published line/prob/price; publish selections for trading.
+*Lambda / class:* `PreMatch.Models.Teams.TeamSixes`
+*Registry:* `pm-team-sixes`
+*Market code:* `56PIN / 66PIN`
+*Excel today:* PM Publication rows NZ 158-160 / SA 224-226 ({Team} Sixes (3 lines))
+*Trader adjust:* none / TBC
+*Notes:* GetTeamSixes(); middle ± 1; no innings adjust in Lambda
+*Default QA fixture:* NZ v SA (Atlas / workbook default) with adjust = 0
+*Component:* development — deliver for all formats where the model applies
+*Epic:* PCS Trading UI: Pre Match (PC-3808)
+
+h3. Process flow
+# *Map evaluation inputs* — Confirm fixture + format and any player/team fields required for Team Sixes.
+# *Wire extra evaluation fields* — Add any missing MatchEvaluation / BatterEvaluation / Innings fields called out in the Excel mapping notes.
+# *Call Lambda market* — Invoke PreMatch.Models.Teams.TeamSixes and capture base outcomes / line.
+# *Market Configuration UI* — Render Team Sixes in Market Configuration (prob / line / adjust / price) aligned to PM rows NZ 158-160 / SA 224-226.
+# *Apply trader adjust post-model* — Store purple skew; apply after Lambda per market skew rules (÷100 / ÷10 / line nudge as documented).
+# *QA against default fixture* — Compare published outputs to PM Publication defaults (adjust = 0) before marking Matched.
+
+h3. Acceptance criteria
+* [ ] AC1: Team Sixes appears in Market Configuration (PM rows NZ 158-160 / SA 224-226) with correct market code 56PIN / 66PIN.
+* [ ] AC2: Pricing call returns Lambda outcomes for Team Sixes; UI displays base probabilities and/or line without requiring a non-zero trader adjust.
+* [ ] AC3: Trader adjust control is available where the sheet has a purple I column; +1 / −1 (or documented unit) updates published values after Lambda.
+* [ ] AC4 (expected value): With default fixture inputs and adjust = 0, published probs/lines match captured PM Publication for the default NZ v SA fixture (capture from QA tab if missing).
+* [ ] AC5 (wiring): Model Manager Overview can mark this market Matched once QA passes on the default fixture.
+* [ ] AC6: Behaviour is validated for applicable formats (T20 / ODI / Test as relevant to the model).",development,PC-3808,pre-match trading-ui development pm-team-sixes,
+Wire (Team Top Bat),Story,"Wire pre-match market *Team Top Bat* into Player Adjustment → Lambda → Market Configuration.
+
+h3. Data flow
+# *Player Adjustment / Prep* — Capture fixture, squad, conditions, and team/player ratings used by this market.
+# *Evaluation payload* — Map prep outputs into the pre-match evaluation object required by *Team Top Bat* (see Excel notes below).
+# *Lambda* — Invoke `PreMatch.Models.Teams.TeamTopBatter` and capture base line / outcome probabilities.
+# *Trader skew (FE)* — Store purple adjust (PM column I) on the FE; apply after Lambda returns base probs/line (do not send skew as a Lambda input unless the model already expects it).
+# *Market Configuration* — Display published line/prob/price; publish selections for trading.
+*Lambda / class:* `PreMatch.Models.Teams.TeamTopBatter`
+*Registry:* `pm-team-top-batter`
+*Market code:* `TBNL`
+*Excel today:* PM Publication rows — (Team Top Bat)
+*Trader adjust:* none / TBC
+*Notes:* Per-team top batter race — home and away markets.
+*Default QA fixture:* NZ v SA (Atlas / workbook default) with adjust = 0
+*Component:* development — deliver for all formats where the model applies
+*Epic:* PCS Trading UI: Pre Match (PC-3808)
+
+h3. Process flow
+# *Map evaluation inputs* — Confirm fixture + format and any player/team fields required for Team Top Bat.
+# *Wire extra evaluation fields* — Add any missing MatchEvaluation / BatterEvaluation / Innings fields called out in the Excel mapping notes.
+# *Call Lambda market* — Invoke PreMatch.Models.Teams.TeamTopBatter and capture base outcomes / line.
+# *Market Configuration UI* — Render Team Top Bat in Market Configuration (prob / line / adjust / price) aligned to PM rows —.
+# *Apply trader adjust post-model* — Store purple skew; apply after Lambda per market skew rules (÷100 / ÷10 / line nudge as documented).
+# *QA against default fixture* — Compare published outputs to PM Publication defaults (adjust = 0) before marking Matched.
+
+h3. Acceptance criteria
+* [ ] AC1: Team Top Bat appears in Market Configuration with correct market code TBNL.
+* [ ] AC2: Pricing call returns Lambda outcomes for Team Top Bat; UI displays base probabilities and/or line without requiring a non-zero trader adjust.
+* [ ] AC3: Trader adjust control is available where the sheet has a purple I column; +1 / −1 (or documented unit) updates published values after Lambda.
+* [ ] AC4 (expected value): With default fixture inputs and adjust = 0, published probs/lines match captured PM Publication for the default NZ v SA fixture (capture from QA tab if missing).
+* [ ] AC5 (wiring): Model Manager Overview can mark this market Matched once QA passes on the default fixture.
+* [ ] AC6: Behaviour is validated for applicable formats (T20 / ODI / Test as relevant to the model).",development,PC-3808,pre-match trading-ui development pm-team-top-batter,
+Wire (Team Top Bowl),Story,"Wire pre-match market *Team Top Bowl* into Player Adjustment → Lambda → Market Configuration.
+
+h3. Data flow
+# *Player Adjustment / Prep* — Capture fixture, squad, conditions, and team/player ratings used by this market.
+# *Evaluation payload* — Map prep outputs into the pre-match evaluation object required by *Team Top Bowl* (see Excel notes below).
+# *Lambda* — Invoke `PreMatch.Models.Teams.TeamTopBowler` and capture base line / outcome probabilities.
+# *Trader skew (FE)* — Store purple adjust (PM column I) on the FE; apply after Lambda returns base probs/line (do not send skew as a Lambda input unless the model already expects it).
+# *Market Configuration* — Display published line/prob/price; publish selections for trading.
+*Lambda / class:* `PreMatch.Models.Teams.TeamTopBowler`
+*Registry:* `pm-team-top-bowler`
+*Market code:* `BBNL`
+*Excel today:* PM Publication rows — (Team Top Bowl)
+*Trader adjust:* none / TBC
+*Notes:* Per-team top bowler race — home and away markets.
+*Default QA fixture:* NZ v SA (Atlas / workbook default) with adjust = 0
+*Component:* development — deliver for all formats where the model applies
+*Epic:* PCS Trading UI: Pre Match (PC-3808)
+
+h3. Process flow
+# *Map evaluation inputs* — Confirm fixture + format and any player/team fields required for Team Top Bowl.
+# *Wire extra evaluation fields* — Add any missing MatchEvaluation / BatterEvaluation / Innings fields called out in the Excel mapping notes.
+# *Call Lambda market* — Invoke PreMatch.Models.Teams.TeamTopBowler and capture base outcomes / line.
+# *Market Configuration UI* — Render Team Top Bowl in Market Configuration (prob / line / adjust / price) aligned to PM rows —.
+# *Apply trader adjust post-model* — Store purple skew; apply after Lambda per market skew rules (÷100 / ÷10 / line nudge as documented).
+# *QA against default fixture* — Compare published outputs to PM Publication defaults (adjust = 0) before marking Matched.
+
+h3. Acceptance criteria
+* [ ] AC1: Team Top Bowl appears in Market Configuration with correct market code BBNL.
+* [ ] AC2: Pricing call returns Lambda outcomes for Team Top Bowl; UI displays base probabilities and/or line without requiring a non-zero trader adjust.
+* [ ] AC3: Trader adjust control is available where the sheet has a purple I column; +1 / −1 (or documented unit) updates published values after Lambda.
+* [ ] AC4 (expected value): With default fixture inputs and adjust = 0, published probs/lines match captured PM Publication for the default NZ v SA fixture (capture from QA tab if missing).
+* [ ] AC5 (wiring): Model Manager Overview can mark this market Matched once QA passes on the default fixture.
+* [ ] AC6: Behaviour is validated for applicable formats (T20 / ODI / Test as relevant to the model).",development,PC-3808,pre-match trading-ui development pm-team-top-bowler,
+Wire (Team Wickets Lost),Story,"Wire pre-match market *Team Wickets Lost* into Player Adjustment → Lambda → Market Configuration.
+
+h3. Data flow
+# *Player Adjustment / Prep* — Capture fixture, squad, conditions, and team/player ratings used by this market.
+# *Evaluation payload* — Map prep outputs into the pre-match evaluation object required by *Team Wickets Lost* (see Excel notes below).
+# *Lambda* — Invoke `PreMatch.Models.Teams.TeamWickets` and capture base line / outcome probabilities.
+# *Trader skew (FE)* — Store purple adjust (PM column I) on the FE; apply after Lambda returns base probs/line (do not send skew as a Lambda input unless the model already expects it).
+# *Market Configuration* — Display published line/prob/price; publish selections for trading.
+*Lambda / class:* `PreMatch.Models.Teams.TeamWickets`
+*Registry:* `pm-team-wickets`
+*Market code:* `5WILO / 6WILO`
+*Excel today:* PM Publication rows NZ 166 / SA 232 ({Team} Wickets Lost)
+*Trader adjust:* none / TBC
+*Notes:* GetTeamRawWickets / wicketAdjust + InningsRunOuts
+*Default QA fixture:* NZ v SA (Atlas / workbook default) with adjust = 0
+*Component:* development — deliver for all formats where the model applies
+*Epic:* PCS Trading UI: Pre Match (PC-3808)
+
+h3. Process flow
+# *Map evaluation inputs* — Confirm fixture + format and any player/team fields required for Team Wickets Lost.
+# *Wire extra evaluation fields* — Add any missing MatchEvaluation / BatterEvaluation / Innings fields called out in the Excel mapping notes.
+# *Call Lambda market* — Invoke PreMatch.Models.Teams.TeamWickets and capture base outcomes / line.
+# *Market Configuration UI* — Render Team Wickets Lost in Market Configuration (prob / line / adjust / price) aligned to PM rows NZ 166 / SA 232.
+# *Apply trader adjust post-model* — Store purple skew; apply after Lambda per market skew rules (÷100 / ÷10 / line nudge as documented).
+# *QA against default fixture* — Compare published outputs to PM Publication defaults (adjust = 0) before marking Matched.
+
+h3. Acceptance criteria
+* [ ] AC1: Team Wickets Lost appears in Market Configuration (PM rows NZ 166 / SA 232) with correct market code 5WILO / 6WILO.
+* [ ] AC2: Pricing call returns Lambda outcomes for Team Wickets Lost; UI displays base probabilities and/or line without requiring a non-zero trader adjust.
+* [ ] AC3: Trader adjust control is available where the sheet has a purple I column; +1 / −1 (or documented unit) updates published values after Lambda.
+* [ ] AC4 (expected value): With default fixture inputs and adjust = 0, published probs/lines match captured PM Publication for the default NZ v SA fixture (capture from QA tab if missing).
+* [ ] AC5 (wiring): Model Manager Overview can mark this market Matched once QA passes on the default fixture.
+* [ ] AC6: Behaviour is validated for applicable formats (T20 / ODI / Test as relevant to the model).",development,PC-3808,pre-match trading-ui development pm-team-wickets,
+Wire (Team Wides Faced),Story,"Wire pre-match market *Team Wides Faced* into Player Adjustment → Lambda → Market Configuration.
+
+h3. Data flow
+# *Player Adjustment / Prep* — Capture fixture, squad, conditions, and team/player ratings used by this market.
+# *Evaluation payload* — Map prep outputs into the pre-match evaluation object required by *Team Wides Faced* (see Excel notes below).
+# *Lambda* — Invoke `PreMatch.Models.Teams.TeamWides` and capture base line / outcome probabilities.
+# *Trader skew (FE)* — Store purple adjust (PM column I) on the FE; apply after Lambda returns base probs/line (do not send skew as a Lambda input unless the model already expects it).
+# *Market Configuration* — Display published line/prob/price; publish selections for trading.
+*Lambda / class:* `PreMatch.Models.Teams.TeamWides`
+*Registry:* `pm-team-wides`
+*Market code:* `5INRUB / 6INRUB`
+*Excel today:* PM Publication rows NZ 163 / SA 229 ({Team} Innings Wides Faced)
+*Trader adjust:* none / TBC
+*Lambda adjust path:* `InningsAdjustments.WidesBowled`
+*Notes:* InningsWides + adjust; Prep Work W38/W59
+*Default QA fixture:* NZ v SA (Atlas / workbook default) with adjust = 0
+*Component:* development — deliver for all formats where the model applies
+*Epic:* PCS Trading UI: Pre Match (PC-3808)
+
+h3. Process flow
+# *Map evaluation inputs* — Confirm fixture + format and any player/team fields required for Team Wides Faced.
+# *Wire extra evaluation fields* — Add any missing MatchEvaluation / BatterEvaluation / Innings fields called out in the Excel mapping notes.
+# *Call Lambda market* — Invoke PreMatch.Models.Teams.TeamWides and capture base outcomes / line.
+# *Market Configuration UI* — Render Team Wides Faced in Market Configuration (prob / line / adjust / price) aligned to PM rows NZ 163 / SA 229.
+# *Apply trader adjust post-model* — Store purple skew; apply after Lambda per market skew rules (÷100 / ÷10 / line nudge as documented).
+# *QA against default fixture* — Compare published outputs to PM Publication defaults (adjust = 0) before marking Matched.
+
+h3. Acceptance criteria
+* [ ] AC1: Team Wides Faced appears in Market Configuration (PM rows NZ 163 / SA 229) with correct market code 5INRUB / 6INRUB.
+* [ ] AC2: Pricing call returns Lambda outcomes for Team Wides Faced; UI displays base probabilities and/or line without requiring a non-zero trader adjust.
+* [ ] AC3: Trader adjust control is available where the sheet has a purple I column; +1 / −1 (or documented unit) updates published values after Lambda.
+* [ ] AC4 (expected value): With default fixture inputs and adjust = 0, published probs/lines match captured PM Publication for the default NZ v SA fixture (capture from QA tab if missing).
+* [ ] AC5 (wiring): Model Manager Overview can mark this market Matched once QA passes on the default fixture.
+* [ ] AC6: Behaviour is validated for applicable formats (T20 / ODI / Test as relevant to the model).",development,PC-3808,pre-match trading-ui development pm-team-wides,
+Wire (To Take Most Wickets),Story,"Wire pre-match market *To Take Most Wickets* into Player Adjustment → Lambda → Market Configuration.
+
+h3. Data flow
+# *Player Adjustment / Prep* — Capture fixture, squad, conditions, and team/player ratings used by this market.
+# *Evaluation payload* — Map prep outputs into the pre-match evaluation object required by *To Take Most Wickets* (see Excel notes below).
+# *Lambda* — Invoke `PreMatch.Models.….MostWickets` and capture base line / outcome probabilities.
+# *Trader skew (FE)* — Store purple adjust (PM column I) on the FE; apply after Lambda returns base probs/line (do not send skew as a Lambda input unless the model already expects it).
+# *Market Configuration* — Display published line/prob/price; publish selections for trading.
+*Lambda / class:* `PreMatch.Models.….MostWickets`
+*Registry:* `pm-most-wickets`
+*Market code:* `BWLVBWL`
+*Excel today:* PM Publication rows 544-546 (To Take Most Wickets)
+*Trader adjust:* none / TBC
+*Lambda adjust path:* `MatchAdjustments.MostWickets + MostWicketsTie`
+*Notes:* 3-way top-bowler wicket race. PlayerSpecifiers name nominated bowlers; same home/tie adjust pattern as HOP.
+*Default QA fixture:* NZ v SA (Atlas / workbook default) with adjust = 0
+*Component:* development — deliver for all formats where the model applies
+*Epic:* PCS Trading UI: Pre Match (PC-3808)
+
+h3. Process flow
+# *Map evaluation inputs* — Confirm fixture + format and any player/team fields required for To Take Most Wickets.
+# *Wire extra evaluation fields* — Add any missing MatchEvaluation / BatterEvaluation / Innings fields called out in the Excel mapping notes.
+# *Call Lambda market* — Invoke PreMatch.Models.….MostWickets and capture base outcomes / line.
+# *Market Configuration UI* — Render To Take Most Wickets in Market Configuration (prob / line / adjust / price) aligned to PM rows 544-546.
+# *Apply trader adjust post-model* — Store purple skew; apply after Lambda per market skew rules (÷100 / ÷10 / line nudge as documented).
+# *QA against default fixture* — Compare published outputs to PM Publication defaults (adjust = 0) before marking Matched.
+
+h3. Acceptance criteria
+* [ ] AC1: To Take Most Wickets appears in Market Configuration (PM rows 544-546) with correct market code BWLVBWL.
+* [ ] AC2: Pricing call returns Lambda outcomes for To Take Most Wickets; UI displays base probabilities and/or line without requiring a non-zero trader adjust.
+* [ ] AC3: Trader adjust control is available where the sheet has a purple I column; +1 / −1 (or documented unit) updates published values after Lambda.
+* [ ] AC4 (expected value): With default fixture inputs and adjust = 0, published probs/lines match captured PM Publication for the default NZ v SA fixture (capture from QA tab if missing).
+* [ ] AC5 (wiring): Model Manager Overview can mark this market Matched once QA passes on the default fixture.
+* [ ] AC6: Behaviour is validated for applicable formats (T20 / ODI / Test as relevant to the model).",development,PC-3808,pre-match trading-ui development pm-most-wickets,
+Wire (Wickets in First N Overs),Story,"Wire pre-match market *Wickets in First N Overs* into Player Adjustment → Lambda → Market Configuration.
+
+h3. Data flow
+# *Player Adjustment / Prep* — Capture fixture, squad, conditions, and team/player ratings used by this market.
+# *Evaluation payload* — Map prep outputs into the pre-match evaluation object required by *Wickets in First N Overs* (see Excel notes below).
+# *Lambda* — Invoke `PreMatch.Models.….GroupWickets` and capture base line / outcome probabilities.
+# *Trader skew (FE)* — Store purple adjust (PM column I) on the FE; apply after Lambda returns base probs/line (do not send skew as a Lambda input unless the model already expects it).
+# *Market Configuration* — Display published line/prob/price; publish selections for trading.
+*Lambda / class:* `PreMatch.Models.….GroupWickets`
+*Registry:* `pm-group-wickets`
+*Market code:* `0WPGO{n}`
+*Excel today:* PM Publication rows 41-43 (Wickets in First N Overs)
+*Line cell:* F41
+*Adjust cell:* I41
+*Lambda adjust path:* `MatchAdjustments.FirstGroupWickets / SecondGroupWickets / ThirdGroupWickets (÷10 in Lambda)`
+*Notes:* T20 rows 41–43. Line = Round(mean−0.8)+0.5
+*Default QA fixture:* NZ v SA (Atlas / workbook default) with adjust = 0
+*Component:* development — deliver for all formats where the model applies
+*Epic:* PCS Trading UI: Pre Match (PC-3808)
+
+h3. Process flow
+# *Map evaluation inputs* — Confirm fixture + format and any player/team fields required for Wickets in First N Overs.
+# *Wire extra evaluation fields* — Add any missing MatchEvaluation / BatterEvaluation / Innings fields called out in the Excel mapping notes.
+# *Call Lambda market* — Invoke PreMatch.Models.….GroupWickets and capture base outcomes / line.
+# *Market Configuration UI* — Render Wickets in First N Overs in Market Configuration (prob / line / adjust / price) aligned to PM rows 41-43.
+# *Apply trader adjust post-model* — Store purple skew; apply after Lambda per market skew rules (÷100 / ÷10 / line nudge as documented).
+# *QA against default fixture* — Compare published outputs to PM Publication defaults (adjust = 0) before marking Matched.
+
+h3. Acceptance criteria
+* [ ] AC1: Wickets in First N Overs appears in Market Configuration (PM rows 41-43) with correct market code 0WPGO{n}.
+* [ ] AC2: Pricing call returns Lambda outcomes for Wickets in First N Overs; UI displays base probabilities and/or line without requiring a non-zero trader adjust.
+* [ ] AC3: Trader adjust control is available where the sheet has a purple I column; +1 / −1 (or documented unit) updates published values after Lambda.
+* [ ] AC4 (expected value): With default fixture inputs and adjust = 0, published probs/lines match captured PM Publication for the default NZ v SA fixture (capture from QA tab if missing).
+* [ ] AC5 (wiring): Model Manager Overview can mark this market Matched once QA passes on the default fixture.
+* [ ] AC6: Behaviour is validated for applicable formats (T20 / ODI / Test as relevant to the model).",development,PC-3808,pre-match trading-ui development pm-group-wickets,

@@ -1,4 +1,5 @@
 import { AppShell } from "@/components/AppShell";
+import { requireAllowedUser } from "@/lib/auth/require-user";
 import {
   comparisonFixtures,
   getRegistrySummary,
@@ -7,7 +8,9 @@ import {
   variables,
 } from "@/lib/sample-data";
 
-export default function HomePage() {
+export default async function HomePage() {
+  await requireAllowedUser();
+
   const summary = getRegistrySummary();
   const comparison = comparisonFixtures[0];
 

@@ -1,6 +1,7 @@
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { NextResponse } from "next/server";
+import { requireAllowedApiUser } from "@/lib/auth/require-user";
 
 const ALLOWED = new Set(["odi", "t20"]);
 
@@ -10,6 +11,9 @@ export async function GET(
   _request: Request,
   { params }: { params: { format: string } }
 ) {
+  const gate = await requireAllowedApiUser();
+  if (!gate.ok) return gate.response;
+
   const format = params.format;
   if (!ALLOWED.has(format)) {
     return NextResponse.json({ error: "Unknown format" }, { status: 404 });

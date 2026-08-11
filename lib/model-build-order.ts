@@ -1,0 +1,385 @@
+export type BuildLayer =
+  | "root"
+  | "source_tables"
+  | "ratings"
+  | "match_stats"
+  | "pricing"
+  | "publication";
+
+export type BuildNode = {
+  id: string;
+  layer: BuildLayer;
+  label: string;
+  purpose: string;
+  excel: string[];
+  dependsOn: string[];
+  frontend: string;
+  backend: string;
+  /** Seeded from capabilities confirmed as already available. */
+  initiallyComplete?: { frontend: boolean; backend: boolean };
+};
+
+export type BuildLayerDefinition = {
+  id: BuildLayer;
+  order: number;
+  label: string;
+  description: string;
+};
+
+export const buildLayers: BuildLayerDefinition[] = [
+  {
+    id: "root",
+    order: 1,
+    label: "Root data and editable constants",
+    description: "Data that must exist before any workbook formula can be recreated.",
+  },
+  {
+    id: "source_tables",
+    order: 2,
+    label: "Historical source tables",
+    description: "Reusable historical aggregates that feed ratings and fixture-level models.",
+  },
+  {
+    id: "ratings",
+    order: 3,
+    label: "Player and team ratings",
+    description: "Derived ratings and expected runs used by the core match model.",
+  },
+  {
+    id: "match_stats",
+    order: 4,
+    label: "Match-level model statistics",
+    description: "Fixture outputs consumed by milestone and line markets.",
+  },
+  {
+    id: "pricing",
+    order: 5,
+    label: "Pricing models",
+    description: "Market probabilities calculated from ratings and match-level statistics.",
+  },
+  {
+    id: "publication",
+    order: 6,
+    label: "Trading and publication",
+    description: "Lines, trader adjustments, prices, persistence, and PM publication.",
+  },
+];
+
+const confirmed = { frontend: true, backend: true };
+
+export const preMatchBuildNodes: BuildNode[] = [
+  {
+    id: "fixture-context",
+    layer: "root",
+    label: "Fixture and competition context",
+    purpose: "Format, host, venue, competition, home/away team IDs and match date.",
+    excel: ["Prep Work fixture header", "Data scorecard identifiers"],
+    dependsOn: [],
+    frontend: "Fixture selector and visible context.",
+    backend: "Canonical IDs and fixture metadata payload.",
+  },
+  {
+    id: "player-batting-inputs",
+    layer: "root",
+    label: "Player batting inputs",
+    purpose: "Editable batting position, bt.caz average and sr.caz strike-rate factor.",
+    excel: ["Prep Work I/L/N", "Home rows 24:34", "Away rows 45:55"],
+    dependsOn: ["fixture-context"],
+    frontend: "Player Adjustment batting grid with validation.",
+    backend: "Persist and return position, bt.caz and sr.caz per player.",
+    initiallyComplete: confirmed,
+  },
+  {
+    id: "player-bowling-inputs",
+    layer: "root",
+    label: "Player bowling inputs",
+    purpose: "Editable overs allocation, economy and wicket strike-rate factor.",
+    excel: ["Prep Work V/W/X", "Home rows 24:34", "Away rows 45:55"],
+    dependsOn: ["fixture-context"],
+    frontend: "Player Adjustment bowling grid with validation.",
+    backend: "Persist and return overs, economy and strike-rate inputs.",
+    initiallyComplete: confirmed,
+  },
+  {
+    id: "batting-pars",
+    layer: "root",
+    label: "Batting position pars / cpar values",
+    purpose: "Position average, strike-rate and format constants used to rate batters.",
+    excel: ["Prep Work I64:N74", "AL66:AL76", "CD24:CD34"],
+    dependsOn: ["fixture-context"],
+    frontend: "Admin/reference table viewer and editor.",
+    backend: "Versioned lookup by format, competition and batting position.",
+    initiallyComplete: confirmed,
+  },
+  {
+    id: "bowling-pars",
+    layer: "root",
+    label: "Bowling benchmark pars",
+    purpose: "Par economy, par strike rate and economy weighting.",
+    excel: ["Prep Work W63", "Prep Work X63", "Prep Work Y63"],
+    dependsOn: ["fixture-context"],
+    frontend: "Admin/reference table viewer and editor.",
+    backend: "Versioned benchmark lookup by format and competition.",
+    initiallyComplete: confirmed,
+  },
+  {
+    id: "conditions-format-par",
+    layer: "root",
+    label: "Conditions and format standard",
+    purpose: "Conditions multiplier and standard innings total used throughout pricing.",
+    excel: ["Prep Work D3", "Prep Work BT3"],
+    dependsOn: ["fixture-context"],
+    frontend: "Fixture conditions controls with displayed defaults.",
+    backend: "Resolve and persist conditions and format-standard values.",
+    initiallyComplete: confirmed,
+  },
+  {
+    id: "historical-scorecards",
+    layer: "root",
+    label: "Historical scorecard facts",
+    purpose: "Per-innings and match facts from which historical rates are aggregated.",
+    excel: ["Data sheet", "Historical scorecard exports"],
+    dependsOn: ["fixture-context"],
+    frontend: "Coverage, sample-size and source diagnostics.",
+    backend: "Queryable normalized scorecards with stable team/player IDs.",
+  },
+  {
+    id: "table-1",
+    layer: "source_tables",
+    label: "Table 1 — per-innings historical blends",
+    purpose: "Historical innings metrics blended by format, competition, host and team.",
+    excel: ["Prep Work K2:P18"],
+    dependsOn: ["historical-scorecards", "fixture-context"],
+    frontend: "Filterable table with sample sizes and resolved weighting.",
+    backend: "Aggregation endpoint reproducing workbook weighted values.",
+  },
+  {
+    id: "home-for-against",
+    layer: "source_tables",
+    label: "Home team — For / Against / Now",
+    purpose: "Home batting history, opposition/bowling history and fixture result.",
+    excel: ["Prep Work B23:F39"],
+    dependsOn: ["table-1", "player-batting-inputs", "player-bowling-inputs"],
+    frontend: "Home For / Against / Now table.",
+    backend: "Resolve D=For, E=Against and calculate F=Now for every metric.",
+    initiallyComplete: confirmed,
+  },
+  {
+    id: "away-for-against",
+    layer: "source_tables",
+    label: "Away team — For / Against / Now",
+    purpose: "Away batting history, opposition/bowling history and fixture result.",
+    excel: ["Prep Work B44:F60"],
+    dependsOn: ["table-1", "player-batting-inputs", "player-bowling-inputs"],
+    frontend: "Away For / Against / Now table.",
+    backend: "Resolve D=For, E=Against and calculate F=Now for every metric.",
+    initiallyComplete: confirmed,
+  },
+  {
+    id: "player-batting-ratings",
+    layer: "ratings",
+    label: "Player batting ratings",
+    purpose: "Convert player batting inputs and position pars into Q ratings.",
+    excel: ["Prep Work Q24:Q34", "Prep Work Q45:Q55"],
+    dependsOn: ["player-batting-inputs", "batting-pars"],
+    frontend: "Show calculated rating and formula inputs per player.",
+    backend: "Reproduce Q formula and expose calculation trace.",
+    initiallyComplete: confirmed,
+  },
+  {
+    id: "player-bowling-ratings",
+    layer: "ratings",
+    label: "Player bowling ratings",
+    purpose: "Convert player bowling inputs and benchmarks into Z ratings.",
+    excel: ["Prep Work Z24:Z34", "Prep Work Z45:Z55"],
+    dependsOn: ["player-bowling-inputs", "bowling-pars"],
+    frontend: "Show calculated rating and formula inputs per player.",
+    backend: "Reproduce Z formula and expose calculation trace.",
+    initiallyComplete: confirmed,
+  },
+  {
+    id: "team-ratings",
+    layer: "ratings",
+    label: "Team batting and bowling ratings",
+    purpose: "Aggregate player Q/Z values relative to the format standard.",
+    excel: ["Prep Work D4:D5", "Prep Work I4:I5"],
+    dependsOn: [
+      "player-batting-ratings",
+      "player-bowling-ratings",
+      "conditions-format-par",
+    ],
+    frontend: "Home/away team rating summary with player contribution drill-down.",
+    backend: "Calculate batting=(BT3+ΣQ)/BT3 and bowling=(BT3-ΣZ)/BT3.",
+    initiallyComplete: confirmed,
+  },
+  {
+    id: "expected-runs",
+    layer: "ratings",
+    label: "Total factors and expected innings runs",
+    purpose: "Combine own batting, opposition bowling and conditions into innings expectation.",
+    excel: ["Prep Work D6:E6", "Prep Work I6:J6"],
+    dependsOn: ["team-ratings", "conditions-format-par"],
+    frontend: "Display total factor, expected runs and contributing values.",
+    backend: "Calculate rating cross-products and expected innings totals.",
+    initiallyComplete: confirmed,
+  },
+  {
+    id: "table-2",
+    layer: "match_stats",
+    label: "Table 2 — match-level model stats",
+    purpose: "Central static output table for max-over, milestones and player-score models.",
+    excel: ["Prep Work T2:AB10"],
+    dependsOn: [
+      "table-1",
+      "home-for-against",
+      "away-for-against",
+      "expected-runs",
+    ],
+    frontend: "Fixture match-stats table with inputs, result and sample size.",
+    backend: "Reproduce every Table 2 row and retain formula provenance.",
+    initiallyComplete: confirmed,
+  },
+  {
+    id: "team-market-sums",
+    layer: "match_stats",
+    label: "Team market sums and groups",
+    purpose: "Fours, sixes, runs, wickets and grouped-player totals used by line markets.",
+    excel: ["Prep Work M35:M56", "O36:P57", "U36:U59", "W38:W59"],
+    dependsOn: [
+      "home-for-against",
+      "away-for-against",
+      "player-batting-ratings",
+      "player-bowling-ratings",
+    ],
+    frontend: "Team and group totals with player contribution drill-down.",
+    backend: "Calculate and expose all market-specific team/group aggregates.",
+  },
+  {
+    id: "fifty-first",
+    layer: "match_stats",
+    label: "Fifty in first innings statistic",
+    purpose: "Probability input using history, expected runs and maximum player Q.",
+    excel: ["Prep Work Z5", "Table 2 row 5"],
+    dependsOn: ["table-2", "player-batting-ratings", "expected-runs"],
+    frontend: "Show home/away source values and resulting match statistic.",
+    backend: "Reproduce MatchEvaluation.FiftyInnings input.",
+    initiallyComplete: confirmed,
+  },
+  {
+    id: "fifty-match",
+    layer: "match_stats",
+    label: "Fifty in match statistic",
+    purpose: "Match-wide fifty probability statistic.",
+    excel: ["Prep Work Z6", "Table 2 row 6", "Prep Work CI9:CI10"],
+    dependsOn: ["table-2", "expected-runs"],
+    frontend: "Show inputs and resulting match statistic.",
+    backend: "Reproduce logistic fifty-in-match calculation.",
+    initiallyComplete: confirmed,
+  },
+  {
+    id: "hundred-first",
+    layer: "match_stats",
+    label: "Hundred in first innings statistic",
+    purpose: "First-innings century statistic derived from match century rates.",
+    excel: ["Prep Work Z7", "Table 2 row 7"],
+    dependsOn: ["table-2", "hundred-match"],
+    frontend: "Show source ratio and resulting statistic.",
+    backend: "Reproduce (Y7/Y8) × Z8 calculation.",
+    initiallyComplete: confirmed,
+  },
+  {
+    id: "hundred-match",
+    layer: "match_stats",
+    label: "Hundred in match statistic",
+    purpose: "Match-wide century probability statistic.",
+    excel: ["Prep Work Z8", "Table 2 row 8"],
+    dependsOn: ["table-2", "expected-runs"],
+    frontend: "Show inputs and resulting match statistic.",
+    backend: "Reproduce MatchEvaluation.HundredMatch input.",
+    initiallyComplete: confirmed,
+  },
+  {
+    id: "highest-score-rabbit-runs",
+    layer: "match_stats",
+    label: "Highest score and rabbit runs",
+    purpose: "Remaining Table 2 player-score outputs needed by related markets.",
+    excel: ["Prep Work Z9:Z10", "Table 2 rows 9:10"],
+    dependsOn: ["table-2", "player-batting-ratings", "expected-runs"],
+    frontend: "Show calculated outputs and supporting player values.",
+    backend: "Reproduce highest-individual-score and rabbit-runs statistics.",
+  },
+  {
+    id: "match-market",
+    layer: "pricing",
+    label: "Match market",
+    purpose: "Home/away match probabilities from ratings, conditions and format standard.",
+    excel: ["Prep Work C10:D11", "PM Publication G20:G21", "2WMW"],
+    dependsOn: ["team-ratings", "expected-runs"],
+    frontend: "Display fair probabilities, prices and calculation trace.",
+    backend: "MatchBetting calculation and stable market payload.",
+  },
+  {
+    id: "milestone-markets",
+    layer: "pricing",
+    label: "Fifty / hundred markets",
+    purpose: "First-innings and match milestone probabilities.",
+    excel: ["PM rows 67:74"],
+    dependsOn: ["fifty-first", "fifty-match", "hundred-first", "hundred-match"],
+    frontend: "Four market cards with probability, line and adjustment.",
+    backend: "Price FiftyInnings, FiftyMatch, HundredInnings and HundredMatch.",
+  },
+  {
+    id: "line-markets",
+    layer: "pricing",
+    label: "Team, player and grouped line markets",
+    purpose: "Runs, wickets, boundaries, partnerships, groups and max-over markets.",
+    excel: ["PM Publication market rows", "Prep Work player/team sums"],
+    dependsOn: ["team-market-sums", "table-2", "expected-runs"],
+    frontend: "Reusable line-market UI with line, over/under and adjustment.",
+    backend: "Canonical model registry and payload for every PM market code.",
+  },
+  {
+    id: "dependent-match-markets",
+    layer: "pricing",
+    label: "Markets dependent on match probability",
+    purpose: "Tied match, toss/win double and team of top batter/bowler.",
+    excel: ["PM Publication dependent market rows"],
+    dependsOn: ["match-market", "team-market-sums"],
+    frontend: "Market cards with upstream probability trace.",
+    backend: "Dependent pricing models consuming MatchBetting output.",
+  },
+  {
+    id: "trader-adjustments",
+    layer: "publication",
+    label: "Trader adjustments",
+    purpose: "Market-specific adjustment inputs applied after fair probability.",
+    excel: ["PM Publication column I"],
+    dependsOn: ["match-market", "milestone-markets", "line-markets"],
+    frontend: "Validated adjustment controls with dirty/saved state.",
+    backend: "Persist adjustments by fixture and market selection.",
+  },
+  {
+    id: "price-conversion",
+    layer: "publication",
+    label: "Probability and price conversion",
+    purpose: "Convert model output plus adjustment into final selections and prices.",
+    excel: ["PM Publication G/H probabilities", "PM Publication J price"],
+    dependsOn: ["trader-adjustments"],
+    frontend: "Show fair vs adjusted probability and final price.",
+    backend: "Apply conventions consistently and return auditable prices.",
+  },
+  {
+    id: "pm-publication",
+    layer: "publication",
+    label: "PM publication payload and QA",
+    purpose: "Map every selection to the publication contract and compare with workbook output.",
+    excel: ["PM Publication F:J", "PM QA fixtures"],
+    dependsOn: ["price-conversion", "dependent-match-markets"],
+    frontend: "Publication preview, validation errors and parity status.",
+    backend: "Generate PM payload, enforce schema and retain parity fixtures.",
+  },
+];
+
+export const buildNodeById = new Map(
+  preMatchBuildNodes.map((node) => [node.id, node])
+);

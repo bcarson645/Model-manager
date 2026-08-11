@@ -81,6 +81,131 @@ export function recentScores(
     .slice(0, limit);
 }
 
+export function recentBowlingSpells(
+  innings: PlayerBowlingInnings[],
+  limit = 10
+): PlayerBowlingInnings[] {
+  return [...innings]
+    .sort((a, b) => String(b.date).localeCompare(String(a.date)))
+    .slice(0, limit);
+}
+
+export type ScoreDistributionBucket = {
+  label: string;
+  low: number;
+  high: number;
+  playerCount: number;
+  playerPct: number;
+  datasetPct: number;
+  vsAvgPp: number;
+  /** Approximate z vs dataset rate given player sample size */
+  zScore: number;
+  highlighted: boolean;
+  aboveDataset: boolean;
+};
+
+export type ScoreDistributionResult = {
+  bucketWidth: number;
+  playerInnings: number;
+  datasetInnings: number;
+  buckets: ScoreDistributionBucket[];
+  pctAbove30: number;
+  pctAbove50: number;
+  datasetPctAbove30: number;
+  datasetPctAbove50: number;
+};
+
+/**
+ * Bands match cricket-style labels for width W: 0–W, (W+1)–(2W), …
+ * e.g. W=5 → 0–5, 6–10, 11–15.
+ */
+export function scoreBucketBounds(
+  runs: number,
+  width: number
+): { low: number; high: number } {
+  const w = Math.max(1, Math.floor(width));
+  if (runs <= w) return { low: 0, high: w };
+  const idx = Math.floor((runs - w - 1) / w) + 1;
+  const low = w + 1 + (idx - 1) * w;
+  return { low, high: low + w - 1 };
+}
+
+function bucketKey(low: number, high: number): string {
+  return `${low}-${high}`;
+}
+
+function pctAtLeast(innings: PlayerBattingInnings[], threshold: number): number {
+  if (innings.length === 0) return 0;
+  const n = innings.filter((i) => i.runs >= threshold).length;
+  return (n / innings.length) * 100;
+}
+
+export function computeScoreDistribution(
+  playerInnings: PlayerBattingInnings[],
+  datasetInnings: PlayerBattingInnings[],
+  bucketWidth = 5
+): ScoreDistributionResult {
+  const width = Math.max(1, Math.floor(bucketWidth));
+  const playerN = playerInnings.length;
+  const datasetN = datasetInnings.length;
+
+  const playerCounts = new Map<string, number>();
+  const datasetCounts = new Map<string, number>();
+  let maxHigh = width;
+
+  const bump = (map: Map<string, number>, runs: number) => {
+    const { low, high } = scoreBucketBounds(runs, width);
+    maxHigh = Math.max(maxHigh, high);
+    const key = bucketKey(low, high);
+    map.set(key, (map.get(key) ?? 0) + 1);
+  };
+
+  for (const inn of playerInnings) bump(playerCounts, inn.runs);
+  for (const inn of datasetInnings) bump(datasetCounts, inn.runs);
+
+  const buckets: ScoreDistributionBucket[] = [];
+  let low = 0;
+  let high = width;
+  while (low <= maxHigh) {
+    const key = bucketKey(low, high);
+    const playerCount = playerCounts.get(key) ?? 0;
+    const datasetCount = datasetCounts.get(key) ?? 0;
+    const playerPct = playerN > 0 ? (playerCount / playerN) * 100 : 0;
+    const datasetPct = datasetN > 0 ? (datasetCount / datasetN) * 100 : 0;
+    const vsAvgPp = playerPct - datasetPct;
+    const p = Math.min(0.999, Math.max(0.001, datasetPct / 100));
+    const se = playerN > 0 ? Math.sqrt((p * (1 - p)) / playerN) : 1;
+    const zScore = se > 0 ? (playerPct / 100 - p) / se : 0;
+    const highlighted =
+      playerN >= 8 && (Math.abs(zScore) >= 1.96 || Math.abs(vsAvgPp) >= 8);
+    buckets.push({
+      label: `${low}–${high}`,
+      low,
+      high,
+      playerCount,
+      playerPct,
+      datasetPct,
+      vsAvgPp,
+      zScore,
+      highlighted,
+      aboveDataset: vsAvgPp > 0,
+    });
+    low = high + 1;
+    high = low + width - 1;
+  }
+
+  return {
+    bucketWidth: width,
+    playerInnings: playerN,
+    datasetInnings: datasetN,
+    buckets,
+    pctAbove30: pctAtLeast(playerInnings, 30),
+    pctAbove50: pctAtLeast(playerInnings, 50),
+    datasetPctAbove30: pctAtLeast(datasetInnings, 30),
+    datasetPctAbove50: pctAtLeast(datasetInnings, 50),
+  };
+}
+
 export function computeBowlingSummary(innings: PlayerBowlingInnings[]): BowlingSummary {
   const wickets = innings.reduce((s, i) => s + i.wickets, 0);
   const runs = innings.reduce((s, i) => s + i.runs, 0);

@@ -82,16 +82,16 @@ export function AppShell({
   return (
     <div className="min-h-screen">
       <header className="border-b border-surface-border bg-surface-raised/50 backdrop-blur">
-        <div className="flex items-center justify-between px-6 py-4">
-          <div>
+        <div className="flex items-center justify-between gap-3 px-4 py-3 sm:px-6 sm:py-4">
+          <div className="min-w-0">
             <p
-              className={`text-xs font-semibold uppercase tracking-widest ${
+              className={`text-[10px] font-semibold uppercase tracking-widest sm:text-xs ${
                 activeArea === "data-analysis" ? "text-emerald-400" : "text-accent"
               }`}
             >
               {current.label}
               {activeArea === "data-analysis" && (
-                <span className="text-slate-500">
+                <span className="hidden text-slate-500 sm:inline">
                   {" "}
                   · {formatNav.find((f) => f.id === activeFormat)?.label} ·{" "}
                   {sectionLabels[activeSection]}
@@ -107,7 +107,7 @@ export function AppShell({
                 </span>
               )}
             </p>
-            <h1 className="text-xl font-semibold text-white">
+            <h1 className="truncate text-lg font-semibold text-white sm:text-xl">
               {activeArea === "model-manager"
                 ? activeModelLane === "pre_match"
                   ? "Cricket betting model registry"
@@ -118,7 +118,7 @@ export function AppShell({
                       : "Model updates — Atlas → Lambda"
                 : "Historical scorecard analysis"}
             </h1>
-            <p className="mt-1 text-sm text-slate-400">
+            <p className="mt-1 hidden text-sm text-slate-400 sm:block">
               {activeArea === "model-manager" && activeModelLane === "pre_match" && current.subtitle}
               {activeArea === "model-manager" && activeModelLane !== "pre_match" && activeModelLane !== "updates" && (
                 getModelLaneMeta(activeModelLane as "live" | "srl").subtitle
@@ -129,16 +129,91 @@ export function AppShell({
               {activeArea === "data-analysis" && current.subtitle}
             </p>
           </div>
+          <div className="flex shrink-0 items-center gap-3">
+            {activeArea === "model-manager" && (
+              <span className="hidden rounded-full border border-surface-border bg-surface px-3 py-1 text-xs text-slate-400 sm:inline-flex">
+                Match {matchId}
+              </span>
+            )}
+          </div>
+        </div>
+
+        {/* Mobile workspace / format / section strip */}
+        <div className="flex gap-2 overflow-x-auto border-t border-surface-border px-4 py-2 lg:hidden">
+          {areaNav.map((area) => (
+            <button
+              key={area.id}
+              type="button"
+              onClick={() => setActiveArea(area.id)}
+              className={`shrink-0 rounded-lg px-3 py-1.5 text-xs font-medium transition ${
+                activeArea === area.id
+                  ? area.id === "data-analysis"
+                    ? "bg-emerald-600/20 text-emerald-300"
+                    : "bg-accent/20 text-white"
+                  : "bg-surface text-slate-400"
+              }`}
+            >
+              {area.label}
+            </button>
+          ))}
+          {activeArea === "data-analysis" && (
+            <>
+              <span className="shrink-0 self-center text-slate-600">|</span>
+              {formatNav.map((item) => (
+                <button
+                  key={item.id}
+                  type="button"
+                  onClick={() => setActiveFormat(item.id)}
+                  className={`shrink-0 rounded-lg px-3 py-1.5 text-xs font-medium transition ${
+                    activeFormat === item.id
+                      ? "bg-emerald-600/15 text-emerald-300"
+                      : "bg-surface text-slate-400"
+                  }`}
+                >
+                  {item.label}
+                </button>
+              ))}
+              <span className="shrink-0 self-center text-slate-600">|</span>
+              {sectionNav.map((item) => (
+                <button
+                  key={item.id}
+                  type="button"
+                  onClick={() => setActiveSection(item.id)}
+                  className={`shrink-0 rounded-lg px-3 py-1.5 text-xs font-medium transition ${
+                    activeSection === item.id
+                      ? "bg-emerald-600/10 text-emerald-300/90"
+                      : "bg-surface text-slate-400"
+                  }`}
+                >
+                  {item.label}
+                </button>
+              ))}
+            </>
+          )}
           {activeArea === "model-manager" && (
-            <span className="rounded-full border border-surface-border bg-surface px-3 py-1 text-xs text-slate-400">
-              Match {matchId}
-            </span>
+            <>
+              <span className="shrink-0 self-center text-slate-600">|</span>
+              {modelLaneNav.map((item) => (
+                <button
+                  key={item.id}
+                  type="button"
+                  onClick={() => setActiveModelLane(item.id)}
+                  className={`shrink-0 rounded-lg px-3 py-1.5 text-xs font-medium transition ${
+                    activeModelLane === item.id
+                      ? "bg-accent/20 text-white"
+                      : "bg-surface text-slate-400"
+                  }`}
+                >
+                  {item.label}
+                </button>
+              ))}
+            </>
           )}
         </div>
       </header>
 
       <div className="flex min-h-[calc(100vh-5.5rem)]">
-        <aside className="flex w-56 shrink-0 flex-col border-r border-surface-border bg-surface-raised/30 px-3 py-6">
+        <aside className="hidden w-56 shrink-0 flex-col border-r border-surface-border bg-surface-raised/30 px-3 py-6 lg:flex">
           <p className="px-3 text-xs font-semibold uppercase tracking-widest text-slate-500">
             Workspace
           </p>
@@ -239,7 +314,7 @@ export function AppShell({
           )}
         </aside>
 
-        <main className="min-w-0 flex-1 px-6 py-8">
+        <main className="min-w-0 flex-1 px-3 py-4 sm:px-6 sm:py-8">
           {activeArea === "model-manager" && activeModelLane === "pre_match" && (
             <ModelManagerDashboard
               models={models}

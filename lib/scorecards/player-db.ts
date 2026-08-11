@@ -21,6 +21,10 @@ export type PlayerBattingInnings = {
   dismissal: string | null;
   notOut: boolean;
   teamWon: boolean;
+  /** Team innings runs per wicket (match context for relative form) */
+  inningsRunsPerWicket: number | null;
+  /** Team innings strike rate from balls faced (match context) */
+  inningsStrikeRate: number | null;
 };
 
 export type PlayerBowlingInnings = {
@@ -35,6 +39,10 @@ export type PlayerBowlingInnings = {
   overs: number;
   maidens: number;
   teamWon: boolean;
+  /** Opponent innings runs per wicket while this player bowled */
+  oppInningsRunsPerWicket: number | null;
+  /** Opponent innings economy (runs per over) */
+  oppInningsEconomy: number | null;
 };
 
 export type PlayerRecord = {
@@ -57,6 +65,73 @@ function playerKey(id: number | string | null, name: string | null): string {
   return `name:${name ?? "unknown"}`;
 }
 
+function battingInningsContext(inn: ScorecardMatch["innings"][number]): {
+  runsPerWicket: number | null;
+  strikeRate: number | null;
+} {
+  const wickets = Number(inn.wickets ?? 0);
+  let balls = 0;
+  let batterRuns = 0;
+  for (const p of inn.players) {
+    if (!isBattingInnings(p.dismissal)) continue;
+    balls += Number(p.batting.balls ?? 0);
+    batterRuns += Number(p.batting.runs ?? 0);
+  }
+  const total = inn.total != null ? Number(inn.total) : batterRuns;
+  return {
+    runsPerWicket: wickets > 0 ? total / wickets : null,
+    strikeRate: balls > 0 ? (batterRuns / balls) * 100 : null,
+  };
+}
+
+function bowlingSpellContext(
+  match: ScorecardMatch,
+  playerTeam: string
+): { runsPerWicket: number | null; economy: number | null } {
+  const opp = match.innings.find(
+    (inn) => inn.team && inn.team !== playerTeam
+  );
+  if (!opp) return { runsPerWicket: null, economy: null };
+
+  const wickets = Number(opp.wickets ?? 0);
+  let balls = 0;
+  let batterRuns = 0;
+  let bowlerOvers = 0;
+  let bowlerRuns = 0;
+  for (const p of opp.players) {
+    if (isBattingInnings(p.dismissal)) {
+      balls += Number(p.batting.balls ?? 0);
+      batterRuns += Number(p.batting.runs ?? 0);
+    }
+  }
+  // Economy of the innings: prefer overs bowled by the fielding side if present
+  // on the batting-side player rows (common in this export).
+  for (const inn of match.innings) {
+    for (const p of inn.players) {
+      const team = p.team ?? inn.team;
+      if (team !== playerTeam) continue;
+      const overs = parseOvers(p.bowling.overs);
+      if (overs > 0) {
+        bowlerOvers += overs;
+        bowlerRuns += Number(p.bowling.runs ?? 0);
+      }
+    }
+  }
+
+  const total = opp.total != null ? Number(opp.total) : batterRuns;
+  const economy =
+    bowlerOvers > 0
+      ? bowlerRuns / bowlerOvers
+      : balls > 0
+        ? batterRuns / (balls / 6)
+        : null;
+
+  return {
+    runsPerWicket: wickets > 0 ? total / wickets : null,
+    economy,
+  };
+}
+
 export function buildPlayerDatabase(matches: ScorecardMatch[]): PlayerDatabase {
   const byId = new Map<string, PlayerRecord>();
 
@@ -66,6 +141,8 @@ export function buildPlayerDatabase(matches: ScorecardMatch[]): PlayerDatabase {
     const teamWon = (team: string) => match.winner === team;
 
     for (const inn of match.innings) {
+      const batCtx = battingInningsContext(inn);
+
       for (const p of inn.players) {
         const key = playerKey(p.playerId, p.name);
         let record = byId.get(key);
@@ -86,13 +163,15 @@ export function buildPlayerDatabase(matches: ScorecardMatch[]): PlayerDatabase {
           record.tournaments.push(tournament);
         }
 
+        const playerTeam = p.team ?? inn.team;
+
         if (isBattingInnings(p.dismissal)) {
           record.battingInnings.push({
             matchId: match.id,
             date: match.date,
             season,
             tournament,
-            team: p.team ?? inn.team,
+            team: playerTeam,
             opponent: p.opponent ?? inn.opponent,
             runs: Number(p.batting.runs ?? 0),
             balls: Number(p.batting.balls ?? 0),
@@ -100,25 +179,30 @@ export function buildPlayerDatabase(matches: ScorecardMatch[]): PlayerDatabase {
             sixes: Number(p.batting.sixes ?? 0),
             dismissal: p.dismissal,
             notOut: isNotOut(p.dismissal),
-            teamWon: teamWon(p.team ?? inn.team),
+            teamWon: teamWon(playerTeam),
+            inningsRunsPerWicket: batCtx.runsPerWicket,
+            inningsStrikeRate: batCtx.strikeRate,
           });
         }
 
         const wickets = Number(p.bowling.wickets ?? 0);
         const overs = parseOvers(p.bowling.overs);
         if (wickets > 0 || overs > 0) {
+          const bowlCtx = bowlingSpellContext(match, playerTeam);
           record.bowlingInnings.push({
             matchId: match.id,
             date: match.date,
             season,
             tournament,
-            team: p.team ?? inn.team,
+            team: playerTeam,
             opponent: p.opponent ?? inn.opponent,
             wickets,
             runs: Number(p.bowling.runs ?? 0),
             overs,
             maidens: Number(p.bowling.maidens ?? 0),
-            teamWon: teamWon(p.team ?? inn.team),
+            teamWon: teamWon(playerTeam),
+            oppInningsRunsPerWicket: bowlCtx.runsPerWicket,
+            oppInningsEconomy: bowlCtx.economy,
           });
         }
       }

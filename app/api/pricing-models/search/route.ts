@@ -1,6 +1,7 @@
 import { readFile } from "fs/promises";
 import path from "path";
 import { NextResponse } from "next/server";
+import { requireAllowedApiUser } from "@/lib/auth/require-user";
 import {
   artifactSearchHaystack,
   matchesQuery,
@@ -22,6 +23,9 @@ async function readSource(filePath: string): Promise<string> {
 }
 
 export async function GET(request: Request) {
+  const gate = await requireAllowedApiUser();
+  if (!gate.ok) return gate.response;
+
   const q = new URL(request.url).searchParams.get("q")?.trim() ?? "";
   if (!q) {
     return NextResponse.json({ modelIds: [], artifactIds: [], query: q });

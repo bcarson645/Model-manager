@@ -48,3 +48,6 @@ __pycache__/
 # generated scorecard extracts (too large for GitHub; run extract scripts locally)
 lib/odi-scorecards/matches.json
 lib/t20-scorecards/matches.json
+
+# clerk configuration (can include secrets)
+/.clerk/

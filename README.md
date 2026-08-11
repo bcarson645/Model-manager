@@ -16,8 +16,29 @@ This app tracks which variables exist in Excel vs Lambda, flags parity gaps, and
 
 ```bash
 npm install
+cp .env.example .env.local
+# add Clerk keys from https://dashboard.clerk.com
 npm run dev
 ```
+
+Use the Sportradar artifact mirror (project `.npmrc` sets this):
+
+```bash
+# registry=https://cdproxy.sportradar.online/npm/
+```
+
+Do **not** use the public npm registry. See [Artifact mirror](https://blog.engineering.sportradar.online/artifact-mirror-3/) and [cdproxy install](https://cdproxy.sportradar.online/install).
+
+### Auth (Clerk)
+
+The app is gated behind [Clerk](https://clerk.com). Unsigned users are redirected to `/sign-in`. Access further requires an email on the allowlisted domain (`ALLOWED_EMAIL_DOMAIN`, default `sportradar.com`).
+
+1. Create a Clerk application and copy **Publishable** + **Secret** keys into `.env.local` (and Vercel env vars).
+2. In Clerk Dashboard → **Configure → Restrictions**, enable **Allowlist** and add `*@sportradar.com` (defense in depth alongside the app check).
+3. Set allowed origins to your Vercel URL and `http://localhost:3010`.
+4. Optional: disable public sign-up and invite users manually if you want a tighter roster.
+
+See `.env.example` for all variables.
 
 ### Scorecard data (ODI / T20 analysis)
 
@@ -33,6 +54,10 @@ Source workbooks must be available at the paths configured in those scripts. Out
 ## Deploy to Vercel
 
 Import [bcarson645/Model-manager](https://github.com/bcarson645/Model-manager) at [vercel.com/new](https://vercel.com/new). Next.js is auto-detected.
+
+Add the same Clerk / `ALLOWED_EMAIL_DOMAIN` env vars in the Vercel project. After deploy, add the production URL under Clerk → **Domains**.
+
+Do **not** rely on a public unauthenticated deployment — Model Manager contains product-sensitive pricing model detail.
 
 ## Architecture (planned integrations)
 

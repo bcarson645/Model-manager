@@ -1,6 +1,7 @@
 import { readFile } from "fs/promises";
 import path from "path";
 import { NextResponse } from "next/server";
+import { requireAllowedApiUser } from "@/lib/auth/require-user";
 
 const REF_ROOT = path.join(process.cwd(), "reference", "pricing-models");
 
@@ -11,6 +12,9 @@ function resolveSafePath(filePath: string): string | null {
 }
 
 export async function GET(request: Request) {
+  const gate = await requireAllowedApiUser();
+  if (!gate.ok) return gate.response;
+
   const filePath = new URL(request.url).searchParams.get("path");
   if (!filePath) {
     return NextResponse.json({ error: "path required" }, { status: 400 });

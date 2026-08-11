@@ -11,6 +11,7 @@ import { LambdaCodePanel } from "./LambdaCodePanel";
 import { MarketTradingGuidePanel } from "./MarketTradingGuidePanel";
 import { ModelRegistry } from "./ModelRegistry";
 import { OutputComparison } from "./OutputComparison";
+import { PreMatchBuildOrderPanel } from "./PreMatchBuildOrderPanel";
 import { PrepWorkTablesPanel } from "./PrepWorkTablesPanel";
 import { PmMarketCatalog } from "./PmMarketCatalog";
 import { PmPublicationQaPanel } from "./PmPublicationQaPanel";
@@ -19,6 +20,7 @@ import { VariableMatrix } from "./VariableMatrix";
 
 type Tab =
   | "overview"
+  | "build-order"
   | "models"
   | "pm-markets"
   | "lambda"
@@ -30,6 +32,7 @@ type Tab =
 
 const tabs: Array<{ id: Tab; label: string }> = [
   { id: "overview", label: "Overview" },
+  { id: "build-order", label: "Build order" },
   { id: "models", label: "Models" },
   { id: "pm-markets", label: "PM markets" },
   { id: "lambda", label: "Lambda code" },
@@ -119,6 +122,7 @@ export function ModelManagerDashboard({
           }}
         />
       )}
+      {activeTab === "build-order" && <PreMatchBuildOrderPanel />}
       {activeTab === "models" && <ModelRegistry models={models} />}
       {activeTab === "pm-markets" && <PmMarketCatalog />}
       {activeTab === "lambda" && <LambdaCodePanel />}

@@ -13,30 +13,21 @@ import { ModelTablesPanel } from "./ModelTablesPanel";
 import { WinProbabilityChart } from "./WinProbabilityChart";
 import { ChaseScoreDensityChart } from "./ChaseScoreDensityChart";
 import { computeWinProbabilityCurves } from "@/lib/scorecards/win-probability-curves";
+import {
+  DashBadge,
+  DashCard,
+  DashEmpty,
+  DashGrid,
+  DashHeader,
+  DashPage,
+  DashStat,
+} from "./AnalysisDashboard";
 
 import type { DataFormat } from "@/lib/scorecards/types";
 
 type MatchAnalysisPanelProps = {
   format: DataFormat;
 };
-
-function StatCard({
-  label,
-  value,
-  sub,
-}: {
-  label: string;
-  value: string;
-  sub?: string;
-}) {
-  return (
-    <div className="rounded-lg border border-surface-border bg-surface p-4">
-      <p className="text-xs uppercase text-slate-500">{label}</p>
-      <p className="mt-1 font-mono text-2xl text-white">{value}</p>
-      {sub && <p className="mt-1 text-xs text-slate-500">{sub}</p>}
-    </div>
-  );
-}
 
 export function MatchAnalysisPanel({ format }: MatchAnalysisPanelProps) {
   const allMatches = useMemo(() => getMatchesForFormat(format), [format]);
@@ -59,28 +50,45 @@ export function MatchAnalysisPanel({ format }: MatchAnalysisPanelProps) {
   }, [allMatches, dateBounds, dateRange]);
 
   const analysis = useMemo(() => computeMatchAnalysis(matches), [matches]);
-  const winCurves = useMemo(() => computeWinProbabilityCurves(matches, format), [matches, format]);
+  const winCurves = useMemo(
+    () => computeWinProbabilityCurves(matches, format),
+    [matches, format]
+  );
 
   if (!profile || allMatches.length === 0) {
     return (
-      <div className="rounded-2xl border border-dashed border-surface-border bg-surface-raised p-8 text-center text-sm text-slate-400">
-        No {formatLabel(format)} data loaded. Run the extractor for this format.
-      </div>
+      <DashPage>
+        <DashEmpty>
+          No {formatLabel(format)} data loaded. Run the extractor for this format.
+        </DashEmpty>
+      </DashPage>
     );
   }
 
-  const maxBucket = Math.max(...analysis.firstInningsScores.buckets.map((b) => b.count), 1);
+  const maxBucket = Math.max(
+    ...analysis.firstInningsScores.buckets.map((b) => b.count),
+    1
+  );
 
   return (
-    <div className="space-y-6">
-      <section className="rounded-2xl border border-surface-border bg-surface-raised p-6">
-        <h2 className="text-lg font-semibold text-white">Match analysis</h2>
-        <p className="mt-1 text-sm text-slate-400">
-          {matches.length.toLocaleString()} of {profile.matchCount.toLocaleString()}{" "}
-          {formatLabel(format)} matches · {analysis.decidedMatches.toLocaleString()} decided ·{" "}
-          {analysis.ties} ties
-        </p>
-        {dateBounds && dateRange && (
+    <DashPage>
+      <DashHeader
+        title="Match analysis"
+        badge={<DashBadge>{formatLabel(format)}</DashBadge>}
+        subtitle={
+          <>
+            <span className="font-mono text-slate-300">
+              {matches.length.toLocaleString()}
+            </span>{" "}
+            of {profile.matchCount.toLocaleString()} matches ·{" "}
+            {analysis.decidedMatches.toLocaleString()} decided · {analysis.ties}{" "}
+            ties
+          </>
+        }
+      />
+
+      {dateBounds && dateRange && (
+        <DashCard span="full" compact title="Date range">
           <DateRangeSlider
             bounds={dateBounds}
             value={dateRange}
@@ -88,86 +96,100 @@ export function MatchAnalysisPanel({ format }: MatchAnalysisPanelProps) {
             matchCount={matches.length}
             totalCount={allMatches.length}
           />
-        )}
-      </section>
+        </DashCard>
+      )}
 
-      <section className="rounded-2xl border border-surface-border bg-surface-raised p-6">
-        <h3 className="text-sm font-semibold text-white">First innings score distribution</h3>
-        <p className="mt-1 text-sm text-slate-400">
-          Mean {analysis.firstInningsScores.mean} · Median {analysis.firstInningsScores.median}{" "}
-          · Range {analysis.firstInningsScores.min}–{analysis.firstInningsScores.max}
-        </p>
-        <div className="mt-5 space-y-2">
-          {analysis.firstInningsScores.buckets.map((b) => (
-            <div key={b.label} className="flex items-center gap-3 text-sm">
-              <span className="w-20 shrink-0 font-mono text-slate-400">{b.label}</span>
-              <div className="h-6 flex-1 rounded bg-surface">
-                <div
-                  className="flex h-full items-center rounded bg-emerald-600/50 pl-2 font-mono text-xs text-white"
-                  style={{ width: `${Math.max((b.count / maxBucket) * 100, b.count > 0 ? 8 : 0)}%` }}
-                >
-                  {b.count > 0 ? b.count : ""}
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="rounded-2xl border border-surface-border bg-surface-raised p-6">
-        <h3 className="text-sm font-semibold text-white">Win probability vs first-innings score</h3>
-        <p className="mt-1 text-sm text-slate-400">
-          How often the team batting first defends their total, and how often the chaser wins, by
-          target score. Based on {winCurves.pairs.length.toLocaleString()} decided two-innings
-          matches in the selected date range.
-        </p>
-        <div className="mt-5">
-          <WinProbabilityChart
-            points={winCurves.byTarget}
-            xLabel={`First innings total (target) — ${formatLabel(format)}`}
-            binWidth={winCurves.binWidth}
-          />
-        </div>
-      </section>
-
-      <section className="rounded-2xl border border-surface-border bg-surface-raised p-6">
-        <h3 className="text-sm font-semibold text-white">Chase innings score distribution</h3>
-        <p className="mt-1 text-sm text-slate-400">
-          Empirical distribution of second-innings totals across all chases in the filter. Compare
-          the peak to common par scores when sanity-checking chase models.
-        </p>
-        <div className="mt-5">
-          <ChaseScoreDensityChart
-            points={winCurves.chaseScoreDensity}
-            binWidth={winCurves.binWidth}
-          />
-        </div>
-      </section>
-
-      <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        <StatCard
+      <DashGrid>
+        <DashStat
           label="Bat first → win"
           value={`${analysis.batFirst.winPct.toFixed(1)}%`}
-          sub={`${analysis.batFirst.wins} / ${analysis.batFirst.total} matches`}
+          sub={`${analysis.batFirst.wins} / ${analysis.batFirst.total}`}
+          accent
         />
-        <StatCard
+        <DashStat
           label="Chase → win"
           value={`${analysis.chase.winPct.toFixed(1)}%`}
-          sub={`${analysis.chase.wins} / ${analysis.chase.total} matches`}
+          sub={`${analysis.chase.wins} / ${analysis.chase.total}`}
         />
-        <StatCard
-          label="Century scored → team wins"
+        <DashStat
+          label="Century → team wins"
           value={`${analysis.centuries.winPct.toFixed(1)}%`}
-          sub={`${analysis.centuries.centuryTeamWon} / ${analysis.centuries.matchesWithCentury} matches with 100+`}
+          sub={`${analysis.centuries.centuryTeamWon} / ${analysis.centuries.matchesWithCentury} with 100+`}
         />
-      </section>
+        <DashStat
+          label="1st inns mean / median"
+          value={`${analysis.firstInningsScores.mean}`}
+          sub={`Median ${analysis.firstInningsScores.median} · ${analysis.firstInningsScores.min}–${analysis.firstInningsScores.max}`}
+        />
+      </DashGrid>
 
-      <section className="rounded-2xl border border-dashed border-surface-border bg-surface p-6">
-        <h3 className="text-sm font-semibold text-slate-300">Toss &amp; win correlation</h3>
-        <p className="mt-2 text-sm text-slate-500">{analysis.toss.note}</p>
-      </section>
+      <DashGrid>
+        <DashCard
+          span="half"
+          title="First innings score distribution"
+          description={`Mean ${analysis.firstInningsScores.mean} · median ${analysis.firstInningsScores.median}`}
+        >
+          <div className="space-y-1.5 sm:space-y-2">
+            {analysis.firstInningsScores.buckets.map((b) => (
+              <div key={b.label} className="flex items-center gap-2 text-xs sm:gap-3 sm:text-sm">
+                <span className="w-14 shrink-0 font-mono text-slate-400 sm:w-20">
+                  {b.label}
+                </span>
+                <div className="h-5 flex-1 rounded bg-surface sm:h-6">
+                  <div
+                    className="flex h-full items-center rounded bg-emerald-600/50 pl-1.5 font-mono text-[10px] text-white sm:pl-2 sm:text-xs"
+                    style={{
+                      width: `${Math.max(
+                        (b.count / maxBucket) * 100,
+                        b.count > 0 ? 8 : 0
+                      )}%`,
+                    }}
+                  >
+                    {b.count > 0 ? b.count : ""}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </DashCard>
 
-      <ModelTablesPanel format={format} matches={matches} dateRange={dateRange} />
-    </div>
+        <DashCard
+          span="half"
+          title="Win probability vs first-innings score"
+          description={`${winCurves.pairs.length.toLocaleString()} decided two-innings matches in range`}
+        >
+          <div className="overflow-x-auto">
+            <WinProbabilityChart
+              points={winCurves.byTarget}
+              xLabel={`First innings total — ${formatLabel(format)}`}
+              binWidth={winCurves.binWidth}
+            />
+          </div>
+        </DashCard>
+
+        <DashCard
+          span="two-thirds"
+          title="Chase innings score distribution"
+          description="Empirical second-innings totals — compare peaks to par when checking chase models."
+        >
+          <div className="overflow-x-auto">
+            <ChaseScoreDensityChart
+              points={winCurves.chaseScoreDensity}
+              binWidth={winCurves.binWidth}
+            />
+          </div>
+        </DashCard>
+
+        <DashCard span="third" title="Toss & win" dashed>
+          <p className="text-sm leading-relaxed text-slate-400">
+            {analysis.toss.note}
+          </p>
+        </DashCard>
+
+        <DashCard span="full" title="Model tables" compact>
+          <ModelTablesPanel format={format} matches={matches} dateRange={dateRange} />
+        </DashCard>
+      </DashGrid>
+    </DashPage>
   );
 }
