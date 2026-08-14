@@ -57,7 +57,15 @@ Source workbooks must be available at the paths configured in those scripts. Out
 
 Import [bcarson645/Model-manager](https://github.com/bcarson645/Model-manager) at [vercel.com/new](https://vercel.com/new). Next.js is auto-detected.
 
-Add the same Clerk / `ALLOWED_EMAIL_DOMAIN` env vars in the Vercel project. After deploy, add the production URL under Clerk → **Domains**.
+In Vercel → Settings → Environment Variables, add for **Production and Preview**, available to **Build and Runtime**:
+
+- `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY` (and optionally the same value as `CLERK_PUBLISHABLE_KEY`)
+- `CLERK_SECRET_KEY`
+- `NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in`
+- `NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up`
+- `ALLOWED_EMAIL_DOMAIN=sportradar.com`
+
+Then **Redeploy**. After deploy, add the production URL under Clerk → **Domains**.
 
 Do **not** rely on a public unauthenticated deployment — Model Manager contains product-sensitive pricing model detail.
 

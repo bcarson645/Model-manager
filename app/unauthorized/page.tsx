@@ -1,7 +1,18 @@
 import { allowedEmailDomains } from "@/lib/auth/allowed-domain";
 import { SignOutAction } from "@/components/auth/SignOutAction";
+import { clerkPublishableKey } from "@/lib/auth/clerk-keys";
+
+export const dynamic = "force-dynamic";
 
 export default function UnauthorizedPage() {
+  if (!clerkPublishableKey()) {
+    return (
+      <main className="flex min-h-screen items-center justify-center bg-surface px-4 text-sm text-slate-400">
+        Access denied.
+      </main>
+    );
+  }
+
   const domains = allowedEmailDomains().map((d) => `@${d}`).join(", ");
 
   return (
