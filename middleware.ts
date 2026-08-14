@@ -13,31 +13,21 @@ function isPublicPath(pathname: string): boolean {
   );
 }
 
-function clerkConfigured(): boolean {
-  return Boolean(process.env.CLERK_SECRET_KEY && clerkPublishableKey());
-}
-
 /**
  * Internal tool: require sign-in for everything except Clerk pages.
  * Domain allowlist is enforced in pages/API via requireAllowedUser*.
  *
  * Next.js 14 → middleware.ts (proxy.ts is for Next.js 16+).
- * Do not throw when Clerk env is missing: Vercel treats uncaught middleware
- * errors as MIDDLEWARE_INVOCATION_FAILED (CDN 500).
+ * unauthenticatedUrl must be absolute — NextResponse.redirect("/sign-in")
+ * throws on Edge and Vercel reports MIDDLEWARE_INVOCATION_FAILED.
  */
-const clerk = clerkMiddleware(
-  async (auth, req) => {
-    if (isPublicPath(req.nextUrl.pathname)) return;
-    await auth.protect({ unauthenticatedUrl: "/sign-in" });
-  },
-  {
-    signInUrl: "/sign-in",
-    signUpUrl: "/sign-up",
-  }
-);
-
-export default function middleware(req: NextRequest, event: NextFetchEvent) {
-  if (!clerkConfigured()) {
+export default async function middleware(
+  req: NextRequest,
+  event: NextFetchEvent
+) {
+  const publishableKey = clerkPublishableKey();
+  const secretKey = process.env.CLERK_SECRET_KEY;
+  if (!publishableKey || !secretKey) {
     return new NextResponse(
       "Clerk is not configured. Set CLERK_SECRET_KEY and NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY (or CLERK_PUBLISHABLE_KEY) in Vercel → Settings → Environment Variables, then redeploy.",
       {
@@ -46,7 +36,32 @@ export default function middleware(req: NextRequest, event: NextFetchEvent) {
       }
     );
   }
-  return clerk(req, event);
+
+  const signInUrl = new URL("/sign-in", req.url).href;
+  const signUpUrl = new URL("/sign-up", req.url).href;
+
+  const clerk = clerkMiddleware(
+    async (auth, request) => {
+      if (isPublicPath(request.nextUrl.pathname)) return;
+      await auth.protect({ unauthenticatedUrl: signInUrl });
+    },
+    {
+      publishableKey,
+      secretKey,
+      signInUrl,
+      signUpUrl,
+    }
+  );
+
+  try {
+    return await clerk(req, event);
+  } catch (err) {
+    console.error("clerk middleware failed", err);
+    return new NextResponse("Auth middleware failed. Check Vercel function logs.", {
+      status: 500,
+      headers: { "content-type": "text/plain; charset=utf-8" },
+    });
+  }
 }
 
 export const config = {
