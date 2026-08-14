@@ -244,7 +244,7 @@ export const models: ModelDefinition[] = [
       excel: { version: workbookRef, location: "PM Publication!B52:I52" },
       lambda: { version: "main", location: "PreMatch.Models.Matches.MatchFours" },
     },
-    status: "migrating",
+    status: "parity_check",
   },
   {
     id: "pm-match-sixes",
@@ -261,7 +261,39 @@ export const models: ModelDefinition[] = [
       excel: { version: workbookRef, location: "PM Publication!B53:I53" },
       lambda: { version: "main", location: "PreMatch.Models.Matches.MatchSixes" },
     },
-    status: "migrating",
+    status: "parity_check",
+  },
+  {
+    id: "pm-most-fours",
+    name: "Most Fours",
+    description:
+      "Three-way H2H: which team hits more fours (home / away / tie). Driven by team fours from per-player O columns.",
+    market: "Head to Heads",
+    phase: "pre_match",
+    excelOutputs: [
+      { sheet: "PM Publication", cell: "G95:G97", description: "Most Fours outcomes" },
+    ],
+    sources: {
+      excel: { version: workbookRef, location: "PM Publication!B95:I97" },
+      lambda: { version: "main", location: "PreMatch.Models.HeadToHeads (Most Fours)" },
+    },
+    status: "parity_check",
+  },
+  {
+    id: "pm-most-sixes",
+    name: "Most Sixes",
+    description:
+      "Three-way H2H: which team hits more sixes (home / away / tie). Driven by team sixes from per-player P columns.",
+    market: "Head to Heads",
+    phase: "pre_match",
+    excelOutputs: [
+      { sheet: "PM Publication", cell: "G98:G100", description: "Most Sixes outcomes" },
+    ],
+    sources: {
+      excel: { version: workbookRef, location: "PM Publication!B98:I100" },
+      lambda: { version: "main", location: "PreMatch.Models.HeadToHeads (Most Sixes)" },
+    },
+    status: "parity_check",
   },
   {
     id: "pm-match-run-outs",
@@ -566,7 +598,7 @@ export const models: ModelDefinition[] = [
       excel: { version: workbookRef, location: "Prep Work!O36/O57; PM Publication team fours rows" },
       lambda: { version: "main", location: "PreMatch.Models.Teams.TeamFours" },
     },
-    status: "migrating",
+    status: "parity_check",
   },
   {
     id: "pm-team-sixes",
@@ -582,7 +614,7 @@ export const models: ModelDefinition[] = [
       excel: { version: workbookRef, location: "Prep Work!P36/P57; PM Publication team sixes rows" },
       lambda: { version: "main", location: "PreMatch.Models.Teams.TeamSixes" },
     },
-    status: "migrating",
+    status: "parity_check",
   },
   {
     id: "pm-team-wickets",

@@ -235,6 +235,24 @@ export const pmPublicationMappings = {
       notes: "Total = SUM(player P col) both teams + I53 purple adjust; line from Poisson-gamma median",
     },
     {
+      modelId: "pm-most-fours",
+      rows: "95-97",
+      market: "Most Fours",
+      adjustCell: "I95",
+      probabilityCells: ["G95", "G96", "G97"],
+      notes:
+        "3-way H2H which team hits more fours. Team fours from Prep Work O totals; same player O pipeline as Match Fours.",
+    },
+    {
+      modelId: "pm-most-sixes",
+      rows: "98-100",
+      market: "Most Sixes",
+      adjustCell: "I98",
+      probabilityCells: ["G98", "G99", "G100"],
+      notes:
+        "3-way H2H which team hits more sixes. Team sixes from Prep Work P totals; same player P pipeline as Match Sixes.",
+    },
+    {
       modelId: "pm-match-run-outs",
       rows: "54",
       market: "Match Run Outs",

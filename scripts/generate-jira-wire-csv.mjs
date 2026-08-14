@@ -33,6 +33,13 @@ const EXCLUDE = new Set([
   "pm-first-dismissal",
   "pm-player-runs",
   "pm-match-top-batter",
+  // Fours / sixes pipeline connected (player O/P + totals + adjusts)
+  "pm-match-fours",
+  "pm-match-sixes",
+  "pm-most-fours",
+  "pm-most-sixes",
+  "pm-team-fours",
+  "pm-team-sixes",
 ]);
 
 /** Aggregate placeholder, not a single wireable market. */

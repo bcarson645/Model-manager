@@ -114,6 +114,52 @@ export const modelUpdates: ModelUpdate[] = [
     relatedMarkets: ["{Batter} To Score 75?"],
   },
   {
+    id: "t20-batter-75-chase-cap-pull",
+    title: "Pull To Score 75 in line with Atlas Priority",
+    summary:
+      "Omit live To Score 75? whenever Atlas Priority AE would be 0. Confirmed formulas: AE pulls if remaining runs Q2 < AF threshold OR Q2 < 80; AF = (Pricing B547 − batter runs) × (T20 1st=1.7, T20 2nd=2.7, else 2.7). W is always true on this row — do not use balls_rem for this gate.",
+    category: "market_suspend",
+    formats: ["T20", "Hundred", "ODI"],
+    phase: "live",
+    atlas: {
+      workbook: "Atlas 196 (3).xlsm",
+      sheet: "Priority",
+      cells: ["AE234", "AF234", "Q2", "Pricing!B547"],
+      changeSummary:
+        "Port AE234/AF234 pull into Lambda milestone 74 spawn. W column is true (always offer from W) — pull is entirely AE/AF + Q2.",
+      before:
+        "Lambda: milestones.Add(74) when wicketsLost < 5.5 (and SRL overs gate). No Q2/AE/AF check.",
+      after:
+        "Offer 75 only if wickets gate passes AND NOT (remaining < AF OR remaining < 80), with AF = (74.5 − batRuns) × inningsMultiplier.",
+      formulaNote:
+        "AE234=IF(OR($Q$2<AF234,$Q$2<80),0,1). AF234=(Pricing!B547-c_bat2_runs)*IF(n_format_a=\"T20\",IF(c_inns=1,1.7,2.7),2.7). Q2 = innings/expected runs remaining (same family as expectedRunsRemaining). B547=74.5 for To Score 75?. Bat1 row uses c_bat1_runs / B547 equivalent.",
+    },
+    lambda: {
+      layer: "market_config",
+      targetHint:
+        "InPlay.Players.PlayerRuns.GetMarkets() — milestones.Add(74) + ShouldOfferScore75 from Priority AE234/AF234",
+      changeType: "spawn_flag",
+      steps: [
+        "File: PlayerRuns.cs, MILESTONE MARKETS — replace wickets-only Add(74) with wicketsLost < 5.5 && ShouldOfferScore75(...).",
+        "Q2 mapping: use expectedRunsRemaining already computed in GetMarkets (2nd inns = Min(model, Target−Runs−1)). Confirm named range Q2 matches that; if Q2 is a different remaining cell, map to that instead.",
+        "AF threshold: (74.5 - batter.Runs) * multiplier. Multiplier: T20/Hundred && inns==1 → 1.7; T20/Hundred && inns==2 → 2.7; else → 2.7.",
+        "AE pull: return false (omit 74) if expectedRunsRemaining < afThreshold OR expectedRunsRemaining < 80.",
+        "W is always true on this Priority row — do not add ballsRemaining < 90 into this helper unless a different Priority row requires it (see separate W211 item if still needed).",
+        "Hard pull only: never add 74 when AE would be 0. No soft reprice.",
+        "Call helper per active batter (bat1/bat2 runs).",
+      ],
+    },
+    verification: [
+      "T20 2nd inns, remaining 100, bat on 0: AF=(74.5)*2.7≈201; Q2=100 < 201 → AE=0 → Lambda must not offer To Score 75?.",
+      "T20 2nd inns, remaining 100: also Q2<80 fails absolute floor → pull.",
+      "T20 1st inns, remaining 120, bat on 0: AF=74.5*1.7≈126.7; 120 < 126.7 → pull; remaining 130 → offer (if wickets ok).",
+      "T20 2nd inns, remaining 220, bat on 0: AF≈201; 220>=201 and 220>=80 → offer.",
+      "Priority AE=1 states: Lambda still emits 74.",
+    ],
+    status: "documented",
+    relatedMarkets: ["{Batter} To Score 75?"],
+  },
+  {
     id: "t20-batter-100-no-offer",
     title: "Do not offer Batter to score 100",
     summary:

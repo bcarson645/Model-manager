@@ -519,22 +519,209 @@ export const wiringByRegistryId: Record<string, IntegrationWiringGuide> = {
   },
 
   "pm-match-fours": {
-    readiness: "blocked",
-    readinessSummary: "Needs per-player fours expectation summed across all 22 players.",
-    fromPlayerAdjustment: ["Player ratings exist but not necessarily fours column (O)"],
+    readiness: "ready",
+    connected: true,
+    connectedNote:
+      "Initially mapped — per-player fours (Prep Work O) + team totals + match adjust feed MatchFours; Market Configuration row 52.",
+    readinessSummary:
+      "Connected — player 4s column, raw runs, team fours totals and adjusts are on Player Adjustment.",
+    fromPlayerAdjustment: [
+      "Per-player expected fours (Prep Work O24:O34 / O45:O55)",
+      "Team fours totals (O36 / O57)",
+      "Raw runs (M) used in O fours formula chain",
+    ],
     extraEvaluationInputs: [
       {
         id: "player-fours",
         label: "Per-player fours expectation (×22)",
-        status: "need",
-        detail: "SUM O column both teams + match adjust.",
-        source: "Prep Work O24:O34, O45:O55",
+        status: "have",
+        detail: "SUM O both teams → GetTeamFours() home + away before MatchFours adjust.",
+        source: "Prep Work O24:O34, O45:O55 → O36 + O57",
       },
     ],
-    backendOnly: defaultBackendLookups,
-    marketConfiguration: ["Row 52: line + adjust I52."],
-    wiringSteps: ["Export InningsFours or player fours into evaluation before MatchFours."],
-    blockers: ["Per-player fours not on current batting adjustment grid."],
+    backendOnly: [
+      ...defaultBackendLookups.filter((x) => x.id === "format"),
+      {
+        id: "match-fours-variance",
+        label: "MatchFours variance lookup",
+        status: "lookup",
+        detail: "Poisson-gamma variance for U/O line.",
+        source: "LookupProvider GetVarianceParameters('MatchFours')",
+      },
+    ],
+    marketConfiguration: [
+      "Row 52: line F52, under/over G/H, adjust I52 (MatchFours).",
+      "Line from Poisson-gamma median of team fours sum + purple adjust.",
+    ],
+    wiringSteps: [
+      "✓ Player Adjustment → per-player O fours + team totals in evaluation.",
+      "✓ MatchFours.GetMarkets → line + U/O.",
+      "✓ Market Configuration row 52: line, adjust I52, price, publish.",
+    ],
+  },
+
+  "pm-match-sixes": {
+    readiness: "ready",
+    connected: true,
+    connectedNote:
+      "Initially mapped — per-player sixes (Prep Work P) + team totals + match adjust feed MatchSixes; Market Configuration row 53.",
+    readinessSummary:
+      "Connected — player 6s column, raw runs, team sixes totals and adjusts are on Player Adjustment.",
+    fromPlayerAdjustment: [
+      "Per-player expected sixes (Prep Work P24:P34 / P45:P55)",
+      "Team sixes totals (P36 / P57)",
+      "Raw runs (M) used in P sixes formula chain",
+    ],
+    extraEvaluationInputs: [
+      {
+        id: "player-sixes",
+        label: "Per-player sixes expectation (×22)",
+        status: "have",
+        detail: "SUM P both teams → GetTeamSixes() home + away before MatchSixes adjust.",
+        source: "Prep Work P24:P34, P45:P55 → P36 + P57",
+      },
+    ],
+    backendOnly: [
+      ...defaultBackendLookups.filter((x) => x.id === "format"),
+      {
+        id: "match-sixes-variance",
+        label: "MatchSixes variance lookup",
+        status: "lookup",
+        detail: "Poisson-gamma variance for U/O line.",
+        source: "LookupProvider",
+      },
+    ],
+    marketConfiguration: [
+      "Row 53: line F53, under/over G/H, adjust I53 (MatchSixes).",
+    ],
+    wiringSteps: [
+      "✓ Player Adjustment → per-player P sixes + team totals in evaluation.",
+      "✓ MatchSixes.GetMarkets → line + U/O.",
+      "✓ Market Configuration row 53: line, adjust I53, price, publish.",
+    ],
+  },
+
+  "pm-most-fours": {
+    readiness: "ready",
+    connected: true,
+    connectedNote:
+      "Initially mapped — team fours from player O columns feed Most Fours H2H; Market Configuration rows 95–97.",
+    readinessSummary:
+      "Connected — same player/team fours pipeline as Match Fours; 3-way which team hits more fours.",
+    fromPlayerAdjustment: [
+      "Team fours totals from SUM(player O) both sides",
+    ],
+    extraEvaluationInputs: [
+      {
+        id: "team-fours-race",
+        label: "Home / away team fours expectation",
+        status: "have",
+        detail: "GetTeamFours() each side — race / H2H for Most Fours.",
+        source: "Prep Work O36 / O57",
+      },
+    ],
+    backendOnly: defaultBackendLookups.filter((x) => x.id === "format" || x.id === "overs"),
+    marketConfiguration: [
+      "Rows 95–97: Most Fours 3-way (home / away / tie).",
+      "Trader adjust on purple I column where present.",
+    ],
+    wiringSteps: [
+      "✓ Player Adjustment → team fours from per-player O.",
+      "✓ Most Fours Lambda / H2H from team fours expectations.",
+      "✓ Market Configuration rows 95–97.",
+    ],
+  },
+
+  "pm-most-sixes": {
+    readiness: "ready",
+    connected: true,
+    connectedNote:
+      "Initially mapped — team sixes from player P columns feed Most Sixes H2H; Market Configuration rows 98–100.",
+    readinessSummary:
+      "Connected — same player/team sixes pipeline as Match Sixes; 3-way which team hits more sixes.",
+    fromPlayerAdjustment: [
+      "Team sixes totals from SUM(player P) both sides",
+    ],
+    extraEvaluationInputs: [
+      {
+        id: "team-sixes-race",
+        label: "Home / away team sixes expectation",
+        status: "have",
+        detail: "GetTeamSixes() each side — race / H2H for Most Sixes.",
+        source: "Prep Work P36 / P57",
+      },
+    ],
+    backendOnly: defaultBackendLookups.filter((x) => x.id === "format" || x.id === "overs"),
+    marketConfiguration: [
+      "Rows 98–100: Most Sixes 3-way (home / away / tie).",
+    ],
+    wiringSteps: [
+      "✓ Player Adjustment → team sixes from per-player P.",
+      "✓ Most Sixes Lambda / H2H from team sixes expectations.",
+      "✓ Market Configuration rows 98–100.",
+    ],
+  },
+
+  "pm-team-fours": {
+    readiness: "ready",
+    connected: true,
+    connectedNote:
+      "Initially mapped — GetTeamFours() from player O columns + innings fours adjust; Market Configuration NZ 155–157 / SA 221–223.",
+    readinessSummary:
+      "Connected — per-team fours totals and adjusts are on Player Adjustment.",
+    fromPlayerAdjustment: [
+      "Per-player expected fours (Prep Work O)",
+      "Team fours totals (O36 / O57)",
+    ],
+    extraEvaluationInputs: [
+      {
+        id: "innings-fours-adjust",
+        label: "InningsFours adjust",
+        status: "have",
+        detail: "GetTeamFours() + InningsAdjustmentsPM.InningsFours; three lines (middle ± max(round(expected/10),1)).",
+        source: "Prep Work team fours totals + innings adjust",
+      },
+    ],
+    backendOnly: defaultBackendLookups.filter((x) => x.id === "format"),
+    marketConfiguration: [
+      "NZ 155–157 / SA 221–223: three U/O lines per team.",
+    ],
+    wiringSteps: [
+      "✓ Player Adjustment → team fours from per-player O.",
+      "✓ TeamFours.GetMarkets → three lines + U/O.",
+      "✓ Market Configuration team fours rows.",
+    ],
+  },
+
+  "pm-team-sixes": {
+    readiness: "ready",
+    connected: true,
+    connectedNote:
+      "Initially mapped — GetTeamSixes() from player P columns; Market Configuration NZ 158–160 / SA 224–226.",
+    readinessSummary:
+      "Connected — per-team sixes totals are on Player Adjustment.",
+    fromPlayerAdjustment: [
+      "Per-player expected sixes (Prep Work P)",
+      "Team sixes totals (P36 / P57)",
+    ],
+    extraEvaluationInputs: [
+      {
+        id: "team-sixes-total",
+        label: "GetTeamSixes()",
+        status: "have",
+        detail: "Three lines per team; middle ± 1. No innings sixes adjust in Lambda.",
+        source: "Prep Work P36 / P57",
+      },
+    ],
+    backendOnly: defaultBackendLookups.filter((x) => x.id === "format"),
+    marketConfiguration: [
+      "NZ 158–160 / SA 224–226: three U/O lines per team.",
+    ],
+    wiringSteps: [
+      "✓ Player Adjustment → team sixes from per-player P.",
+      "✓ TeamSixes.GetMarkets → three lines + U/O.",
+      "✓ Market Configuration team sixes rows.",
+    ],
   },
 };
 
