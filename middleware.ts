@@ -25,10 +25,16 @@ function clerkConfigured(): boolean {
  * Do not throw when Clerk env is missing: Vercel treats uncaught middleware
  * errors as MIDDLEWARE_INVOCATION_FAILED (CDN 500).
  */
-const clerk = clerkMiddleware(async (auth, req) => {
-  if (isPublicPath(req.nextUrl.pathname)) return;
-  await auth.protect();
-});
+const clerk = clerkMiddleware(
+  async (auth, req) => {
+    if (isPublicPath(req.nextUrl.pathname)) return;
+    await auth.protect({ unauthenticatedUrl: "/sign-in" });
+  },
+  {
+    signInUrl: "/sign-in",
+    signUpUrl: "/sign-up",
+  }
+);
 
 export default function middleware(req: NextRequest, event: NextFetchEvent) {
   if (!clerkConfigured()) {

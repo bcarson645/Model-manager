@@ -21,7 +21,12 @@ export function AppClerkShell({
   }
 
   return (
-    <ClerkProvider publishableKey={publishableKey}>
+    <ClerkProvider
+      publishableKey={publishableKey}
+      signInUrl="/sign-in"
+      signUpUrl="/sign-up"
+      afterSignOutUrl="/sign-in"
+    >
       <header className="flex items-center justify-end gap-3 border-b border-surface-border bg-surface-raised/50 px-4 py-2">
         <SignedOut>
           <SignInButton mode="modal">
