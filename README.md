@@ -29,7 +29,7 @@ npm config set registry https://cdproxy.sportradar.online/npm/
 
 Do **not** commit that registry into the repo — Vercel cannot reach `cdproxy` and `npm install` will fail on deploy. See [Artifact mirror](https://blog.engineering.sportradar.online/artifact-mirror-3/) and [cdproxy install](https://cdproxy.sportradar.online/install).
 
-Vercel uses Node **20.x** (`package.json` engines / `.nvmrc`) and the public npm registry.
+Vercel uses Node **24.x** (`package.json` engines / `.nvmrc`) and the public npm registry. `package-lock.json` must use `registry.npmjs.org` tarball URLs, not cdproxy.
 
 ### Auth (Clerk)
 
