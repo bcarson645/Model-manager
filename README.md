@@ -21,13 +21,15 @@ cp .env.example .env.local
 npm run dev
 ```
 
-Use the Sportradar artifact mirror (project `.npmrc` sets this):
+Use the Sportradar artifact mirror **locally** (user npm config or a gitignored `.npmrc`):
 
 ```bash
-# registry=https://cdproxy.sportradar.online/npm/
+npm config set registry https://cdproxy.sportradar.online/npm/
 ```
 
-Do **not** use the public npm registry. See [Artifact mirror](https://blog.engineering.sportradar.online/artifact-mirror-3/) and [cdproxy install](https://cdproxy.sportradar.online/install).
+Do **not** commit that registry into the repo — Vercel cannot reach `cdproxy` and `npm install` will fail on deploy. See [Artifact mirror](https://blog.engineering.sportradar.online/artifact-mirror-3/) and [cdproxy install](https://cdproxy.sportradar.online/install).
+
+Vercel uses Node **20.x** (`package.json` engines / `.nvmrc`) and the public npm registry.
 
 ### Auth (Clerk)
 

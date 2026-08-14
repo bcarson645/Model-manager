@@ -33,6 +33,9 @@ next-env.d.ts
 # vercel
 .vercel
 
+# local-only npm registry (cdproxy). Vercel cannot reach it — omit from git.
+.npmrc
+
 # ide
 .idea
 .vscode
