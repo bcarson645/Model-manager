@@ -662,6 +662,69 @@ export const wiringByRegistryId: Record<string, IntegrationWiringGuide> = {
     ],
   },
 
+  "pm-highest-individual-score": {
+    readiness: "ready",
+    connected: true,
+    connectedNote:
+      "Mapped — MatchHighScore → line F75; trader adjust I75 (HighestIndividualScore); Market Configuration row 75.",
+    readinessSummary:
+      "Connected — MatchHighScore feeds line + U/O; single adjust cell I75.",
+    fromPlayerAdjustment: [
+      "Per-player expected runs → MatchHighScore (Prep Work)",
+    ],
+    extraEvaluationInputs: [
+      {
+        id: "match-high-score-line",
+        label: "MatchHighScore line",
+        status: "have",
+        detail: "Line = Round(MatchHighScore) + adjust + 0.5; U/O either side.",
+        source: "Prep Work row 9 / excel-mappings Z9",
+      },
+    ],
+    backendOnly: defaultBackendLookups.filter((x) => x.id === "format"),
+    marketConfiguration: [
+      "Row 75: line F75, under/over, adjust I75 (HighestIndividualScore).",
+    ],
+    wiringSteps: [
+      "✓ Player Adjustment → per-player expected runs → MatchHighScore.",
+      "✓ MatchHighScore.GetMarkets → line + U/O.",
+      "✓ Market Configuration row 75: line, adjust I75, price, publish.",
+    ],
+  },
+
+  "pm-highest-opening-partnership": {
+    readiness: "ready",
+    connected: true,
+    connectedNote:
+      "Mapped — 3-way race (home/away/tie); adjust cells I92 (home) + I94 (tie); Market Configuration rows 92–94.",
+    readinessSummary:
+      "Connected — ShiftedPoissonGamma on opener ExpectedRuns feeds 3-way HOP race; home + tie adjusts.",
+    fromPlayerAdjustment: [
+      "Home opener ExpectedRuns (Prep Work)",
+      "Away opener ExpectedRuns (Prep Work)",
+    ],
+    extraEvaluationInputs: [
+      {
+        id: "hop-race",
+        label: "HighestOpeningPartnership race",
+        status: "have",
+        detail:
+          "homeProb + homeAdj/100 − tieAdj/100; awayProb − homeAdj/100. Test/FC market prefixed \"1st Innings\".",
+        source: "excel-mappings rows 92–94",
+      },
+    ],
+    backendOnly: defaultBackendLookups.filter((x) => x.id === "format"),
+    marketConfiguration: [
+      "Rows 92–94: 3-way home/away/tie.",
+      "Adjust: I92 (home/away shift), I94 (tie shift).",
+    ],
+    wiringSteps: [
+      "✓ Player Adjustment → opener ExpectedRuns both sides.",
+      "✓ HighestOpeningPartnership.GetMarkets → 3-way probabilities.",
+      "✓ Market Configuration rows 92–94: probs, adjusts I92 + I94, price, publish.",
+    ],
+  },
+
   "pm-team-fours": {
     readiness: "ready",
     connected: true,
