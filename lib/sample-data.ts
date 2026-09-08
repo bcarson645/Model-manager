@@ -125,15 +125,21 @@ export const models: ModelDefinition[] = [
   {
     id: "pm-player-runs",
     name: "Player Runs",
-    description: "Per-player run lines — one PM Publication row per squad member.",
+    description:
+      "Per-player run lines — Round(ratioConstant × Raw/ExpectedRuns) + adjust; one PM row per batter.",
     market: "Player Market",
     marketCode: "BARU",
     phase: "pre_match",
+    excelOutputs: [
+      { sheet: "PM Publication", cell: "F257:F266", description: "Lines per playing batter" },
+      { sheet: "PM Publication", cell: "G257:G266", description: "Under probabilities (~0.5)" },
+      { sheet: "PM Publication", cell: "I257:I266", description: "BatsmanRuns adjusts" },
+    ],
     sources: {
-      excel: { version: workbookRef, location: "PM Publication — Player - Runs rows" },
+      excel: { version: workbookRef, location: "Prep Work!M; PM Publication!B257:I266" },
       lambda: { version: "main", location: "PreMatch.Models.Players.PlayerRuns" },
     },
-    status: "migrating",
+    status: "parity_check",
   },
   {
     id: "pm-player-fours",
@@ -150,7 +156,7 @@ export const models: ModelDefinition[] = [
       excel: { version: workbookRef, location: "PM Publication rows 267–276" },
       lambda: { version: "main", location: "PreMatch.Models.Players.PlayerFours" },
     },
-    status: "migrating",
+    status: "parity_check",
   },
   {
     id: "pm-player-sixes",
@@ -166,7 +172,7 @@ export const models: ModelDefinition[] = [
       excel: { version: workbookRef, location: "PM Publication rows 277–286" },
       lambda: { version: "main", location: "PreMatch.Models.Players.PlayerSixes" },
     },
-    status: "migrating",
+    status: "parity_check",
   },
   {
     id: "pm-player-balls-faced",
@@ -310,7 +316,7 @@ export const models: ModelDefinition[] = [
       excel: { version: workbookRef, location: "PM Publication!B54:I54" },
       lambda: { version: "main", location: "PreMatch.Models.Matches.MatchRunOuts" },
     },
-    status: "migrating",
+    status: "parity_check",
   },
   {
     id: "pm-match-max-over",
@@ -395,7 +401,7 @@ export const models: ModelDefinition[] = [
       excel: { version: workbookRef, location: "PM Publication!B59:I59" },
       lambda: { version: "main", location: "PreMatch.Models.Matches.MatchWickets" },
     },
-    status: "migrating",
+    status: "parity_check",
   },
   {
     id: "pm-toss-winner",
@@ -494,6 +500,25 @@ export const models: ModelDefinition[] = [
       lambda: { version: "main", location: "PreMatch.Models.Matches.HighestIndividualScore" },
     },
     status: "migrating",
+  },
+  {
+    id: "pm-first-ball-runs",
+    name: "Runs off First Delivery",
+    description:
+      "Three U/O lines (0.5 / 1.5 / 3.5) on first-ball runs — FirstOver mean lookup + FirstDelivery adjusts ÷100.",
+    market: "First Inns Market",
+    marketCode: "0RINB50A",
+    phase: "pre_match",
+    excelOutputs: [
+      { sheet: "PM Publication", cell: "F35:F37", description: "Lines 0.5 / 1.5 / 3.5" },
+      { sheet: "PM Publication", cell: "G35:H37", description: "Under / over probabilities" },
+      { sheet: "PM Publication", cell: "I35:I37", description: "FirstDelivery1–3 adjusts" },
+    ],
+    sources: {
+      excel: { version: workbookRef, location: "PM Publication!B35:I37" },
+      lambda: { version: "main", location: "PreMatch.Models.Overs.FirstBallRuns" },
+    },
+    status: "parity_check",
   },
   {
     id: "pm-first-over",
@@ -646,7 +671,7 @@ export const models: ModelDefinition[] = [
       excel: { version: workbookRef, location: "Prep Work!W38/W59; PM Publication wides rows" },
       lambda: { version: "main", location: "PreMatch.Models.Teams.TeamWides" },
     },
-    status: "migrating",
+    status: "parity_check",
   },
   {
     id: "pm-team-ducks",
@@ -694,7 +719,7 @@ export const models: ModelDefinition[] = [
       excel: { version: workbookRef, location: "Prep Work!U36/U57; PM Publication run outs rows" },
       lambda: { version: "main", location: "PreMatch.Models.Teams.TeamRunOuts" },
     },
-    status: "migrating",
+    status: "parity_check",
   },
   {
     id: "pm-team-max-over",

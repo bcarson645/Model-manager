@@ -167,6 +167,17 @@ export const pmPublicationMappings = {
       lambdaAdjust: "AdjustmentsPM.MatchAdjustments.FirstPartnership",
     },
     {
+      modelId: "pm-first-ball-runs",
+      rows: "35-37",
+      market: "Runs off First Delivery",
+      adjustCells: ["I35", "I36", "I37"],
+      lineCell: "F35",
+      lambdaAdjust:
+        "MatchAdjustments.FirstDelivery1 / FirstDelivery2 / FirstDelivery3 (÷100 on under); FirstOver÷10 on mean",
+      notes:
+        "FirstBallRuns — fixed lines 0.5 / 1.5 / 3.5. Lookup from avg FirstOver (cap 7.6). Per-line under adjust ÷100 in Lambda.",
+    },
+    {
       modelId: "pm-group-runs",
       rows: "38-40",
       market: "Runs in First N Overs (match)",
@@ -384,7 +395,11 @@ export const pmPublicationMappings = {
       modelId: "pm-player-runs",
       rows: "257-266",
       market: "Player - Runs",
-      notes: "One row per selected batter; line F, prob G≈0.5, adjust I per player",
+      adjustCell: "I257",
+      lineCell: "F257",
+      lambdaAdjust: "BatterAdjustmentsPM.BatsmanRuns (added to rounded line)",
+      notes:
+        "ExpectedRuns = Prep Raw (M) × GetRatioConstant(batPosition); not bt.caz. One row per selected batter; G≈0.5.",
     },
     {
       modelId: "pm-player-fours",

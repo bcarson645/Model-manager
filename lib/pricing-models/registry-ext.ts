@@ -5,10 +5,12 @@ const NS_MATCHES = "PremiumCricket.Lib.Pricing.PricingModels.PreMatch.Models.Mat
 const NS_PLAYERS = "PremiumCricket.Lib.Pricing.PricingModels.PreMatch.Models.Players";
 const NS_HEADTOHEADS = "PremiumCricket.Lib.Pricing.PricingModels.PreMatch.Models.HeadToHeads";
 const NS_TEAMS = "PremiumCricket.Lib.Pricing.PricingModels.PreMatch.Models.Teams";
+const NS_OVERS = "PremiumCricket.Lib.Pricing.PricingModels.PreMatch.Models.Overs";
 const FILE_MATCHES = "reference/pricing-models/PreMatch/Models/Matches";
 const FILE_PLAYERS = "reference/pricing-models/PreMatch/Models/Players";
 const FILE_HEADTOHEADS = "reference/pricing-models/PreMatch/Models/HeadToHeads";
 const FILE_TEAMS = "reference/pricing-models/PreMatch/Models/Teams";
+const FILE_OVERS = "reference/pricing-models/PreMatch/Models/Overs";
 
 export const additionalPricingModels: PricingModelDefinition[] = [
   {
@@ -134,7 +136,7 @@ export const additionalPricingModels: PricingModelDefinition[] = [
         label: "Player expected runs",
         scope: "parameter",
         csharpPath: "player.BatsmanEvaluation.ExpectedRuns",
-        excelRef: "Prep Work Q-column player ratings → expected runs",
+        excelRef: "Prep Work!M — Raw runs (not bt.caz L)",
       },
       {
         name: "BatsmanRuns",
@@ -2436,6 +2438,90 @@ export const additionalPricingModels: PricingModelDefinition[] = [
       "legacyMarketId 25 shared with match FirstDismissal (718)",
       "Compare per-team probs vs match FirstDismissal rows 45–51",
       "CommonMethods.GetLookupFormat dependency (Overs namespace import)",
+    ],
+  },
+  {
+    id: "first-ball-runs",
+    registryModelId: "pm-first-ball-runs",
+    className: "FirstBallRuns",
+    namespace: NS_OVERS,
+    filePath: `${FILE_OVERS}/FirstBallRuns.cs`,
+    phase: "pre_match",
+    marketName: "Runs off First Delivery",
+    marketCode: "0RINB50A",
+    marketId: 999,
+    legacyMarketId: 12,
+    description:
+      "Three U/O lines (0.5 / 1.5 / 3.5) on runs off the first ball of the match. Lookup from averaged FirstOver mean (capped 7.6); per-line FirstDelivery adjusts ÷100 on under.",
+    inputs: [
+      {
+        name: "FirstOver",
+        label: "Team first-over expectation",
+        scope: "parameter",
+        csharpPath: "0.5 × (team1.FirstOver + team2.FirstOver)",
+        excelRef: "Prep Work — FirstOver both teams",
+        notes: "Match mean before FirstOver adjust",
+      },
+      {
+        name: "FirstOverAdjust",
+        label: "Match first-over adjust",
+        scope: "trading_input",
+        csharpPath: "inputs.AdjustmentsPM.MatchAdjustments.FirstOver / 10.0",
+        notes: "Added to first-over mean before lookup; rounded to 2dp then capped at 7.6",
+      },
+      {
+        name: "FirstDelivery1",
+        label: "Under 0.5 adjust",
+        scope: "trading_input",
+        csharpPath: "inputs.AdjustmentsPM.MatchAdjustments.FirstDelivery1 / 100",
+        excelRef: "PM Publication!I35",
+        notes: "Subtracted from under prob for line 0",
+      },
+      {
+        name: "FirstDelivery2",
+        label: "Under 1.5 adjust",
+        scope: "trading_input",
+        csharpPath: "inputs.AdjustmentsPM.MatchAdjustments.FirstDelivery2 / 100",
+        excelRef: "PM Publication!I36",
+        notes: "Subtracted from under prob for line 1",
+      },
+      {
+        name: "FirstDelivery3",
+        label: "Under 3.5 adjust",
+        scope: "trading_input",
+        csharpPath: "inputs.AdjustmentsPM.MatchAdjustments.FirstDelivery3 / 100",
+        excelRef: "PM Publication!I37",
+        notes: "Subtracted from under prob for line 3",
+      },
+      {
+        name: "FirstBallLookup",
+        label: "First-ball under lookup",
+        scope: "embedded",
+        csharpPath:
+          "GetLimitedOversFirstBallLookup() / GetTestMatchFirstBallLookup()",
+        notes: "Keyed by line (0|1|3) and firstOver to 1dp",
+      },
+    ],
+    embeddedConstants: [
+      { name: "Lines", value: "0, 1, 3 → LineSpecifier(+0.5)" },
+      { name: "FirstOverCap", value: "7.6" },
+      { name: "FirstOverRound", value: "Round(mean × 100) / 100" },
+      { name: "Specifiers", value: "Innings=1, Over=1, Delivery=1" },
+    ],
+    outputs: [
+      {
+        name: "firstBallLines",
+        label: "Runs off first delivery U/O (3 lines)",
+        type: "outcome_set",
+        csharpPath: "GetOverUnderOutcomes(underProb)",
+        excelRef: "PM Publication rows 35–37 (F/G/H/I)",
+        notes: "Fixed lines 0.5 / 1.5 / 3.5",
+      },
+    ],
+    missingForParity: [
+      "Excel G35–G37 often #N/A in sample books — confirm Market Configuration spawn",
+      "Map Prep Work FirstOver cells for both teams",
+      "Confirm FirstOver purple cell if published separately from I35–I37",
     ],
   },
   ...groupPricingModels,

@@ -424,25 +424,28 @@ export const wiringByRegistryId: Record<string, IntegrationWiringGuide> = {
   },
 
   "pm-first-dismissal": {
-    readiness: "blocked",
+    readiness: "ready",
+    connected: true,
+    connectedNote:
+      "Mapped — opener avg/SR + bowling dismissal rates (AD:AM) → 7-way MOD; Market Configuration rows 45–51.",
     readinessSummary:
-      "Player openers are covered, but team dismissal method rates are not on the batting screen — the main blocker.",
+      "Connected — match 1st wicket method of dismissal wired.",
     fromPlayerAdjustment: [
       "Opener BattingAverage (BT CAZ) and StrikeRate (SR) for positions 1–2 each team",
-      "NOT the composite Rating column — MOD uses raw avg/SR vs lookup standards",
+      "Bowling-side DismissalMethodEvaluation (7 rates × 2 teams)",
     ],
     extraEvaluationInputs: [
       {
         id: "dismissal-rates-home",
         label: "Home bowling dismissal method rates (×7)",
-        status: "need",
+        status: "have",
         detail: "Fielder, Bowled, Keeper, LBW, Run out, Stumped, Other — NZ bowling vs away batting.",
         source: "Prep Work AD4:AH9 → DismissalMethodEvaluation",
       },
       {
         id: "dismissal-rates-away",
         label: "Away bowling dismissal method rates (×7)",
-        status: "need",
+        status: "have",
         detail: "SA bowling vs home batting.",
         source: "Prep Work AD12:AH17",
       },
@@ -467,37 +470,37 @@ export const wiringByRegistryId: Record<string, IntegrationWiringGuide> = {
     marketConfiguration: [
       "Rows 45–51: seven selections — one prob + one adjust each (NOT above/below pairs).",
       "7-way partition renormalisation: weight[i] = base[i] + adjust[i]/100; published = weight/sum(weights).",
-      "Paired ±1 between two methods transfers 0.01; lone +1 adds ~0.004 to that outcome.",
-      "Derive price per selection from published prob.",
     ],
     wiringSteps: [
-      "1. Player Adjustment → openers with BattingAverage + StrikeRate in payload.",
-      "2. Add bowling-side DismissalMethodEvaluation (7 rates × 2 teams) — from historical blend or manual entry on bowling tab.",
-      "3. Backend: attach lookup tables + format + OversAvailable.",
-      "4. Call FirstDismissal → seven base probabilities (expect ~56% fielder, ~17% bowled on typical T20).",
-      "5. Market Configuration: store 7 adjusts; renormalise; price; activate.",
+      "✓ Player Adjustment → openers + DismissalMethodEvaluation both sides.",
+      "✓ FirstDismissal.GetMarkets → seven base probabilities.",
+      "✓ Market Configuration rows 45–51: adjusts, renormalise, price, publish.",
     ],
     uiNotes: [
       "Grid template should be one prob per row, not Prob above/below — MOD is not under/over.",
       "Excel F45=0.5 is a placeholder line, not a real O/U market.",
-      "Lambda applies adjusts inside the model today — decide: pass adjusts into Lambda on Get prices, or return base-only and renormalise on FE (same formula).",
-    ],
-    blockers: [
-      "DismissalMethodEvaluation not persisted from Player Adjustment (bowling historical block AD:AM).",
     ],
   },
 
   "pm-group-runs": {
-    readiness: "blocked",
-    readinessSummary: "Needs trader-typed FirstGroup/SecondGroup means — not on player rating screen.",
-    fromPlayerAdjustment: ["Team factors (indirect)"],
+    readiness: "ready",
+    connected: true,
+    connectedNote:
+      "Mapped — FirstGroup/SecondGroup/ThirdGroup means → match U/O lines F38–40; adjusts I38+; Market Configuration rows 38–40.",
+    readinessSummary:
+      "Connected — match runs in first N overs (both sides’ group means averaged).",
+    fromPlayerAdjustment: [
+      "Home / away FirstGroup, SecondGroup, ThirdGroup means",
+      "Match FirstGroup / SecondGroup / ThirdGroup adjusts",
+    ],
     extraEvaluationInputs: [
       {
         id: "first-group",
-        label: "FirstGroup / SecondGroup per team",
-        status: "need",
-        detail: "Trader-typed expected runs in first 6/12 overs (T20) or 5/15 (ODI).",
-        source: "Prep Work group means",
+        label: "FirstGroup / SecondGroup / ThirdGroup per team",
+        status: "have",
+        detail:
+          "Match mean = 0.5 × (team1 + team2) group expectation; line Round(mean − 1.2) + 0.5.",
+        source: "Prep Work group means → PM Publication F38–F40",
       },
     ],
     backendOnly: [
@@ -506,16 +509,60 @@ export const wiringByRegistryId: Record<string, IntegrationWiringGuide> = {
         label: "GroupRuns variance lookup",
         status: "lookup",
         detail: "Poisson-gamma for U/O line.",
-        source: "LookupProvider",
+        source: "LookupProvider GetVarianceParameters('GroupRuns')",
       },
       ...defaultBackendLookups.filter((x) => x.id === "format"),
     ],
     marketConfiguration: [
-      "Match rows 38–40; team rows 138+ with three lines per group.",
+      "Match rows 38–40 (T20: 6/8/10 overs).",
       "U/O at single line — not range buckets (0–19, 20–29 are separate Ranged products).",
     ],
-    wiringSteps: ["Add group means UI or import from workbook before wiring GroupRuns."],
-    blockers: ["FirstGroup/SecondGroup trader inputs missing from Player Adjustment."],
+    wiringSteps: [
+      "✓ Player Adjustment → FirstGroup/SecondGroup/ThirdGroup both teams.",
+      "✓ GroupRuns match markets → lines + U/O.",
+      "✓ Market Configuration rows 38–40.",
+    ],
+  },
+
+  "pm-team-group-runs": {
+    readiness: "ready",
+    connected: true,
+    connectedNote:
+      "Mapped — per-team FirstGroup/SecondGroup/ThirdGroup → three U/O lines each; Market Configuration NZ 138–146 / SA 204–212.",
+    readinessSummary:
+      "Connected — team runs in first N overs for both sides.",
+    fromPlayerAdjustment: [
+      "Home / away FirstGroup, SecondGroup, ThirdGroup means",
+      "Innings FirstGroup / SecondGroup / ThirdGroup adjusts",
+    ],
+    extraEvaluationInputs: [
+      {
+        id: "team-group-means",
+        label: "Team group runs (3 lines per group)",
+        status: "have",
+        detail:
+          "Three lines per team per over-group (middle ±5); TeamGroupRuns or GroupRuns team branch.",
+        source: "Prep Work group means → PM Publication NZ 138–146 / SA 204–212",
+      },
+    ],
+    backendOnly: [
+      {
+        id: "team-group-runs-variance",
+        label: "GroupRuns variance lookup",
+        status: "lookup",
+        detail: "Same GroupRuns Poisson-gamma variance as the match market.",
+        source: "LookupProvider GetVarianceParameters('GroupRuns')",
+      },
+      ...defaultBackendLookups.filter((x) => x.id === "format"),
+    ],
+    marketConfiguration: [
+      "NZ 138–146 / SA 204–212: three U/O lines per team per group (. / .. alternate lines).",
+    ],
+    wiringSteps: [
+      "✓ Player Adjustment → group means both teams.",
+      "✓ TeamGroupRuns / GroupRuns team branch → lines + U/O.",
+      "✓ Market Configuration NZ 138–146 / SA 204–212.",
+    ],
   },
 
   "pm-match-fours": {
@@ -725,6 +772,121 @@ export const wiringByRegistryId: Record<string, IntegrationWiringGuide> = {
     ],
   },
 
+  "pm-match-max-over": {
+    readiness: "ready",
+    connected: true,
+    connectedNote:
+      "Mapped — MatchMaxOver feeds line F55; trader adjust I55 (MaxRunsInOver); Market Configuration row 55.",
+    readinessSummary:
+      "Connected — MatchMaxOver evaluation feeds the line and U/O market, matching the sheet.",
+    fromPlayerAdjustment: [
+      "Match max-over expectation (Prep Work Z3 / T3 Match Max Over model column)",
+    ],
+    extraEvaluationInputs: [
+      {
+        id: "match-max-over-line",
+        label: "MatchMaxOver line",
+        status: "have",
+        detail:
+          "Poisson line uses Round(total - 0.8) + 0.5, then prices under/over around that line.",
+        source: "Prep Work Z3 / PM Publication F55",
+      },
+    ],
+    backendOnly: defaultBackendLookups.filter(
+      (x) => x.id === "format" || x.id === "overs"
+    ),
+    marketConfiguration: [
+      "Row 55: line F55, under/over G55/H55, adjust I55 (MaxRunsInOver).",
+    ],
+    wiringSteps: [
+      "✓ Player Adjustment / Prep Work → MatchMaxOver in evaluation.",
+      "✓ MatchMaxOver.GetMarkets → line + U/O.",
+      "✓ Market Configuration row 55: line, adjust I55, price, publish.",
+    ],
+  },
+
+  "pm-match-wides": {
+    readiness: "ready",
+    connected: true,
+    connectedNote:
+      "Mapped — InningsWides sum (W38+W59) → MatchWides line F57; trader adjust I57; Market Configuration row 57.",
+    readinessSummary:
+      "Connected — team innings wides feed the match U/O line.",
+    fromPlayerAdjustment: [
+      "Home / away InningsWides (Prep Work W38 / W59)",
+      "Match wides adjust (MatchAdjustments.MatchWides)",
+    ],
+    extraEvaluationInputs: [
+      {
+        id: "match-wides-total",
+        label: "InningsWides sum (limited overs)",
+        status: "have",
+        detail:
+          "team1.InningsWides + team2.InningsWides + MatchWides adjust; Test/FC uses MatchEvaluation.MatchWides.",
+        source: "Prep Work W38 + W59 → PM Publication F57",
+      },
+    ],
+    backendOnly: [
+      ...defaultBackendLookups.filter((x) => x.id === "format"),
+      {
+        id: "match-wides-variance",
+        label: "MatchWides variance lookup",
+        status: "lookup",
+        detail: "Poisson-gamma variance for U/O line.",
+        source: "LookupProvider GetVarianceParameters('MatchWides')",
+      },
+    ],
+    marketConfiguration: [
+      "Row 57: line F57, under/over G57/H57, adjust I57 (MatchWides).",
+    ],
+    wiringSteps: [
+      "✓ Player Adjustment → InningsWides both teams in evaluation.",
+      "✓ MatchWides.GetMarkets → line + U/O.",
+      "✓ Market Configuration row 57: line, adjust I57, price, publish.",
+    ],
+  },
+
+  "pm-match-extras": {
+    readiness: "ready",
+    connected: true,
+    connectedNote:
+      "Mapped — ExtrasPrediction sum (M35+M56) → MatchExtras line F58; trader adjust I58; Market Configuration row 58.",
+    readinessSummary:
+      "Connected — team extras predictions feed the match U/O line.",
+    fromPlayerAdjustment: [
+      "Home / away ExtrasPrediction (Prep Work M35 / M56)",
+      "Match extras adjust (MatchAdjustments.MatchExtras)",
+    ],
+    extraEvaluationInputs: [
+      {
+        id: "match-extras-total",
+        label: "ExtrasPrediction sum (limited overs)",
+        status: "have",
+        detail:
+          "team1.ExtrasPrediction + team2.ExtrasPrediction + MatchExtras adjust (rounded 2dp); Test/FC uses MatchEvaluation.MatchExtras.",
+        source: "Prep Work M35 + M56 → PM Publication F58",
+      },
+    ],
+    backendOnly: [
+      ...defaultBackendLookups.filter((x) => x.id === "format"),
+      {
+        id: "match-extras-variance",
+        label: "MatchExtras variance lookup",
+        status: "lookup",
+        detail: "Poisson-gamma variance for U/O line (ODI fallback).",
+        source: "LookupProvider GetVarianceParameters('MatchExtras')",
+      },
+    ],
+    marketConfiguration: [
+      "Row 58: line F58, under/over G58/H58, adjust I58 (MatchExtras).",
+    ],
+    wiringSteps: [
+      "✓ Player Adjustment → ExtrasPrediction both teams in evaluation.",
+      "✓ MatchExtras.GetMarkets → line + U/O.",
+      "✓ Market Configuration row 58: line, adjust I58, price, publish.",
+    ],
+  },
+
   "pm-team-fours": {
     readiness: "ready",
     connected: true,
@@ -784,6 +946,491 @@ export const wiringByRegistryId: Record<string, IntegrationWiringGuide> = {
       "✓ Player Adjustment → team sixes from per-player P.",
       "✓ TeamSixes.GetMarkets → three lines + U/O.",
       "✓ Market Configuration team sixes rows.",
+    ],
+  },
+
+  "pm-team-wides": {
+    readiness: "ready",
+    connected: true,
+    connectedNote:
+      "Mapped — InningsWides + WidesBowled adjust per team; Market Configuration NZ 163 / SA 229.",
+    readinessSummary:
+      "Connected — each team's wides faced from Prep Work W38 / W59.",
+    fromPlayerAdjustment: [
+      "Home / away InningsWides (Prep Work W38 / W59)",
+      "Innings WidesBowled adjust per side",
+    ],
+    extraEvaluationInputs: [
+      {
+        id: "innings-wides",
+        label: "InningsWides + WidesBowled",
+        status: "have",
+        detail:
+          "expected = team.InningsWides + innings WidesBowled; line Round(expected − 0.8).",
+        source: "Prep Work W38 / W59 → PM Publication NZ 163 / SA 229",
+      },
+    ],
+    backendOnly: [
+      ...defaultBackendLookups.filter((x) => x.id === "format"),
+      {
+        id: "team-wides-variance",
+        label: "MatchWides variance lookup",
+        status: "lookup",
+        detail: "Same MatchWides Poisson-gamma variance as the match market.",
+        source: "LookupProvider GetVarianceParameters('MatchWides')",
+      },
+    ],
+    marketConfiguration: [
+      "NZ 163 / SA 229: line, under/over, WidesBowled adjust per team.",
+    ],
+    wiringSteps: [
+      "✓ Player Adjustment → InningsWides both teams in evaluation.",
+      "✓ TeamWides.GetMarkets → home + away lines + U/O.",
+      "✓ Market Configuration NZ 163 / SA 229.",
+    ],
+  },
+
+  "pm-team-extras": {
+    readiness: "ready",
+    connected: true,
+    connectedNote:
+      "Mapped — ExtrasPrediction + InningsExtras adjust per team; Market Configuration NZ 165 / SA 231.",
+    readinessSummary:
+      "Connected — each team's innings extras from Prep Work M35 / M56.",
+    fromPlayerAdjustment: [
+      "Home / away ExtrasPrediction (Prep Work M35 / M56)",
+      "Innings InningsExtras adjust per side",
+    ],
+    extraEvaluationInputs: [
+      {
+        id: "innings-extras",
+        label: "ExtrasPrediction + InningsExtras",
+        status: "have",
+        detail:
+          "expected = team.ExtrasPrediction + innings InningsExtras; line Round(expected − 0.8).",
+        source: "Prep Work M35 / M56 → PM Publication NZ 165 / SA 231",
+      },
+    ],
+    backendOnly: [
+      ...defaultBackendLookups.filter((x) => x.id === "format"),
+      {
+        id: "team-extras-variance",
+        label: "MatchExtras variance lookup",
+        status: "lookup",
+        detail: "Same MatchExtras Poisson-gamma variance as the match market.",
+        source: "LookupProvider GetVarianceParameters('MatchExtras')",
+      },
+    ],
+    marketConfiguration: [
+      "NZ 165 / SA 231: line, under/over, InningsExtras adjust per team.",
+    ],
+    wiringSteps: [
+      "✓ Player Adjustment → ExtrasPrediction both teams in evaluation.",
+      "✓ TeamExtras.GetMarkets → home + away lines + U/O.",
+      "✓ Market Configuration NZ 165 / SA 231.",
+    ],
+  },
+
+  "pm-team-first-partnership": {
+    readiness: "ready",
+    connected: true,
+    connectedNote:
+      "Mapped — per-team opener ExpectedRuns → Fall of 1st Wicket line; Market Configuration NZ 147 / SA 213.",
+    readinessSummary:
+      "Connected — runs at fall of 1st wicket for both teams from opener evaluations.",
+    fromPlayerAdjustment: [
+      "Opener ExpectedRuns (or BT CAZ if T10) per team",
+      "Batter run adjusts for openers + FallOfWicket innings adjust",
+    ],
+    extraEvaluationInputs: [
+      {
+        id: "team-opener-expected-runs",
+        label: "Opener ExpectedRuns [0]/[1] per team",
+        status: "have",
+        detail:
+          "Line = Round(0.5×(bat1+bat2)×formatMult × meanMedianMult + 0.5×batterAdj) + FallOfWicket; fixed 50/50 U/O.",
+        source: "Player evaluation openers → PM Publication NZ 147 / SA 213",
+      },
+    ],
+    backendOnly: defaultBackendLookups.filter((x) => x.id === "format" || x.id === "overs"),
+    marketConfiguration: [
+      "NZ 147 / SA 213: line, under/over, FallOfWicket + opener batsman adjusts.",
+    ],
+    wiringSteps: [
+      "✓ Player Adjustment → opener ExpectedRuns both teams.",
+      "✓ TeamFirstPartnership.GetMarkets → home + away lines + U/O.",
+      "✓ Market Configuration NZ 147 / SA 213.",
+    ],
+    uiNotes: ["Adjust shifts the line integer, not probability (÷100 pattern does not apply)."],
+  },
+
+  "pm-team-first-dismissal": {
+    readiness: "ready",
+    connected: true,
+    connectedNote:
+      "Mapped — per-team openers × opposition bowling dismissal rates; Market Configuration NZ 148–154 / SA 214–220.",
+    readinessSummary:
+      "Connected — team 1st wicket method of dismissal for both sides.",
+    fromPlayerAdjustment: [
+      "Opener BattingAverage + StrikeRate per team",
+      "Opposition bowling DismissalMethodEvaluation (7 rates)",
+    ],
+    extraEvaluationInputs: [
+      {
+        id: "team-dismissal-rates",
+        label: "Dismissal rates vs each batting side",
+        status: "have",
+        detail:
+          "Both openers × opposition bowling rates, each weighted ÷2. No PM trader adjusts in Lambda (unlike match FirstDismissal).",
+        source: "Prep Work AD:AM → PM Publication NZ 148–154 / SA 214–220",
+      },
+    ],
+    backendOnly: [
+      {
+        id: "team-batter-runs-lookup",
+        label: "BatterRuns / StrikeRate lookups",
+        status: "lookup",
+        detail: "Same opener par lookups as match FirstDismissal.",
+        source: "LookupProvider",
+      },
+      ...defaultBackendLookups.filter((x) => x.id === "format" || x.id === "overs"),
+    ],
+    marketConfiguration: [
+      "NZ 148–154 / SA 214–220: seven selections per team.",
+    ],
+    wiringSteps: [
+      "✓ Player Adjustment → openers + dismissal rates both sides.",
+      "✓ TeamFirstDismissal.GetMarkets → home + away 7-way probs.",
+      "✓ Market Configuration NZ 148–154 / SA 214–220.",
+    ],
+    uiNotes: [
+      "7-way partition — one prob per row, not under/over.",
+      "No purple I adjust applied inside Lambda for the team market.",
+    ],
+  },
+
+  "pm-player-runs": {
+    readiness: "ready",
+    connected: true,
+    connectedNote:
+      "Mapped — ExpectedRuns = Prep Raw (M) × position ratioConstant → line; Market Configuration rows 257–266.",
+    readinessSummary:
+      "Connected — player runs from Raw (M), not bt.caz; BatsmanRuns on line.",
+    fromPlayerAdjustment: [
+      "Per-player ExpectedRuns / Raw (Prep Work M24:M34 / M45:M55)",
+      "Batting position for GetRatioConstant",
+      "BatsmanRuns adjust per player (added to rounded line)",
+    ],
+    extraEvaluationInputs: [
+      {
+        id: "expected-runs-raw",
+        label: "ExpectedRuns (Raw M)",
+        status: "have",
+        detail:
+          "line = Round(ratioConstant × ExpectedRuns) + Round(BatsmanRuns); published +0.5. Ratio by bat position (T20 ~0.72 / 0.75 / 0.78…).",
+        source: "Prep Work M → PM Publication F257:F266",
+      },
+    ],
+    backendOnly: [
+      {
+        id: "ratio-constant",
+        label: "GetRatioConstant by batting position",
+        status: "lookup",
+        detail: "PlayerScores.GetRatioConstant(inputs, batPosition + indexAdjust).",
+        source: "PlayerScores base class",
+      },
+      ...defaultBackendLookups.filter((x) => x.id === "format"),
+    ],
+    marketConfiguration: [
+      "Rows 257–266: line F, under G≈0.5, adjust I per playing batter.",
+    ],
+    wiringSteps: [
+      "✓ Player Adjustment → ExpectedRuns from Raw (M).",
+      "✓ PlayerRuns.GetMarkets → line + U/O per batter.",
+      "✓ Market Configuration rows 257–266.",
+    ],
+    uiNotes: [
+      "Uses Raw (M), not bt.caz (L). Top Bat race uses bt.caz separately.",
+    ],
+  },
+
+  "pm-player-fours": {
+    readiness: "ready",
+    connected: true,
+    connectedNote:
+      "Mapped — ExpectedFours (Prep Work O) → per-player U/O; Market Configuration rows 267–276.",
+    readinessSummary:
+      "Connected — player fours from Prep Work O column + BatsmanFours adjust.",
+    fromPlayerAdjustment: [
+      "Per-player ExpectedFours (Prep Work O24:O34 / O45:O55)",
+      "BatsmanFours adjust per player (÷10 in Lambda)",
+    ],
+    extraEvaluationInputs: [
+      {
+        id: "expected-fours",
+        label: "ExpectedFours per batter",
+        status: "have",
+        detail:
+          "Line = Round(ExpectedFours / 2); positions >3 may scale by match adjust; Poisson-gamma under.",
+        source: "Prep Work O → PM Publication F267:F276 / G267:G276",
+      },
+    ],
+    backendOnly: [
+      ...defaultBackendLookups.filter((x) => x.id === "format"),
+      {
+        id: "player-fours-variance",
+        label: "PlayerFours variance lookup",
+        status: "lookup",
+        detail: "Poisson-gamma variance for U/O line.",
+        source: "LookupProvider GetVarianceParameters('PlayerFours')",
+      },
+    ],
+    marketConfiguration: [
+      "Rows 267–276: line F, under G, adjust I per playing batter.",
+    ],
+    wiringSteps: [
+      "✓ Player Adjustment → ExpectedFours from O column.",
+      "✓ PlayerFours.GetMarkets → line + U/O per batter.",
+      "✓ Market Configuration rows 267–276.",
+    ],
+  },
+
+  "pm-player-sixes": {
+    readiness: "ready",
+    connected: true,
+    connectedNote:
+      "Mapped — ExpectedSixes (Prep Work P) → per-player U/O at line 0; Market Configuration rows 277–286.",
+    readinessSummary:
+      "Connected — player sixes from Prep Work P column + BatsmanSixes adjust.",
+    fromPlayerAdjustment: [
+      "Per-player ExpectedSixes (Prep Work P24:P34 / P45:P55)",
+      "BatsmanSixes adjust per player (÷10 in Lambda)",
+    ],
+    extraEvaluationInputs: [
+      {
+        id: "expected-sixes",
+        label: "ExpectedSixes per batter",
+        status: "have",
+        detail:
+          "Line 0 (F=0.5 placeholder); Poisson-gamma P(under 0.5); BatsmanSixes adjust÷10 added to expected.",
+        source: "Prep Work P → PM Publication G277:G286",
+      },
+    ],
+    backendOnly: [
+      ...defaultBackendLookups.filter((x) => x.id === "format"),
+      {
+        id: "player-sixes-variance",
+        label: "PlayerSixes variance lookup",
+        status: "lookup",
+        detail: "Poisson-gamma variance for U/O.",
+        source: "LookupProvider GetVarianceParameters('PlayerSixes')",
+      },
+    ],
+    marketConfiguration: [
+      "Rows 277–286: under G (line 0 / F=0.5), adjust I per playing batter.",
+    ],
+    wiringSteps: [
+      "✓ Player Adjustment → ExpectedSixes from P column.",
+      "✓ PlayerSixes.GetMarkets → U/O per batter.",
+      "✓ Market Configuration rows 277–286.",
+    ],
+  },
+
+  "pm-match-wickets": {
+    readiness: "ready",
+    connected: true,
+    connectedNote:
+      "Mapped — WicketsLost sum (U38+U59) → MatchWickets line F59; trader adjust I59; Market Configuration row 59.",
+    readinessSummary:
+      "Connected — match wickets from team wickets lost totals.",
+    fromPlayerAdjustment: [
+      "Home / away WicketsLost (Prep Work U38 / U59)",
+      "Match wickets adjust (MatchAdjustments.MatchWickets)",
+    ],
+    extraEvaluationInputs: [
+      {
+        id: "match-wickets-total",
+        label: "WicketsLost sum (limited overs)",
+        status: "have",
+        detail:
+          "team1.WicketsLost + team2.WicketsLost + MatchWickets adjust; Test/FC uses MatchEvaluation.MatchWickets. Line Round(total − 0.8) + 0.5.",
+        source: "Prep Work U38 + U59 → PM Publication F59",
+      },
+    ],
+    backendOnly: [
+      ...defaultBackendLookups.filter((x) => x.id === "format"),
+      {
+        id: "match-wickets-variance",
+        label: "Custom GetWicketVar",
+        status: "lookup",
+        detail: "Custom variance formula (not a named lookup table).",
+        source: "MatchWickets.GetWicketVar",
+      },
+    ],
+    marketConfiguration: [
+      "Row 59: line F59, under/over G59/H59, adjust I59 (MatchWickets).",
+    ],
+    wiringSteps: [
+      "✓ Player Adjustment → WicketsLost both teams in evaluation.",
+      "✓ MatchWickets.GetMarkets → line + U/O.",
+      "✓ Market Configuration row 59.",
+    ],
+  },
+
+  "pm-group-wickets": {
+    readiness: "ready",
+    connected: true,
+    connectedNote:
+      "Mapped — WicketsLost × format/group multipliers → wickets in first N overs; Market Configuration rows 41–43.",
+    readinessSummary:
+      "Connected — wickets in first N overs (match) from team wickets lost.",
+    fromPlayerAdjustment: [
+      "Home / away WicketsLost",
+      "Conditions + batting/bowling factors",
+      "First/Second/ThirdGroupWickets adjusts (÷10 in Lambda)",
+    ],
+    extraEvaluationInputs: [
+      {
+        id: "group-wickets-means",
+        label: "Group wickets means (6/8/10 T20)",
+        status: "have",
+        detail:
+          "Averaged across both teams from WicketsLost × group multipliers; line Round(mean − 0.8) + 0.5.",
+        source: "Prep Work U38/U59 + factors → PM Publication F41–F43",
+      },
+    ],
+    backendOnly: [
+      ...defaultBackendLookups.filter((x) => x.id === "format"),
+      {
+        id: "group-wickets-variance",
+        label: "GroupWickets variance lookup",
+        status: "lookup",
+        detail: "Poisson-gamma variance for U/O line.",
+        source: "LookupProvider GetVarianceParameters('GroupWickets')",
+      },
+    ],
+    marketConfiguration: [
+      "Rows 41–43 (T20: 6/8/10 overs): line F, under/over, group wicket adjusts I41+.",
+    ],
+    wiringSteps: [
+      "✓ Player Adjustment → WicketsLost + ratings/conditions.",
+      "✓ GroupWickets.GetMarkets → lines + U/O.",
+      "✓ Market Configuration rows 41–43.",
+    ],
+  },
+
+  "pm-match-run-outs": {
+    readiness: "ready",
+    connected: true,
+    connectedNote:
+      "Mapped — InningsRunOuts sum (U36+U57) → MatchRunOuts line F54; trader adjust I54 (÷10); Market Configuration row 54.",
+    readinessSummary:
+      "Connected — match run outs from team innings run outs totals.",
+    fromPlayerAdjustment: [
+      "Home / away InningsRunOuts (Prep Work U36 / U57)",
+      "Match run outs adjust (MatchAdjustments.MatchRunOuts ÷ 10)",
+    ],
+    extraEvaluationInputs: [
+      {
+        id: "match-run-outs-total",
+        label: "InningsRunOuts sum (limited overs)",
+        status: "have",
+        detail:
+          "team1.InningsRunOuts + team2.InningsRunOuts + MatchRunOuts/10; Test/FC uses MatchEvaluation.MatchRunOuts. Line Round(total − 0.8) + 0.5.",
+        source: "Prep Work U36 + U57 → PM Publication F54",
+      },
+    ],
+    backendOnly: defaultBackendLookups.filter((x) => x.id === "format"),
+    marketConfiguration: [
+      "Row 54: line F54, under/over G54/H54, adjust I54 (MatchRunOuts ÷10).",
+    ],
+    wiringSteps: [
+      "✓ Player Adjustment → InningsRunOuts both teams in evaluation.",
+      "✓ MatchRunOuts.GetMarkets → line + U/O.",
+      "✓ Market Configuration row 54.",
+    ],
+  },
+
+  "pm-team-run-outs": {
+    readiness: "ready",
+    connected: true,
+    connectedNote:
+      "Mapped — InningsRunOuts + adjust÷10 per team; Market Configuration NZ 161 / SA 227.",
+    readinessSummary:
+      "Connected — each team's innings run outs from Prep Work U36 / U57.",
+    fromPlayerAdjustment: [
+      "Home / away InningsRunOuts (Prep Work U36 / U57)",
+      "Innings InningsRunOuts adjust per side (÷10)",
+    ],
+    extraEvaluationInputs: [
+      {
+        id: "innings-run-outs",
+        label: "InningsRunOuts + adjust÷10",
+        status: "have",
+        detail:
+          "Poisson P(X≤0); line 0.5; expected from team.InningsRunOuts + innings adjust/10.",
+        source: "Prep Work U36 / U57 → PM Publication NZ 161 / SA 227",
+      },
+    ],
+    backendOnly: defaultBackendLookups.filter((x) => x.id === "format"),
+    marketConfiguration: [
+      "NZ 161 / SA 227: line 0.5, under/over, InningsRunOuts adjust÷10 per team.",
+    ],
+    wiringSteps: [
+      "✓ Player Adjustment → InningsRunOuts both teams in evaluation.",
+      "✓ TeamRunOuts.GetMarkets → home + away lines + U/O.",
+      "✓ Market Configuration NZ 161 / SA 227.",
+    ],
+  },
+
+  "pm-first-ball-runs": {
+    readiness: "ready",
+    connected: true,
+    connectedNote:
+      "Mapped — FirstBallRuns lookup from avg FirstOver (+ FirstOver÷10); lines 0.5/1.5/3.5; FirstDelivery1–3 ÷100 on under; Market Configuration rows 35–37.",
+    readinessSummary:
+      "Connected — runs off first delivery from FirstOver mean + first-ball lookup.",
+    fromPlayerAdjustment: [
+      "Home / away FirstOver (team evaluation)",
+      "Match FirstOver adjust (÷10 on mean)",
+    ],
+    extraEvaluationInputs: [
+      {
+        id: "first-over-mean",
+        label: "Avg FirstOver + FirstOver÷10",
+        status: "have",
+        detail:
+          "mean = 0.5×(team1.FirstOver + team2.FirstOver) + MatchAdjustments.FirstOver/10; Round to 2dp; cap 7.6.",
+        source: "Prep Work FirstOver both teams → lookup key",
+      },
+      {
+        id: "first-delivery-adjusts",
+        label: "FirstDelivery1 / 2 / 3",
+        status: "have",
+        detail:
+          "Per-line under skew ÷100 (lines 0 / 1 / 3 → I35 / I36 / I37). Applied in Lambda before publish.",
+        source: "PM Publication I35–I37",
+      },
+    ],
+    backendOnly: [
+      {
+        id: "first-ball-lookup",
+        label: "Limited overs / Test first-ball lookup",
+        status: "lookup",
+        detail:
+          "GetLimitedOversFirstBallLookup / GetTestMatchFirstBallLookup — keyed by line (0|1|3) and firstOver 1dp.",
+        source: "LookupProvider",
+      },
+      ...defaultBackendLookups.filter((x) => x.id === "format"),
+    ],
+    marketConfiguration: [
+      "Rows 35–37: fixed lines F35=0.5, F36=1.5, F37=3.5; under/over G/H; adjusts I35–I37 → FirstDelivery1–3.",
+      "Specifiers: innings 1, over 1, delivery 1; market code 0RINB50A.",
+    ],
+    wiringSteps: [
+      "✓ Player Adjustment → FirstOver both teams in evaluation.",
+      "✓ FirstBallRuns.GetMarkets → three U/O lines + lookup.",
+      "✓ Market Configuration rows 35–37.",
     ],
   },
 };

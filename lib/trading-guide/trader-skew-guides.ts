@@ -162,6 +162,30 @@ const guidesByModel: Record<string, Omit<TraderSkewGuide, "excelRefs"> & { excel
     examples: [],
     excelRefs: ["I277–I286"],
   },
+  "pm-first-ball-runs": {
+    kind: "probability_div100",
+    title: "Per-line under skew (÷100, in Lambda)",
+    summary:
+      "I35 / I36 / I37 map to FirstDelivery1 / 2 / 3. Lambda subtracts adjust÷100 from under for lines 0.5 / 1.5 / 3.5. Do not re-apply on FE if Lambda already received the adjusts.",
+    feImplementation: [
+      "Pass FirstDelivery1–3 into MatchAdjustments (or store purple cells and send on price).",
+      "Lambda: underProb -= adjust/100 per line; over = 1 − under.",
+      "FirstOver adjust is separate — ÷10 on the lookup mean, not on probability.",
+    ],
+    formula: "underProb = lookup(line, firstOver) − FirstDelivery{n}/100",
+    examples: [
+      {
+        label: "I35 = +1",
+        detail: "Under 0.5 falls by 0.01 (over rises).",
+      },
+    ],
+    excelRefs: ["I35–I37", "G35–G37", "H35–H37"],
+    selectionRows: [
+      { selection: "Under 0.5", row: 35, adjustCell: "I35", probCell: "G35" },
+      { selection: "Under 1.5", row: 36, adjustCell: "I36", probCell: "G36" },
+      { selection: "Under 3.5", row: 37, adjustCell: "I37", probCell: "G37" },
+    ],
+  },
 };
 
 function defaultDiv100Guide(excel?: ExcelTradingMapping): TraderSkewGuide {
