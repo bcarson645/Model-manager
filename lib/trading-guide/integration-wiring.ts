@@ -13,11 +13,15 @@ export type WiringCheckItem = {
   source?: string;
 };
 
+export type WiringConnectionStatus = "matched" | "parity_review" | "not_wired";
+
 export type IntegrationWiringGuide = {
   readiness: IntegrationReadiness;
   readinessSummary: string;
   /** Live in Market Configuration — Player Adjustment → Lambda → publish */
   connected?: boolean;
+  /** Wired end-to-end but Lambda output does not match Atlas — needs model review */
+  parityReview?: boolean;
   connectedNote?: string;
   /** What Player Adjustment already supplies for this market */
   fromPlayerAdjustment: string[];
@@ -60,6 +64,25 @@ export const connectedLabel = {
   description: "Live in Market Configuration — end-to-end wiring complete.",
   className: "border-teal-900/50 bg-teal-950/30 text-teal-300",
 };
+
+export const parityReviewLabel = {
+  label: "Wired — review",
+  description:
+    "End-to-end wiring complete but Lambda output does not match Atlas — model parity needs review.",
+  className: "border-orange-900/50 bg-orange-950/25 text-orange-300",
+};
+
+export function getWiringConnectionStatus(
+  wiring: IntegrationWiringGuide
+): WiringConnectionStatus {
+  if (wiring.connected && wiring.parityReview) return "parity_review";
+  if (wiring.connected) return "matched";
+  return "not_wired";
+}
+
+export function isWiringMatched(wiring: IntegrationWiringGuide): boolean {
+  return wiring.connected === true && !wiring.parityReview;
+}
 
 export const platformIntegrationOverview = {
   title: "Linking the three screens",
@@ -282,6 +305,94 @@ export const wiringByRegistryId: Record<string, IntegrationWiringGuide> = {
       "✓ TeamOfTopBowl format blend + adjust I62.",
       "✓ Market Configuration rows 62–63.",
     ],
+  },
+
+  "pm-team-top-batter": {
+    readiness: "ready",
+    connected: true,
+    parityReview: true,
+    connectedNote:
+      "Wired end-to-end — TeamTopBatter race distribution does not yet match Atlas PM Publication per-team top bat rows; model differences need review.",
+    readinessSummary:
+      "Wired — review — per-team top bat race; PM row range and player-level parity still open.",
+    fromPlayerAdjustment: [
+      "Per-player run expectations (TopBatterMethods.GetPlayerRuns)",
+      "Conditions (D3)",
+      "Squad batting order for minimum probability lookup",
+    ],
+    extraEvaluationInputs: [
+      {
+        id: "team-top-bat-rows",
+        label: "PM Publication row range per team",
+        status: "need",
+        detail: "NZ rows 359–378 / SA rows 399–418 — outcome set must match Atlas race probs.",
+        source: "PM Publication — {Team} - Top Bat",
+      },
+    ],
+    backendOnly: [
+      ...defaultBackendLookups.filter((x) => x.id === "format"),
+      {
+        id: "team-top-bat-variance",
+        label: "PlayerRuns / ZeroProb variance lookups",
+        status: "lookup",
+        detail: "Poisson-gamma race distribution with GetTopBatMinimumLookup floor.",
+        source: "LookupProvider",
+      },
+    ],
+    marketConfiguration: [
+      "NZ rows 359–378 / SA rows 399–418: per-player top bat probability per team.",
+      "Spawned from MatchBetting via TeamOfTopBat — one market per team.",
+    ],
+    wiringSteps: [
+      "✓ Player Adjustment → player run expectations in evaluation.",
+      "✓ TeamTopBatter.GetMarkets → per-team race outcome set.",
+      "○ QA parity vs Atlas PM Publication rows before marking matched.",
+    ],
+    blockers: ["PM row range per team top bat market"],
+  },
+
+  "pm-team-top-bowler": {
+    readiness: "ready",
+    connected: true,
+    parityReview: true,
+    connectedNote:
+      "Wired end-to-end — TeamTopBowler race distribution does not yet match Atlas PM Publication per-team top bowl rows; player adjusts and model differences need review.",
+    readinessSummary:
+      "Wired — review — per-team top bowl race; player adjusts (0.0 placeholders) and PM row QA still open.",
+    fromPlayerAdjustment: [
+      "Per-bowler expected wickets (GetExpectedWickets)",
+      "Opposition batting rating for wicketAdjust",
+      "Conditions (D3)",
+    ],
+    extraEvaluationInputs: [
+      {
+        id: "team-top-bowl-rows",
+        label: "PM Publication row range per team",
+        status: "need",
+        detail: "NZ rows 379–398 / SA rows 419–438 — outcome set must match Atlas race probs.",
+        source: "PM Publication — {Team} - Top Bowl",
+      },
+      {
+        id: "team-top-bowl-adjusts",
+        label: "Player-level adjusts",
+        status: "need",
+        detail: "Player adjusts currently 0.0 in Lambda — confirm vs Excel nominated players.",
+        source: "registry-ext missingForParity",
+      },
+    ],
+    backendOnly: [
+      ...defaultBackendLookups.filter((x) => x.id === "format"),
+    ],
+    marketConfiguration: [
+      "NZ rows 379–398 / SA rows 419–438: per-player top bowl probability per team.",
+      "Spawned from MatchBetting via TeamOfTopBowl — one market per team.",
+    ],
+    wiringSteps: [
+      "✓ Player Adjustment → bowler expected wickets in evaluation.",
+      "✓ TeamTopBowler.GetMarkets → per-team race outcome set.",
+      "○ QA parity vs Atlas PM Publication rows before marking matched.",
+    ],
+    blockers: ["Player adjusts currently 0.0", "PM row range per team top bowl market"],
   },
 
   "pm-first-partnership": {
@@ -1442,6 +1553,97 @@ export const wiringByRegistryId: Record<string, IntegrationWiringGuide> = {
     ],
   },
 
+  "pm-match-top-batter": {
+    readiness: "ready",
+    connected: true,
+    parityReview: true,
+    connectedNote:
+      "Wired end-to-end — MatchTopBatter race distribution does not yet match Atlas PM Publication rows 439–460; model differences need review.",
+    readinessSummary:
+      "Wired — review — match top bat race; PM row QA and player-level parity still open.",
+    fromPlayerAdjustment: [
+      "Per-player run expectations (TopBatterMethods.GetPlayerRuns)",
+      "Conditions (D3)",
+      "Squad batting order for GetMatchTopBatMinimumLookup",
+    ],
+    extraEvaluationInputs: [
+      {
+        id: "match-top-bat-rows",
+        label: "PM Publication row range",
+        status: "need",
+        detail: "Rows 439–460 — outcome set must match Atlas race probs across all batters.",
+        source: "PM Publication — Match Top Bat.",
+      },
+    ],
+    backendOnly: [
+      ...defaultBackendLookups.filter((x) => x.id === "format"),
+      {
+        id: "match-top-bat-variance",
+        label: "PlayerRuns / ZeroProb variance lookups",
+        status: "lookup",
+        detail: "Poisson-gamma race distribution (cap 500) with minimum probability floor.",
+        source: "LookupProvider",
+      },
+    ],
+    marketConfiguration: [
+      "Rows 439–460: per-player match top bat probability.",
+      "Top 22 normalized; extras scaled by totalProb.",
+    ],
+    wiringSteps: [
+      "✓ Player Adjustment → player run expectations in evaluation.",
+      "✓ MatchTopBatter.GetMarkets → match-wide race outcome set.",
+      "○ QA parity vs Atlas PM Publication rows before marking matched.",
+    ],
+    blockers: ["Exact PM Publication row range for match top bat"],
+  },
+
+  "pm-match-top-bowler": {
+    readiness: "ready",
+    connected: true,
+    parityReview: true,
+    connectedNote:
+      "Wired end-to-end — MatchTopBowler race distribution does not yet match Atlas PM Publication rows 471+; player adjusts and model differences need review.",
+    readinessSummary:
+      "Wired — review — match top bowl race; player adjusts (0.00 placeholders) and PM row QA still open.",
+    fromPlayerAdjustment: [
+      "Per-bowler expected wickets (GetExpectedWickets)",
+      "Opposition batting rating for wicketAdjust",
+      "Conditions (D3)",
+    ],
+    extraEvaluationInputs: [
+      {
+        id: "match-top-bowl-rows",
+        label: "PM Publication row range",
+        status: "need",
+        detail: "Rows 471+ — outcome set must match Atlas race probs across bowlers.",
+        source: "PM Publication — Match Top Bowler.",
+      },
+      {
+        id: "match-top-bowl-adjusts",
+        label: "Player-level adjusts",
+        status: "need",
+        detail: "Player level adjustments currently 0.00 placeholders in Lambda.",
+        source: "registry-ext missingForParity",
+      },
+    ],
+    backendOnly: [
+      ...defaultBackendLookups.filter((x) => x.id === "format"),
+    ],
+    marketConfiguration: [
+      "Rows 471+: per-player match top bowl probability.",
+      "Top 22 normalized first; extras scaled by totalProb.",
+    ],
+    wiringSteps: [
+      "✓ Player Adjustment → bowler expected wickets in evaluation.",
+      "✓ MatchTopBowler.GetMarkets → match-wide race outcome set.",
+      "○ QA parity vs Atlas PM Publication rows before marking matched.",
+    ],
+    blockers: [
+      "Player level adjustments (currently 0.00 placeholders)",
+      "Exact PM Publication row range",
+    ],
+  },
+
   "pm-group-wickets": {
     readiness: "ready",
     connected: true,
@@ -1549,12 +1751,13 @@ export const wiringByRegistryId: Record<string, IntegrationWiringGuide> = {
   },
 
   "pm-team-wickets": {
-    readiness: "blocked",
-    connected: false,
+    readiness: "ready",
+    connected: true,
+    parityReview: true,
     connectedNote:
-      "Parity gap — Lambda TeamWickets uses GetTeamRawWickets/wicketAdjust (~1.1); Atlas uses opposition WicketsLost × n_max/V (~7.0).",
+      "Wired end-to-end — Lambda TeamWickets mean uses GetTeamRawWickets/wicketAdjust (~1.1); Atlas uses opposition WicketsLost × n_max/V (~7.0). Model differences need review.",
     readinessSummary:
-      "Blocked — mean formula in TeamWickets.cs does not match Atlas PM Pricing I632/I807.",
+      "Wired — review — mean formula in TeamWickets.cs does not match Atlas PM Pricing I632/I807.",
     fromPlayerAdjustment: [
       "Bowling XI per-bowler V (overs) and X (wicket rate) on Prep Work rows 24–34 / 45–55",
       "Opposition WicketsLost totals (Prep Work U38 / U59 → F25 / F46)",
@@ -1611,9 +1814,13 @@ export const wiringByRegistryId: Record<string, IntegrationWiringGuide> = {
     ],
     wiringSteps: [
       "✓ Player Adjustment → per-bowler V/X and WicketsLost (U38/U59) in evaluation.",
-      "✗ TeamWickets.GetTeamWickets — replace mean with bowlingTeam.WicketsLost × (n_max / oversBowledTotal) + adjust.",
-      "✗ Wire I166/I232 trader adjust on mean (direct, not ÷10).",
-      "○ Market Configuration NZ 166 / SA 232 after Lambda parity fix.",
+      "✓ TeamWickets.GetMarkets → NZ 166 / SA 232 lines + U/O in Market Configuration.",
+      "○ Replace Lambda mean with bowlingTeam.WicketsLost × (n_max / oversBowledTotal) + adjust.",
+      "○ Wire I166/I232 trader adjust on mean (direct, not ÷10) before marking matched.",
+    ],
+    blockers: [
+      "Lambda mean must switch from GetTeamRawWickets/wicketAdjust to cross-team WicketsLost × n_max/V",
+      "Trader adjust I166/I232 not in Lambda",
     ],
   },
 

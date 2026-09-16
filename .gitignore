@@ -48,6 +48,9 @@ next-env.d.ts
 __pycache__/
 *.pyc
 
+# extracted Atlas VBA (may contain webhook URLs — local only)
+scripts/atlas_vba_extract/
+
 # generated scorecard extracts (too large for GitHub; run extract scripts locally)
 lib/odi-scorecards/matches.json
 lib/t20-scorecards/matches.json
