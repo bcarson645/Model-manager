@@ -202,6 +202,9 @@ export function buildJiraAcceptanceCriteria(
 
 function statusBlurb(guide: MarketTradingGuide): string {
   const w = guide.integrationWiring;
+  if (w.connected && w.parityReview && w.connectedNote) {
+    return `*Status:* Wired — review — ${w.connectedNote}`;
+  }
   if (w.connected && w.connectedNote) return `*Status:* Connected — ${w.connectedNote}`;
   return `*Readiness:* ${w.readiness} — ${w.readinessSummary}`;
 }

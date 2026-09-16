@@ -1899,7 +1899,13 @@ export function getIntegrationWiring(registryModelId: string): IntegrationWiring
 
 export function listConnectedMarkets(): string[] {
   return Object.entries(wiringByRegistryId)
-    .filter(([, guide]) => guide.connected)
+    .filter(([, guide]) => isWiringMatched(guide))
+    .map(([id]) => id);
+}
+
+export function listParityReviewMarkets(): string[] {
+  return Object.entries(wiringByRegistryId)
+    .filter(([, guide]) => guide.connected && guide.parityReview)
     .map(([id]) => id);
 }
 

@@ -11,8 +11,13 @@ export {
   getIntegrationWiring,
   listMarketsByReadiness,
   listConnectedMarkets,
+  listParityReviewMarkets,
+  getWiringConnectionStatus,
+  isWiringMatched,
   platformIntegrationOverview,
   readinessLabels,
+  connectedLabel,
+  parityReviewLabel,
   wiringByRegistryId,
 } from "./integration-wiring";
 export type {
@@ -32,4 +37,5 @@ export type {
   IntegrationReadiness,
   IntegrationWiringGuide,
   WiringCheckItem,
+  WiringConnectionStatus,
 } from "./integration-wiring";

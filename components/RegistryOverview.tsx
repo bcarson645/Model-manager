@@ -2,6 +2,11 @@
 
 import { useMemo } from "react";
 import { buildMarketGuides } from "@/lib/trading-guide";
+import {
+  connectedLabel,
+  getWiringConnectionStatus,
+  parityReviewLabel,
+} from "@/lib/trading-guide/integration-wiring";
 import { PM_QA_DEFAULT_FIXTURE_ID } from "@/lib/workbooks/pm-publication-qa";
 
 function parsePmRowOrder(rows?: string): number {
@@ -13,6 +18,38 @@ function parsePmRowOrder(rows?: string): number {
 type RegistryOverviewProps = {
   onSelectMarket: (guideId: string) => void;
 };
+
+function WiringStatusBadge({
+  status,
+}: {
+  status: ReturnType<typeof getWiringConnectionStatus>;
+}) {
+  if (status === "matched") {
+    return (
+      <span
+        className={`inline-flex rounded-full border px-2 py-0.5 text-xs font-medium ${connectedLabel.className}`}
+        title={connectedLabel.description}
+      >
+        Matched
+      </span>
+    );
+  }
+  if (status === "parity_review") {
+    return (
+      <span
+        className={`inline-flex rounded-full border px-2 py-0.5 text-xs font-medium ${parityReviewLabel.className}`}
+        title={parityReviewLabel.description}
+      >
+        {parityReviewLabel.label}
+      </span>
+    );
+  }
+  return (
+    <span className="inline-flex rounded-full border border-slate-600 bg-slate-800/80 px-2 py-0.5 text-xs font-medium text-slate-400">
+      Not matched
+    </span>
+  );
+}
 
 export function RegistryOverview({ onSelectMarket }: RegistryOverviewProps) {
   const guides = useMemo(() => {
@@ -27,7 +64,13 @@ export function RegistryOverview({ onSelectMarket }: RegistryOverviewProps) {
       });
   }, []);
 
-  const matchedCount = guides.filter((g) => g.integrationWiring.connected).length;
+  const matchedCount = guides.filter(
+    (g) => getWiringConnectionStatus(g.integrationWiring) === "matched"
+  ).length;
+  const reviewCount = guides.filter(
+    (g) => getWiringConnectionStatus(g.integrationWiring) === "parity_review"
+  ).length;
+  const notYetCount = guides.length - matchedCount - reviewCount;
 
   return (
     <div className="space-y-4">
@@ -38,8 +81,8 @@ export function RegistryOverview({ onSelectMarket }: RegistryOverviewProps) {
         </p>
         <p className="mt-3 text-xs text-slate-500">
           <span className="text-emerald-400">{matchedCount}</span> matched ·{" "}
-          <span className="text-slate-400">{guides.length - matchedCount}</span> not yet ·{" "}
-          {guides.length} total
+          <span className="text-orange-400">{reviewCount}</span> wired — review ·{" "}
+          <span className="text-slate-400">{notYetCount}</span> not yet · {guides.length} total
         </p>
       </div>
 
@@ -55,7 +98,7 @@ export function RegistryOverview({ onSelectMarket }: RegistryOverviewProps) {
           </thead>
           <tbody>
             {guides.map((guide) => {
-              const matched = Boolean(guide.integrationWiring.connected);
+              const status = getWiringConnectionStatus(guide.integrationWiring);
               return (
                 <tr
                   key={guide.id}
@@ -70,15 +113,7 @@ export function RegistryOverview({ onSelectMarket }: RegistryOverviewProps) {
                     {guide.marketCode || "—"}
                   </td>
                   <td className="px-4 py-3">
-                    {matched ? (
-                      <span className="inline-flex rounded-full border border-emerald-500/40 bg-emerald-500/15 px-2 py-0.5 text-xs font-medium text-emerald-300">
-                        Matched
-                      </span>
-                    ) : (
-                      <span className="inline-flex rounded-full border border-slate-600 bg-slate-800/80 px-2 py-0.5 text-xs font-medium text-slate-400">
-                        Not matched
-                      </span>
-                    )}
+                    <WiringStatusBadge status={status} />
                   </td>
                 </tr>
               );

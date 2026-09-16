@@ -159,9 +159,10 @@ function GuideDetail({ guide }: { guide: MarketTradingGuide }) {
           <div className="text-right text-xs text-slate-500">
             <div className="mb-2 flex justify-end">
               <ReadinessBadge
-              readiness={guide.integrationWiring.readiness}
-              connected={guide.integrationWiring.connected}
-            />
+                readiness={guide.integrationWiring.readiness}
+                connected={guide.integrationWiring.connected}
+                parityReview={guide.integrationWiring.parityReview}
+              />
             </div>
             <p>
               Code <span className="font-mono text-slate-300">{guide.marketCode}</span>
@@ -405,11 +406,13 @@ export function MarketTradingGuidePanel({
                 {items.map((g) => (
                   <option key={g.id} value={g.id}>
                     {g.marketName}
-                    {g.integrationWiring.connected
-                      ? " ●"
-                      : g.integrationWiring.readiness === "ready"
-                        ? " ✓"
-                        : ""}
+                    {g.integrationWiring.connected && g.integrationWiring.parityReview
+                      ? " ◐"
+                      : g.integrationWiring.connected
+                        ? " ●"
+                        : g.integrationWiring.readiness === "ready"
+                          ? " ✓"
+                          : ""}
                   </option>
                 ))}
               </optgroup>

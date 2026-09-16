@@ -9,8 +9,10 @@ import {
   platformIntegrationOverview,
   readinessLabels,
   connectedLabel,
+  parityReviewLabel,
   listMarketsByReadiness,
   listConnectedMarkets,
+  listParityReviewMarkets,
 } from "@/lib/trading-guide/integration-wiring";
 
 const statusStyles: Record<WiringCheckItem["status"], string> = {
@@ -114,13 +116,27 @@ export function ConnectedBadge() {
   );
 }
 
+export function ParityReviewBadge() {
+  return (
+    <span
+      className={`inline-flex rounded-full border px-2.5 py-0.5 text-xs font-medium ${parityReviewLabel.className}`}
+      title={parityReviewLabel.description}
+    >
+      {parityReviewLabel.label}
+    </span>
+  );
+}
+
 export function ReadinessBadge({
   readiness,
   connected,
+  parityReview,
 }: {
   readiness: IntegrationReadiness;
   connected?: boolean;
+  parityReview?: boolean;
 }) {
+  if (connected && parityReview) return <ParityReviewBadge />;
   if (connected) return <ConnectedBadge />;
   const meta = readinessLabels[readiness];
   return (
@@ -145,11 +161,21 @@ export function IntegrationWiringSection({ wiring }: { wiring: IntegrationWiring
             What to connect between Player Adjustment → Lambda → Market Configuration
           </p>
         </div>
-        <ReadinessBadge readiness={wiring.readiness} connected={wiring.connected} />
+        <ReadinessBadge
+          readiness={wiring.readiness}
+          connected={wiring.connected}
+          parityReview={wiring.parityReview}
+        />
       </div>
 
       {wiring.connected && wiring.connectedNote && (
-        <p className="mt-4 rounded-lg border border-teal-900/40 bg-teal-950/20 px-3 py-2 text-sm text-teal-200">
+        <p
+          className={`mt-4 rounded-lg border px-3 py-2 text-sm ${
+            wiring.parityReview
+              ? "border-orange-900/40 bg-orange-950/20 text-orange-200"
+              : "border-teal-900/40 bg-teal-950/20 text-teal-200"
+          }`}
+        >
           {wiring.connectedNote}
         </p>
       )}
@@ -157,8 +183,22 @@ export function IntegrationWiringSection({ wiring }: { wiring: IntegrationWiring
       {!wiring.connected && (
         <p className={`mt-4 text-sm ${meta.className.split(" ").pop()}`}>{wiring.readinessSummary}</p>
       )}
-      {wiring.connected && (
+      {wiring.connected && !wiring.parityReview && (
         <p className="mt-4 text-sm text-teal-300">{wiring.readinessSummary}</p>
+      )}
+      {wiring.connected && wiring.parityReview && (
+        <p className="mt-4 text-sm text-orange-300">{wiring.readinessSummary}</p>
+      )}
+
+      {wiring.parityReview && wiring.blockers && wiring.blockers.length > 0 && (
+        <div className="mt-4 rounded-lg border border-orange-900/40 bg-orange-950/20 px-3 py-2">
+          <p className="text-xs font-semibold uppercase text-orange-400">Model parity gaps</p>
+          <ul className="mt-1 list-disc pl-4 text-sm text-orange-200/90">
+            {wiring.blockers.map((b) => (
+              <li key={b}>{b}</li>
+            ))}
+          </ul>
+        </div>
       )}
 
       {!wiring.connected && wiring.blockers && wiring.blockers.length > 0 && (
@@ -228,20 +268,33 @@ export function IntegrationWiringSection({ wiring }: { wiring: IntegrationWiring
 
 export function ReadyMarketsSummary() {
   const connected = listConnectedMarkets();
+  const parityReview = listParityReviewMarkets();
   const byReadiness = listMarketsByReadiness();
 
   return (
     <div className="rounded-2xl border border-surface-border bg-surface-raised p-6">
       <h3 className="text-lg font-semibold text-white">Implementation priority</h3>
       <p className="mt-1 text-sm text-slate-400">
-        Connected markets are live end-to-end. Next: green (ready), then amber (ready soon).
+        Connected markets are live end-to-end. Orange: wired but model parity needs review. Next:
+        green (ready), then amber (ready soon).
       </p>
-      <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
         <div className={`rounded-xl border p-4 ${connectedLabel.className.split(" ").slice(0, 2).join(" ")} bg-surface/40`}>
           <p className="font-medium text-teal-300">{connectedLabel.label}</p>
           <p className="mt-1 text-2xl font-semibold text-white">{connected.length}</p>
           <ul className="mt-2 max-h-32 overflow-y-auto text-xs text-slate-400">
             {connected.map((id) => (
+              <li key={id} className="font-mono">
+                {id}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className={`rounded-xl border p-4 ${parityReviewLabel.className.split(" ").slice(0, 2).join(" ")} bg-surface/40`}>
+          <p className="font-medium text-orange-300">{parityReviewLabel.label}</p>
+          <p className="mt-1 text-2xl font-semibold text-white">{parityReview.length}</p>
+          <ul className="mt-2 max-h-32 overflow-y-auto text-xs text-slate-400">
+            {parityReview.map((id) => (
               <li key={id} className="font-mono">
                 {id}
               </li>
