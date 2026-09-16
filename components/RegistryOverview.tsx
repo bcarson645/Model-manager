@@ -3,8 +3,8 @@
 import { useMemo } from "react";
 import { buildMarketGuides } from "@/lib/trading-guide";
 import {
-  connectedLabel,
   getWiringConnectionStatus,
+  matchedLabel,
   parityReviewLabel,
 } from "@/lib/trading-guide/integration-wiring";
 import { PM_QA_DEFAULT_FIXTURE_ID } from "@/lib/workbooks/pm-publication-qa";
@@ -27,10 +27,10 @@ function WiringStatusBadge({
   if (status === "matched") {
     return (
       <span
-        className={`inline-flex rounded-full border px-2 py-0.5 text-xs font-medium ${connectedLabel.className}`}
-        title={connectedLabel.description}
+        className={`inline-flex rounded-full border px-2 py-0.5 text-xs font-medium ${matchedLabel.className}`}
+        title={matchedLabel.description}
       >
-        Matched
+        {matchedLabel.label}
       </span>
     );
   }

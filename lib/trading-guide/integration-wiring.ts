@@ -65,6 +65,13 @@ export const connectedLabel = {
   className: "border-teal-900/50 bg-teal-950/30 text-teal-300",
 };
 
+/** Registry overview + fully matched markets (connected, parity confirmed). */
+export const matchedLabel = {
+  label: "Matched",
+  description: "Live in Market Configuration — end-to-end wiring complete and parity confirmed.",
+  className: "border-emerald-500/40 bg-emerald-500/15 text-emerald-300",
+};
+
 export const parityReviewLabel = {
   label: "Wired — review",
   description:

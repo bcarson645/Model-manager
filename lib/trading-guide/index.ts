@@ -17,6 +17,7 @@ export {
   platformIntegrationOverview,
   readinessLabels,
   connectedLabel,
+  matchedLabel,
   parityReviewLabel,
   wiringByRegistryId,
 } from "./integration-wiring";
