@@ -76,7 +76,11 @@ export type ScorecardMatch = {
 };
 
 export type DataFormat = "odi" | "t20" | "first-class";
-export type AnalysisSection = "match-analysis" | "player-analysis" | "queries";
+export type AnalysisSection =
+  | "match-analysis"
+  | "player-analysis"
+  | "queries"
+  | "data-tasks";
 
 export type SchemaProfile = {
   sourceFiles: Array<{ file: string; rawRowCount: number; matchCount: number }>;

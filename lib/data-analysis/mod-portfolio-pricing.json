@@ -1,0 +1,878 @@
+{
+  "taskId": "mod-portfolio-pricing",
+  "title": "MoD portfolio adjust optimisation (renormalised)",
+  "sourceFile": "PlayerMoD0106To0909 (3).xlsx",
+  "generatedAt": "2026-09-10T15:07:35.258115+00:00",
+  "targetMarginPct": 6.0,
+  "bookOverroundPct": 7.5,
+  "modelParity": "Same as FirstDismissal.cs / PM Publication I45\u2013I51: adjust\u00f7100 on weight, then renormalise.",
+  "segments": [
+    {
+      "id": "men-odi",
+      "label": "Men's ODI",
+      "empty": false,
+      "overall": {
+        "bets": 13309,
+        "stake": 1015789.68,
+        "currentMarginPct": -30.34,
+        "targetMarginPct": 6.0,
+        "optimizedMarginPct": 2.09,
+        "bookOverroundPct": 7.5
+      },
+      "stakeMixPct": {
+        "Fielder Catch": 82.75,
+        "Keeper Catch": 1.26,
+        "Bowled": 2.88,
+        "LBW": 3.24,
+        "Run Out": 8.9,
+        "Stumped": 0.96,
+        "Other": 0.01
+      },
+      "baseModelProbs": [
+        {
+          "selection": "Fielder Catch",
+          "probPct": 45.32
+        },
+        {
+          "selection": "Keeper Catch",
+          "probPct": 12.17
+        },
+        {
+          "selection": "Bowled",
+          "probPct": 18.95
+        },
+        {
+          "selection": "LBW",
+          "probPct": 12.84
+        },
+        {
+          "selection": "Run Out",
+          "probPct": 6.63
+        },
+        {
+          "selection": "Stumped",
+          "probPct": 3.27
+        },
+        {
+          "selection": "Other",
+          "probPct": 0.82
+        }
+      ],
+      "optimalAdjusts": [
+        {
+          "selection": "Fielder Catch",
+          "baseProbPct": 45.32,
+          "adjustI": 102,
+          "publishedProbPct": 75.48,
+          "deltaProbPp": 30.16,
+          "recommendedOdds": 1.424,
+          "stakeSharePct": 82.75
+        },
+        {
+          "selection": "Keeper Catch",
+          "baseProbPct": 12.17,
+          "adjustI": -5,
+          "publishedProbPct": 3.68,
+          "deltaProbPp": -8.5,
+          "recommendedOdds": 29.251,
+          "stakeSharePct": 1.26
+        },
+        {
+          "selection": "Bowled",
+          "baseProbPct": 18.95,
+          "adjustI": -4,
+          "publishedProbPct": 7.66,
+          "deltaProbPp": -11.29,
+          "recommendedOdds": 14.033,
+          "stakeSharePct": 2.88
+        },
+        {
+          "selection": "LBW",
+          "baseProbPct": 12.84,
+          "adjustI": -2,
+          "publishedProbPct": 5.56,
+          "deltaProbPp": -7.29,
+          "recommendedOdds": 19.349,
+          "stakeSharePct": 3.24
+        },
+        {
+          "selection": "Run Out",
+          "baseProbPct": 6.63,
+          "adjustI": 6,
+          "publishedProbPct": 6.47,
+          "deltaProbPp": -0.16,
+          "recommendedOdds": 16.615,
+          "stakeSharePct": 8.9
+        },
+        {
+          "selection": "Stumped",
+          "baseProbPct": 3.27,
+          "adjustI": -1,
+          "publishedProbPct": 1.16,
+          "deltaProbPp": -2.11,
+          "recommendedOdds": 92.562,
+          "stakeSharePct": 0.96
+        },
+        {
+          "selection": "Other",
+          "baseProbPct": 0.82,
+          "adjustI": -40,
+          "publishedProbPct": 0.0,
+          "deltaProbPp": -0.82,
+          "recommendedOdds": 1075000.0,
+          "stakeSharePct": 0.01
+        }
+      ],
+      "probabilityTransfer": {
+        "fielderCatchDeltaPp": 30.16,
+        "toOtherSelections": [
+          {
+            "selection": "Run Out",
+            "deltaProbPp": -0.16
+          },
+          {
+            "selection": "Other",
+            "deltaProbPp": -0.82
+          },
+          {
+            "selection": "Stumped",
+            "deltaProbPp": -2.11
+          },
+          {
+            "selection": "LBW",
+            "deltaProbPp": -7.29
+          },
+          {
+            "selection": "Keeper Catch",
+            "deltaProbPp": -8.5
+          },
+          {
+            "selection": "Bowled",
+            "deltaProbPp": -11.29
+          }
+        ]
+      },
+      "pairedAdjustAlternatives": [
+        {
+          "pattern": "I45=+30, I51=-30 (Other)",
+          "fcAdjust": 30,
+          "otherAdjust": -30,
+          "otherSelection": "Other",
+          "simulatedMarginPct": -10.54
+        },
+        {
+          "pattern": "I45=+13, I47=-13 (Bowled)",
+          "fcAdjust": 13,
+          "otherAdjust": -13,
+          "otherSelection": "Bowled",
+          "simulatedMarginPct": -12.38
+        },
+        {
+          "pattern": "I45=+9, I46=-9 (Keeper Catch)",
+          "fcAdjust": 9,
+          "otherAdjust": -9,
+          "otherSelection": "Keeper Catch",
+          "simulatedMarginPct": -15.98
+        }
+      ],
+      "formatNotes": [
+        "Stake concentration: 83% on Fielder Catch \u2014 margin highly sensitive to I45.",
+        "Below target: raise FC weight (positive I45) and/or lower weights on rare outcomes with high current margin.",
+        "Optimal FC adjust I45\u2248102 (+1.02 weight before renorm)."
+      ],
+      "renormFormula": "weight[i] = baseProb[i] + adjust[i]/100; published[i] = weight[i]/sum(weights); odds = (1+overround)/published[i]"
+    },
+    {
+      "id": "women-odi",
+      "label": "Women's ODI",
+      "empty": false,
+      "overall": {
+        "bets": 2448,
+        "stake": 175425.57,
+        "currentMarginPct": -42.57,
+        "targetMarginPct": 6.0,
+        "optimizedMarginPct": -17.94,
+        "bookOverroundPct": 7.5
+      },
+      "stakeMixPct": {
+        "Fielder Catch": 72.2,
+        "Keeper Catch": 2.6,
+        "Bowled": 5.24,
+        "LBW": 2.56,
+        "Run Out": 8.15,
+        "Stumped": 9.25,
+        "Other": 0.0
+      },
+      "baseModelProbs": [
+        {
+          "selection": "Fielder Catch",
+          "probPct": 42.14
+        },
+        {
+          "selection": "Keeper Catch",
+          "probPct": 9.82
+        },
+        {
+          "selection": "Bowled",
+          "probPct": 21.19
+        },
+        {
+          "selection": "LBW",
+          "probPct": 13.07
+        },
+        {
+          "selection": "Run Out",
+          "probPct": 7.99
+        },
+        {
+          "selection": "Stumped",
+          "probPct": 5.8
+        },
+        {
+          "selection": "Other",
+          "probPct": 0.0
+        }
+      ],
+      "optimalAdjusts": [
+        {
+          "selection": "Fielder Catch",
+          "baseProbPct": 42.14,
+          "adjustI": 16,
+          "publishedProbPct": 58.14,
+          "deltaProbPp": 16.0,
+          "recommendedOdds": 1.849,
+          "stakeSharePct": 72.2
+        },
+        {
+          "selection": "Keeper Catch",
+          "baseProbPct": 9.82,
+          "adjustI": -6,
+          "publishedProbPct": 3.82,
+          "deltaProbPp": -6.0,
+          "recommendedOdds": 28.144,
+          "stakeSharePct": 2.6
+        },
+        {
+          "selection": "Bowled",
+          "baseProbPct": 21.19,
+          "adjustI": -9,
+          "publishedProbPct": 12.19,
+          "deltaProbPp": -9.0,
+          "recommendedOdds": 8.821,
+          "stakeSharePct": 5.24
+        },
+        {
+          "selection": "LBW",
+          "baseProbPct": 13.07,
+          "adjustI": -8,
+          "publishedProbPct": 5.07,
+          "deltaProbPp": -8.0,
+          "recommendedOdds": 21.216,
+          "stakeSharePct": 2.56
+        },
+        {
+          "selection": "Run Out",
+          "baseProbPct": 7.99,
+          "adjustI": 1,
+          "publishedProbPct": 8.99,
+          "deltaProbPp": 1.0,
+          "recommendedOdds": 11.957,
+          "stakeSharePct": 8.15
+        },
+        {
+          "selection": "Stumped",
+          "baseProbPct": 5.8,
+          "adjustI": 6,
+          "publishedProbPct": 11.8,
+          "deltaProbPp": 6.0,
+          "recommendedOdds": 9.114,
+          "stakeSharePct": 9.25
+        },
+        {
+          "selection": "Other",
+          "baseProbPct": 0.0,
+          "adjustI": 0,
+          "publishedProbPct": 0.0,
+          "deltaProbPp": 0.0,
+          "recommendedOdds": 1075000.0,
+          "stakeSharePct": 0.0
+        }
+      ],
+      "probabilityTransfer": {
+        "fielderCatchDeltaPp": 16.0,
+        "toOtherSelections": [
+          {
+            "selection": "Stumped",
+            "deltaProbPp": 6.0
+          },
+          {
+            "selection": "Run Out",
+            "deltaProbPp": 1.0
+          },
+          {
+            "selection": "Keeper Catch",
+            "deltaProbPp": -6.0
+          },
+          {
+            "selection": "LBW",
+            "deltaProbPp": -8.0
+          },
+          {
+            "selection": "Bowled",
+            "deltaProbPp": -9.0
+          }
+        ]
+      },
+      "pairedAdjustAlternatives": [
+        {
+          "pattern": "I45=+9, I48=-9 (LBW)",
+          "fcAdjust": 9,
+          "otherAdjust": -9,
+          "otherSelection": "LBW",
+          "simulatedMarginPct": -32.62
+        },
+        {
+          "pattern": "I45=+10, I47=-10 (Bowled)",
+          "fcAdjust": 10,
+          "otherAdjust": -10,
+          "otherSelection": "Bowled",
+          "simulatedMarginPct": -33.4
+        },
+        {
+          "pattern": "I45=+6, I46=-6 (Keeper Catch)",
+          "fcAdjust": 6,
+          "otherAdjust": -6,
+          "otherSelection": "Keeper Catch",
+          "simulatedMarginPct": -35.02
+        }
+      ],
+      "formatNotes": [
+        "Stake concentration: 72% on Fielder Catch \u2014 margin highly sensitive to I45.",
+        "Below target: raise FC weight (positive I45) and/or lower weights on rare outcomes with high current margin.",
+        "Optimal FC adjust I45\u224816 (+0.16 weight before renorm)."
+      ],
+      "renormFormula": "weight[i] = baseProb[i] + adjust[i]/100; published[i] = weight[i]/sum(weights); odds = (1+overround)/published[i]"
+    },
+    {
+      "id": "men-t20",
+      "label": "Men's T20",
+      "empty": false,
+      "overall": {
+        "bets": 13556,
+        "stake": 953854.38,
+        "currentMarginPct": -16.85,
+        "targetMarginPct": 6.0,
+        "optimizedMarginPct": -9.36,
+        "bookOverroundPct": 7.5
+      },
+      "stakeMixPct": {
+        "Fielder Catch": 43.99,
+        "Keeper Catch": 6.97,
+        "Bowled": 11.1,
+        "LBW": 13.44,
+        "Run Out": 20.13,
+        "Stumped": 4.24,
+        "Other": 0.13
+      },
+      "baseModelProbs": [
+        {
+          "selection": "Fielder Catch",
+          "probPct": 56.65
+        },
+        {
+          "selection": "Keeper Catch",
+          "probPct": 9.27
+        },
+        {
+          "selection": "Bowled",
+          "probPct": 16.4
+        },
+        {
+          "selection": "LBW",
+          "probPct": 7.4
+        },
+        {
+          "selection": "Run Out",
+          "probPct": 5.92
+        },
+        {
+          "selection": "Stumped",
+          "probPct": 3.54
+        },
+        {
+          "selection": "Other",
+          "probPct": 0.83
+        }
+      ],
+      "optimalAdjusts": [
+        {
+          "selection": "Fielder Catch",
+          "baseProbPct": 56.65,
+          "adjustI": -16,
+          "publishedProbPct": 52.67,
+          "deltaProbPp": -3.98,
+          "recommendedOdds": 2.041,
+          "stakeSharePct": 43.99
+        },
+        {
+          "selection": "Keeper Catch",
+          "baseProbPct": 9.27,
+          "adjustI": -4,
+          "publishedProbPct": 6.83,
+          "deltaProbPp": -2.44,
+          "recommendedOdds": 15.74,
+          "stakeSharePct": 6.97
+        },
+        {
+          "selection": "Bowled",
+          "baseProbPct": 16.4,
+          "adjustI": -5,
+          "publishedProbPct": 14.77,
+          "deltaProbPp": -1.63,
+          "recommendedOdds": 7.28,
+          "stakeSharePct": 11.1
+        },
+        {
+          "selection": "LBW",
+          "baseProbPct": 7.4,
+          "adjustI": 0,
+          "publishedProbPct": 9.59,
+          "deltaProbPp": 2.19,
+          "recommendedOdds": 11.207,
+          "stakeSharePct": 13.44
+        },
+        {
+          "selection": "Run Out",
+          "baseProbPct": 5.92,
+          "adjustI": 3,
+          "publishedProbPct": 11.55,
+          "deltaProbPp": 5.64,
+          "recommendedOdds": 9.305,
+          "stakeSharePct": 20.13
+        },
+        {
+          "selection": "Stumped",
+          "baseProbPct": 3.54,
+          "adjustI": 0,
+          "publishedProbPct": 4.59,
+          "deltaProbPp": 1.05,
+          "recommendedOdds": 23.437,
+          "stakeSharePct": 4.24
+        },
+        {
+          "selection": "Other",
+          "baseProbPct": 0.83,
+          "adjustI": -40,
+          "publishedProbPct": 0.0,
+          "deltaProbPp": -0.83,
+          "recommendedOdds": 829586.955,
+          "stakeSharePct": 0.13
+        }
+      ],
+      "probabilityTransfer": {
+        "fielderCatchDeltaPp": -3.98,
+        "toOtherSelections": [
+          {
+            "selection": "Run Out",
+            "deltaProbPp": 5.64
+          },
+          {
+            "selection": "LBW",
+            "deltaProbPp": 2.19
+          },
+          {
+            "selection": "Stumped",
+            "deltaProbPp": 1.05
+          },
+          {
+            "selection": "Other",
+            "deltaProbPp": -0.83
+          },
+          {
+            "selection": "Bowled",
+            "deltaProbPp": -1.63
+          },
+          {
+            "selection": "Keeper Catch",
+            "deltaProbPp": -2.44
+          }
+        ]
+      },
+      "pairedAdjustAlternatives": [
+        {
+          "pattern": "I45=-5, I49=+5 (Run Out)",
+          "fcAdjust": -5,
+          "otherAdjust": 5,
+          "otherSelection": "Run Out",
+          "simulatedMarginPct": -11.8
+        },
+        {
+          "pattern": "I45=-3, I48=+3 (LBW)",
+          "fcAdjust": -3,
+          "otherAdjust": 3,
+          "otherSelection": "LBW",
+          "simulatedMarginPct": -15.8
+        },
+        {
+          "pattern": "I45=+1, I51=-1 (Other)",
+          "fcAdjust": 1,
+          "otherAdjust": -1,
+          "otherSelection": "Other",
+          "simulatedMarginPct": -16.26
+        }
+      ],
+      "formatNotes": [
+        "Below target: raise FC weight (positive I45) and/or lower weights on rare outcomes with high current margin."
+      ],
+      "renormFormula": "weight[i] = baseProb[i] + adjust[i]/100; published[i] = weight[i]/sum(weights); odds = (1+overround)/published[i]"
+    },
+    {
+      "id": "women-t20",
+      "label": "Women's T20",
+      "empty": false,
+      "overall": {
+        "bets": 12444,
+        "stake": 920858.61,
+        "currentMarginPct": -25.86,
+        "targetMarginPct": 6.0,
+        "optimizedMarginPct": -18.82,
+        "bookOverroundPct": 7.5
+      },
+      "stakeMixPct": {
+        "Fielder Catch": 56.82,
+        "Keeper Catch": 5.98,
+        "Bowled": 6.9,
+        "LBW": 9.31,
+        "Run Out": 8.13,
+        "Stumped": 12.77,
+        "Other": 0.09
+      },
+      "baseModelProbs": [
+        {
+          "selection": "Fielder Catch",
+          "probPct": 46.48
+        },
+        {
+          "selection": "Keeper Catch",
+          "probPct": 6.92
+        },
+        {
+          "selection": "Bowled",
+          "probPct": 19.75
+        },
+        {
+          "selection": "LBW",
+          "probPct": 9.31
+        },
+        {
+          "selection": "Run Out",
+          "probPct": 10.18
+        },
+        {
+          "selection": "Stumped",
+          "probPct": 6.52
+        },
+        {
+          "selection": "Other",
+          "probPct": 0.85
+        }
+      ],
+      "optimalAdjusts": [
+        {
+          "selection": "Fielder Catch",
+          "baseProbPct": 46.48,
+          "adjustI": 10,
+          "publishedProbPct": 54.75,
+          "deltaProbPp": 8.27,
+          "recommendedOdds": 1.963,
+          "stakeSharePct": 56.82
+        },
+        {
+          "selection": "Keeper Catch",
+          "baseProbPct": 6.92,
+          "adjustI": 0,
+          "publishedProbPct": 6.71,
+          "deltaProbPp": -0.21,
+          "recommendedOdds": 16.028,
+          "stakeSharePct": 5.98
+        },
+        {
+          "selection": "Bowled",
+          "baseProbPct": 19.75,
+          "adjustI": -8,
+          "publishedProbPct": 11.39,
+          "deltaProbPp": -8.36,
+          "recommendedOdds": 9.439,
+          "stakeSharePct": 6.9
+        },
+        {
+          "selection": "LBW",
+          "baseProbPct": 9.31,
+          "adjustI": 0,
+          "publishedProbPct": 9.02,
+          "deltaProbPp": -0.28,
+          "recommendedOdds": 11.914,
+          "stakeSharePct": 9.31
+        },
+        {
+          "selection": "Run Out",
+          "baseProbPct": 10.18,
+          "adjustI": -1,
+          "publishedProbPct": 8.9,
+          "deltaProbPp": -1.28,
+          "recommendedOdds": 12.075,
+          "stakeSharePct": 8.13
+        },
+        {
+          "selection": "Stumped",
+          "baseProbPct": 6.52,
+          "adjustI": 3,
+          "publishedProbPct": 9.23,
+          "deltaProbPp": 2.71,
+          "recommendedOdds": 11.653,
+          "stakeSharePct": 12.77
+        },
+        {
+          "selection": "Other",
+          "baseProbPct": 0.85,
+          "adjustI": -40,
+          "publishedProbPct": 0.0,
+          "deltaProbPp": -0.85,
+          "recommendedOdds": 1075000.0,
+          "stakeSharePct": 0.09
+        }
+      ],
+      "probabilityTransfer": {
+        "fielderCatchDeltaPp": 8.27,
+        "toOtherSelections": [
+          {
+            "selection": "Stumped",
+            "deltaProbPp": 2.71
+          },
+          {
+            "selection": "Keeper Catch",
+            "deltaProbPp": -0.21
+          },
+          {
+            "selection": "LBW",
+            "deltaProbPp": -0.28
+          },
+          {
+            "selection": "Other",
+            "deltaProbPp": -0.85
+          },
+          {
+            "selection": "Run Out",
+            "deltaProbPp": -1.28
+          },
+          {
+            "selection": "Bowled",
+            "deltaProbPp": -8.36
+          }
+        ]
+      },
+      "pairedAdjustAlternatives": [
+        {
+          "pattern": "I45=+8, I47=-8 (Bowled)",
+          "fcAdjust": 8,
+          "otherAdjust": -8,
+          "otherSelection": "Bowled",
+          "simulatedMarginPct": -21.12
+        },
+        {
+          "pattern": "I45=+14, I51=-14 (Other)",
+          "fcAdjust": 14,
+          "otherAdjust": -14,
+          "otherSelection": "Other",
+          "simulatedMarginPct": -23.06
+        },
+        {
+          "pattern": "I45=+2, I49=-2 (Run Out)",
+          "fcAdjust": 2,
+          "otherAdjust": -2,
+          "otherSelection": "Run Out",
+          "simulatedMarginPct": -24.95
+        }
+      ],
+      "formatNotes": [
+        "Below target: raise FC weight (positive I45) and/or lower weights on rare outcomes with high current margin.",
+        "Optimal FC adjust I45\u224810 (+0.10 weight before renorm)."
+      ],
+      "renormFormula": "weight[i] = baseProb[i] + adjust[i]/100; published[i] = weight[i]/sum(weights); odds = (1+overround)/published[i]"
+    },
+    {
+      "id": "men-fc",
+      "label": "Men's FC (280)",
+      "empty": false,
+      "overall": {
+        "bets": 4136,
+        "stake": 309771.45,
+        "currentMarginPct": -25.21,
+        "targetMarginPct": 6.0,
+        "optimizedMarginPct": -8.02,
+        "bookOverroundPct": 7.5
+      },
+      "stakeMixPct": {
+        "Fielder Catch": 68.48,
+        "Keeper Catch": 4.53,
+        "Bowled": 10.38,
+        "LBW": 8.98,
+        "Run Out": 2.64,
+        "Stumped": 4.84,
+        "Other": 0.15
+      },
+      "baseModelProbs": [
+        {
+          "selection": "Fielder Catch",
+          "probPct": 40.5
+        },
+        {
+          "selection": "Keeper Catch",
+          "probPct": 18.85
+        },
+        {
+          "selection": "Bowled",
+          "probPct": 17.93
+        },
+        {
+          "selection": "LBW",
+          "probPct": 15.98
+        },
+        {
+          "selection": "Run Out",
+          "probPct": 2.67
+        },
+        {
+          "selection": "Stumped",
+          "probPct": 3.25
+        },
+        {
+          "selection": "Other",
+          "probPct": 0.82
+        }
+      ],
+      "optimalAdjusts": [
+        {
+          "selection": "Fielder Catch",
+          "baseProbPct": 40.5,
+          "adjustI": 27,
+          "publishedProbPct": 58.1,
+          "deltaProbPp": 17.6,
+          "recommendedOdds": 1.85,
+          "stakeSharePct": 68.48
+        },
+        {
+          "selection": "Keeper Catch",
+          "baseProbPct": 18.85,
+          "adjustI": -10,
+          "publishedProbPct": 7.62,
+          "deltaProbPp": -11.23,
+          "recommendedOdds": 14.106,
+          "stakeSharePct": 4.53
+        },
+        {
+          "selection": "Bowled",
+          "baseProbPct": 17.93,
+          "adjustI": -3,
+          "publishedProbPct": 12.85,
+          "deltaProbPp": -5.08,
+          "recommendedOdds": 8.365,
+          "stakeSharePct": 10.38
+        },
+        {
+          "selection": "LBW",
+          "baseProbPct": 15.98,
+          "adjustI": -1,
+          "publishedProbPct": 12.9,
+          "deltaProbPp": -3.09,
+          "recommendedOdds": 8.336,
+          "stakeSharePct": 8.98
+        },
+        {
+          "selection": "Run Out",
+          "baseProbPct": 2.67,
+          "adjustI": 0,
+          "publishedProbPct": 2.3,
+          "deltaProbPp": -0.37,
+          "recommendedOdds": 46.748,
+          "stakeSharePct": 2.64
+        },
+        {
+          "selection": "Stumped",
+          "baseProbPct": 3.25,
+          "adjustI": 4,
+          "publishedProbPct": 6.24,
+          "deltaProbPp": 2.99,
+          "recommendedOdds": 17.234,
+          "stakeSharePct": 4.84
+        },
+        {
+          "selection": "Other",
+          "baseProbPct": 0.82,
+          "adjustI": -40,
+          "publishedProbPct": 0.0,
+          "deltaProbPp": -0.82,
+          "recommendedOdds": 1075000.0,
+          "stakeSharePct": 0.15
+        }
+      ],
+      "probabilityTransfer": {
+        "fielderCatchDeltaPp": 17.6,
+        "toOtherSelections": [
+          {
+            "selection": "Stumped",
+            "deltaProbPp": 2.99
+          },
+          {
+            "selection": "Run Out",
+            "deltaProbPp": -0.37
+          },
+          {
+            "selection": "Other",
+            "deltaProbPp": -0.82
+          },
+          {
+            "selection": "LBW",
+            "deltaProbPp": -3.09
+          },
+          {
+            "selection": "Bowled",
+            "deltaProbPp": -5.08
+          },
+          {
+            "selection": "Keeper Catch",
+            "deltaProbPp": -11.23
+          }
+        ]
+      },
+      "pairedAdjustAlternatives": [
+        {
+          "pattern": "I45=+12, I46=-12 (Keeper Catch)",
+          "fcAdjust": 12,
+          "otherAdjust": -12,
+          "otherSelection": "Keeper Catch",
+          "simulatedMarginPct": -12.9
+        },
+        {
+          "pattern": "I45=+30, I51=-30 (Other)",
+          "fcAdjust": 30,
+          "otherAdjust": -30,
+          "otherSelection": "Other",
+          "simulatedMarginPct": -15.58
+        },
+        {
+          "pattern": "I45=+7, I47=-7 (Bowled)",
+          "fcAdjust": 7,
+          "otherAdjust": -7,
+          "otherSelection": "Bowled",
+          "simulatedMarginPct": -19.67
+        }
+      ],
+      "formatNotes": [
+        "Below target: raise FC weight (positive I45) and/or lower weights on rare outcomes with high current margin.",
+        "Optimal FC adjust I45\u224827 (+0.27 weight before renorm)."
+      ],
+      "renormFormula": "weight[i] = baseProb[i] + adjust[i]/100; published[i] = weight[i]/sum(weights); odds = (1+overround)/published[i]"
+    }
+  ]
+}

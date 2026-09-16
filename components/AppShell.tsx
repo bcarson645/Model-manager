@@ -53,12 +53,14 @@ const formatNav: Array<{ id: DataFormat; label: string; available: boolean }> = 
 const sectionNav: Array<{ id: AnalysisSection; label: string }> = [
   { id: "match-analysis", label: "Match analysis" },
   { id: "player-analysis", label: "Player analysis" },
+  { id: "data-tasks", label: "Data tasks" },
   { id: "queries", label: "Queries" },
 ];
 
 const sectionLabels: Record<AnalysisSection, string> = {
   "match-analysis": "Match analysis",
   "player-analysis": "Player analysis",
+  "data-tasks": "Data tasks",
   queries: "Queries",
 };
 

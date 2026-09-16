@@ -73,6 +73,30 @@ export const models: ModelDefinition[] = [
     status: "parity_check",
   },
   {
+    id: "pm-first-innings-runs",
+    name: "Runs in First Innings",
+    description:
+      "Under/over on first-innings runs — team ratings × conditions × format standard (GetRunsExpected / FirstInningsRuns).",
+    market: "First Inns Market",
+    marketCode: "01INRU",
+    phase: "pre_match",
+    excelOutputs: [
+      { sheet: "PM Publication", cell: "F32", description: "First innings runs line" },
+      { sheet: "PM Publication", cell: "G32:H32", description: "Under / over probabilities" },
+    ],
+    sources: {
+      excel: {
+        version: workbookRef,
+        location: "PM Publication!B32:I32; Prep Work!E6/J6 expected innings runs",
+      },
+      lambda: {
+        version: "main",
+        location: "PreMatch.Models.Matches.FirstInningsRuns",
+      },
+    },
+    status: "migrating",
+  },
+  {
     id: "pm-match-betting-3w",
     name: "Match Betting (3-way)",
     description: "Includes draw selection for Test cricket. Published from PM Publication.",
@@ -644,7 +668,8 @@ export const models: ModelDefinition[] = [
   {
     id: "pm-team-wickets",
     name: "Team Wickets Lost",
-    description: "Wickets lost per batting team — raw bowling wickets / adjust + run outs.",
+    description:
+      "Wickets lost per batting team — Atlas uses opposition WicketsLost (U38/U59) scaled by format overs; Lambda still uses GetTeamRawWickets/wicketAdjust (parity gap).",
     market: "Team Market",
     marketCode: "5WILO / 6WILO",
     phase: "pre_match",

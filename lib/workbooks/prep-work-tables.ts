@@ -273,12 +273,26 @@ function explainTeamTableCell(
         feedsTo: [],
       };
     }
+    const isHome = tableId === "table-3";
     return {
-      summary: `${metric} — Now (model wickets)`,
-      calculation: [`Published / model team wickets: Prep Work!${refs.wicketsNow}.`],
-      dataSources: [`Prep Work!${refs.wicketsNow}`],
-      namedInputs: [],
-      feedsTo: ["TeamWickets", "MatchWickets"],
+      summary: `${metric} — Now (bowling XI wickets-lost stack)`,
+      calculation: [
+        `Prep Work!${refs.wicketsNow} = SUM(U bowler rows) + run outs (U${isHome ? 36 : 57}).`,
+        "Per bowler: U = V×X/(batRating−BW6)×IF(T20,1.05,1); V = overs alloc, X = wicket rate.",
+        `Σ(V×X) ≈ GetTeamRawWickets(); full ${refs.wicketsNow} feeds MatchWickets and opposition TeamWickets.`,
+        `Team wickets market uses cross-team F-now × n_max/${refs.oversBowled} (PM Pricing I632/I807).`,
+      ],
+      dataSources: [
+        `Prep Work!${refs.wicketsNow}`,
+        "Prep Work V/X columns (rows 24–34 / 45–55)",
+        `Prep Work!${refs.oversBowled}`,
+      ],
+      namedInputs: ["n_max_original", refs.teamNamed],
+      feedsTo: ["MatchWickets", "TeamWickets (cross-team via PM Pricing)"],
+      lambdaPath: "team.WicketsLost (evaluation) = U38/U59; GetTeamRawWickets = Σ(V×X)",
+      pmPublication: isHome
+        ? "NZ wickets F166 ← PM Pricing B632 (uses opposition F46=U59)"
+        : "SA wickets F232 ← PM Pricing B807 (uses opposition F25=U38)",
     };
   }
 

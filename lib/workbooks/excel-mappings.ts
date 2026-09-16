@@ -159,6 +159,16 @@ export const pmPublicationMappings = {
       notes: "Lambda uses single home-team adjust; Excel may set I20 (home) only",
     },
     {
+      modelId: "pm-first-innings-runs",
+      rows: "32",
+      market: "Runs in First Innings",
+      adjustCell: "I32",
+      lineCell: "F32",
+      lambdaAdjust: "AdjustmentsPM.MatchAdjustments.FirstInningsRuns",
+      notes:
+        "FirstInningsRuns — U/O on first-innings total; Prep Work E6/J6 expected runs; Atlas F32 shows #VALUE! until wired.",
+    },
+    {
       modelId: "pm-first-partnership",
       rows: "44",
       market: "Runs in First Partnership",
@@ -470,7 +480,9 @@ export const pmPublicationMappings = {
       modelId: "pm-team-wickets",
       rows: "NZ 166 / SA 232",
       market: "{Team} Wickets Lost",
-      notes: "GetTeamRawWickets / wicketAdjust + InningsRunOuts",
+      lambdaAdjust: "PM Publication I166 / I232 (direct on mean — not ÷10)",
+      notes:
+        "Atlas mean: opposition F-now × (n_max / opposition V-overs) + I adjust. NZ=F46×n/V59 (PM Pricing I632); SA=F25×n/V38 (I807). Not GetTeamRawWickets/wicketAdjust.",
     },
     {
       modelId: "pm-team-max-over",

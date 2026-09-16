@@ -1,0 +1,590 @@
+{
+  "taskId": "mod-dismissal-by-year",
+  "title": "MoD dismissal frequency by year (scorecard datasets)",
+  "generatedAt": "2026-09-10T13:55:11.786233+00:00",
+  "methodology": {
+    "source": "Match-analysis scorecard exports (ODI & T20 matches.json)",
+    "counting": "One dismissal per batting innings (excludes DNB, not out, retired not out)",
+    "categories": "Scorecard Dismissal column \u2014 Fielder Catch, Keeper Catch, Bowled, LBW, Run Out, Stumped, Other",
+    "genderNote": "Current scorecard extracts are men's domestic/international only \u2014 no women's matches in dataset",
+    "bettingNote": "Betting extract (PlayerMoD) covers Jun\u2013Sep 2026 only \u2014 insufficient for multi-year betting trends"
+  },
+  "limitations": [
+    "Women's ODI/T20 year-over-year trends unavailable \u2014 scorecard exports contain no women's fixtures",
+    "Betting-derived monthly trends (mod-frequency-pricing.json) cover ~4 months in 2026 only",
+    "Scorecard FC/KC split is native; betting FC share may differ due to market selection mapping"
+  ],
+  "segments": [
+    {
+      "id": "men-odi",
+      "label": "Men's ODI",
+      "empty": false,
+      "source": "odi-scorecards/matches.json",
+      "matchCount": 4222,
+      "totalDismissals": 64585,
+      "yearRange": {
+        "from": "2013",
+        "to": "2026"
+      },
+      "overallShares": [
+        {
+          "selection": "Fielder Catch",
+          "sharePct": 47.38
+        },
+        {
+          "selection": "Keeper Catch",
+          "sharePct": 14.83
+        },
+        {
+          "selection": "Bowled",
+          "sharePct": 18.64
+        },
+        {
+          "selection": "LBW",
+          "sharePct": 10.78
+        },
+        {
+          "selection": "Run Out",
+          "sharePct": 5.88
+        },
+        {
+          "selection": "Stumped",
+          "sharePct": 2.28
+        },
+        {
+          "selection": "Other",
+          "sharePct": 0.21
+        }
+      ],
+      "yearlyTrend": [
+        {
+          "year": "2013",
+          "dismissals": 1461,
+          "Fielder Catch": 622,
+          "Fielder CatchSharePct": 42.57,
+          "Keeper Catch": 251,
+          "Keeper CatchSharePct": 17.18,
+          "Bowled": 278,
+          "BowledSharePct": 19.03,
+          "LBW": 167,
+          "LBWSharePct": 11.43,
+          "Run Out": 105,
+          "Run OutSharePct": 7.19,
+          "Stumped": 36,
+          "StumpedSharePct": 2.46,
+          "Other": 2,
+          "OtherSharePct": 0.14
+        },
+        {
+          "year": "2014",
+          "dismissals": 1348,
+          "Fielder Catch": 647,
+          "Fielder CatchSharePct": 48.0,
+          "Keeper Catch": 194,
+          "Keeper CatchSharePct": 14.39,
+          "Bowled": 258,
+          "BowledSharePct": 19.14,
+          "LBW": 125,
+          "LBWSharePct": 9.27,
+          "Run Out": 94,
+          "Run OutSharePct": 6.97,
+          "Stumped": 28,
+          "StumpedSharePct": 2.08,
+          "Other": 2,
+          "OtherSharePct": 0.15
+        },
+        {
+          "year": "2015",
+          "dismissals": 4988,
+          "Fielder Catch": 2355,
+          "Fielder CatchSharePct": 47.21,
+          "Keeper Catch": 788,
+          "Keeper CatchSharePct": 15.8,
+          "Bowled": 864,
+          "BowledSharePct": 17.32,
+          "LBW": 498,
+          "LBWSharePct": 9.98,
+          "Run Out": 332,
+          "Run OutSharePct": 6.66,
+          "Stumped": 139,
+          "StumpedSharePct": 2.79,
+          "Other": 12,
+          "OtherSharePct": 0.24
+        },
+        {
+          "year": "2016",
+          "dismissals": 3259,
+          "Fielder Catch": 1568,
+          "Fielder CatchSharePct": 48.11,
+          "Keeper Catch": 441,
+          "Keeper CatchSharePct": 13.53,
+          "Bowled": 612,
+          "BowledSharePct": 18.78,
+          "LBW": 360,
+          "LBWSharePct": 11.05,
+          "Run Out": 188,
+          "Run OutSharePct": 5.77,
+          "Stumped": 83,
+          "StumpedSharePct": 2.55,
+          "Other": 7,
+          "OtherSharePct": 0.21
+        },
+        {
+          "year": "2017",
+          "dismissals": 5919,
+          "Fielder Catch": 2741,
+          "Fielder CatchSharePct": 46.31,
+          "Keeper Catch": 955,
+          "Keeper CatchSharePct": 16.13,
+          "Bowled": 1048,
+          "BowledSharePct": 17.71,
+          "LBW": 639,
+          "LBWSharePct": 10.8,
+          "Run Out": 370,
+          "Run OutSharePct": 6.25,
+          "Stumped": 151,
+          "StumpedSharePct": 2.55,
+          "Other": 15,
+          "OtherSharePct": 0.25
+        },
+        {
+          "year": "2018",
+          "dismissals": 8249,
+          "Fielder Catch": 3857,
+          "Fielder CatchSharePct": 46.76,
+          "Keeper Catch": 1191,
+          "Keeper CatchSharePct": 14.44,
+          "Bowled": 1532,
+          "BowledSharePct": 18.57,
+          "LBW": 870,
+          "LBWSharePct": 10.55,
+          "Run Out": 556,
+          "Run OutSharePct": 6.74,
+          "Stumped": 224,
+          "StumpedSharePct": 2.72,
+          "Other": 19,
+          "OtherSharePct": 0.23
+        },
+        {
+          "year": "2019",
+          "dismissals": 6074,
+          "Fielder Catch": 2880,
+          "Fielder CatchSharePct": 47.42,
+          "Keeper Catch": 912,
+          "Keeper CatchSharePct": 15.01,
+          "Bowled": 1098,
+          "BowledSharePct": 18.08,
+          "LBW": 669,
+          "LBWSharePct": 11.01,
+          "Run Out": 382,
+          "Run OutSharePct": 6.29,
+          "Stumped": 118,
+          "StumpedSharePct": 1.94,
+          "Other": 15,
+          "OtherSharePct": 0.25
+        },
+        {
+          "year": "2020",
+          "dismissals": 1528,
+          "Fielder Catch": 724,
+          "Fielder CatchSharePct": 47.38,
+          "Keeper Catch": 240,
+          "Keeper CatchSharePct": 15.71,
+          "Bowled": 277,
+          "BowledSharePct": 18.13,
+          "LBW": 143,
+          "LBWSharePct": 9.36,
+          "Run Out": 108,
+          "Run OutSharePct": 7.07,
+          "Stumped": 28,
+          "StumpedSharePct": 1.83,
+          "Other": 8,
+          "OtherSharePct": 0.52
+        },
+        {
+          "year": "2021",
+          "dismissals": 5546,
+          "Fielder Catch": 2554,
+          "Fielder CatchSharePct": 46.05,
+          "Keeper Catch": 825,
+          "Keeper CatchSharePct": 14.88,
+          "Bowled": 1080,
+          "BowledSharePct": 19.47,
+          "LBW": 623,
+          "LBWSharePct": 11.23,
+          "Run Out": 344,
+          "Run OutSharePct": 6.2,
+          "Stumped": 112,
+          "StumpedSharePct": 2.02,
+          "Other": 8,
+          "OtherSharePct": 0.14
+        },
+        {
+          "year": "2022",
+          "dismissals": 7043,
+          "Fielder Catch": 3306,
+          "Fielder CatchSharePct": 46.94,
+          "Keeper Catch": 1020,
+          "Keeper CatchSharePct": 14.48,
+          "Bowled": 1383,
+          "BowledSharePct": 19.64,
+          "LBW": 786,
+          "LBWSharePct": 11.16,
+          "Run Out": 385,
+          "Run OutSharePct": 5.47,
+          "Stumped": 144,
+          "StumpedSharePct": 2.04,
+          "Other": 19,
+          "OtherSharePct": 0.27
+        },
+        {
+          "year": "2023",
+          "dismissals": 7406,
+          "Fielder Catch": 3476,
+          "Fielder CatchSharePct": 46.93,
+          "Keeper Catch": 1113,
+          "Keeper CatchSharePct": 15.03,
+          "Bowled": 1388,
+          "BowledSharePct": 18.74,
+          "LBW": 875,
+          "LBWSharePct": 11.81,
+          "Run Out": 373,
+          "Run OutSharePct": 5.04,
+          "Stumped": 171,
+          "StumpedSharePct": 2.31,
+          "Other": 10,
+          "OtherSharePct": 0.14
+        },
+        {
+          "year": "2024",
+          "dismissals": 4307,
+          "Fielder Catch": 2038,
+          "Fielder CatchSharePct": 47.32,
+          "Keeper Catch": 645,
+          "Keeper CatchSharePct": 14.98,
+          "Bowled": 831,
+          "BowledSharePct": 19.29,
+          "LBW": 490,
+          "LBWSharePct": 11.38,
+          "Run Out": 220,
+          "Run OutSharePct": 5.11,
+          "Stumped": 81,
+          "StumpedSharePct": 1.88,
+          "Other": 2,
+          "OtherSharePct": 0.05
+        },
+        {
+          "year": "2025",
+          "dismissals": 5406,
+          "Fielder Catch": 2800,
+          "Fielder CatchSharePct": 51.79,
+          "Keeper Catch": 746,
+          "Keeper CatchSharePct": 13.8,
+          "Bowled": 972,
+          "BowledSharePct": 17.98,
+          "LBW": 528,
+          "LBWSharePct": 9.77,
+          "Run Out": 230,
+          "Run OutSharePct": 4.25,
+          "Stumped": 120,
+          "StumpedSharePct": 2.22,
+          "Other": 10,
+          "OtherSharePct": 0.18
+        },
+        {
+          "year": "2026",
+          "dismissals": 2051,
+          "Fielder Catch": 1035,
+          "Fielder CatchSharePct": 50.46,
+          "Keeper Catch": 256,
+          "Keeper CatchSharePct": 12.48,
+          "Bowled": 420,
+          "BowledSharePct": 20.48,
+          "LBW": 189,
+          "LBWSharePct": 9.22,
+          "Run Out": 108,
+          "Run OutSharePct": 5.27,
+          "Stumped": 37,
+          "StumpedSharePct": 1.8,
+          "Other": 6,
+          "OtherSharePct": 0.29
+        }
+      ],
+      "emergingTrends": [
+        {
+          "selection": "Run Out",
+          "earlySharePct": 6.48,
+          "recentSharePct": 5.31,
+          "deltaPp": -1.17,
+          "direction": "down"
+        }
+      ],
+      "periodLabels": {
+        "early": "2013\u20132019",
+        "recent": "2020\u20132026"
+      }
+    },
+    {
+      "id": "men-t20",
+      "label": "Men's T20",
+      "empty": false,
+      "source": "t20-scorecards/matches.json",
+      "matchCount": 5776,
+      "totalDismissals": 73830,
+      "yearRange": {
+        "from": "2016",
+        "to": "2026"
+      },
+      "overallShares": [
+        {
+          "selection": "Fielder Catch",
+          "sharePct": 56.67
+        },
+        {
+          "selection": "Keeper Catch",
+          "sharePct": 9.82
+        },
+        {
+          "selection": "Bowled",
+          "sharePct": 17.82
+        },
+        {
+          "selection": "LBW",
+          "sharePct": 6.54
+        },
+        {
+          "selection": "Run Out",
+          "sharePct": 6.46
+        },
+        {
+          "selection": "Stumped",
+          "sharePct": 2.44
+        },
+        {
+          "selection": "Other",
+          "sharePct": 0.25
+        }
+      ],
+      "yearlyTrend": [
+        {
+          "year": "2016",
+          "dismissals": 5318,
+          "Fielder Catch": 2846,
+          "Fielder CatchSharePct": 53.52,
+          "Keeper Catch": 499,
+          "Keeper CatchSharePct": 9.38,
+          "Bowled": 991,
+          "BowledSharePct": 18.63,
+          "LBW": 330,
+          "LBWSharePct": 6.21,
+          "Run Out": 468,
+          "Run OutSharePct": 8.8,
+          "Stumped": 177,
+          "StumpedSharePct": 3.33,
+          "Other": 7,
+          "OtherSharePct": 0.13
+        },
+        {
+          "year": "2017",
+          "dismissals": 5096,
+          "Fielder Catch": 2743,
+          "Fielder CatchSharePct": 53.83,
+          "Keeper Catch": 448,
+          "Keeper CatchSharePct": 8.79,
+          "Bowled": 985,
+          "BowledSharePct": 19.33,
+          "LBW": 350,
+          "LBWSharePct": 6.87,
+          "Run Out": 398,
+          "Run OutSharePct": 7.81,
+          "Stumped": 165,
+          "StumpedSharePct": 3.24,
+          "Other": 7,
+          "OtherSharePct": 0.14
+        },
+        {
+          "year": "2018",
+          "dismissals": 6001,
+          "Fielder Catch": 3312,
+          "Fielder CatchSharePct": 55.19,
+          "Keeper Catch": 558,
+          "Keeper CatchSharePct": 9.3,
+          "Bowled": 1139,
+          "BowledSharePct": 18.98,
+          "LBW": 388,
+          "LBWSharePct": 6.47,
+          "Run Out": 421,
+          "Run OutSharePct": 7.02,
+          "Stumped": 173,
+          "StumpedSharePct": 2.88,
+          "Other": 10,
+          "OtherSharePct": 0.17
+        },
+        {
+          "year": "2019",
+          "dismissals": 6377,
+          "Fielder Catch": 3667,
+          "Fielder CatchSharePct": 57.5,
+          "Keeper Catch": 587,
+          "Keeper CatchSharePct": 9.2,
+          "Bowled": 1096,
+          "BowledSharePct": 17.19,
+          "LBW": 414,
+          "LBWSharePct": 6.49,
+          "Run Out": 436,
+          "Run OutSharePct": 6.84,
+          "Stumped": 165,
+          "StumpedSharePct": 2.59,
+          "Other": 12,
+          "OtherSharePct": 0.19
+        },
+        {
+          "year": "2020",
+          "dismissals": 5057,
+          "Fielder Catch": 2876,
+          "Fielder CatchSharePct": 56.87,
+          "Keeper Catch": 537,
+          "Keeper CatchSharePct": 10.62,
+          "Bowled": 851,
+          "BowledSharePct": 16.83,
+          "LBW": 312,
+          "LBWSharePct": 6.17,
+          "Run Out": 361,
+          "Run OutSharePct": 7.14,
+          "Stumped": 110,
+          "StumpedSharePct": 2.18,
+          "Other": 10,
+          "OtherSharePct": 0.2
+        },
+        {
+          "year": "2021",
+          "dismissals": 6938,
+          "Fielder Catch": 3908,
+          "Fielder CatchSharePct": 56.33,
+          "Keeper Catch": 713,
+          "Keeper CatchSharePct": 10.28,
+          "Bowled": 1190,
+          "BowledSharePct": 17.15,
+          "LBW": 483,
+          "LBWSharePct": 6.96,
+          "Run Out": 438,
+          "Run OutSharePct": 6.31,
+          "Stumped": 186,
+          "StumpedSharePct": 2.68,
+          "Other": 20,
+          "OtherSharePct": 0.29
+        },
+        {
+          "year": "2022",
+          "dismissals": 7789,
+          "Fielder Catch": 4432,
+          "Fielder CatchSharePct": 56.9,
+          "Keeper Catch": 830,
+          "Keeper CatchSharePct": 10.66,
+          "Bowled": 1322,
+          "BowledSharePct": 16.97,
+          "LBW": 540,
+          "LBWSharePct": 6.93,
+          "Run Out": 460,
+          "Run OutSharePct": 5.91,
+          "Stumped": 185,
+          "StumpedSharePct": 2.38,
+          "Other": 20,
+          "OtherSharePct": 0.26
+        },
+        {
+          "year": "2023",
+          "dismissals": 7940,
+          "Fielder Catch": 4459,
+          "Fielder CatchSharePct": 56.16,
+          "Keeper Catch": 754,
+          "Keeper CatchSharePct": 9.5,
+          "Bowled": 1492,
+          "BowledSharePct": 18.79,
+          "LBW": 545,
+          "LBWSharePct": 6.86,
+          "Run Out": 501,
+          "Run OutSharePct": 6.31,
+          "Stumped": 166,
+          "StumpedSharePct": 2.09,
+          "Other": 23,
+          "OtherSharePct": 0.29
+        },
+        {
+          "year": "2024",
+          "dismissals": 9906,
+          "Fielder Catch": 5559,
+          "Fielder CatchSharePct": 56.12,
+          "Keeper Catch": 983,
+          "Keeper CatchSharePct": 9.92,
+          "Bowled": 1848,
+          "BowledSharePct": 18.66,
+          "LBW": 705,
+          "LBWSharePct": 7.12,
+          "Run Out": 575,
+          "Run OutSharePct": 5.8,
+          "Stumped": 224,
+          "StumpedSharePct": 2.26,
+          "Other": 12,
+          "OtherSharePct": 0.12
+        },
+        {
+          "year": "2025",
+          "dismissals": 8844,
+          "Fielder Catch": 5234,
+          "Fielder CatchSharePct": 59.18,
+          "Keeper Catch": 896,
+          "Keeper CatchSharePct": 10.13,
+          "Bowled": 1524,
+          "BowledSharePct": 17.23,
+          "LBW": 518,
+          "LBWSharePct": 5.86,
+          "Run Out": 465,
+          "Run OutSharePct": 5.26,
+          "Stumped": 174,
+          "StumpedSharePct": 1.97,
+          "Other": 33,
+          "OtherSharePct": 0.37
+        },
+        {
+          "year": "2026",
+          "dismissals": 4564,
+          "Fielder Catch": 2807,
+          "Fielder CatchSharePct": 61.5,
+          "Keeper Catch": 443,
+          "Keeper CatchSharePct": 9.71,
+          "Bowled": 717,
+          "BowledSharePct": 15.71,
+          "LBW": 245,
+          "LBWSharePct": 5.37,
+          "Run Out": 247,
+          "Run OutSharePct": 5.41,
+          "Stumped": 76,
+          "StumpedSharePct": 1.67,
+          "Other": 29,
+          "OtherSharePct": 0.64
+        }
+      ],
+      "emergingTrends": [
+        {
+          "selection": "Fielder Catch",
+          "earlySharePct": 55.46,
+          "recentSharePct": 57.41,
+          "deltaPp": 1.96,
+          "direction": "up"
+        },
+        {
+          "selection": "Run Out",
+          "earlySharePct": 7.48,
+          "recentSharePct": 5.84,
+          "deltaPp": -1.64,
+          "direction": "down"
+        }
+      ],
+      "periodLabels": {
+        "early": "2016\u20132020",
+        "recent": "2021\u20132026"
+      }
+    }
+  ]
+}

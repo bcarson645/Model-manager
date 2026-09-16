@@ -80,6 +80,7 @@ type DashCardProps = ClassNameProps & {
   span?: DashSpan;
   title?: string;
   description?: ReactNode;
+  actions?: ReactNode;
   compact?: boolean;
   dashed?: boolean;
 };
@@ -88,6 +89,7 @@ export function DashCard({
   span = "full",
   title,
   description,
+  actions,
   compact,
   dashed,
   className,
@@ -103,16 +105,19 @@ export function DashCard({
         className
       )}
     >
-      {(title || description) && (
-        <div className="mb-3 shrink-0 sm:mb-4">
-          {title && (
-            <h3 className="text-sm font-semibold text-white">{title}</h3>
-          )}
-          {description && (
-            <div className="mt-1 text-xs leading-relaxed text-slate-500 sm:text-sm sm:text-slate-400">
-              {description}
-            </div>
-          )}
+      {(title || description || actions) && (
+        <div className="mb-3 flex shrink-0 flex-col gap-2 sm:mb-4 sm:flex-row sm:items-start sm:justify-between">
+          <div className="min-w-0">
+            {title && (
+              <h3 className="text-sm font-semibold text-white">{title}</h3>
+            )}
+            {description && (
+              <div className="mt-1 text-xs leading-relaxed text-slate-500 sm:text-sm sm:text-slate-400">
+                {description}
+              </div>
+            )}
+          </div>
+          {actions && <div className="shrink-0">{actions}</div>}
         </div>
       )}
       <div className="min-w-0 flex-1">{children}</div>
@@ -124,16 +129,20 @@ type DashStatProps = {
   label: string;
   value: ReactNode;
   sub?: ReactNode;
+  hint?: ReactNode;
   span?: DashSpan;
   accent?: boolean;
+  valueClassName?: string;
 };
 
 export function DashStat({
   label,
   value,
   sub,
+  hint,
   span = "kpi",
   accent,
+  valueClassName,
 }: DashStatProps) {
   return (
     <div
@@ -146,13 +155,51 @@ export function DashStat({
       <p className="text-[10px] font-medium uppercase tracking-wider text-slate-500 sm:text-xs">
         {label}
       </p>
-      <p className="mt-1 truncate font-mono text-xl text-white sm:text-2xl">
+      <p className={cx("mt-1 truncate font-mono text-xl sm:text-2xl", valueClassName ?? "text-white")}>
         {value}
       </p>
+      {hint != null && hint !== "" && (
+        <p className="mt-1 truncate text-[11px] text-slate-500 sm:text-xs">{hint}</p>
+      )}
       {sub != null && sub !== "" && (
         <p className="mt-1 truncate text-[11px] text-slate-500 sm:text-xs">{sub}</p>
       )}
     </div>
+  );
+}
+
+export function DashTable({
+  columns,
+  rows,
+}: {
+  columns: string[];
+  rows: ReactNode[][];
+}) {
+  return (
+    <DashScrollTable>
+      <table className="min-w-full text-left text-xs">
+        <thead>
+          <tr className="border-b border-surface-border text-slate-500">
+            {columns.map((col) => (
+              <th key={col} className="whitespace-nowrap px-2 py-2 font-medium first:pl-0 last:pr-0">
+                {col}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((row, i) => (
+            <tr key={i} className="border-b border-surface-border/60 text-slate-300">
+              {row.map((cell, j) => (
+                <td key={j} className="whitespace-nowrap px-2 py-2 first:pl-0 last:pr-0">
+                  {cell}
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </DashScrollTable>
   );
 }
 

@@ -14,6 +14,7 @@ ROW_GROUPS = {
     "pm-match-winner": [20, 21],
     "pm-tied-match": [22, 23],
     "pm-toss-winner": [24, 25],
+    "pm-first-innings-runs": [32],
     "pm-first-partnership": [44],
     "pm-first-dismissal": list(range(45, 52)),
     "pm-match-fours": [52],

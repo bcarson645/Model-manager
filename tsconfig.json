@@ -32,7 +32,6 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "C:\\Users\\BBF89~1.CAR\\AppData\\Local\\Temp\\model-manager-next-dev/types/**/*.ts",
     ".next-dev/types/**/*.ts"
   ],
   "exclude": [

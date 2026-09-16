@@ -5,6 +5,7 @@ import { FormatPlaceholderPanel } from "./FormatPlaceholderPanel";
 import { MatchAnalysisPanel } from "./analysis/MatchAnalysisPanel";
 import { PlayerAnalysisPanel } from "./analysis/PlayerAnalysisPanel";
 import { QueriesLogPanel } from "./analysis/QueriesLogPanel";
+import { DataTasksPanel } from "./analysis/DataTasksPanel";
 import type { AnalysisSection, DataFormat } from "@/lib/scorecards/types";
 import { hasFormatData, loadMatchesForFormat } from "@/lib/scorecards/format-source";
 
@@ -31,6 +32,10 @@ export function DataAnalysisPanel({
       cancelled = true;
     };
   }, [activeFormat]);
+
+  if (activeSection === "data-tasks") {
+    return <DataTasksPanel />;
+  }
 
   if (activeFormat === "first-class") {
     return <FormatPlaceholderPanel format="First class" />;

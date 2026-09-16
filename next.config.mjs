@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  // Separate from production .next so `next build` does not break a running dev server
+  // Production uses .next; dev uses .next-dev (must be relative — absolute distDir breaks on Windows).
   distDir: process.env.NODE_ENV === "production" ? ".next" : ".next-dev",
   webpack: (config, { dev }) => {
     if (dev) {

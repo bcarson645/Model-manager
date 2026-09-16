@@ -204,4 +204,27 @@ export const nzSaDerivativeParity = [
     status: "unverified",
     notes: "PM G76=#DIV/0! on fixture; Y10=0.965 → line 0.5 after Round(total−0.8)",
   },
+  {
+    market: "New Zealand Wickets Lost",
+    pmRow: 166,
+    pmLine: 6.5,
+    prepMean: 6.916,
+    prepOppositionTotal: "F46=U59=6.571",
+    prepScale: "n_max/V59=20/19",
+    lambdaPathToday: "GetTeamRawWickets/wicketAdjust+InningsRunOuts ≈ 1.1",
+    status: "gap",
+    notes:
+      "Atlas PM Pricing I632=F46×20/19; Lambda TeamWickets mean wrong — cross-team WicketsLost scale required",
+  },
+  {
+    market: "South Africa Wickets Lost",
+    pmRow: 232,
+    pmLine: 6.5,
+    prepMean: 7.151,
+    prepOppositionTotal: "F25=U38=6.865",
+    prepScale: "n_max/V38=20/19.2",
+    lambdaPathToday: "GetTeamRawWickets/wicketAdjust+InningsRunOuts ≈ 1.1",
+    status: "gap",
+    notes: "Atlas PM Pricing I807=F25×20/19.2; same Lambda parity gap as NZ row 166",
+  },
 ];

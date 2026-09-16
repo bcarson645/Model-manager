@@ -14,6 +14,7 @@ export type PmMarketTemplate = {
 export const lambdaLinks: Record<string, string> = {
   "Match Betting": "MatchBetting",
   "Method of First Dismissal": "FirstDismissal",
+  "Runs in First Innings": "FirstInningsRuns",
   "Runs in First Partnership": "FirstPartnership",
   "Runs in First 6 Overs": "GroupRuns",
   "Runs in First 6 Overs.": "GroupRuns",

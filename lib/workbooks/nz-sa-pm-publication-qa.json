@@ -118,6 +118,27 @@
         }
       }
     ],
+    "pm-first-innings-runs": [
+      {
+        "row": 32,
+        "market": "Runs in First Innings",
+        "selection": null,
+        "line": {
+          "error": "#VALUE!"
+        },
+        "probability": 0.5,
+        "complementProbability": 0.5,
+        "adjust": 0.0,
+        "price": 2.0,
+        "cells": {
+          "line": "F32",
+          "probability": "G32",
+          "complement": "H32",
+          "adjust": "I32",
+          "price": "J32"
+        }
+      }
+    ],
     "pm-first-partnership": [
       {
         "row": 44,

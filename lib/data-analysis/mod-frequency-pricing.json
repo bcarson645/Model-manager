@@ -1,0 +1,1212 @@
+{
+  "taskId": "mod-frequency-pricing",
+  "title": "MoD dismissal frequency trends & optimal pricing",
+  "sourceFile": "PlayerMoD0106To0909 (3).xlsx",
+  "generatedAt": "2026-09-10T12:02:43.771530+00:00",
+  "targetMarginPct": 7.5,
+  "methodology": {
+    "frequency": "Dismissal events deduped by match/innings/over/delivery from punter-winning bets.",
+    "proportionalPricing": "recommended_odds = 1 / (empirical_freq * (1 + margin)); implied probs sum to 1 + margin.",
+    "optimizedPricing": "Per-selection odds scale on historical bets to achieve target margin.",
+    "caveat": "Betting-derived frequencies; scorecard validation recommended. Caught split uses market selections."
+  },
+  "segments": [
+    {
+      "id": "men-odi",
+      "label": "Men's ODI",
+      "empty": false,
+      "overall": {
+        "bets": 13309,
+        "stake": 1015789.68,
+        "marginPct": -3.77,
+        "outcomeSamples": 3774
+      },
+      "currentPricing": [
+        {
+          "selection": "Fielder Catch",
+          "bets": 10815,
+          "stake": 840615.98,
+          "avgOdds": 1.805,
+          "impliedPct": 55.41,
+          "marginPct": -9.17,
+          "outcomeSharePct": 96.34
+        },
+        {
+          "selection": "Keeper Catch",
+          "bets": 239,
+          "stake": 12762.92,
+          "avgOdds": 6.718,
+          "impliedPct": 14.88,
+          "marginPct": 23.82,
+          "outcomeSharePct": 0.58
+        },
+        {
+          "selection": "Bowled",
+          "bets": 453,
+          "stake": 29273.44,
+          "avgOdds": 4.315,
+          "impliedPct": 23.17,
+          "marginPct": 18.77,
+          "outcomeSharePct": 1.09
+        },
+        {
+          "selection": "LBW",
+          "bets": 526,
+          "stake": 32901.41,
+          "avgOdds": 6.367,
+          "impliedPct": 15.71,
+          "marginPct": 36.43,
+          "outcomeSharePct": 0.79
+        },
+        {
+          "selection": "Run Out",
+          "bets": 1071,
+          "stake": 90378.35,
+          "avgOdds": 12.338,
+          "impliedPct": 8.1,
+          "marginPct": 12.4,
+          "outcomeSharePct": 1.19
+        },
+        {
+          "selection": "Stumped",
+          "bets": 203,
+          "stake": 9749.74,
+          "avgOdds": 25.034,
+          "impliedPct": 3.99,
+          "marginPct": 71.72,
+          "outcomeSharePct": 0.0
+        },
+        {
+          "selection": "Other",
+          "bets": 2,
+          "stake": 107.84,
+          "avgOdds": 100.0,
+          "impliedPct": 1.0,
+          "marginPct": 100.0,
+          "outcomeSharePct": 0.0
+        }
+      ],
+      "empiricalFrequency": [
+        {
+          "selection": "Fielder Catch",
+          "sharePct": 96.34
+        },
+        {
+          "selection": "Keeper Catch",
+          "sharePct": 0.58
+        },
+        {
+          "selection": "Bowled",
+          "sharePct": 1.09
+        },
+        {
+          "selection": "LBW",
+          "sharePct": 0.79
+        },
+        {
+          "selection": "Run Out",
+          "sharePct": 1.19
+        }
+      ],
+      "jointPricing": {
+        "method": "Coherent book \u2014 implied probabilities sum to 1 + margin",
+        "targetMarginPct": 7.5,
+        "impliedSumPct": 107.5,
+        "selections": [
+          {
+            "selection": "Fielder Catch",
+            "impliedPct": 98.04,
+            "recommendedOdds": 1.02
+          },
+          {
+            "selection": "Keeper Catch",
+            "impliedPct": 1.51,
+            "recommendedOdds": 66.302
+          },
+          {
+            "selection": "Bowled",
+            "impliedPct": 2.81,
+            "recommendedOdds": 35.577
+          },
+          {
+            "selection": "LBW",
+            "impliedPct": 2.06,
+            "recommendedOdds": 48.622
+          },
+          {
+            "selection": "Run Out",
+            "impliedPct": 3.09,
+            "recommendedOdds": 32.415
+          }
+        ]
+      },
+      "recommendedPricing": {
+        "method": "Per-selection fair odds + overround (may require min odds cap on favourite)",
+        "targetMarginPct": 7.5,
+        "impliedSumPct": 107.5,
+        "selections": [
+          {
+            "selection": "Fielder Catch",
+            "fairOdds": 1.04,
+            "recommendedOdds": 1.02,
+            "recommendedImpliedPct": 98.04,
+            "oddsScaleVsCurrent": 0.57
+          },
+          {
+            "selection": "Keeper Catch",
+            "fairOdds": 171.55,
+            "recommendedOdds": 49.773,
+            "recommendedImpliedPct": 2.01,
+            "oddsScaleVsCurrent": 7.41
+          },
+          {
+            "selection": "Bowled",
+            "fairOdds": 92.05,
+            "recommendedOdds": 39.21,
+            "recommendedImpliedPct": 2.55,
+            "oddsScaleVsCurrent": 9.09
+          },
+          {
+            "selection": "LBW",
+            "fairOdds": 125.8,
+            "recommendedOdds": 44.702,
+            "recommendedImpliedPct": 2.24,
+            "oddsScaleVsCurrent": 7.02
+          },
+          {
+            "selection": "Run Out",
+            "fairOdds": 83.87,
+            "recommendedOdds": 37.534,
+            "recommendedImpliedPct": 2.66,
+            "oddsScaleVsCurrent": 3.04
+          }
+        ]
+      },
+      "optimizedPricing": {
+        "method": "Per-selection odds scale to target margin on historical bets",
+        "targetMarginPct": 7.5,
+        "impliedSumPct": 133.18,
+        "selections": [
+          {
+            "selection": "Fielder Catch",
+            "currentAvgOdds": 1.805,
+            "oddsScale": 0.8355,
+            "optimizedOdds": 1.508,
+            "optimizedImpliedPct": 66.31,
+            "currentMarginPct": -9.17
+          },
+          {
+            "selection": "Keeper Catch",
+            "currentAvgOdds": 6.718,
+            "oddsScale": 1.0,
+            "optimizedOdds": 6.718,
+            "optimizedImpliedPct": 14.89,
+            "currentMarginPct": 23.82
+          },
+          {
+            "selection": "Bowled",
+            "currentAvgOdds": 4.315,
+            "oddsScale": 1.0,
+            "optimizedOdds": 4.315,
+            "optimizedImpliedPct": 23.17,
+            "currentMarginPct": 18.77
+          },
+          {
+            "selection": "LBW",
+            "currentAvgOdds": 6.367,
+            "oddsScale": 1.0,
+            "optimizedOdds": 6.367,
+            "optimizedImpliedPct": 15.71,
+            "currentMarginPct": 36.43
+          },
+          {
+            "selection": "Run Out",
+            "currentAvgOdds": 12.338,
+            "oddsScale": 1.0,
+            "optimizedOdds": 12.338,
+            "optimizedImpliedPct": 8.11,
+            "currentMarginPct": 12.4
+          },
+          {
+            "selection": "Stumped",
+            "currentAvgOdds": 25.034,
+            "oddsScale": 1.0,
+            "optimizedOdds": 25.034,
+            "optimizedImpliedPct": 3.99,
+            "currentMarginPct": 71.72
+          },
+          {
+            "selection": "Other",
+            "currentAvgOdds": 100.0,
+            "oddsScale": 1.0,
+            "optimizedOdds": 100.0,
+            "optimizedImpliedPct": 1.0,
+            "currentMarginPct": 100.0
+          }
+        ]
+      },
+      "monthlyTrend": [
+        {
+          "month": "2026-06",
+          "totalWinStake": 705,
+          "Fielder Catch": 94.47,
+          "Keeper Catch": 0.99,
+          "Bowled": 1.99,
+          "LBW": 1.28,
+          "Run Out": 1.28,
+          "Stumped": 0.0,
+          "Other": 0.0
+        },
+        {
+          "month": "2026-07",
+          "totalWinStake": 1518,
+          "Fielder Catch": 96.71,
+          "Keeper Catch": 0.72,
+          "Bowled": 1.12,
+          "LBW": 0.66,
+          "Run Out": 0.79,
+          "Stumped": 0.0,
+          "Other": 0.0
+        },
+        {
+          "month": "2026-08",
+          "totalWinStake": 1109,
+          "Fielder Catch": 96.66,
+          "Keeper Catch": 0.36,
+          "Bowled": 0.72,
+          "LBW": 0.45,
+          "Run Out": 1.8,
+          "Stumped": 0.0,
+          "Other": 0.0
+        },
+        {
+          "month": "2026-09",
+          "totalWinStake": 442,
+          "Fielder Catch": 97.29,
+          "Keeper Catch": 0.0,
+          "Bowled": 0.45,
+          "LBW": 1.36,
+          "Run Out": 0.9,
+          "Stumped": 0.0,
+          "Other": 0.0
+        }
+      ],
+      "emergingTrends": []
+    },
+    {
+      "id": "women-odi",
+      "label": "Women's ODI",
+      "empty": false,
+      "overall": {
+        "bets": 2448,
+        "stake": 175425.57,
+        "marginPct": -11.61,
+        "outcomeSamples": 585
+      },
+      "currentPricing": [
+        {
+          "selection": "Fielder Catch",
+          "bets": 1691,
+          "stake": 126653.87,
+          "avgOdds": 1.961,
+          "impliedPct": 50.99,
+          "marginPct": -1.52,
+          "outcomeSharePct": 88.55
+        },
+        {
+          "selection": "Keeper Catch",
+          "bets": 51,
+          "stake": 4568.43,
+          "avgOdds": 8.417,
+          "impliedPct": 11.88,
+          "marginPct": 49.67,
+          "outcomeSharePct": 0.51
+        },
+        {
+          "selection": "Bowled",
+          "bets": 118,
+          "stake": 9196.32,
+          "avgOdds": 3.901,
+          "impliedPct": 25.63,
+          "marginPct": -16.23,
+          "outcomeSharePct": 4.27
+        },
+        {
+          "selection": "LBW",
+          "bets": 76,
+          "stake": 4484.35,
+          "avgOdds": 6.325,
+          "impliedPct": 15.81,
+          "marginPct": 21.45,
+          "outcomeSharePct": 1.2
+        },
+        {
+          "selection": "Run Out",
+          "bets": 218,
+          "stake": 14296.99,
+          "avgOdds": 10.343,
+          "impliedPct": 9.67,
+          "marginPct": -9.3,
+          "outcomeSharePct": 1.2
+        },
+        {
+          "selection": "Stumped",
+          "bets": 294,
+          "stake": 16225.61,
+          "avgOdds": 14.26,
+          "impliedPct": 7.01,
+          "marginPct": -116.25,
+          "outcomeSharePct": 4.27
+        }
+      ],
+      "empiricalFrequency": [
+        {
+          "selection": "Fielder Catch",
+          "sharePct": 88.55
+        },
+        {
+          "selection": "Keeper Catch",
+          "sharePct": 0.51
+        },
+        {
+          "selection": "Bowled",
+          "sharePct": 4.27
+        },
+        {
+          "selection": "LBW",
+          "sharePct": 1.2
+        },
+        {
+          "selection": "Run Out",
+          "sharePct": 1.2
+        },
+        {
+          "selection": "Stumped",
+          "sharePct": 4.27
+        }
+      ],
+      "jointPricing": {
+        "method": "Coherent book \u2014 implied probabilities sum to 1 + margin",
+        "targetMarginPct": 7.5,
+        "impliedSumPct": 107.5,
+        "selections": [
+          {
+            "selection": "Fielder Catch",
+            "impliedPct": 95.19,
+            "recommendedOdds": 1.051
+          },
+          {
+            "selection": "Keeper Catch",
+            "impliedPct": 0.55,
+            "recommendedOdds": 181.395
+          },
+          {
+            "selection": "Bowled",
+            "impliedPct": 4.59,
+            "recommendedOdds": 21.767
+          },
+          {
+            "selection": "LBW",
+            "impliedPct": 1.29,
+            "recommendedOdds": 77.741
+          },
+          {
+            "selection": "Run Out",
+            "impliedPct": 1.29,
+            "recommendedOdds": 77.741
+          },
+          {
+            "selection": "Stumped",
+            "impliedPct": 4.59,
+            "recommendedOdds": 21.767
+          }
+        ]
+      },
+      "recommendedPricing": {
+        "method": "Per-selection fair odds + overround (may require min odds cap on favourite)",
+        "targetMarginPct": 7.5,
+        "impliedSumPct": 107.46,
+        "selections": [
+          {
+            "selection": "Fielder Catch",
+            "fairOdds": 1.13,
+            "recommendedOdds": 1.051,
+            "recommendedImpliedPct": 95.15,
+            "oddsScaleVsCurrent": 0.54
+          },
+          {
+            "selection": "Keeper Catch",
+            "fairOdds": 195.0,
+            "recommendedOdds": 181.395,
+            "recommendedImpliedPct": 0.55,
+            "oddsScaleVsCurrent": 21.55
+          },
+          {
+            "selection": "Bowled",
+            "fairOdds": 23.4,
+            "recommendedOdds": 21.767,
+            "recommendedImpliedPct": 4.59,
+            "oddsScaleVsCurrent": 5.58
+          },
+          {
+            "selection": "LBW",
+            "fairOdds": 83.57,
+            "recommendedOdds": 77.741,
+            "recommendedImpliedPct": 1.29,
+            "oddsScaleVsCurrent": 12.29
+          },
+          {
+            "selection": "Run Out",
+            "fairOdds": 83.57,
+            "recommendedOdds": 77.741,
+            "recommendedImpliedPct": 1.29,
+            "oddsScaleVsCurrent": 7.52
+          },
+          {
+            "selection": "Stumped",
+            "fairOdds": 23.4,
+            "recommendedOdds": 21.767,
+            "recommendedImpliedPct": 4.59,
+            "oddsScaleVsCurrent": 1.53
+          }
+        ]
+      },
+      "optimizedPricing": {
+        "method": "Per-selection odds scale to target margin on historical bets",
+        "targetMarginPct": 7.5,
+        "impliedSumPct": 143.66,
+        "selections": [
+          {
+            "selection": "Fielder Catch",
+            "currentAvgOdds": 1.961,
+            "oddsScale": 0.9013,
+            "optimizedOdds": 1.767,
+            "optimizedImpliedPct": 56.59,
+            "currentMarginPct": -1.52
+          },
+          {
+            "selection": "Keeper Catch",
+            "currentAvgOdds": 8.417,
+            "oddsScale": 1.0,
+            "optimizedOdds": 8.417,
+            "optimizedImpliedPct": 11.88,
+            "currentMarginPct": 49.67
+          },
+          {
+            "selection": "Bowled",
+            "currentAvgOdds": 3.901,
+            "oddsScale": 0.7703,
+            "optimizedOdds": 3.005,
+            "optimizedImpliedPct": 33.28,
+            "currentMarginPct": -16.23
+          },
+          {
+            "selection": "LBW",
+            "currentAvgOdds": 6.325,
+            "oddsScale": 1.0,
+            "optimizedOdds": 6.325,
+            "optimizedImpliedPct": 15.81,
+            "currentMarginPct": 21.45
+          },
+          {
+            "selection": "Run Out",
+            "currentAvgOdds": 10.343,
+            "oddsScale": 0.8007,
+            "optimizedOdds": 8.282,
+            "optimizedImpliedPct": 12.07,
+            "currentMarginPct": -9.3
+          },
+          {
+            "selection": "Stumped",
+            "currentAvgOdds": 14.26,
+            "oddsScale": 0.5,
+            "optimizedOdds": 7.13,
+            "optimizedImpliedPct": 14.03,
+            "currentMarginPct": -116.25
+          }
+        ]
+      },
+      "monthlyTrend": [
+        {
+          "month": "2026-06",
+          "totalWinStake": 120,
+          "Fielder Catch": 92.5,
+          "Keeper Catch": 0.0,
+          "Bowled": 5.83,
+          "LBW": 0.83,
+          "Run Out": 0.0,
+          "Stumped": 0.83,
+          "Other": 0.0
+        },
+        {
+          "month": "2026-07",
+          "totalWinStake": 201,
+          "Fielder Catch": 87.06,
+          "Keeper Catch": 1.49,
+          "Bowled": 5.47,
+          "LBW": 1.49,
+          "Run Out": 0.5,
+          "Stumped": 3.98,
+          "Other": 0.0
+        },
+        {
+          "month": "2026-08",
+          "totalWinStake": 162,
+          "Fielder Catch": 86.42,
+          "Keeper Catch": 0.0,
+          "Bowled": 1.23,
+          "LBW": 1.23,
+          "Run Out": 1.85,
+          "Stumped": 9.26,
+          "Other": 0.0
+        },
+        {
+          "month": "2026-09",
+          "totalWinStake": 102,
+          "Fielder Catch": 90.2,
+          "Keeper Catch": 0.0,
+          "Bowled": 4.9,
+          "LBW": 0.98,
+          "Run Out": 2.94,
+          "Stumped": 0.98,
+          "Other": 0.0
+        }
+      ],
+      "emergingTrends": [
+        {
+          "selection": "Stumped",
+          "earlySharePct": 2.8,
+          "recentSharePct": 6.06,
+          "deltaPp": 3.26,
+          "direction": "up"
+        },
+        {
+          "selection": "Bowled",
+          "earlySharePct": 5.61,
+          "recentSharePct": 2.65,
+          "deltaPp": -2.96,
+          "direction": "down"
+        },
+        {
+          "selection": "Run Out",
+          "earlySharePct": 0.31,
+          "recentSharePct": 2.27,
+          "deltaPp": 1.96,
+          "direction": "up"
+        }
+      ]
+    },
+    {
+      "id": "men-t20",
+      "label": "Men's T20",
+      "empty": false,
+      "overall": {
+        "bets": 13556,
+        "stake": 953854.38,
+        "marginPct": 9.06,
+        "outcomeSamples": 2739
+      },
+      "currentPricing": [
+        {
+          "selection": "Fielder Catch",
+          "bets": 5024,
+          "stake": 419555.11,
+          "avgOdds": 1.464,
+          "impliedPct": 68.31,
+          "marginPct": 4.72,
+          "outcomeSharePct": 81.71
+        },
+        {
+          "selection": "Keeper Catch",
+          "bets": 887,
+          "stake": 66494.69,
+          "avgOdds": 8.945,
+          "impliedPct": 11.18,
+          "marginPct": 34.59,
+          "outcomeSharePct": 1.9
+        },
+        {
+          "selection": "Bowled",
+          "bets": 1607,
+          "stake": 105912.19,
+          "avgOdds": 5.057,
+          "impliedPct": 19.77,
+          "marginPct": 8.24,
+          "outcomeSharePct": 7.16
+        },
+        {
+          "selection": "LBW",
+          "bets": 1944,
+          "stake": 128239.79,
+          "avgOdds": 11.202,
+          "impliedPct": 8.93,
+          "marginPct": 15.9,
+          "outcomeSharePct": 3.4
+        },
+        {
+          "selection": "Run Out",
+          "bets": 3259,
+          "stake": 192006.01,
+          "avgOdds": 14.017,
+          "impliedPct": 7.13,
+          "marginPct": 3.12,
+          "outcomeSharePct": 4.97
+        },
+        {
+          "selection": "Stumped",
+          "bets": 810,
+          "stake": 40451.61,
+          "avgOdds": 23.427,
+          "impliedPct": 4.27,
+          "marginPct": 19.65,
+          "outcomeSharePct": 0.88
+        },
+        {
+          "selection": "Other",
+          "bets": 25,
+          "stake": 1194.98,
+          "avgOdds": 100.0,
+          "impliedPct": 1.0,
+          "marginPct": 47.61,
+          "outcomeSharePct": 0.0
+        }
+      ],
+      "empiricalFrequency": [
+        {
+          "selection": "Fielder Catch",
+          "sharePct": 81.71
+        },
+        {
+          "selection": "Keeper Catch",
+          "sharePct": 1.9
+        },
+        {
+          "selection": "Bowled",
+          "sharePct": 7.16
+        },
+        {
+          "selection": "LBW",
+          "sharePct": 3.4
+        },
+        {
+          "selection": "Run Out",
+          "sharePct": 4.97
+        },
+        {
+          "selection": "Stumped",
+          "sharePct": 0.88
+        }
+      ],
+      "jointPricing": {
+        "method": "Coherent book \u2014 implied probabilities sum to 1 + margin",
+        "targetMarginPct": 7.5,
+        "impliedSumPct": 107.5,
+        "selections": [
+          {
+            "selection": "Fielder Catch",
+            "impliedPct": 87.84,
+            "recommendedOdds": 1.138
+          },
+          {
+            "selection": "Keeper Catch",
+            "impliedPct": 2.04,
+            "recommendedOdds": 48.998
+          },
+          {
+            "selection": "Bowled",
+            "impliedPct": 7.69,
+            "recommendedOdds": 13.0
+          },
+          {
+            "selection": "LBW",
+            "impliedPct": 3.65,
+            "recommendedOdds": 27.397
+          },
+          {
+            "selection": "Run Out",
+            "impliedPct": 5.34,
+            "recommendedOdds": 18.735
+          },
+          {
+            "selection": "Stumped",
+            "impliedPct": 0.94,
+            "recommendedOdds": 106.163
+          }
+        ]
+      },
+      "recommendedPricing": {
+        "method": "Per-selection fair odds + overround (may require min odds cap on favourite)",
+        "targetMarginPct": 7.5,
+        "impliedSumPct": 107.53,
+        "selections": [
+          {
+            "selection": "Fielder Catch",
+            "fairOdds": 1.22,
+            "recommendedOdds": 1.138,
+            "recommendedImpliedPct": 87.87,
+            "oddsScaleVsCurrent": 0.78
+          },
+          {
+            "selection": "Keeper Catch",
+            "fairOdds": 52.67,
+            "recommendedOdds": 48.998,
+            "recommendedImpliedPct": 2.04,
+            "oddsScaleVsCurrent": 5.48
+          },
+          {
+            "selection": "Bowled",
+            "fairOdds": 13.97,
+            "recommendedOdds": 13.0,
+            "recommendedImpliedPct": 7.69,
+            "oddsScaleVsCurrent": 2.57
+          },
+          {
+            "selection": "LBW",
+            "fairOdds": 29.45,
+            "recommendedOdds": 27.397,
+            "recommendedImpliedPct": 3.65,
+            "oddsScaleVsCurrent": 2.45
+          },
+          {
+            "selection": "Run Out",
+            "fairOdds": 20.14,
+            "recommendedOdds": 18.735,
+            "recommendedImpliedPct": 5.34,
+            "oddsScaleVsCurrent": 1.34
+          },
+          {
+            "selection": "Stumped",
+            "fairOdds": 114.12,
+            "recommendedOdds": 106.163,
+            "recommendedImpliedPct": 0.94,
+            "oddsScaleVsCurrent": 4.53
+          }
+        ]
+      },
+      "optimizedPricing": {
+        "method": "Per-selection odds scale to target margin on historical bets",
+        "targetMarginPct": 7.5,
+        "impliedSumPct": 123.57,
+        "selections": [
+          {
+            "selection": "Fielder Catch",
+            "currentAvgOdds": 1.464,
+            "oddsScale": 0.9651,
+            "optimizedOdds": 1.413,
+            "optimizedImpliedPct": 70.77,
+            "currentMarginPct": 4.72
+          },
+          {
+            "selection": "Keeper Catch",
+            "currentAvgOdds": 8.945,
+            "oddsScale": 1.0,
+            "optimizedOdds": 8.945,
+            "optimizedImpliedPct": 11.18,
+            "currentMarginPct": 34.59
+          },
+          {
+            "selection": "Bowled",
+            "currentAvgOdds": 5.057,
+            "oddsScale": 1.0,
+            "optimizedOdds": 5.057,
+            "optimizedImpliedPct": 19.77,
+            "currentMarginPct": 8.24
+          },
+          {
+            "selection": "LBW",
+            "currentAvgOdds": 11.202,
+            "oddsScale": 1.0,
+            "optimizedOdds": 11.202,
+            "optimizedImpliedPct": 8.93,
+            "currentMarginPct": 15.9
+          },
+          {
+            "selection": "Run Out",
+            "currentAvgOdds": 14.017,
+            "oddsScale": 0.9331,
+            "optimizedOdds": 13.079,
+            "optimizedImpliedPct": 7.65,
+            "currentMarginPct": 3.12
+          },
+          {
+            "selection": "Stumped",
+            "currentAvgOdds": 23.427,
+            "oddsScale": 1.0,
+            "optimizedOdds": 23.427,
+            "optimizedImpliedPct": 4.27,
+            "currentMarginPct": 19.65
+          },
+          {
+            "selection": "Other",
+            "currentAvgOdds": 100.0,
+            "oddsScale": 1.0,
+            "optimizedOdds": 100.0,
+            "optimizedImpliedPct": 1.0,
+            "currentMarginPct": 47.61
+          }
+        ]
+      },
+      "monthlyTrend": [
+        {
+          "month": "2026-06",
+          "totalWinStake": 614,
+          "Fielder Catch": 85.83,
+          "Keeper Catch": 1.3,
+          "Bowled": 7.33,
+          "LBW": 1.79,
+          "Run Out": 2.93,
+          "Stumped": 0.81,
+          "Other": 0.0
+        },
+        {
+          "month": "2026-07",
+          "totalWinStake": 904,
+          "Fielder Catch": 76.11,
+          "Keeper Catch": 3.32,
+          "Bowled": 7.74,
+          "LBW": 5.2,
+          "Run Out": 7.08,
+          "Stumped": 0.55,
+          "Other": 0.0
+        },
+        {
+          "month": "2026-08",
+          "totalWinStake": 978,
+          "Fielder Catch": 83.03,
+          "Keeper Catch": 1.23,
+          "Bowled": 6.54,
+          "LBW": 3.37,
+          "Run Out": 4.7,
+          "Stumped": 1.12,
+          "Other": 0.0
+        },
+        {
+          "month": "2026-09",
+          "totalWinStake": 243,
+          "Fielder Catch": 86.83,
+          "Keeper Catch": 0.82,
+          "Bowled": 7.0,
+          "LBW": 0.82,
+          "Run Out": 3.29,
+          "Stumped": 1.23,
+          "Other": 0.0
+        }
+      ],
+      "emergingTrends": [
+        {
+          "selection": "Fielder Catch",
+          "earlySharePct": 80.04,
+          "recentSharePct": 83.78,
+          "deltaPp": 3.74,
+          "direction": "up"
+        }
+      ]
+    },
+    {
+      "id": "women-t20",
+      "label": "Women's T20",
+      "empty": false,
+      "overall": {
+        "bets": 12444,
+        "stake": 920858.61,
+        "marginPct": -2.9,
+        "outcomeSamples": 2192
+      },
+      "currentPricing": [
+        {
+          "selection": "Fielder Catch",
+          "bets": 6132,
+          "stake": 523205.77,
+          "avgOdds": 1.819,
+          "impliedPct": 54.97,
+          "marginPct": -5.96,
+          "outcomeSharePct": 82.12
+        },
+        {
+          "selection": "Keeper Catch",
+          "bets": 547,
+          "stake": 55092.12,
+          "avgOdds": 12.222,
+          "impliedPct": 8.18,
+          "marginPct": -10.12,
+          "outcomeSharePct": 1.05
+        },
+        {
+          "selection": "Bowled",
+          "bets": 1008,
+          "stake": 63521.68,
+          "avgOdds": 4.282,
+          "impliedPct": 23.35,
+          "marginPct": 1.66,
+          "outcomeSharePct": 6.43
+        },
+        {
+          "selection": "LBW",
+          "bets": 1202,
+          "stake": 85726.92,
+          "avgOdds": 9.085,
+          "impliedPct": 11.01,
+          "marginPct": 17.7,
+          "outcomeSharePct": 3.6
+        },
+        {
+          "selection": "Run Out",
+          "bets": 1209,
+          "stake": 74876.11,
+          "avgOdds": 8.304,
+          "impliedPct": 12.04,
+          "marginPct": 7.69,
+          "outcomeSharePct": 3.01
+        },
+        {
+          "selection": "Stumped",
+          "bets": 2329,
+          "stake": 117605.76,
+          "avgOdds": 12.977,
+          "impliedPct": 7.71,
+          "marginPct": -10.62,
+          "outcomeSharePct": 3.79
+        },
+        {
+          "selection": "Other",
+          "bets": 17,
+          "stake": 830.24,
+          "avgOdds": 100.0,
+          "impliedPct": 1.0,
+          "marginPct": 67.24,
+          "outcomeSharePct": 0.0
+        }
+      ],
+      "empiricalFrequency": [
+        {
+          "selection": "Fielder Catch",
+          "sharePct": 82.12
+        },
+        {
+          "selection": "Keeper Catch",
+          "sharePct": 1.05
+        },
+        {
+          "selection": "Bowled",
+          "sharePct": 6.43
+        },
+        {
+          "selection": "LBW",
+          "sharePct": 3.6
+        },
+        {
+          "selection": "Run Out",
+          "sharePct": 3.01
+        },
+        {
+          "selection": "Stumped",
+          "sharePct": 3.79
+        }
+      ],
+      "jointPricing": {
+        "method": "Coherent book \u2014 implied probabilities sum to 1 + margin",
+        "targetMarginPct": 7.5,
+        "impliedSumPct": 107.5,
+        "selections": [
+          {
+            "selection": "Fielder Catch",
+            "impliedPct": 88.28,
+            "recommendedOdds": 1.133
+          },
+          {
+            "selection": "Keeper Catch",
+            "impliedPct": 1.13,
+            "recommendedOdds": 88.655
+          },
+          {
+            "selection": "Bowled",
+            "impliedPct": 6.91,
+            "recommendedOdds": 14.461
+          },
+          {
+            "selection": "LBW",
+            "impliedPct": 3.87,
+            "recommendedOdds": 25.811
+          },
+          {
+            "selection": "Run Out",
+            "impliedPct": 3.24,
+            "recommendedOdds": 30.895
+          },
+          {
+            "selection": "Stumped",
+            "impliedPct": 4.07,
+            "recommendedOdds": 24.567
+          }
+        ]
+      },
+      "recommendedPricing": {
+        "method": "Per-selection fair odds + overround (may require min odds cap on favourite)",
+        "targetMarginPct": 7.5,
+        "impliedSumPct": 107.49,
+        "selections": [
+          {
+            "selection": "Fielder Catch",
+            "fairOdds": 1.22,
+            "recommendedOdds": 1.133,
+            "recommendedImpliedPct": 88.26,
+            "oddsScaleVsCurrent": 0.62
+          },
+          {
+            "selection": "Keeper Catch",
+            "fairOdds": 95.3,
+            "recommendedOdds": 88.655,
+            "recommendedImpliedPct": 1.13,
+            "oddsScaleVsCurrent": 7.25
+          },
+          {
+            "selection": "Bowled",
+            "fairOdds": 15.55,
+            "recommendedOdds": 14.461,
+            "recommendedImpliedPct": 6.92,
+            "oddsScaleVsCurrent": 3.38
+          },
+          {
+            "selection": "LBW",
+            "fairOdds": 27.75,
+            "recommendedOdds": 25.811,
+            "recommendedImpliedPct": 3.87,
+            "oddsScaleVsCurrent": 2.84
+          },
+          {
+            "selection": "Run Out",
+            "fairOdds": 33.21,
+            "recommendedOdds": 30.895,
+            "recommendedImpliedPct": 3.24,
+            "oddsScaleVsCurrent": 3.72
+          },
+          {
+            "selection": "Stumped",
+            "fairOdds": 26.41,
+            "recommendedOdds": 24.567,
+            "recommendedImpliedPct": 4.07,
+            "oddsScaleVsCurrent": 1.89
+          }
+        ]
+      },
+      "optimizedPricing": {
+        "method": "Per-selection odds scale to target margin on historical bets",
+        "targetMarginPct": 7.5,
+        "impliedSumPct": 133.31,
+        "selections": [
+          {
+            "selection": "Fielder Catch",
+            "currentAvgOdds": 1.819,
+            "oddsScale": 0.8573,
+            "optimizedOdds": 1.559,
+            "optimizedImpliedPct": 64.14,
+            "currentMarginPct": -5.96
+          },
+          {
+            "selection": "Keeper Catch",
+            "currentAvgOdds": 12.222,
+            "oddsScale": 0.8125,
+            "optimizedOdds": 9.93,
+            "optimizedImpliedPct": 10.07,
+            "currentMarginPct": -10.12
+          },
+          {
+            "selection": "Bowled",
+            "currentAvgOdds": 4.282,
+            "oddsScale": 0.9261,
+            "optimizedOdds": 3.966,
+            "optimizedImpliedPct": 25.21,
+            "currentMarginPct": 1.66
+          },
+          {
+            "selection": "LBW",
+            "currentAvgOdds": 9.085,
+            "oddsScale": 1.0,
+            "optimizedOdds": 9.085,
+            "optimizedImpliedPct": 11.01,
+            "currentMarginPct": 17.7
+          },
+          {
+            "selection": "Run Out",
+            "currentAvgOdds": 8.304,
+            "oddsScale": 1.0,
+            "optimizedOdds": 8.304,
+            "optimizedImpliedPct": 12.04,
+            "currentMarginPct": 7.69
+          },
+          {
+            "selection": "Stumped",
+            "currentAvgOdds": 12.977,
+            "oddsScale": 0.7834,
+            "optimizedOdds": 10.166,
+            "optimizedImpliedPct": 9.84,
+            "currentMarginPct": -10.62
+          },
+          {
+            "selection": "Other",
+            "currentAvgOdds": 100.0,
+            "oddsScale": 1.0,
+            "optimizedOdds": 100.0,
+            "optimizedImpliedPct": 1.0,
+            "currentMarginPct": 67.24
+          }
+        ]
+      },
+      "monthlyTrend": [
+        {
+          "month": "2026-06",
+          "totalWinStake": 946,
+          "Fielder Catch": 82.03,
+          "Keeper Catch": 1.69,
+          "Bowled": 6.13,
+          "LBW": 3.7,
+          "Run Out": 3.81,
+          "Stumped": 2.64,
+          "Other": 0.0
+        },
+        {
+          "month": "2026-07",
+          "totalWinStake": 576,
+          "Fielder Catch": 82.81,
+          "Keeper Catch": 0.52,
+          "Bowled": 7.99,
+          "LBW": 2.26,
+          "Run Out": 2.78,
+          "Stumped": 3.65,
+          "Other": 0.0
+        },
+        {
+          "month": "2026-08",
+          "totalWinStake": 466,
+          "Fielder Catch": 80.26,
+          "Keeper Catch": 0.64,
+          "Bowled": 6.22,
+          "LBW": 4.94,
+          "Run Out": 3.0,
+          "Stumped": 4.94,
+          "Other": 0.0
+        },
+        {
+          "month": "2026-09",
+          "totalWinStake": 204,
+          "Fielder Catch": 84.8,
+          "Keeper Catch": 0.49,
+          "Bowled": 3.92,
+          "LBW": 3.92,
+          "Run Out": 0.0,
+          "Stumped": 6.86,
+          "Other": 0.0
+        }
+      ],
+      "emergingTrends": [
+        {
+          "selection": "Stumped",
+          "earlySharePct": 3.02,
+          "recentSharePct": 5.52,
+          "deltaPp": 2.5,
+          "direction": "up"
+        }
+      ]
+    }
+  ]
+}

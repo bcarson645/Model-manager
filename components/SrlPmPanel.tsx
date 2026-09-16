@@ -8,15 +8,25 @@ import {
   srlPmModelsAsRegistry,
 } from "@/lib/model-lanes/srl-pm-registry";
 import { ModelRegistry } from "./ModelRegistry";
+import { SrlBulkMatchSimPanel } from "./SrlBulkMatchSimPanel";
+import { SrlMonteCarloPanel } from "./SrlMonteCarloPanel";
 import { VariableMatrix } from "./VariableMatrix";
 
-type SrlTab = "overview" | "models" | "pm-qa" | "variables";
+type SrlTab =
+  | "overview"
+  | "models"
+  | "pm-qa"
+  | "variables"
+  | "monte-carlo"
+  | "bulk-sim";
 
 const tabs: Array<{ id: SrlTab; label: string }> = [
   { id: "overview", label: "Overview" },
   { id: "models", label: "PM models" },
   { id: "pm-qa", label: "PM Publication" },
   { id: "variables", label: "Variables" },
+  { id: "monte-carlo", label: "Outcome generator - Monte Carlo" },
+  { id: "bulk-sim", label: "Bulk match simulator" },
 ];
 
 function formatPmValue(v: unknown): string {
@@ -185,6 +195,10 @@ export function SrlPmPanel() {
       {activeTab === "variables" && (
         <VariableMatrix variables={variables} models={registryModels} />
       )}
+
+      {activeTab === "monte-carlo" && <SrlMonteCarloPanel />}
+
+      {activeTab === "bulk-sim" && <SrlBulkMatchSimPanel />}
     </div>
   );
 }
